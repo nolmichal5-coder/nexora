@@ -537,6 +537,103 @@ footer .logo {
     </p>
 
 </footer>
+<!-- NEXORA 3.0 — CENTRUM AI -->
+<style>
+.ai-box {
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 35px;
+  border: 1px solid rgba(180,80,255,.45);
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(30,10,55,.95), rgba(10,20,45,.95));
+  box-shadow: 0 0 40px rgba(150,60,255,.25);
+  text-align: center;
+}
 
+.ai-box h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.ai-box p {
+  opacity: .8;
+}
+
+.ai-input {
+  width: 80%;
+  padding: 16px;
+  margin: 20px 0 10px;
+  border-radius: 12px;
+  border: 1px solid #9b4dff;
+  background: #111;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.ai-button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(90deg,#7b2cff,#d946ef);
+  color: white;
+  transition: .3s;
+}
+
+.ai-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(180,70,255,.6);
+}
+
+.ai-answer {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.06);
+  min-height: 30px;
+}
+</style>
+
+<section class="ai-box" id="centrum-ai">
+  <h2>🤖 NEXORA AI</h2>
+  <p>Twoje centrum sztucznej inteligencji.</p>
+
+  <input
+    class="ai-input"
+    id="aiQuestion"
+    type="text"
+    placeholder="Napisz pytanie..."
+  >
+
+  <br>
+
+  <button class="ai-button" onclick="nexoraAI()">
+    ✨ Zapytaj NEXORA AI
+  </button>
+
+  <div class="ai-answer" id="aiAnswer">
+    AI czeka na Twoje pytanie...
+  </div>
+</section>
+
+<script>
+function nexoraAI() {
+  const question = document.getElementById("aiQuestion").value.trim();
+  const answer = document.getElementById("aiAnswer");
+
+  if (!question) {
+    answer.innerHTML = "⚠️ Najpierw wpisz pytanie.";
+    return;
+  }
+
+  answer.innerHTML =
+    "🧠 Otrzymałem Twoje pytanie: <strong>" +
+    question +
+    "</strong><br><br>" +
+    "🚀 Centrum NEXORA AI jest gotowe do dalszej rozbudowy.";
+}
+</script>
 </body>
 </html>
