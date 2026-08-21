@@ -1,448 +1,334 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VARELISSA — Akademia Hotelarstwa</title>
-<meta name="description" content="Interaktywna akademia hotelarstwa: hotel, recepcja, pokoje, restauracja, spa, bezpieczeństwo, turystyka i English for Hospitality.">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VoltShop - nowoczesny sklep z akcesoriami elektronicznymi">
+  <title>VoltShop — Akcesoria elektroniczne</title>
 
-:root{
-  --ink:#182235;--muted:#687184;--cream:#f7f5f0;--white:#fff;
-  --gold:#b98b42;--gold2:#e0bd79;--navy:#142036;--line:#e5e1d9;
-  --shadow:0 18px 55px rgba(20,32,54,.12);--radius:22px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
-button,input{font:inherit}
-button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-.topbar{height:42px;background:#101827;color:#e9edf4;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;font-size:13px}
-.clock{font-variant-numeric:tabular-nums;letter-spacing:.04em}
-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:17px 5vw}
-.logo{font-family:"Playfair Display",serif;font-size:28px;letter-spacing:.18em;font-weight:700}
-.navlinks{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.navlinks button{border:0;background:transparent;padding:10px 13px;color:var(--muted);font-weight:600;border-radius:12px}
-.navlinks button:hover,.navlinks button.active{background:#f0ece3;color:var(--ink)}
-.hero{min-height:670px;position:relative;display:grid;align-items:end;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,18,33,.82),rgba(9,18,33,.35) 55%,rgba(9,18,33,.1)),url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2200&q=88") center/cover}
-.heroContent{position:relative;z-index:1;color:#fff;padding:90px 7vw 80px;max-width:980px}
-.kicker{letter-spacing:.28em;text-transform:uppercase;color:#f0c77d;font-size:13px;font-weight:700}
-.hero h1{font-family:"Playfair Display",serif;font-size:clamp(60px,9vw,132px);line-height:.86;margin:18px 0 26px;letter-spacing:-.04em}
-.hero p{font-size:20px;line-height:1.7;max-width:800px;color:#eef1f6}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{border:1px solid rgba(255,255,255,.5);padding:14px 20px;border-radius:12px;background:rgba(255,255,255,.08);color:#fff;font-weight:700}
-.btn.gold{background:var(--gold2);border-color:var(--gold2);color:#172033}
-.section{padding:85px 5vw}
-.sectionHead{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:35px}
-.sectionHead h2{font:600 clamp(34px,5vw,64px)/1 "Playfair Display",serif;margin:0}
-.sectionHead p{max-width:560px;color:var(--muted);line-height:1.7;margin:0}
-.search{width:min(440px,100%);padding:15px 17px;border:1px solid var(--line);border-radius:13px;background:#fff;outline:none}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(20,32,54,.05);transition:.25s}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.cardImg{height:230px;background-size:cover;background-position:center}
-.cardBody{padding:22px}
-.number{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:800}
-.card h3{font:600 28px/1.05 "Playfair Display",serif;margin:9px 0}
-.card p{color:var(--muted);line-height:1.6}
-.card .open{margin-top:15px;border:0;background:#172237;color:#fff;padding:11px 14px;border-radius:10px;font-weight:700}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.feature{background:#172237;color:#fff}
-.feature .sectionHead p{color:#bfc7d5}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
-.stat{border:1px solid rgba(255,255,255,.12);padding:25px;border-radius:18px;background:rgba(255,255,255,.04)}
-.stat strong{font:600 42px "Playfair Display",serif;display:block;color:#f0c77d}
-.stat span{color:#c5ccda}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #16181b;
+    }
 
-.language{display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:stretch}
-.langIntro{background:#eae4d8;border-radius:25px;padding:35px}
-.langIntro h2{font:600 48px/1 "Playfair Display",serif;margin:0 0 18px}
-.phrases{background:#fff;border:1px solid var(--line);border-radius:25px;padding:24px}
-.phrase{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding:16px 0}
-.phrase:last-child{border-bottom:0}
-.phrase b{display:block;font-size:17px}
-.phrase small{color:var(--muted)}
-.listen{border:0;border-radius:50%;width:44px;height:44px;background:#172237;color:#fff}
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-.sim{background:#efe9dd}
-.simulator{display:grid;grid-template-columns:280px 1fr 300px;gap:18px}
-.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
-.queue .guest{padding:14px;border:1px solid var(--line);border-radius:12px;margin-bottom:9px}
-.guest strong{display:block}
-.guest small{color:var(--muted)}
-.desk{min-height:420px;background:linear-gradient(#cfd8e3 0 55%,#8f8170 55%);border-radius:16px;position:relative;overflow:hidden}
-.desk:after{content:"RECEPCJA";position:absolute;left:50%;bottom:18%;transform:translateX(-50%);background:#c5a267;color:#172033;padding:18px 45px;border-radius:8px;font-weight:800;box-shadow:0 15px 25px #0003}
-.person{position:absolute;left:50%;top:15%;transform:translateX(-50%);width:80px;height:190px;background:#24334b;border-radius:45px 45px 15px 15px;transition:.6s}
-.person:before{content:"";position:absolute;left:20px;top:-55px;width:40px;height:40px;background:#d8a77b;border-radius:50%}
-.dialog{background:#f6f3ed;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;line-height:1.55}
-.answerBox{display:flex;gap:8px}
-.answerBox input{flex:1;padding:13px;border:1px solid #cfcac0;border-radius:10px}
-.answerBox button{border:0;background:#c5a267;color:#172033;border-radius:10px;padding:0 18px;font-weight:800}
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+    }
 
-.footer{background:#111a2b;color:#dfe5ee;padding:50px 5vw;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
-.footer strong{font-family:"Playfair Display",serif;font-size:25px}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+    }
 
-.modal{position:fixed;inset:0;background:rgba(8,14,24,.72);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
-.modal.show{display:flex}
-.modalBox{background:#fff;max-width:1100px;width:100%;max-height:90vh;overflow:auto;border-radius:24px}
-.modalTop{position:sticky;top:0;background:#fff;z-index:2;padding:18px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}
-.close{border:0;background:#172237;color:#fff;border-radius:10px;width:42px;height:42px}
-.modalContent{padding:25px}
-.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:28px}
-.gallery img{width:100%;height:190px;object-fit:cover;border-radius:14px}
-.gallery img:first-child{grid-row:span 2;height:390px}
-.infoGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.info{border:1px solid var(--line);padding:14px;border-radius:12px;background:#fbfaf7}
-.info b{display:block;margin-bottom:5px}
-.info span{color:var(--muted);font-size:14px;line-height:1.5}
+    nav a:hover {
+      color: #60a5fa;
+    }
 
-@media(max-width:1000px){
- .grid{grid-template-columns:repeat(2,1fr)} .simulator{grid-template-columns:1fr}
- .language{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:650px){
- nav{align-items:flex-start;gap:12px;flex-direction:column}.navlinks{justify-content:flex-start}
- .hero{min-height:600px}.heroContent{padding:70px 6vw}.hero h1{font-size:64px}
- .grid{grid-template-columns:1fr}.section{padding:60px 5vw}.stats{grid-template-columns:1fr}
- .gallery{grid-template-columns:1fr 1fr}.gallery img:first-child{grid-row:auto;height:220px}.gallery img{height:150px}
- .infoGrid{grid-template-columns:1fr}
-}
-</style>
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        linear-gradient(rgba(17,24,39,.82), rgba(17,24,39,.82)),
+        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #d1d5db;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 25px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 65px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+      transition: .25s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: 20px;
+    }
+
+    .product h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .description {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .cart {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #111827;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      font-weight: bold;
+      z-index: 20;
+    }
+
+    .info {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .info p {
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: 15px auto 0;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #080c14;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero {
+        min-height: 380px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="topbar">
-  <span>VARELISSA • HOSPITALITY ACADEMY</span>
-  <span class="clock" id="clock">Ładowanie czasu…</span>
-</div>
+<header>
+  <div class="logo">⚡ VoltShop</div>
 
-<nav>
-  <button class="logo" onclick="scrollToId('start')">VARELISSA</button>
-  <div class="navlinks">
-    <button onclick="scrollToId('start')">Start</button>
-    <button onclick="scrollToId('encyclopedia')">Encyklopedia</button>
-    <button onclick="scrollToId('simulation')">Recepcja</button>
-    <button onclick="scrollToId('english')">English</button>
-    <button onclick="scrollToId('gallery')">Galeria</button>
-  </div>
-</nav>
-
-<header class="hero" id="start">
-  <div class="heroContent">
-    <div class="kicker">Hospitality • Education • Experience</div>
-    <h1>Varelissa</h1>
-    <p>Prestiżowa, interaktywna akademia hotelarstwa. Odkrywaj hotel od środka, poznawaj standardy, ucz się profesjonalnej obsługi i ćwicz język angielski na prawdziwych sytuacjach.</p>
-    <div class="actions">
-      <button class="btn gold" onclick="scrollToId('encyclopedia')">Odkryj hotel</button>
-      <button class="btn" onclick="scrollToId('simulation')">Przejdź do recepcji</button>
-    </div>
-  </div>
+  <nav>
+    <a href="#home">Start</a>
+    <a href="#produkty">Produkty</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
 </header>
 
-<section class="section" id="gallery">
-  <div class="sectionHead">
-    <div>
-      <div class="kicker">Visual archive</div>
-      <h2>Hotel widziany od środka.</h2>
-    </div>
-    <p>Kliknij dowolną kategorię. Każda otwiera osobną kartę z galerią, opisami, praktycznymi wskazówkami i ponad setką informacji generowanych z bazy tematycznej.</p>
-  </div>
-  <input class="search" id="search" placeholder="Szukaj: recepcja, pokój, spa, restauracja…">
-  <div class="grid" id="topicGrid"></div>
-</section>
-
-<section class="section feature">
-  <div class="sectionHead">
-    <div>
-      <div class="kicker">Varelissa knowledge</div>
-      <h2>Ucz się jak w prawdziwym obiekcie.</h2>
-    </div>
-    <p>Nie tylko definicje. Procedury, komunikacja, standardy, sytuacje trudne, sprzedaż usług i język zawodowy.</p>
-  </div>
-  <div class="stats">
-    <div class="stat"><strong>800+</strong><span>punktów wiedzy w bazie tematów</span></div>
-    <div class="stat"><strong>500</strong><span>zwrotów English for Hospitality</span></div>
-    <div class="stat"><strong>50+</strong><span>pytań do rozbudowy quizu</span></div>
-    <div class="stat"><strong>24/7</strong><span>działająca strona bez serwera</span></div>
+<section class="hero" id="home">
+  <div>
+    <h1>VoltShop</h1>
+    <p>Nowoczesne akcesoria elektroniczne w dobrych cenach.</p>
+    <a href="#produkty" class="button">Zobacz produkty</a>
   </div>
 </section>
 
-<section class="section" id="english">
-  <div class="sectionHead">
-    <div>
-      <div class="kicker">English for hospitality</div>
-      <h2>Zwroty z odsłuchem.</h2>
-    </div>
-    <p>Przycisk głośnika korzysta z funkcji mowy przeglądarki. Możesz odsłuchać angielski zwrot i polskie znaczenie.</p>
-  </div>
-  <div class="language">
-    <div class="langIntro">
-      <h2>Speak like a professional.</h2>
-      <p>W recepcji liczy się nie tylko poprawność, ale też naturalne, uprzejme i krótkie komunikaty.</p>
-      <button class="btn" style="background:#172237" onclick="speak('Good morning. How may I assist you today?')">▶ Odsłuchaj przykład</button>
-    </div>
-    <div class="phrases" id="phrases"></div>
-  </div>
-</section>
+<section class="section" id="produkty">
 
-<section class="section sim" id="simulation">
-  <div class="sectionHead">
-    <div>
-      <div class="kicker">Practice mode</div>
-      <h2>Wirtualna recepcja.</h2>
-    </div>
-    <p>Gość podchodzi do stanowiska. Ty wpisujesz odpowiedź własnymi słowami — nie wybierasz gotowej odpowiedzi.</p>
-  </div>
-  <div class="simulator">
-    <div class="panel queue">
-      <h3>Kolejka gości</h3>
-      <div id="queue"></div>
-      <button class="open" onclick="nextGuest()">Następny gość</button>
-    </div>
-    <div class="panel">
-      <h3 id="guestTitle">Stanowisko recepcji</h3>
-      <div class="desk"><div class="person" id="person"></div></div>
-      <div id="dialog" style="margin-top:16px"></div>
-      <div class="answerBox">
-        <input id="answer" placeholder="Napisz odpowiedź…">
-        <button onclick="sendAnswer()">Wyślij</button>
+  <h2 class="section-title">Nasze produkty</h2>
+
+  <div class="products">
+
+    <article class="product">
+      <img
+        src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80"
+        alt="Bezprzewodowe słuchawki">
+      <div class="product-content">
+        <h3>Słuchawki bezprzewodowe</h3>
+        <p class="description">
+          Wygodne słuchawki Bluetooth do codziennego użytkowania.
+        </p>
+        <div class="price">129,99 zł</div>
+        <button class="button" onclick="addToCart('Słuchawki bezprzewodowe', 129.99)">
+          Dodaj do koszyka
+        </button>
       </div>
-    </div>
-    <div class="panel">
-      <h3>Panel pracownika</h3>
-      <p><b>Cel:</b> profesjonalnie przyjąć gościa, rozpoznać potrzebę i wykonać właściwe działania.</p>
-      <div class="info"><b>Wskazówka</b><span>Nie musisz pisać identycznie jak przykładowa odpowiedź. Liczy się sens, uprzejmość i poprawne wykonanie zadania.</span></div>
-      <div id="scoreBox" style="margin-top:12px"></div>
-    </div>
+    </article>
+
+    <article class="product">
+      <img
+        src="https://images.unsplash.com/photo-1609592424881-8a0f9f31a9f0?auto=format&fit=crop&w=800&q=80"
+        alt="Powerbank">
+      <div class="product-content">
+        <h3>Powerbank 20 000 mAh</h3>
+        <p class="description">
+          Duża pojemność i kompaktowa konstrukcja.
+        </p>
+        <div class="price">89,99 zł</div>
+        <button class="button" onclick="addToCart('Powerbank 20 000 mAh', 89.99)">
+          Dodaj do koszyka
+        </button>
+      </div>
+    </article>
+
+    <article class="product">
+      <img
+        src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=800&q=80"
+        alt="Kabel USB">
+      <div class="product-content">
+        <h3>Kabel USB-C</h3>
+        <p class="description">
+          Wytrzymały przewód USB-C do ładowania i przesyłania danych.
+        </p>
+        <div class="price">29,99 zł</div>
+        <button class="button" onclick="addToCart('Kabel USB-C', 29.99)">
+          Dodaj do koszyka
+        </button>
+      </div>
+    </article>
+
+    <article class="product">
+      <img
+        src="https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=800&q=80"
+        alt="Ładowarka">
+      <div class="product-content">
+        <h3>Ładowarka USB</h3>
+        <p class="description">
+          Uniwersalna ładowarka do urządzeń elektronicznych.
+        </p>
+        <div class="price">49,99 zł</div>
+        <button class="button" onclick="addToCart('Ładowarka USB', 49.99)">
+          Dodaj do koszyka
+        </button>
+      </div>
+    </article>
+
   </div>
 </section>
 
-<footer class="footer">
-  <strong>VARELISSA</strong>
-  <span>Akademia hotelarstwa • wiedza • praktyka • standard obsługi</span>
-  <span>© 2026</span>
+<section class="info" id="kontakt">
+  <h2>VoltShop</h2>
+  <p>
+    Sklep demonstracyjny z akcesoriami elektronicznymi.
+    Zamówienia w tej wersji strony są wyłącznie przykładowe.
+  </p>
+</section>
+
+<footer>
+  © 2026 VoltShop — Wszystkie prawa zastrzeżone
 </footer>
 
-<div class="modal" id="modal" onclick="closeIfBackdrop(event)">
-  <div class="modalBox">
-    <div class="modalTop">
-      <div>
-        <div class="kicker" id="modalKicker"></div>
-        <h2 id="modalTitle" style="font:600 38px 'Playfair Display',serif;margin:5px 0"></h2>
-      </div>
-      <button class="close" onclick="closeModal()">×</button>
-    </div>
-    <div class="modalContent">
-      <div class="gallery" id="modalGallery"></div>
-      <p id="modalIntro" style="font-size:18px;line-height:1.7"></p>
-      <div class="infoGrid" id="infoGrid"></div>
-    </div>
-  </div>
+<div class="cart">
+  🛒 Koszyk: <span id="cart-count">0</span>
 </div>
 
 <script>
-const img = {
-  lobby:"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
-  room:"https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85",
-  pool:"https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=85",
-  reception:"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85",
-  restaurant:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85",
-  spa:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85",
-  architecture:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
-  breakfast:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1200&q=85",
-  bar:"https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=85",
-  meeting:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
-  garden:"https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=85",
-  gym:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85"
-};
+  let cartCount = 0;
+  let cartTotal = 0;
 
-const topics = [
- {id:"lobby",title:"Lobby & hotel premium",tag:"01",image:img.lobby,desc:"Pierwsze wrażenie, strefy wspólne, orientacja gościa i standard premium."},
- {id:"room",title:"Pokój hotelowy",tag:"02",image:img.room,desc:"Typy pokoi, wyposażenie, housekeeping, komfort i kontrola jakości."},
- {id:"pool",title:"Strefa wypoczynku",tag:"03",image:img.pool,desc:"Basen, leżaki, bezpieczeństwo, wellness i obsługa stref rekreacyjnych."},
- {id:"architecture",title:"Architektura obiektu",tag:"04",image:img.architecture,desc:"Układ funkcjonalny, wejście, komunikacja, wayfinding i design."},
- {id:"reception",title:"Recepcja",tag:"05",image:img.reception,desc:"Check-in, check-out, rezerwacje, płatności, reklamacje i PMS."},
- {id:"restaurant",title:"Restauracja",tag:"06",image:img.restaurant,desc:"Obsługa gościa, karta menu, alergeny, sprzedaż i standard serwisu."},
- {id:"spa",title:"SPA & wellness",tag:"07",image:img.spa,desc:"Rezerwacje zabiegów, strefy ciszy, higiena, bezpieczeństwo i sprzedaż."},
- {id:"breakfast",title:"Śniadania",tag:"08",image:img.breakfast,desc:"Bufet, uzupełnianie, alergeny, higiena i organizacja ruchu gości."},
- {id:"bar",title:"Bar & lounge",tag:"09",image:img.bar,desc:"Atmosfera, karta napojów, obsługa stolików i standardy odpowiedzialnej sprzedaży."},
- {id:"meeting",title:"Konferencje",tag:"10",image:img.meeting,desc:"Sale, ustawienia, AV, przerwy kawowe, harmonogram i opieka nad organizatorem."},
- {id:"garden",title:"Ogród & otoczenie",tag:"11",image:img.garden,desc:"Teren zewnętrzny, rekreacja, czystość, bezpieczeństwo i doświadczenie gościa."},
- {id:"gym",title:"Fitness",tag:"12",image:img.gym,desc:"Wyposażenie, zasady korzystania, higiena i bezpieczeństwo."}
-];
+  function addToCart(name, price) {
+    cartCount++;
+    cartTotal += price;
 
-const baseFacts = {
- lobby:["lobby jest pierwszą strefą kontaktu","recepcja powinna być łatwa do znalezienia","czytelny wayfinding ogranicza pytania gości","oświetlenie wpływa na pierwsze wrażenie","zapach obiektu może budować identyfikację marki","muzyka powinna być dopasowana do charakteru hotelu","meble muszą zapewniać wygodne oczekiwanie","strefa siedząca nie powinna blokować ciągów komunikacyjnych","personel powinien znać lokalizację wszystkich usług","gość powinien szybko znaleźć windę","informacje o godzinach śniadania powinny być łatwo dostępne","czystość lobby wymaga regularnych kontroli"],
- room:["numer pokoju powinien być czytelny","łóżko jest centralnym elementem pokoju","jakość snu zależy m.in. od materaca","zasłony powinny umożliwiać zaciemnienie","oświetlenie powinno mieć kilka scen","gniazdka powinny być dostępne przy łóżku","Wi-Fi powinno być łatwe do uzyskania","łazienka wymaga kontroli czystości","ręczniki powinny być kompletne","wyposażenie minibarowe musi być zinwentaryzowane","klimatyzacja powinna działać cicho","housekeeping dokumentuje nieprawidłowości"],
- pool:["przy basenie trzeba kontrolować bezpieczeństwo","oznaczenia głębokości powinny być widoczne","ręczniki basenowe powinny być łatwo dostępne","śliska posadzka zwiększa ryzyko upadku","strefa leżaków powinna być uporządkowana","personel powinien znać procedurę awaryjną","jakość wody podlega regularnej kontroli","dzieci wymagają szczególnej uwagi","zasady korzystania powinny być czytelne","gość powinien wiedzieć gdzie są prysznice","oświetlenie nocne poprawia bezpieczeństwo","sprzęt ratunkowy musi być dostępny"],
- architecture:["wejście powinno być intuicyjne","architektura wpływa na doświadczenie marki","układ komunikacyjny powinien być logiczny","windy powinny być łatwe do odnalezienia","schody wymagają dobrego oznakowania","strefy prywatne należy oddzielić od publicznych","akustyka wpływa na komfort","materiały powinny być trwałe","materiały łatwe w utrzymaniu ograniczają koszty","oświetlenie może kierować ruchem","bezbarierowość powinna być planowana od początku","oznaczenia awaryjne muszą być widoczne"],
- reception:["pracownik powinien przywitać gościa","check-in wymaga weryfikacji danych","należy potwierdzić typ pokoju","warto wyjaśnić godziny śniadania","płatność powinna być obsługiwana zgodnie z procedurą","dokumenty gościa należy chronić","PMS jest centralnym narzędziem pracy","rezerwację trzeba znaleźć po właściwych danych","zmiany w rezerwacji należy odnotować","przy skardze najpierw trzeba wysłuchać gościa","należy unikać obiecywania rzeczy bez potwierdzenia","check-out powinien zakończyć się jasnym podsumowaniem"],
- restaurant:["gość powinien otrzymać kartę menu","personel powinien znać podstawowe składniki dań","alergeny wymagają szczególnej uwagi","stół powinien być przygotowany przed przyjęciem gościa","zamówienie należy powtórzyć dla potwierdzenia","czas oczekiwania warto komunikować","rachunek powinien być sprawdzony przed przekazaniem","sprzedaż dodatkowa powinna być naturalna","czystość sali wpływa na ocenę doświadczenia","personel powinien znać alternatywy dla popularnych diet","reklamacja dotycząca dania wymaga spokojnej reakcji","koordynacja kuchni i sali jest kluczowa"],
- spa:["rezerwacje zabiegów wymagają dokładnej godziny","gość powinien znać czas trwania zabiegu","strefa ciszy wymaga jasnych zasad","higiena jest podstawą wellness","personel powinien znać przeciwwskazania opisane w procedurach","należy chronić prywatność gościa","opóźnienie zabiegu trzeba komunikować","sprzęt wymaga regularnej kontroli","ręczniki powinny być dostępne","strefy mokre wymagają częstego sprzątania","oferta może być łączona w pakiety","sprzedaż pakietów nie powinna być nachalna"],
- breakfast:["bufet powinien być uzupełniany regularnie","temperatura produktów wymaga kontroli","alergeny powinny być oznaczone","pieczywo wymaga higienicznego podawania","napoje powinny mieć czytelne oznaczenia","strefa kawy może tworzyć kolejki","stoły należy sprzątać bez zakłócania komfortu","goście powinni wiedzieć o godzinach śniadania","dieta wegetariańska powinna mieć czytelne opcje","produkty łatwo psujące się wymagają kontroli","personel powinien reagować na braki","sprzątanie sali powinno mieć ustalony rytm"],
- bar:["karta baru powinna być czytelna","obsługa powinna znać skład podstawowych pozycji","gość powinien otrzymać informację o cenie","stoliki wymagają regularnego porządkowania","muzyka wpływa na atmosferę","oświetlenie powinno pasować do pory dnia","obsługa powinna znać zasady odpowiedzialnej sprzedaży","napoje bezalkoholowe powinny być widoczne","rachunek trzeba sprawdzić przed wydaniem","czas oczekiwania warto komunikować","strefa lounge powinna mieć wygodne siedziska","skargi należy rozwiązywać spokojnie"],
- meeting:["organizator powinien mieć jedną osobę kontaktową","sala musi być przygotowana przed wydarzeniem","ustawienie krzeseł zależy od formatu","sprzęt AV należy przetestować","mikrofon wymaga sprawdzenia","projektor powinien być gotowy przed startem","przerwy kawowe wymagają harmonogramu","oznaczenia sal powinny być widoczne","personel powinien znać plan wydarzenia","awaria sprzętu wymaga szybkiego planu B","temperatura sali wpływa na komfort","po wydarzeniu warto zebrać feedback"],
- garden:["ciągi piesze powinny być bezpieczne","oświetlenie ogrodu poprawia orientację","meble zewnętrzne wymagają regularnej kontroli","zieleń wpływa na charakter obiektu","gość powinien wiedzieć gdzie może odpoczywać","oznaczenia stref prywatnych powinny być jasne","nawierzchnie muszą być utrzymane w dobrym stanie","kosze powinny być opróżniane regularnie","strefy dla dzieci wymagają dodatkowej kontroli","roślinność nie powinna blokować przejść","personel powinien znać zasady reagowania na zagrożenia","ogród może być częścią oferty wydarzeń"],
- gym:["sprzęt powinien mieć czytelne zasady użycia","podłoga wymaga regularnego czyszczenia","ręczniki powinny być dostępne","woda pitna powinna być łatwo dostępna","wentylacja wpływa na komfort","urządzenia wymagają kontroli","gość powinien znać godziny otwarcia","zasady bezpieczeństwa powinny być widoczne","strefa cardio wymaga odpowiedniej przestrzeni","ciężary powinny wracać na miejsce","sprzęt uszkodzony należy wyłączyć z użytkowania","higiena urządzeń jest elementem standardu"]
-};
+    document.getElementById("cart-count").textContent = cartCount;
 
-const extraPatterns = [
- "standard powinien być opisany w procedurze operacyjnej",
- "pracownik powinien wiedzieć, kto jest odpowiedzialny za dany obszar",
- "informacja przekazana gościowi powinna być konkretna",
- "nie należy zgadywać danych, których nie ma w systemie",
- "ważne czynności warto dokumentować",
- "komunikacja między działami ogranicza błędy",
- "sytuacje nietypowe powinny być eskalowane zgodnie z procedurą",
- "kultura osobista jest częścią jakości usługi",
- "gość powinien otrzymać jasny kolejny krok",
- "czas reakcji wpływa na ocenę profesjonalizmu",
- "spokojny ton pomaga w sytuacjach trudnych",
- "pracownik powinien znać lokalizację zaplecza",
- "regularna kontrola zapobiega większym problemom",
- "standard jakości powinien być powtarzalny",
- "każdy kontakt z gościem buduje doświadczenie marki",
- "informacje w systemie powinny być aktualne",
- "prywatność danych gościa jest obowiązkiem pracownika",
- "wątpliwości należy sprawdzać zamiast zakładać",
- "estetyka miejsca wpływa na postrzeganą jakość",
- "porządek powinien być utrzymywany przez cały dzień"
-];
-
-function makeFacts(id){
-  const facts=[...(baseFacts[id]||[])];
-  while(facts.length<105){
-    const p=extraPatterns[facts.length%extraPatterns.length];
-    facts.push(p+" — obszar: "+topics.find(t=>t.id===id).title.toLowerCase()+".");
+    alert(
+      name +
+      " został dodany do koszyka.\n\n" +
+      "Liczba produktów: " +
+      cartCount +
+      "\nWartość: " +
+      cartTotal.toFixed(2).replace(".", ",") +
+      " zł"
+    );
   }
-  return facts.slice(0,105);
-}
-
-function renderTopics(filter=""){
-  const grid=document.getElementById("topicGrid");
-  const list=topics.filter(t=>(t.title+" "+t.desc).toLowerCase().includes(filter.toLowerCase()));
-  grid.innerHTML=list.map(t=>`
-    <article class="card">
-      <div class="cardImg" style="background-image:url('${t.image}')"></div>
-      <div class="cardBody">
-        <div class="number">${t.tag}</div>
-        <h3>${t.title}</h3>
-        <p>${t.desc}</p>
-        <button class="open" onclick="openTopic('${t.id}')">Otwórz temat →</button>
-      </div>
-    </article>`).join("");
-}
-document.getElementById("search").addEventListener("input",e=>renderTopics(e.target.value));
-renderTopics();
-
-function openTopic(id){
-  const t=topics.find(x=>x.id===id), facts=makeFacts(id);
-  document.getElementById("modalKicker").textContent="VARELISSA • "+t.tag;
-  document.getElementById("modalTitle").textContent=t.title;
-  document.getElementById("modalIntro").textContent=t.desc+" Poniżej znajdziesz rozbudowaną bazę praktycznych informacji. Klikaj, czytaj, odsłuchuj język zawodowy i wracaj do kolejnych obszarów.";
-  const imgs=[t.image,img.lobby,img.room,img.reception,img.restaurant,img.pool];
-  document.getElementById("modalGallery").innerHTML=imgs.map((x,i)=>`<img src="${x}" alt="${t.title} — perspektywa ${i+1}">`).join("");
-  document.getElementById("infoGrid").innerHTML=facts.map((f,i)=>`<div class="info"><b>${i+1}. ${i<12?"Praktyka":"Standard"}</b><span>${f}</span></div>`).join("");
-  document.getElementById("modal").classList.add("show");
-  document.body.style.overflow="hidden";
-}
-function closeModal(){document.getElementById("modal").classList.remove("show");document.body.style.overflow=""}
-function closeIfBackdrop(e){if(e.target.id==="modal")closeModal()}
-function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
-
-function updateClock(){
-  const now=new Date();
-  const date=now.toLocaleDateString("pl-PL",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
-  const time=now.toLocaleTimeString("pl-PL");
-  document.getElementById("clock").textContent=date+" • "+time;
-}
-setInterval(updateClock,1000);updateClock();
-
-const phrases=[
-["Good morning. How may I assist you?","Dzień dobry. W czym mogę pomóc?"],
-["Welcome to our hotel.","Witamy w naszym hotelu."],
-["May I have your name, please?","Czy mogę prosić o nazwisko?"],
-["Could you please show me your ID?","Czy może Pan/Pani pokazać dokument?"],
-["Let me check your reservation.","Sprawdzę Państwa rezerwację."],
-["Your room is ready.","Państwa pokój jest gotowy."],
-["Your room will be ready shortly.","Państwa pokój będzie wkrótce gotowy."],
-["Breakfast is served from 7 to 10 a.m.","Śniadanie jest serwowane od 7 do 10."],
-["Would you like a wake-up call?","Czy życzy sobie Pan/Pani pobudkę?"],
-["Here is your room key.","Oto klucz do Państwa pokoju."],
-["The lift is just around the corner.","Winda jest tuż za rogiem."],
-["Would you like help with your luggage?","Czy potrzebuje Pan/Pani pomocy z bagażem?"],
-["I apologize for the inconvenience.","Przepraszam za niedogodności."],
-["Let me see what I can do.","Sprawdzę, co mogę zrobić."],
-["Thank you for your patience.","Dziękuję za cierpliwość."],
-["I will contact housekeeping immediately.","Natychmiast skontaktuję się z housekeepingiem."],
-["Would you like to make a reservation?","Czy chce Pan/Pani dokonać rezerwacji?"],
-["Could you repeat that, please?","Czy może Pan/Pani powtórzyć?"],
-["Could you speak a little more slowly, please?","Czy może Pan/Pani mówić trochę wolniej?"],
-["Certainly. I will be happy to help.","Oczywiście. Chętnie pomogę."],
-["Your check-out time is at noon.","Wymeldowanie jest do południa."],
-["May I confirm your payment method?","Czy mogę potwierdzić formę płatności?"],
-["Would you like a printed receipt?","Czy życzy sobie Pan/Pani wydrukowany rachunek?"],
-["Have a pleasant stay.","Życzę miłego pobytu."],
-["We hope to see you again.","Mamy nadzieję zobaczyć Państwa ponownie."]
-];
-document.getElementById("phrases").innerHTML=phrases.map(p=>`
-<div class="phrase"><div><b>${p[0]}</b><small>${p[1]}</small></div>
-<button class="listen" title="Odsłuchaj" onclick="speak('${p[0].replace(/'/g,"\\'")}')">🔊</button></div>`).join("");
-
-function speak(text){
- if(!("speechSynthesis" in window)){alert("Twoja przeglądarka nie obsługuje syntezy mowy.");return}
- const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.9;window.speechSynthesis.cancel();window.speechSynthesis.speak(u);
-}
-
-const guests=[
- {name:"James Smith",lang:"EN",need:"Good morning. I have a reservation under the name Smith. I'd like to check in.",expected:["smith","check","reservation","welcome","id","passport"]},
- {name:"Anna Kowalska",lang:"PL",need:"Dzień dobry, mam rezerwację na nazwisko Kowalska. Czy mogę się zameldować?",expected:["kowalska","rezerw","zameld","dowod","dokument"]},
- {name:"Lucas Martin",lang:"EN",need:"Hello. Could you tell me where breakfast is and what time it starts?",expected:["breakfast","7","8","9","10","restaur","morning"]},
- {name:"Rodzina Nowak",lang:"PL",need:"Dzień dobry. Mamy pokój rodzinny, ale potrzebujemy dodatkowego ręcznika.",expected:["ręcz","oczywiście","dodatk","housekeeping"]},
- {name:"Sophie Brown",lang:"EN",need:"I'm sorry, but there is a problem with the air conditioning in my room.",expected:["sorry","air","condition","maintenance","housekeeping","room"]},
- {name:"Marek Zieliński",lang:"PL",need:"Chciałbym się wymeldować i poproszę o fakturę.",expected:["wymeld","faktur","rachun","checkout"]},
- {name:"Emma Wilson",lang:"EN",need:"Could you recommend a good restaurant nearby?",expected:["restaurant","recommend","near","nearby"]},
- {name:"Piotr Wiśniewski",lang:"PL",need:"Czy mogę przedłużyć dobę hotelową o kilka godzin?",expected:["przedłu","late","checkout","doba","godzin"]},
- {name:"Daniel Brown",lang:"EN",need:"I lost my room key. What should I do?",expected:["key","card","replacement","new","room"]},
- {name:"Katarzyna Lis",lang:"PL",need:"Mam pytanie o parking. Gdzie mogę zostawić samochód?",expected:["parking","samoch","garaż","miejsce"]}
-];
-let current=-1,score=0,served=0;
-function renderQueue(){
- document.getElementById("queue").innerHTML=guests.map((g,i)=>`<div class="guest" style="opacity:${i<=current?.55:1}"><strong>${g.name}</strong><small>${g.lang==="EN"?"🇬🇧 English":"🇵🇱 Polski"} • ${i<current?"obsłużony":i===current?"przy stanowisku":"oczekuje"}</small></div>`).join("");
-}
-function nextGuest(){
- if(current>=guests.length-1){
-  document.getElementById("dialog").innerHTML=`<div class="dialog"><b>Zmiana zakończona.</b><br>Obsłużyłeś wszystkich ${guests.length} gości. Wynik: <b>${score}/${guests.length}</b>.</div>`;
-  document.getElementById("scoreBox").innerHTML=`<div class="info"><b>Raport końcowy</b><span>Obsłużeni: ${served}/${guests.length}<br>Ocena odpowiedzi: ${Math.round(score/guests.length*100)}%</span></div>`;
-  return;
- }
- current++; served++;
- const g=guests[current];
- document.getElementById("guestTitle").textContent="Gość przy stanowisku: "+g.name;
- document.getElementById("dialog").innerHTML=`<div class="dialog"><b>${g.lang==="EN"?"🇬🇧 Gość mówi po angielsku":"🇵🇱 Gość mówi po polsku"}</b><br>${g.need}</div>`;
- document.getElementById("answer").value="";
- document.getElementById("answer").focus();
- document.getElementById("person").style.transform="translateX(-50%) translateY(0)";
- renderQueue();
-}
-function sendAnswer(){
- if(current<0){alert("Najpierw kliknij „Następny gość”.");return}
- const text=document.getElementById("answer").value.trim().toLowerCase();
- if(!text)return;
- const g=guests[current];
- const ok=g.expected.some(x=>text.includes(x));
- if(ok)score++;
- const feedback=ok
-  ? "Dobra odpowiedź. Zachowałeś właściwy kierunek rozmowy."
-  : "Spróbuj ponownie następnym razem: odpowiedź powinna odnieść się bezpośrednio do potrzeby gościa i wskazać kolejny krok.";
- document.getElementById("dialog").innerHTML+=`<div class="dialog"><b>Twoja odpowiedź:</b> ${text}<br><strong>${ok?"✓":"✕"} ${feedback}</strong></div>`;
- document.getElementById("scoreBox").innerHTML=`<div class="info"><b>Aktualny wynik</b><span>${score}/${served} poprawnych odpowiedzi.</span></div>`;
-}
-document.getElementById("answer").addEventListener("keydown",e=>{if(e.key==="Enter")sendAnswer()});
-renderQueue();
 </script>
+
 </body>
 </html>
