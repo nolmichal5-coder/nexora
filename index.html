@@ -4,12 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="NEXORA — encyklopedia technologii, nauki i przyszłości.">
-<meta name="theme-color" content="#ffffff">
+<title>HOTELIUM — Encyklopedia hotelarstwa, turystyki i gastronomii</title>
 
-<title>NEXORA — Encyklopedia przyszłości</title>
+<meta name="description"
+content="HOTELIUM — interaktywna encyklopedia hotelarstwa, turystyki, gastronomii i żywienia dla uczniów.">
 
 <style>
+
+:root{
+    --bg:#f5f6f8;
+    --surface:#ffffff;
+    --surface2:#eef1f5;
+    --text:#202124;
+    --muted:#68707c;
+    --accent:#174a7e;
+    --accent2:#286ca8;
+    --border:#d8dde5;
+    --shadow:0 4px 18px rgba(0,0,0,.08);
+    --danger:#b3261e;
+    --success:#217346;
+}
+
 *{
     box-sizing:border-box;
 }
@@ -20,514 +35,617 @@ html{
 
 body{
     margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    color:#202122;
-    background:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
     line-height:1.65;
 }
 
-button,input{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-/* ===== HEADER ===== */
+/* HEADER */
 
 header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
     position:sticky;
     top:0;
     z-index:1000;
-    background:#fff;
-    border-bottom:1px solid #c8ccd1;
 }
 
 .topbar{
-    max-width:1450px;
+    max-width:1400px;
     margin:auto;
-    min-height:72px;
-    padding:10px 24px;
+    padding:14px 24px;
     display:flex;
     align-items:center;
-    gap:25px;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .logo{
-    border:0;
-    background:none;
-    font-size:25px;
-    font-weight:700;
-    letter-spacing:-1px;
-    color:#111;
+    font-family:Georgia,serif;
+    font-size:28px;
+    font-weight:bold;
+    color:var(--accent);
+    letter-spacing:1px;
 }
 
 .logo span{
-    color:#3366cc;
+    font-size:12px;
+    display:block;
+    color:var(--muted);
+    font-family:Arial,sans-serif;
+    font-weight:normal;
+    letter-spacing:0;
 }
 
-.search{
-    flex:1;
-    max-width:650px;
+.controls{
     display:flex;
+    gap:8px;
+    align-items:center;
 }
 
-.search input{
-    width:100%;
-    padding:11px 14px;
-    border:1px solid #a2a9b1;
-    border-right:0;
-    outline:none;
+.icon-btn{
+    border:1px solid var(--border);
+    background:white;
+    border-radius:7px;
+    padding:9px 12px;
+    cursor:pointer;
+    font-size:14px;
 }
 
-.search input:focus{
-    border-color:#3366cc;
-    box-shadow:0 0 0 1px #3366cc;
+.icon-btn:hover{
+    background:var(--surface2);
 }
 
-.search button{
-    padding:0 18px;
-    border:1px solid #a2a9b1;
-    background:#f8f9fa;
+/* NAV */
+
+nav{
+    border-top:1px solid #eee;
 }
 
-.header-links{
-    margin-left:auto;
+.nav-inner{
+    max-width:1400px;
+    margin:auto;
     display:flex;
-    gap:10px;
+    gap:4px;
+    padding:0 20px;
+    overflow-x:auto;
 }
 
-.header-links button{
+.nav-inner button{
     border:0;
-    background:none;
-    color:#3366cc;
+    background:transparent;
+    padding:12px 15px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#3f4650;
+    white-space:nowrap;
 }
 
-/* ===== LAYOUT ===== */
+.nav-inner button:hover{
+    background:var(--surface2);
+    color:var(--accent);
+}
+
+/* LAYOUT */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:25px 22px 60px;
+}
 
 .layout{
-    max-width:1450px;
-    margin:auto;
     display:grid;
-    grid-template-columns:220px minmax(0,900px) 280px;
-    gap:30px;
-    padding:30px 24px;
-}
-
-.sidebar{
-    border-right:1px solid #eaecf0;
-    padding-right:20px;
-}
-
-.sidebar h3{
-    font-size:15px;
-    margin-top:0;
-}
-
-.sidebar button{
-    width:100%;
-    text-align:left;
-    border:0;
-    background:none;
-    padding:8px 5px;
-    color:#3366cc;
-}
-
-.sidebar button:hover{
-    background:#eaecf0;
-}
-
-.content{
-    min-width:0;
-}
-
-.breadcrumb{
-    color:#72777d;
-    font-size:14px;
-    margin-bottom:10px;
-}
-
-h1{
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:42px;
-    line-height:1.2;
-    font-weight:400;
-    border-bottom:1px solid #a2a9b1;
-    padding-bottom:12px;
-    margin:0 0 20px;
-}
-
-h2{
-    font-family:Georgia,"Times New Roman",serif;
-    font-weight:400;
-    font-size:28px;
-    border-bottom:1px solid #eaecf0;
-    padding-bottom:5px;
-    margin-top:35px;
-}
-
-h3{
-    font-size:20px;
-}
-
-p{
-    margin:12px 0;
-}
-
-a,
-.link{
-    color:#3366cc;
-}
-
-/* ===== INFOBOX ===== */
-
-.infobox{
-    float:right;
-    width:270px;
-    margin:0 0 20px 25px;
-    border:1px solid #a2a9b1;
-    background:#f8f9fa;
-    font-size:14px;
-}
-
-.infobox-title{
-    text-align:center;
-    background:#eaecf0;
-    font-size:20px;
-    font-weight:bold;
-    padding:8px;
-}
-
-.infobox img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-}
-
-.infobox-caption{
-    padding:7px;
-    text-align:center;
-    font-size:12px;
-    color:#54595d;
-}
-
-.infobox table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-.infobox td{
-    padding:7px;
-    border-top:1px solid #eaecf0;
-    vertical-align:top;
-}
-
-.infobox td:first-child{
-    font-weight:bold;
-    width:40%;
-}
-
-/* ===== TOC ===== */
-
-.toc{
-    display:table;
-    min-width:280px;
-    max-width:100%;
-    border:1px solid #a2a9b1;
-    background:#f8f9fa;
-    padding:15px 25px;
-    margin:25px 0;
-}
-
-.toc-title{
-    text-align:center;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.toc button{
-    display:block;
-    border:0;
-    background:none;
-    color:#3366cc;
-    text-align:left;
-    padding:3px 0;
-}
-
-/* ===== NOTICE ===== */
-
-.notice{
-    border:1px solid #a2a9b1;
-    background:#f8f9fa;
-    padding:14px 18px;
-    margin:20px 0;
-}
-
-/* ===== CARDS ===== */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
+    grid-template-columns:250px minmax(0,1fr) 270px;
+    gap:25px;
 }
 
 .card{
-    border:1px solid #c8ccd1;
-    background:#fff;
-    padding:20px;
-    transition:.2s;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    box-shadow:var(--shadow);
 }
 
-.card:hover{
-    box-shadow:0 2px 8px rgba(0,0,0,.12);
-    transform:translateY(-2px);
+/* SIDEBAR */
+
+.sidebar{
+    position:sticky;
+    top:125px;
+    align-self:start;
 }
 
-.card h3{
-    margin-top:0;
-}
-
-.card button{
-    border:0;
-    background:none;
-    color:#3366cc;
-    padding:0;
-}
-
-/* ===== PEOPLE ===== */
-
-.people{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.person{
-    border:1px solid #c8ccd1;
-    background:#fff;
-}
-
-.person img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
-
-.person-info{
-    padding:15px;
-}
-
-.person-info h3{
+.sidebar h3{
     margin:0;
+    padding:15px;
+    border-bottom:1px solid var(--border);
     font-family:Georgia,serif;
 }
 
-/* ===== VIDEOS ===== */
-
-.video-list{
-    display:grid;
-    gap:12px;
+.sidebar a{
+    display:block;
+    padding:9px 15px;
+    color:var(--text);
+    text-decoration:none;
+    border-bottom:1px solid #eee;
+    font-size:14px;
 }
 
-.video{
+.sidebar a:hover{
+    background:var(--surface2);
+    color:var(--accent);
+}
+
+.sidebar-section{
+    padding:12px 15px 5px;
+    color:var(--accent);
+    font-weight:bold;
+    font-size:13px;
+}
+
+/* MAIN */
+
+.hero{
+    background:
+    linear-gradient(rgba(16,39,63,.75),rgba(16,39,63,.82)),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    padding:60px 45px;
+    border-radius:8px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:48px;
+    margin:0 0 8px;
+}
+
+.hero p{
+    max-width:750px;
+    font-size:18px;
+}
+
+.search{
     display:flex;
-    align-items:center;
-    gap:15px;
+    gap:8px;
+    max-width:800px;
+    margin-top:25px;
+}
+
+.search input{
+    flex:1;
     padding:15px;
-    border:1px solid #c8ccd1;
-    background:#f8f9fa;
+    border-radius:6px;
+    border:1px solid #ccd3dc;
+    font-size:16px;
 }
 
-.youtube{
-    width:48px;
-    height:34px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#ff0000;
-    color:#fff;
-    border-radius:7px;
+.search button{
+    background:var(--accent);
+    color:white;
+    border:0;
+    border-radius:6px;
+    padding:0 22px;
+    cursor:pointer;
     font-weight:bold;
 }
 
-.video a{
+.search button:hover{
+    background:var(--accent2);
+}
+
+/* ARTICLES */
+
+.article{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:30px;
+    margin-bottom:25px;
+}
+
+.article h2{
+    font-family:Georgia,serif;
+    font-size:30px;
+    color:var(--accent);
+    border-bottom:1px solid var(--border);
+    padding-bottom:10px;
+}
+
+.article h3{
+    font-family:Georgia,serif;
+    color:#314d69;
+    margin-top:28px;
+}
+
+.article img{
+    width:100%;
+    max-height:330px;
+    object-fit:cover;
+    border-radius:7px;
+    margin:10px 0 20px;
+}
+
+.info-box{
+    background:#f0f5fa;
+    border-left:5px solid var(--accent);
+    padding:15px 18px;
+    margin:20px 0;
+}
+
+.warning{
+    background:#fff7e6;
+    border-left:5px solid #c78a00;
+    padding:15px;
+}
+
+.success{
+    background:#eef8f1;
+    border-left:5px solid var(--success);
+    padding:15px;
+}
+
+.term{
+    color:var(--accent);
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.term:hover{
+    text-decoration:underline;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.category{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.category:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+}
+
+.category .emoji{
+    font-size:35px;
+}
+
+.category h3{
+    margin:8px 0;
+    font-family:Georgia,serif;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+th,td{
+    border:1px solid var(--border);
+    padding:10px;
+    text-align:left;
+}
+
+th{
+    background:var(--surface2);
+}
+
+/* RIGHT */
+
+.rightbox{
+    margin-bottom:20px;
+}
+
+.rightbox h3{
+    margin:0;
+    padding:13px;
+    border-bottom:1px solid var(--border);
+    font-family:Georgia,serif;
+}
+
+.rightbox .content{
+    padding:15px;
+}
+
+.progress{
+    height:10px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress div{
+    height:100%;
+    background:var(--accent);
+    width:35%;
+}
+
+/* BUTTONS */
+
+.btn{
+    border:1px solid var(--accent);
+    background:white;
+    color:var(--accent);
+    border-radius:6px;
+    padding:9px 14px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:var(--accent);
+    color:white;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--accent2);
+}
+
+/* QUIZ */
+
+.quiz-option{
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:13px;
+    margin:8px 0;
+    border:1px solid var(--border);
+    background:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.quiz-option:hover{
+    background:var(--surface2);
+}
+
+.quiz-result{
+    margin-top:15px;
+    padding:15px;
+    display:none;
+}
+
+/* FLASHCARD */
+
+.flashcard{
+    min-height:180px;
+    border:2px solid var(--accent);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    cursor:pointer;
+    background:white;
+    font-size:22px;
+    font-family:Georgia,serif;
+}
+
+/* SIMULATOR */
+
+.simulator{
+    background:#182735;
+    color:white;
+    padding:25px;
+    border-radius:8px;
+}
+
+.simulator input,
+.simulator select{
+    width:100%;
+    padding:12px;
+    margin:6px 0 12px;
+    border-radius:5px;
+    border:0;
+}
+
+.simulator button{
+    padding:11px 16px;
+    border:0;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* VIDEO */
+
+.video{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    border-bottom:1px solid var(--border);
+    padding:12px 0;
+}
+
+.youtube{
+    background:#cc0000;
+    color:white;
+    padding:7px 10px;
+    border-radius:5px;
     text-decoration:none;
     font-weight:bold;
 }
 
-/* ===== RIGHT ===== */
+/* SEARCH RESULTS */
 
-.rightbar{
-    font-size:14px;
+#searchResults{
+    display:none;
+    margin-bottom:25px;
 }
 
-.panel{
-    border:1px solid #c8ccd1;
-    background:#f8f9fa;
-    margin-bottom:20px;
+.result{
+    padding:15px;
+    border-bottom:1px solid var(--border);
+    cursor:pointer;
 }
 
-.panel-title{
-    font-weight:bold;
-    padding:9px 12px;
-    background:#eaecf0;
+.result:hover{
+    background:var(--surface2);
 }
 
-.panel-content{
-    padding:12px;
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+    padding:20px;
 }
 
-.panel button{
+.modal-box{
+    background:white;
+    max-width:650px;
+    width:100%;
+    max-height:85vh;
+    overflow:auto;
+    border-radius:10px;
+    padding:25px;
+}
+
+.modal-close{
+    float:right;
     border:0;
     background:none;
-    color:#3366cc;
-    display:block;
-    text-align:left;
-    padding:5px 0;
+    font-size:25px;
+    cursor:pointer;
 }
 
-/* ===== PAGES ===== */
+/* DARK */
 
-.page{
-    display:none;
+body.dark{
+    --bg:#15191e;
+    --surface:#20252b;
+    --surface2:#2a3037;
+    --text:#e8eaed;
+    --muted:#a9b0b8;
+    --border:#3a414a;
 }
 
-.page.active{
-    display:block;
+body.dark header,
+body.dark .article,
+body.dark .category,
+body.dark .card,
+body.dark .flashcard,
+body.dark .quiz-option,
+body.dark .search input,
+body.dark .modal-box{
+    background:#20252b;
+    color:#e8eaed;
 }
 
-/* ===== BUTTON ===== */
-
-.blue-button{
-    border:1px solid #3366cc;
-    background:#3366cc;
-    color:#fff;
-    padding:9px 15px;
+body.dark .info-box{
+    background:#263442;
 }
 
-.gray-button{
-    border:1px solid #a2a9b1;
-    background:#f8f9fa;
-    padding:9px 15px;
+body.dark .warning{
+    background:#3b3220;
 }
 
-/* ===== QUIZ ===== */
-
-.quiz-box{
-    border:1px solid #a2a9b1;
-    padding:20px;
-    background:#f8f9fa;
+body.dark th{
+    background:#2a3037;
 }
 
-.quiz-answer{
-    display:block;
-    width:100%;
-    text-align:left;
-    border:1px solid #a2a9b1;
-    background:white;
-    padding:12px;
-    margin:8px 0;
-}
-
-.quiz-answer:hover{
-    border-color:#3366cc;
-}
-
-/* ===== AI ===== */
-
-.ai-box{
-    border:1px solid #a2a9b1;
-    background:#f8f9fa;
-    padding:20px;
-}
-
-.ai-row{
-    display:flex;
-    gap:10px;
-}
-
-.ai-row input{
-    flex:1;
-    padding:12px;
-    border:1px solid #a2a9b1;
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 
 footer{
-    border-top:1px solid #c8ccd1;
-    margin-top:50px;
-    padding:35px 24px;
-    color:#54595d;
-    background:#f8f9fa;
+    background:#182735;
+    color:white;
+    padding:40px 20px;
+    margin-top:30px;
 }
 
 .footer-inner{
-    max-width:1450px;
+    max-width:1200px;
     margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
 }
 
-/* ===== MOBILE ===== */
-
-@media(max-width:1100px){
-
-    .layout{
-        grid-template-columns:180px minmax(0,1fr);
-    }
-
-    .rightbar{
-        display:none;
-    }
+footer a{
+    color:#dbeaff;
 }
 
-@media(max-width:750px){
+/* RESPONSIVE */
 
-    .topbar{
-        flex-wrap:wrap;
-    }
-
-    .search{
-        order:3;
-        flex-basis:100%;
-    }
-
+@media(max-width:1050px){
     .layout{
-        display:block;
-        padding:20px 15px;
-    }
-
-    .sidebar{
-        border-right:0;
-        border-bottom:1px solid #eaecf0;
-        margin-bottom:25px;
-        padding-bottom:15px;
-    }
-
-    .sidebar-buttons{
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .cards,
-    .people{
         grid-template-columns:1fr;
     }
 
-    .infobox{
-        float:none;
-        width:100%;
-        margin:20px 0;
+    .sidebar{
+        position:static;
     }
 
-    h1{
-        font-size:34px;
+    .categories{
+        grid-template-columns:1fr 1fr;
     }
 
-    .ai-row{
-        flex-direction:column;
+    .right-column{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
     }
 }
+
+@media(max-width:700px){
+    .topbar{
+        padding:10px;
+    }
+
+    .hero{
+        padding:35px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .categories{
+        grid-template-columns:1fr;
+    }
+
+    .article{
+        padding:20px;
+    }
+
+    .right-column{
+        display:block;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
+    }
+}
+
 </style>
 </head>
 
@@ -537,993 +655,816 @@ footer{
 
 <div class="topbar">
 
-<button class="logo" onclick="showPage('home')">
-NEX<span>ORA</span>
-</button>
-
-<div class="search">
-<input
-id="searchInput"
-placeholder="Przeszukaj NEXORA..."
-onkeydown="if(event.key==='Enter')searchSite()"
->
-<button onclick="searchSite()">Szukaj</button>
+<div class="logo">
+HOTELIUM
+<span>Internetowa encyklopedia hotelarstwa i turystyki</span>
 </div>
 
-<div class="header-links">
-<button onclick="showPage('home')">Start</button>
-<button onclick="showPage('about')">O NEXORZE</button>
+<div class="controls">
+<button class="icon-btn" onclick="toggleDark()">🌙 Tryb</button>
+<button class="icon-btn" onclick="showAbout()">ℹ️ O projekcie</button>
 </div>
 
 </div>
+
+<nav>
+<div class="nav-inner">
+<button onclick="go('home')">Strona główna</button>
+<button onclick="go('hotel')">🏨 Hotelarstwo</button>
+<button onclick="go('tourism')">✈️ Turystyka</button>
+<button onclick="go('food')">🍽️ Gastronomia</button>
+<button onclick="go('student')">🎓 Strefa ucznia</button>
+<button onclick="go('quiz')">🧠 Quiz</button>
+<button onclick="go('dictionary')">📖 Słownik</button>
+</div>
+</nav>
 
 </header>
 
+<div class="container">
 
 <div class="layout">
 
-<aside class="sidebar">
+<aside class="sidebar card">
 
-<h3>Nawigacja</h3>
+<h3>Spis treści</h3>
 
-<div class="sidebar-buttons">
+<div class="sidebar-section">HOTELARSTWO</div>
 
-<button onclick="showPage('home')">Strona główna</button>
-<button onclick="showPage('technology')">Technologia</button>
-<button onclick="showPage('space')">Kosmos</button>
-<button onclick="showPage('ai')">Sztuczna inteligencja</button>
-<button onclick="showPage('robots')">Robotyka</button>
-<button onclick="showPage('inventors')">Wynalazcy</button>
-<button onclick="showPage('videos')">Materiały wideo</button>
-<button onclick="showPage('quiz')">Quiz</button>
-<button onclick="showPage('future')">Symulator przyszłości</button>
-</div>
+<a href="#reception">Recepcja</a>
+<a href="#reservation">Rezerwacje</a>
+<a href="#housekeeping">Służba pięter</a>
+<a href="#guest">Obsługa gościa</a>
+<a href="#hotel-types">Rodzaje hoteli</a>
+
+<div class="sidebar-section">TURYSTYKA</div>
+
+<a href="#tourism">Podstawy turystyki</a>
+<a href="#organization">Organizacja imprez</a>
+<a href="#transport">Transport turystyczny</a>
+
+<div class="sidebar-section">GASTRONOMIA</div>
+
+<a href="#food">Żywienie człowieka</a>
+<a href="#haccp">HACCP</a>
+<a href="#service">Obsługa konsumenta</a>
+
+<div class="sidebar-section">NAUKA</div>
+
+<a href="#quiz">Quiz wiedzy</a>
+<a href="#flashcards">Fiszki</a>
+<a href="#simulator">Symulator recepcji</a>
+<a href="#dictionary">Słownik</a>
 
 </aside>
 
 
-<main class="content">
+<main id="home">
 
+<section class="hero">
 
-<!-- ================= HOME ================= -->
-
-<section class="page active" id="home">
-
-<div class="breadcrumb">
-NEXORA › Strona główna
+<div style="font-size:14px;letter-spacing:2px;">
+ENCYKLOPEDIA EDUKACYJNA
 </div>
 
-<h1>NEXORA</h1>
-
-<div class="infobox">
-
-<div class="infobox-title">
-NEXORA
-</div>
-
-<div style="padding:15px;text-align:center;font-size:55px;">
-📚
-</div>
-
-<table>
-<tr>
-<td>Typ</td>
-<td>Portal wiedzy</td>
-</tr>
-
-<tr>
-<td>Tematy</td>
-<td>Nauka i technologia</td>
-</tr>
-
-<tr>
-<td>Język</td>
-<td>Polski</td>
-</tr>
-
-<tr>
-<td>Wersja</td>
-<td>5.0</td>
-</tr>
-</table>
-
-</div>
+<h1>HOTELIUM</h1>
 
 <p>
-<strong>NEXORA</strong> to projekt internetowej encyklopedii poświęconej
-technologii, nauce, wynalazkom i możliwym scenariuszom przyszłości.
+Wiedza o hotelarstwie, turystyce, gastronomii i żywieniu
+— uporządkowana w jednym miejscu.
 </p>
 
-<p>
-Znajdziesz tutaj artykuły, sylwetki naukowców i wynalazców,
-materiały wideo oraz interaktywne eksperymenty.
-</p>
-
-<div class="notice">
-<strong>Witaj w NEXORZE.</strong>
-Wybierz temat z menu po lewej albo skorzystaj z wyszukiwarki.
-</div>
-
-<div class="toc">
-
-<div class="toc-title">Spis treści</div>
-
-<button onclick="scrollToId('popularne')">
-1. Popularne tematy
-</button>
-
-<button onclick="scrollToId('wynalazcy')">
-2. Wielcy wynalazcy
-</button>
-
-<button onclick="scrollToId('materiały')">
-3. Materiały wideo
-</button>
-
-<button onclick="scrollToId('narzedzia')">
-4. Narzędzia interaktywne
-</button>
-
-</div>
-
-
-<h2 id="popularne">Popularne tematy</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Sztuczna inteligencja</h3>
-<p>
-Systemy komputerowe zdolne do wykonywania zadań,
-które wymagają analizy danych, rozpoznawania wzorców
-lub podejmowania decyzji.
-</p>
-<button onclick="showPage('ai')">
-Czytaj artykuł →
-</button>
-</div>
-
-<div class="card">
-<h3>Eksploracja kosmosu</h3>
-<p>
-Historia i przyszłość badań przestrzeni kosmicznej,
-misji załogowych i robotycznych.
-</p>
-<button onclick="showPage('space')">
-Czytaj artykuł →
-</button>
-</div>
-
-<div class="card">
-<h3>Robotyka</h3>
-<p>
-Dziedzina zajmująca się projektowaniem, budową
-i wykorzystaniem robotów.
-</p>
-<button onclick="showPage('robots')">
-Czytaj artykuł →
-</button>
-</div>
-
-<div class="card">
-<h3>Technologie przyszłości</h3>
-<p>
-Przegląd technologii, które mogą wpłynąć na
-gospodarkę i życie społeczeństw.
-</p>
-<button onclick="showPage('technology')">
-Czytaj artykuł →
-</button>
-</div>
-
-</div>
-
-
-<h2 id="wynalazcy">Wielcy wynalazcy i pionierzy</h2>
-
-<div class="people">
-
-<div class="person">
-
-<img
-src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nikola%20Tesla.jpg"
-alt="Nikola Tesla"
->
-
-<div class="person-info">
-<h3>Nikola Tesla</h3>
-<p>
-Inżynier i wynalazca związany m.in. z rozwojem
-systemów prądu przemiennego.
-</p>
-<button class="gray-button" onclick="showPerson('tesla')">
-Więcej informacji
-</button>
-</div>
-
-</div>
-
-
-<div class="person">
-
-<img
-src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ada%20Lovelace%20portrait.jpg"
-alt="Ada Lovelace"
->
-
-<div class="person-info">
-<h3>Ada Lovelace</h3>
-<p>
-Matematyczka, której prace nad maszyną analityczną
-są ważną częścią historii programowania.
-</p>
-<button class="gray-button" onclick="showPerson('ada')">
-Więcej informacji
-</button>
-</div>
-
-</div>
-
-
-<div class="person">
-
-<img
-src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Alan%20Turing%20%281951%29.jpg"
-alt="Alan Turing"
->
-
-<div class="person-info">
-<h3>Alan Turing</h3>
-<p>
-Brytyjski matematyk i pionier informatyki
-teoretycznej oraz sztucznej inteligencji.
-</p>
-<button class="gray-button" onclick="showPerson('turing')">
-Więcej informacji
-</button>
-</div>
-
-</div>
-
-</div>
-
-
-<h2 id="materiały">Materiały wideo</h2>
-
-<div class="video-list">
-
-<div class="video">
-
-<div class="youtube">▶</div>
-
-<div>
-<a href="https://www.youtube.com/results?search_query=future+technology+AI"
-target="_blank">
-YouTube — przyszłość technologii i AI
-</a>
-
-<p>
-Materiały dotyczące rozwoju sztucznej inteligencji.
-</p>
-</div>
-
-</div>
-
-
-<div class="video">
-
-<div class="youtube">▶</div>
-
-<div>
-<a href="https://www.youtube.com/results?search_query=future+of+space+exploration"
-target="_blank">
-YouTube — przyszłość eksploracji kosmosu
-</a>
-
-<p>
-Filmy i wykłady dotyczące przyszłości badań kosmosu.
-</p>
-</div>
-
-</div>
-
-
-<div class="video">
-
-<div class="youtube">▶</div>
-
-<div>
-<a href="https://www.youtube.com/results?search_query=future+robots+robotics"
-target="_blank">
-YouTube — roboty przyszłości
-</a>
-
-<p>
-Materiały o robotyce i automatyzacji.
-</p>
-</div>
-
-</div>
-
-</div>
-
-
-<h2 id="narzedzia">Narzędzia interaktywne</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🤖 NEXORA AI</h3>
-<p>
-Zadaj pytanie dotyczące nauki lub technologii.
-</p>
-<button onclick="showPage('ai')">
-Otwórz →
-</button>
-</div>
-
-<div class="card">
-<h3>🔮 Symulator przyszłości</h3>
-<p>
-Sprawdź hipotetyczne scenariusze różnych lat.
-</p>
-<button onclick="showPage('future')">
-Otwórz →
-</button>
-</div>
-
-<div class="card">
-<h3>🧠 Quiz</h3>
-<p>
-Sprawdź swoją wiedzę.
-</p>
-<button onclick="showPage('quiz')">
-Otwórz →
-</button>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= AI ================= -->
-
-<section class="page" id="ai">
-
-<div class="breadcrumb">
-NEXORA › Nauka › Sztuczna inteligencja
-</div>
-
-<h1>Sztuczna inteligencja</h1>
-
-<div class="infobox">
-
-<div class="infobox-title">
-Sztuczna inteligencja
-</div>
-
-<div style="padding:30px;text-align:center;font-size:70px;">
-🤖
-</div>
-
-<table>
-<tr>
-<td>Dziedzina</td>
-<td>Informatyka</td>
-</tr>
-<tr>
-<td>Główne obszary</td>
-<td>ML, NLP, widzenie komputerowe</td>
-</tr>
-<tr>
-<td>Zastosowania</td>
-<td>Nauka, przemysł, edukacja</td>
-</tr>
-</table>
-
-</div>
-
-<p>
-<strong>Sztuczna inteligencja</strong> (AI) obejmuje metody
-tworzenia systemów komputerowych zdolnych do wykonywania
-zadań wymagających analizy danych, rozpoznawania wzorców,
-przetwarzania języka lub podejmowania decyzji.
-</p>
-
-<div class="toc">
-
-<div class="toc-title">Spis treści</div>
-
-<button onclick="scrollToId('ai-historia')">1. Historia</button>
-<button onclick="scrollToId('ai-metody')">2. Metody</button>
-<button onclick="scrollToId('ai-zastosowania')">3. Zastosowania</button>
-<button onclick="scrollToId('ai-przyszlosc')">4. Przyszłość</button>
-
-</div>
-
-<h2 id="ai-historia">Historia</h2>
-
-<p>
-Rozwój sztucznej inteligencji jest związany z historią informatyki,
-matematyki, logiki i badań nad sposobem rozwiązywania problemów
-przez człowieka.
-</p>
-
-<p>
-W XX wieku powstały podstawy teoretyczne, które umożliwiły późniejszy
-rozwój programów uczących się na podstawie danych.
-</p>
-
-<h2 id="ai-metody">Metody</h2>
-
-<p>
-Współczesne systemy AI wykorzystują m.in. uczenie maszynowe,
-sieci neuronowe oraz metody przetwarzania języka naturalnego.
-</p>
-
-<h2 id="ai-zastosowania">Zastosowania</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Medycyna</h3>
-<p>Analiza obrazów, danych i wspomaganie procesów diagnostycznych.</p>
-</div>
-
-<div class="card">
-<h3>Nauka</h3>
-<p>Analiza dużych zbiorów danych i modelowanie złożonych zjawisk.</p>
-</div>
-
-<div class="card">
-<h3>Edukacja</h3>
-<p>Narzędzia pomagające personalizować proces nauki.</p>
-</div>
-
-<div class="card">
-<h3>Przemysł</h3>
-<p>Automatyzacja, kontrola jakości i optymalizacja procesów.</p>
-</div>
-
-</div>
-
-<h2 id="ai-przyszlosc">Przyszłość</h2>
-
-<p>
-Przyszły rozwój AI zależy nie tylko od możliwości technicznych,
-ale również od bezpieczeństwa, prawa, ekonomii i sposobu,
-w jaki społeczeństwa zdecydują się wykorzystywać te systemy.
-</p>
-
-<div class="ai-box">
-
-<h3>NEXORA AI — demonstracja</h3>
-
-<p>
-Wpisz pytanie. Ta wersja korzysta z lokalnego systemu odpowiedzi.
-Prawdziwy model AI wymaga później bezpiecznego połączenia z API.
-</p>
-
-<div class="ai-row">
+<div class="search">
 
 <input
-id="aiQuestion"
-placeholder="Np. Jak AI zmieni przyszłość?"
->
+id="searchInput"
+placeholder="Szukaj np. recepcja, HACCP, check-in, turystyka..."
+onkeydown="if(event.key==='Enter')search()">
 
-<button class="blue-button" onclick="askAI()">
-Zapytaj
-</button>
-
-</div>
-
-<p id="aiAnswer">
-</p>
+<button onclick="search()">🔎 Szukaj</button>
 
 </div>
 
 </section>
 
 
-<!-- ================= SPACE ================= -->
+<div id="searchResults" class="article">
 
-<section class="page" id="space">
+<h2>Wyniki wyszukiwania</h2>
 
-<div class="breadcrumb">
-NEXORA › Nauka › Kosmos
+<div id="results"></div>
+
 </div>
 
-<h1>Eksploracja kosmosu</h1>
 
-<div class="infobox">
+<section class="categories">
 
-<div class="infobox-title">
-Kosmos
+<div class="category" onclick="go('hotel')">
+<div class="emoji">🏨</div>
+<h3>Hotelarstwo</h3>
+<p>Organizacja hotelu, recepcja, rezerwacje, pokoje i obsługa gościa.</p>
 </div>
 
-<div style="padding:30px;text-align:center;font-size:70px;">
-🌌
+<div class="category" onclick="go('tourism')">
+<div class="emoji">✈️</div>
+<h3>Turystyka</h3>
+<p>Ruch turystyczny, organizacja wyjazdów, transport i atrakcje.</p>
 </div>
+
+<div class="category" onclick="go('food')">
+<div class="emoji">🍽️</div>
+<h3>Gastronomia</h3>
+<p>Żywienie, technologia gastronomiczna, obsługa i bezpieczeństwo żywności.</p>
+</div>
+
+</section>
+
+
+<article id="hotel" class="article">
+
+<h2>🏨 Hotelarstwo</h2>
+
+<img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80">
+
+<p>
+<strong>Hotelarstwo</strong> jest dziedziną usług związanych przede wszystkim
+z zapewnianiem osobom podróżującym zakwaterowania, wyżywienia oraz
+różnorodnych usług dodatkowych.
+</p>
+
+<div class="info-box">
+<strong>Warto zapamiętać:</strong>
+Hotel nie jest wyłącznie miejscem do spania. Współczesny obiekt
+hotelarski jest organizacją, w której współpracują ze sobą różne działy.
+</div>
+
+<h3>Najważniejsze działy hotelu</h3>
 
 <table>
+
 <tr>
-<td>Dziedzina</td>
-<td>Astronautyka</td>
+<th>Dział</th>
+<th>Najważniejsze zadania</th>
 </tr>
+
 <tr>
-<td>Obiekty</td>
-<td>Planety, gwiazdy, galaktyki</td>
+<td>Recepcja</td>
+<td>Rezerwacje, meldowanie, wymeldowanie, informacje dla gości.</td>
 </tr>
+
 <tr>
-<td>Technologie</td>
-<td>Rakiety, satelity, sondy</td>
+<td>Housekeeping</td>
+<td>Utrzymanie czystości pokoi i części wspólnych.</td>
 </tr>
+
+<tr>
+<td>Gastronomia</td>
+<td>Przygotowanie i sprzedaż usług żywieniowych.</td>
+</tr>
+
+<tr>
+<td>Administracja</td>
+<td>Finanse, kadry, dokumentacja i organizacja pracy.</td>
+</tr>
+
+<tr>
+<td>Marketing</td>
+<td>Promocja obiektu, sprzedaż i komunikacja z klientami.</td>
+</tr>
+
 </table>
 
-</div>
+</article>
+
+
+<article id="reception" class="article">
+
+<h2>🛎️ Recepcja hotelowa</h2>
 
 <p>
-Eksploracja kosmosu obejmuje badanie przestrzeni poza Ziemią
-za pomocą teleskopów, sond, satelitów, robotów oraz misji załogowych.
+Recepcja jest jednym z najważniejszych punktów kontaktu pomiędzy
+hotelem a gościem.
 </p>
 
-<h2>Dlaczego badamy kosmos?</h2>
+<h3>Do podstawowych zadań recepcji należą:</h3>
+
+<ul>
+<li>przyjmowanie rezerwacji,</li>
+<li>meldowanie gości,</li>
+<li>udzielanie informacji,</li>
+<li>wydawanie kluczy lub kart,</li>
+<li>rozliczanie pobytu,</li>
+<li>obsługa wymeldowania,</li>
+<li>przyjmowanie i przekazywanie informacji.</li>
+</ul>
+
+<div class="success">
+<strong>Profesjonalna obsługa:</strong>
+Recepcjonista powinien być uprzejmy, komunikatywny, dokładny
+i potrafić zachować spokój również w sytuacjach trudnych.
+</div>
+
+<h3>Check-in</h3>
 
 <p>
-Badania kosmosu pomagają rozwijać wiedzę o Wszechświecie,
-Ziemi i procesach fizycznych zachodzących poza naszą planetą.
-Rozwijają również technologie wykorzystywane później na Ziemi.
+Check-in to proces przyjęcia gościa do hotelu. Może obejmować
+potwierdzenie rezerwacji, sprawdzenie wymaganych danych,
+przekazanie informacji o pobycie oraz wydanie dostępu do pokoju.
 </p>
 
-<h2>Przyszłe kierunki</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🌕 Księżyc</h3>
-<p>
-Rozwój długoterminowej obecności człowieka i robotów.
-</p>
-</div>
-
-<div class="card">
-<h3>🔴 Mars</h3>
-<p>
-Badania planety oraz przygotowania do przyszłych misji załogowych.
-</p>
-</div>
-
-<div class="card">
-<h3>🛰️ Sondy</h3>
-<p>
-Robotyczne pojazdy pozwalające badać odległe obiekty.
-</p>
-</div>
-
-<div class="card">
-<h3>🔭 Teleskopy</h3>
-<p>
-Obserwacja odległych galaktyk, gwiazd i planet.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= ROBOTS ================= -->
-
-<section class="page" id="robots">
-
-<div class="breadcrumb">
-NEXORA › Technologia › Robotyka
-</div>
-
-<h1>Robotyka</h1>
+<h3>Check-out</h3>
 
 <p>
-<strong>Robotyka</strong> to dziedzina łącząca informatykę,
-mechanikę, elektronikę i automatykę w celu projektowania
-oraz budowy robotów.
+Check-out oznacza zakończenie pobytu. Pracownik recepcji sprawdza
+rozliczenie usług, przyjmuje płatność, odbiera kartę lub klucz
+i żegna gościa.
 </p>
 
-<h2>Gdzie wykorzystuje się roboty?</h2>
+</article>
 
-<div class="cards">
 
-<div class="card">
-<h3>🏭 Przemysł</h3>
-<p>Roboty wykonują powtarzalne i precyzyjne operacje produkcyjne.</p>
-</div>
+<article id="reservation" class="article">
 
-<div class="card">
-<h3>🏥 Medycyna</h3>
-<p>Roboty mogą wspierać lekarzy podczas wybranych procedur.</p>
-</div>
-
-<div class="card">
-<h3>🚀 Kosmos</h3>
-<p>Roboty badają miejsca, do których trudno wysłać człowieka.</p>
-</div>
-
-<div class="card">
-<h3>🏠 Dom</h3>
-<p>Roboty konsumenckie mogą wykonywać proste zadania domowe.</p>
-</div>
-
-</div>
-
-<h2>Przyszłość robotyki</h2>
+<h2>📅 Rezerwacja hotelowa</h2>
 
 <p>
-Jednym z najważniejszych kierunków rozwoju jest zwiększenie
-autonomii robotów i ich zdolności do bezpiecznej współpracy
-z człowiekiem.
+Rezerwacja jest ustaleniem pomiędzy obiektem a klientem dotyczącym
+przyszłego świadczenia usługi hotelarskiej.
 </p>
 
-</section>
+<h3>Informacje potrzebne podczas rezerwacji</h3>
 
+<ul>
+<li>imię i nazwisko gościa,</li>
+<li>termin pobytu,</li>
+<li>liczba osób,</li>
+<li>rodzaj pokoju,</li>
+<li>liczba pokoi,</li>
+<li>rodzaj wyżywienia,</li>
+<li>forma płatności,</li>
+<li>dodatkowe życzenia.</li>
+</ul>
 
-<!-- ================= TECHNOLOGY ================= -->
-
-<section class="page" id="technology">
-
-<div class="breadcrumb">
-NEXORA › Technologia
+<div class="info-box">
+<strong>PMS</strong> — Property Management System.
+To system informatyczny pomagający hotelowi zarządzać m.in.
+rezerwacjami, pokojami, gośćmi i rozliczeniami.
 </div>
 
-<h1>Technologie przyszłości</h1>
+</article>
+
+
+<article id="housekeeping" class="article">
+
+<h2>🧹 Służba pięter — housekeeping</h2>
 
 <p>
-Nie wszystkie przewidywania dotyczące przyszłości się sprawdzają.
-Technologie rozwijają się nierównomiernie, a ich wpływ zależy
-od kosztów, regulacji, infrastruktury i decyzji społecznych.
+Housekeeping odpowiada za czystość, porządek i odpowiednie przygotowanie
+pokoi oraz wybranych przestrzeni hotelowych.
 </p>
 
-<h2>Najważniejsze kierunki</h2>
+<h3>Przykładowe zadania</h3>
 
-<div class="cards">
+<ul>
+<li>sprzątanie pokoi,</li>
+<li>uzupełnianie wyposażenia,</li>
+<li>wymiana bielizny pościelowej,</li>
+<li>kontrola stanu pokoju,</li>
+<li>zgłaszanie usterek,</li>
+<li>przygotowanie pokoju dla kolejnego gościa.</li>
+</ul>
 
-<div class="card">
-<h3>🤖 Sztuczna inteligencja</h3>
-<p>Automatyzacja analizy informacji i tworzenia treści.</p>
-</div>
-
-<div class="card">
-<h3>⚡ Magazynowanie energii</h3>
-<p>Rozwój baterii i innych sposobów przechowywania energii.</p>
-</div>
-
-<div class="card">
-<h3>🧬 Biotechnologia</h3>
-<p>Wykorzystanie wiedzy biologicznej do tworzenia nowych rozwiązań.</p>
-</div>
-
-<div class="card">
-<h3>🥽 VR i AR</h3>
-<p>Łączenie środowisk cyfrowych z doświadczeniem użytkownika.</p>
-</div>
-
-<div class="card">
-<h3>🚗 Autonomia</h3>
-<p>Systemy zdolne do wykonywania zadań bez ciągłej kontroli człowieka.</p>
-</div>
-
-<div class="card">
-<h3>🌱 Technologie ekologiczne</h3>
-<p>Rozwiązania mające ograniczać zużycie zasobów i emisje.</p>
-</div>
-
-</div>
-
-</section>
+</article>
 
 
-<!-- ================= INVENTORS ================= -->
+<article id="hotel-types" class="article">
 
-<section class="page" id="inventors">
+<h2>🏢 Rodzaje obiektów hotelarskich</h2>
 
-<div class="breadcrumb">
-NEXORA › Ludzie › Wynalazcy
-</div>
+<table>
 
-<h1>Wielcy wynalazcy i pionierzy</h1>
+<tr>
+<th>Rodzaj</th>
+<th>Charakterystyka</th>
+</tr>
+
+<tr>
+<td>Hotel</td>
+<td>Obiekt świadczący usługi noclegowe oraz dodatkowe.</td>
+</tr>
+
+<tr>
+<td>Motel</td>
+<td>Obiekt nastawiony przede wszystkim na podróżujących samochodami.</td>
+</tr>
+
+<tr>
+<td>Pensjonat</td>
+<td>Obiekt zapewniający noclegi i określony zakres usług żywieniowych.</td>
+</tr>
+
+<tr>
+<td>Schronisko</td>
+<td>Obiekt oferujący prostsze formy zakwaterowania.</td>
+</tr>
+
+<tr>
+<td>Kemping</td>
+<td>Miejsce przeznaczone do pobytu osób korzystających m.in. z namiotów, przyczep lub kamperów.</td>
+</tr>
+
+</table>
+
+</article>
+
+
+<article id="tourism" class="article">
+
+<h2>✈️ Turystyka</h2>
+
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80">
 
 <p>
-Historia technologii jest tworzona przez tysiące naukowców,
-inżynierów, matematyków i konstruktorów. Poniżej znajdują się
-wybrane postacie, których prace miały duży wpływ na rozwój nauki
-i techniki.
+Turystyka obejmuje przemieszczanie się ludzi poza ich zwykłe otoczenie
+w celach związanych m.in. z wypoczynkiem, poznawaniem świata,
+kulturą, edukacją czy działalnością biznesową.
 </p>
 
-<div class="people">
+<h3>Elementy produktu turystycznego</h3>
 
-<div class="person">
+<ul>
+<li>atrakcje turystyczne,</li>
+<li>zakwaterowanie,</li>
+<li>gastronomia,</li>
+<li>transport,</li>
+<li>informacja turystyczna,</li>
+<li>usługi dodatkowe.</li>
+</ul>
 
-<img
-src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nikola%20Tesla.jpg"
-alt="Nikola Tesla"
->
+<div class="info-box">
+Turystyka jest dziedziną interdyscyplinarną. Łączy m.in.
+geografię, ekonomię, kulturę, transport, hotelarstwo i gastronomię.
+</div>
 
-<div class="person-info">
-<h3>Nikola Tesla</h3>
+</article>
+
+
+<article id="organization" class="article">
+
+<h2>🗺️ Organizacja imprezy turystycznej</h2>
 
 <p>
-1856–1943. Inżynier i wynalazca związany z rozwojem
-elektrotechniki i systemów prądu przemiennego.
+Przygotowanie imprezy turystycznej wymaga zaplanowania wielu elementów.
 </p>
 
-<button class="blue-button" onclick="showPerson('tesla')">
-Czytaj
+<ol>
+<li>określenie grupy docelowej,</li>
+<li>wybór miejsca,</li>
+<li>ustalenie programu,</li>
+<li>zaplanowanie transportu,</li>
+<li>wybór obiektów noclegowych,</li>
+<li>zaplanowanie wyżywienia,</li>
+<li>kalkulacja kosztów,</li>
+<li>przygotowanie dokumentacji,</li>
+<li>realizacja imprezy,</li>
+<li>ocena jej przebiegu.</li>
+</ol>
+
+</article>
+
+
+<article id="transport" class="article">
+
+<h2>🚌 Transport turystyczny</h2>
+
+<p>
+Transport jest jednym z podstawowych elementów turystyki.
+Umożliwia dotarcie do miejsca docelowego oraz przemieszczanie
+się podczas podróży.
+</p>
+
+<table>
+
+<tr>
+<th>Rodzaj</th>
+<th>Przykłady</th>
+</tr>
+
+<tr>
+<td>Drogowy</td>
+<td>Autobus, samochód, autokar.</td>
+</tr>
+
+<tr>
+<td>Kolejowy</td>
+<td>Pociągi regionalne, dalekobieżne i turystyczne.</td>
+</tr>
+
+<tr>
+<td>Lotniczy</td>
+<td>Samoloty pasażerskie.</td>
+</tr>
+
+<tr>
+<td>Wodny</td>
+<td>Promy, statki wycieczkowe, łodzie.</td>
+</tr>
+
+</table>
+
+</article>
+
+
+<article id="food" class="article">
+
+<h2>🍽️ Żywienie i gastronomia</h2>
+
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=80">
+
+<p>
+Gastronomia obejmuje działalność związaną z przygotowywaniem,
+serwowaniem i sprzedażą żywności oraz napojów.
+</p>
+
+<h3>Podstawowe zagadnienia</h3>
+
+<ul>
+<li>zasady żywienia człowieka,</li>
+<li>technologia przygotowywania potraw,</li>
+<li>towaroznawstwo,</li>
+<li>organizacja produkcji gastronomicznej,</li>
+<li>obsługa konsumenta,</li>
+<li>bezpieczeństwo żywności.</li>
+</ul>
+
+</article>
+
+
+<article id="haccp" class="article">
+
+<h2>🧪 HACCP</h2>
+
+<p>
+HACCP to system mający na celu identyfikację i kontrolę zagrożeń
+związanych z bezpieczeństwem żywności.
+</p>
+
+<h3>Przykładowe zagrożenia</h3>
+
+<table>
+
+<tr>
+<th>Rodzaj</th>
+<th>Przykład</th>
+</tr>
+
+<tr>
+<td>Biologiczne</td>
+<td>Bakterie, wirusy, pasożyty.</td>
+</tr>
+
+<tr>
+<td>Chemiczne</td>
+<td>Pozostałości środków chemicznych.</td>
+</tr>
+
+<tr>
+<td>Fizyczne</td>
+<td>Obce ciała znajdujące się w żywności.</td>
+</tr>
+
+</table>
+
+<div class="warning">
+<strong>Zapamiętaj:</strong>
+Bezpieczeństwo żywności zaczyna się od właściwego przechowywania,
+higieny rąk, sprzętu, powierzchni i odpowiedniej organizacji pracy.
+</div>
+
+</article>
+
+
+<article id="service" class="article">
+
+<h2>🍴 Obsługa konsumenta</h2>
+
+<p>
+Profesjonalna obsługa konsumenta obejmuje zarówno sposób komunikacji,
+jak i znajomość oferty gastronomicznej oraz zasad obsługi.
+</p>
+
+<h3>Zasady dobrej obsługi</h3>
+
+<ul>
+<li>uprzejmość,</li>
+<li>kultura osobista,</li>
+<li>znajomość menu,</li>
+<li>aktywne słuchanie,</li>
+<li>odpowiednia komunikacja,</li>
+<li>estetyka stanowiska pracy,</li>
+<li>reagowanie na potrzeby klienta.</li>
+</ul>
+
+</article>
+
+
+<article id="student" class="article">
+
+<h2>🎓 Strefa ucznia</h2>
+
+<p>
+Miejsce do szybkiej nauki przed sprawdzianem, kartkówką
+lub egzaminem zawodowym.
+</p>
+
+<div class="categories">
+
+<div class="category" onclick="go('quiz')">
+<div class="emoji">🧠</div>
+<h3>Quiz</h3>
+<p>Sprawdź swoją wiedzę.</p>
+</div>
+
+<div class="category" onclick="go('flashcards')">
+<div class="emoji">🃏</div>
+<h3>Fiszki</h3>
+<p>Powtarzaj najważniejsze pojęcia.</p>
+</div>
+
+<div class="category" onclick="go('simulator')">
+<div class="emoji">🛎️</div>
+<h3>Recepcja</h3>
+<p>Spróbuj obsłużyć gościa.</p>
+</div>
+
+</div>
+
+</article>
+
+
+<article id="quiz" class="article">
+
+<h2>🧠 Quiz hotelarsko-turystyczny</h2>
+
+<p id="question"></p>
+
+<div id="quizOptions"></div>
+
+<div id="quizResult" class="quiz-result"></div>
+
+<button class="btn btn-primary" onclick="nextQuestion()">
+Następne pytanie →
 </button>
+
+</article>
+
+
+<article id="flashcards" class="article">
+
+<h2>🃏 Fiszki</h2>
+
+<p>Kliknij kartę, aby zobaczyć odpowiedź.</p>
+
+<div class="flashcard" id="flashcard" onclick="flipCard()">
+Co oznacza pojęcie „check-in”?
 </div>
 
-</div>
+<br>
+
+<button class="btn" onclick="previousCard()">← Poprzednia</button>
+<button class="btn btn-primary" onclick="nextCard()">Następna →</button>
+
+</article>
 
 
-<div class="person">
+<article id="simulator" class="article">
 
-<img
-src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ada%20Lovelace%20portrait.jpg"
-alt="Ada Lovelace"
->
-
-<div class="person-info">
-<h3>Ada Lovelace</h3>
+<h2>🛎️ Symulator recepcji</h2>
 
 <p>
-1815–1852. Matematyczka, której prace nad maszyną analityczną
-są często przywoływane w historii programowania.
+Wyobraź sobie, że właśnie rozpocząłeś pracę na recepcji.
+Obsłuż przykładowego gościa.
 </p>
 
-<button class="blue-button" onclick="showPerson('ada')">
-Czytaj
+<div class="simulator">
+
+<h3 style="color:white;">NOWY GOŚĆ</h3>
+
+<label>Imię i nazwisko</label>
+<input id="guestName" placeholder="np. Jan Kowalski">
+
+<label>Liczba nocy</label>
+<input id="nights" type="number" value="2" min="1">
+
+<label>Rodzaj pokoju</label>
+
+<select id="roomType">
+
+<option value="single">Pokój jednoosobowy — 220 zł</option>
+<option value="double">Pokój dwuosobowy — 320 zł</option>
+<option value="family">Pokój rodzinny — 450 zł</option>
+
+</select>
+
+<button onclick="checkIn()">
+🛎️ Zamelduj gościa
 </button>
-</div>
+
+<div id="hotelResult" style="margin-top:20px;"></div>
 
 </div>
 
+</article>
 
-<div class="person">
 
-<img
-src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Alan%20Turing%20%281951%29.jpg"
-alt="Alan Turing"
->
+<article id="dictionary" class="article">
 
-<div class="person-info">
-<h3>Alan Turing</h3>
+<h2>📖 Słownik hotelarski</h2>
+
+<table>
+
+<tr>
+<th>Pojęcie</th>
+<th>Znaczenie</th>
+</tr>
+
+<tr>
+<td>Check-in</td>
+<td>Proces przyjęcia gościa do hotelu.</td>
+</tr>
+
+<tr>
+<td>Check-out</td>
+<td>Proces zakończenia pobytu gościa.</td>
+</tr>
+
+<tr>
+<td>PMS</td>
+<td>System zarządzania obiektem hotelarskim.</td>
+</tr>
+
+<tr>
+<td>Housekeeping</td>
+<td>Dział odpowiedzialny m.in. za czystość pokoi.</td>
+</tr>
+
+<tr>
+<td>Rooming list</td>
+<td>Lista osób wraz z informacjami dotyczącymi zakwaterowania.</td>
+</tr>
+
+<tr>
+<td>VIP</td>
+<td>Gość wymagający szczególnej uwagi ze względu na charakter pobytu lub status.</td>
+</tr>
+
+<tr>
+<td>Overbooking</td>
+<td>Sytuacja, w której liczba przyjętych rezerwacji przekracza dostępną liczbę miejsc.</td>
+</tr>
+
+<tr>
+<td>Concierge</td>
+<td>Osoba pomagająca gościom w organizacji różnych usług i informacji.</td>
+</tr>
+
+<tr>
+<td>HB</td>
+<td>Half Board — najczęściej śniadanie i jeden główny posiłek.</td>
+</tr>
+
+<tr>
+<td>FB</td>
+<td>Full Board — pełne wyżywienie.</td>
+</tr>
+
+<tr>
+<td>AI</td>
+<td>All Inclusive — pakiet usług obejmujący określony zakres wyżywienia i dodatkowych świadczeń.</td>
+</tr>
+
+<tr>
+<td>HACCP</td>
+<td>System kontroli zagrożeń związanych z bezpieczeństwem żywności.</td>
+</tr>
+
+</table>
+
+</article>
+
+
+<article class="article">
+
+<h2>🎬 Wiedza wideo</h2>
 
 <p>
-1912–1954. Matematyk i informatyk, którego prace miały
-fundamentalne znaczenie dla rozwoju informatyki teoretycznej.
+Materiały wideo mogą pomóc zobaczyć, jak wygląda praca
+w hotelarstwie, turystyce i gastronomii w praktyce.
 </p>
-
-<button class="blue-button" onclick="showPerson('turing')">
-Czytaj
-</button>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= VIDEOS ================= -->
-
-<section class="page" id="videos">
-
-<div class="breadcrumb">
-NEXORA › Multimedia › Wideo
-</div>
-
-<h1>Materiały wideo</h1>
-
-<p>
-Wybrane wyszukiwania YouTube dotyczące technologii i przyszłości.
-Kliknięcie otworzy wyniki YouTube w nowej karcie.
-</p>
-
-<div class="video-list">
 
 <div class="video">
 
-<div class="youtube">▶</div>
+<div style="font-size:30px;">▶️</div>
 
 <div>
-<a
-href="https://www.youtube.com/results?search_query=artificial+intelligence+future"
-target="_blank"
->
-Przyszłość sztucznej inteligencji
-</a>
-
-<p>Wykłady, prezentacje i materiały edukacyjne.</p>
+<strong>YouTube — hotelarstwo</strong><br>
+Materiały dotyczące pracy w hotelach.
 </div>
+
+<a
+class="youtube"
+href="https://www.youtube.com/results?search_query=hotelarstwo+praca+w+hotelu"
+target="_blank">
+YouTube
+</a>
 
 </div>
 
 
 <div class="video">
 
-<div class="youtube">▶</div>
+<div style="font-size:30px;">▶️</div>
 
 <div>
-<a
-href="https://www.youtube.com/results?search_query=future+technology"
-target="_blank"
->
-Technologie przyszłości
-</a>
-
-<p>Materiały dotyczące nowych technologii.</p>
+<strong>YouTube — turystyka</strong><br>
+Materiały edukacyjne dotyczące turystyki.
 </div>
+
+<a
+class="youtube"
+href="https://www.youtube.com/results?search_query=turystyka+organizacja+imprez+turystycznych"
+target="_blank">
+YouTube
+</a>
 
 </div>
 
 
 <div class="video">
 
-<div class="youtube">▶</div>
+<div style="font-size:30px;">▶️</div>
 
 <div>
+<strong>YouTube — gastronomia</strong><br>
+Technologia gastronomiczna i praca kuchni.
+</div>
+
 <a
-href="https://www.youtube.com/results?search_query=future+space+exploration"
-target="_blank"
->
-Przyszłość eksploracji kosmosu
+class="youtube"
+href="https://www.youtube.com/results?search_query=technologia+gastronomiczna+edukacja"
+target="_blank">
+YouTube
 </a>
 
-<p>Misje kosmiczne, rakiety i badania Wszechświata.</p>
 </div>
 
-</div>
+</article>
 
 
-<div class="video">
+<article class="article">
 
-<div class="youtube">▶</div>
-
-<div>
-<a
-href="https://www.youtube.com/results?search_query=future+robotics"
-target="_blank"
->
-Robotyka przyszłości
-</a>
-
-<p>Roboty, automatyzacja i sztuczna inteligencja.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= FUTURE ================= -->
-
-<section class="page" id="future">
-
-<div class="breadcrumb">
-NEXORA › Narzędzia › Symulator przyszłości
-</div>
-
-<h1>Symulator przyszłości</h1>
+<h2>🏫 HOTELIUM dla uczniów ZSGH Wisła</h2>
 
 <p>
-Wybierz rok i zobacz przykładowy scenariusz. To nie są
-przepowiednie — są to hipotetyczne możliwości.
+HOTELIUM jest niezależnym projektem edukacyjnym przygotowanym
+z myślą o nauce zagadnień związanych z hotelarstwem,
+turystyką, gastronomią i żywieniem.
 </p>
 
-<div class="notice">
+<div class="info-box">
 
-<h2 id="yearTitle">2050</h2>
+<strong>Ważne:</strong><br>
 
-<p id="yearText">
-Inteligentne systemy mogą być szeroko wykorzystywane
-w transporcie, energetyce i usługach.
-</p>
-
-<input
-type="range"
-min="2030"
-max="2100"
-value="2050"
-style="width:100%"
-oninput="futureYear(this.value)"
->
+Materiał może służyć jako pomoc w nauce, ale informacje dotyczące
+przepisów, wymagań egzaminacyjnych oraz aktualnych zasad
+należy zawsze porównywać z aktualnymi materiałami szkoły
+i oficjalnymi źródłami.
 
 </div>
 
-</section>
-
-
-<!-- ================= QUIZ ================= -->
-
-<section class="page" id="quiz">
-
-<div class="breadcrumb">
-NEXORA › Narzędzia › Quiz
-</div>
-
-<h1>Quiz wiedzy</h1>
-
-<div class="quiz-box">
-
-<h2 id="question"></h2>
-
-<div id="answers"></div>
-
-<p id="score">
-Wynik: 0
-</p>
-
-</div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section class="page" id="about">
-
-<div class="breadcrumb">
-NEXORA › Informacje
-</div>
-
-<h1>O NEXORZE</h1>
-
-<p>
-NEXORA jest projektem edukacyjnym poświęconym nauce,
-technologii, historii wynalazków i przyszłości.
-</p>
-
-<h2>Cel projektu</h2>
-
-<p>
-Celem NEXORY jest prezentowanie skomplikowanych tematów
-w sposób uporządkowany i łatwy do zrozumienia.
-</p>
-
-<h2>Źródła i materiały</h2>
-
-<p>
-Przy tworzeniu prawdziwej wersji portalu warto dodawać
-źródła do każdego artykułu oraz sprawdzać licencje używanych
-zdjęć i materiałów.
-</p>
-
-</section>
+</article>
 
 </main>
 
 
-<!-- ================= RIGHT ================= -->
+<aside class="right-column">
 
-<aside class="rightbar">
+<div class="rightbox card">
 
-<div class="panel">
+<h3>📚 Twoja nauka</h3>
 
-<div class="panel-title">
-NEXORA dziś
+<div class="content">
+
+<p>Postęp przykładowy</p>
+
+<div class="progress">
+<div id="progressBar"></div>
 </div>
 
-<div class="panel-content">
+<p id="progressText">35% materiału</p>
 
-<strong>Wiedza</strong>
-
-<p>
-Technologia zmienia się każdego dnia.
-</p>
-
-<button onclick="showPage('technology')">
-Przeglądaj technologie →
+<button class="btn" onclick="increaseProgress()">
+Uczę się dalej
 </button>
 
 </div>
@@ -1531,47 +1472,39 @@ Przeglądaj technologie →
 </div>
 
 
-<div class="panel">
+<div class="rightbox card">
 
-<div class="panel-title">
-Czy wiesz, że...
-</div>
+<h3>⭐ Szybki dostęp</h3>
 
-<div class="panel-content" id="fact">
-Kliknij, aby wylosować ciekawostkę.
+<div class="content">
+
+<button class="btn" onclick="go('reception')">🛎️ Recepcja</button>
 <br><br>
-<button onclick="randomFact()">
-Losuj ciekawostkę
-</button>
-</div>
+
+<button class="btn" onclick="go('haccp')">🧪 HACCP</button>
+<br><br>
+
+<button class="btn" onclick="go('quiz')">🧠 Quiz</button>
 
 </div>
 
+</div>
 
-<div class="panel">
 
-<div class="panel-title">
-Narzędzia</div>
+<div class="rightbox card">
 
-<div class="panel-content">
+<h3>💡 Ciekawostka</h3>
 
-<button onclick="showPage('quiz')">
-🧠 Quiz
-</button>
-
-<button onclick="showPage('future')">
-🔮 Symulator przyszłości
-</button>
-
-<button onclick="showPage('ai')">
-🤖 NEXORA AI
-</button>
-
+<div class="content" id="fact">
+Hotel może składać się z wielu działów,
+które muszą współpracować ze sobą jak jeden organizm.
 </div>
 
 </div>
 
 </aside>
+
+</div>
 
 </div>
 
@@ -1580,19 +1513,57 @@ Narzędzia</div>
 
 <div class="footer-inner">
 
-<strong>NEXORA</strong>
+<div>
+
+<h2>HOTELIUM</h2>
 
 <p>
-Encyklopedia technologii, nauki i przyszłości.
+Interaktywna encyklopedia hotelarstwa,
+turystyki, gastronomii i żywienia.
 </p>
 
 <p>
-Projekt edukacyjny • Wersja 5.0
+Projekt edukacyjny — materiał pomocniczy do nauki.
 </p>
 
 </div>
 
+<div>
+
+<h3>Działy</h3>
+
+<p><a href="#hotel">Hotelarstwo</a></p>
+<p><a href="#tourism">Turystyka</a></p>
+<p><a href="#food">Gastronomia</a></p>
+
+</div>
+
+<div>
+
+<h3>Nauka</h3>
+
+<p><a href="#quiz">Quiz</a></p>
+<p><a href="#flashcards">Fiszki</a></p>
+<p><a href="#dictionary">Słownik</a></p>
+
+</div>
+
+</div>
+
 </footer>
+
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<button class="modal-close" onclick="closeModal()">×</button>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
 
 
 <script>
@@ -1601,243 +1572,224 @@ Projekt edukacyjny • Wersja 5.0
    NAWIGACJA
 ========================= */
 
-function showPage(id){
+function go(id){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
-
-    const page=document.getElementById(id);
-
-    if(page){
-        page.classList.add("active");
-    }
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-
-/* =========================
-   WYSZUKIWANIE
-========================= */
-
-function searchSite(){
-
-    const value=
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
-
-    if(!value) return;
-
-    if(
-        value.includes("ai") ||
-        value.includes("sztuczna")
-    ){
-        showPage("ai");
-        return;
-    }
-
-    if(
-        value.includes("kosmos") ||
-        value.includes("mars") ||
-        value.includes("space")
-    ){
-        showPage("space");
-        return;
-    }
-
-    if(
-        value.includes("robot")
-    ){
-        showPage("robots");
-        return;
-    }
-
-    if(
-        value.includes("tesla") ||
-        value.includes("wynalaz")
-    ){
-        showPage("inventors");
-        return;
-    }
-
-    if(
-        value.includes("technolog")
-    ){
-        showPage("technology");
-        return;
-    }
-
-    alert(
-        "Nie znaleziono dokładnego hasła. Spróbuj: AI, kosmos, roboty, Tesla lub technologia."
-    );
-}
-
-
-/* =========================
-   SCROLL
-========================= */
-
-function scrollToId(id){
-
-    const element=
-        document.getElementById(id);
+    const element=document.getElementById(id);
 
     if(element){
-
         element.scrollIntoView({
-            behavior:"smooth"
+            behavior:"smooth",
+            block:"start"
         });
-
     }
-
 }
 
 
 /* =========================
-   OSOBY
+   TRYB CIEMNY
 ========================= */
 
-const people={
+function toggleDark(){
 
-    tesla:{
-        title:"Nikola Tesla",
-        text:
-        "Nikola Tesla (1856–1943) był serbsko-amerykańskim wynalazcą i inżynierem. Jego prace odegrały ważną rolę w rozwoju systemów elektrycznych wykorzystujących prąd przemienny."
-    },
+    document.body.classList.toggle("dark");
 
-    ada:{
-        title:"Ada Lovelace",
-        text:
-        "Ada Lovelace (1815–1852) była matematyczką. Jej notatki dotyczące maszyny analitycznej Charlesa Babbage'a zawierały algorytm często opisywany jako jeden z pierwszych przeznaczonych do wykonania przez maszynę."
-    },
-
-    turing:{
-        title:"Alan Turing",
-        text:
-        "Alan Turing (1912–1954) był brytyjskim matematykiem i informatykiem. Jego prace dotyczące obliczalności i maszyn Turinga stały się fundamentem informatyki teoretycznej."
-    }
-
-};
-
-function showPerson(id){
-
-    const person=people[id];
-
-    alert(
-        person.title+
-        "\n\n"+
-        person.text
+    localStorage.setItem(
+        "hoteliumDark",
+        document.body.classList.contains("dark")
     );
 
 }
 
+if(localStorage.getItem("hoteliumDark")==="true"){
+    document.body.classList.add("dark");
+}
+
 
 /* =========================
-   AI DEMO
+   INFORMACJE
 ========================= */
 
-function askAI(){
+function showAbout(){
 
-    const q=
-        document.getElementById("aiQuestion")
-        .value
-        .toLowerCase();
+    document.getElementById("modalContent").innerHTML=`
 
-    const answer=
-        document.getElementById("aiAnswer");
+    <h2>O HOTELIUM</h2>
 
-    if(!q){
+    <p>
+    HOTELIUM to internetowa encyklopedia edukacyjna
+    poświęcona hotelarstwu, turystyce, gastronomii
+    i żywieniu.
+    </p>
 
-        answer.textContent=
-        "Wpisz pytanie.";
+    <p>
+    Strona została zaprojektowana jako pomoc w nauce:
+    od podstawowych definicji po zagadnienia praktyczne.
+    </p>
 
+    <div class="info-box">
+    Projekt niezależny. Nie jest oficjalną stroną
+    ZSGH Wisła.
+    </div>
+
+    `;
+
+    document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+
+/* =========================
+   WYSZUKIWARKA
+========================= */
+
+const articles=[
+
+{
+title:"Hotelarstwo",
+text:"organizacja hotelu, działy hotelu, usługi hotelarskie",
+id:"hotel"
+},
+
+{
+title:"Recepcja",
+text:"check-in check-out rezerwacje obsługa gościa",
+id:"reception"
+},
+
+{
+title:"Rezerwacja",
+text:"rezerwacja hotelowa PMS pokój termin pobytu",
+id:"reservation"
+},
+
+{
+title:"Housekeeping",
+text:"służba pięter czystość pokoje hotel",
+id:"housekeeping"
+},
+
+{
+title:"Turystyka",
+text:"podróże atrakcje turystyczne transport organizacja",
+id:"tourism"
+},
+
+{
+title:"Organizacja imprezy turystycznej",
+text:"program transport nocleg kalkulacja",
+id:"organization"
+},
+
+{
+title:"Transport",
+text:"autobus pociąg samolot statek",
+id:"transport"
+},
+
+{
+title:"Gastronomia",
+text:"żywienie kuchnia technologia gastronomiczna",
+id:"food"
+},
+
+{
+title:"HACCP",
+text:"bezpieczeństwo żywności zagrożenia biologiczne chemiczne fizyczne",
+id:"haccp"
+},
+
+{
+title:"Obsługa konsumenta",
+text:"restauracja kelner klient menu obsługa",
+id:"service"
+},
+
+{
+title:"Słownik",
+text:"check-in PMS VIP rooming list housekeeping",
+id:"dictionary"
+}
+
+];
+
+
+function search(){
+
+    const query=document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+    const box=document.getElementById("searchResults");
+    const results=document.getElementById("results");
+
+    if(!query){
+
+        box.style.display="none";
         return;
 
     }
 
-    let response=
-    "To interesujące zagadnienie. W tej demonstracyjnej wersji NEXORA korzysta z lokalnego zestawu odpowiedzi. Prawdziwy model AI wymaga połączenia strony z bezpiecznym serwerem.";
+    const found=articles.filter(a=>
+        (a.title+" "+a.text)
+        .toLowerCase()
+        .includes(query)
+    );
 
-    if(q.includes("mars")){
+    box.style.display="block";
 
-        response=
-        "Mars jest jednym z głównych celów przyszłej eksploracji kosmicznej. Największe wyzwania obejmują transport, ochronę przed promieniowaniem, wodę, energię i długoterminowe podtrzymywanie życia.";
+    if(found.length===0){
 
+        results.innerHTML=`
+        <p>Nie znaleziono hasła.</p>
+        <p>Spróbuj np. <strong>hotel</strong>,
+        <strong>recepcja</strong>, <strong>HACCP</strong>
+        lub <strong>turystyka</strong>.</p>
+        `;
+
+        return;
     }
 
-    else if(
-        q.includes("ai") ||
-        q.includes("sztuczna")
-    ){
+    results.innerHTML=found.map(a=>`
 
-        response=
-        "Sztuczna inteligencja może wpływać na naukę, edukację, przemysł i tworzenie oprogramowania. Jej rozwój wiąże się również z pytaniami dotyczącymi bezpieczeństwa i odpowiedzialnego wykorzystania.";
+        <div class="result" onclick="go('${a.id}')">
 
-    }
+            <strong>${a.title}</strong>
 
-    else if(q.includes("robot")){
+            <br>
 
-        response=
-        "Roboty mogą wykonywać zadania wymagające precyzji, powtarzalności lub pracy w niebezpiecznych środowiskach. Ich przyszły rozwój będzie związany m.in. z autonomią i AI.";
+            <small>${a.text}</small>
 
-    }
+        </div>
 
-    answer.innerHTML=
-        "<strong>NEXORA AI:</strong> "+
-        response;
+    `).join("");
 
 }
 
 
 /* =========================
-   PRZYSZŁOŚĆ
+   POSTĘP
 ========================= */
 
-function futureYear(year){
+let progress=35;
 
-    year=Number(year);
+function increaseProgress(){
 
-    document.getElementById("yearTitle")
-        .textContent=year;
+    progress+=5;
 
-    let text="";
-
-    if(year<2040){
-
-        text=
-        "AI i automatyzacja mogą stać się jeszcze bardziej powszechne, a inteligentne urządzenia mogą być obecne w większości dziedzin życia.";
-
+    if(progress>100){
+        progress=100;
     }
 
-    else if(year<2070){
+    document.getElementById("progressBar")
+    .style.width=progress+"%";
 
-        text=
-        "Możliwe są dalsze zmiany transportu, energetyki, robotyki i sposobów komunikowania się z komputerami.";
-
-    }
-
-    else if(year<2090){
-
-        text=
-        "Trudno przewidzieć szczegóły. Możliwe są jednak znaczące zmiany w energetyce, biologii, automatyzacji i eksploracji kosmosu.";
-
-    }
-
-    else{
-
-        text=
-        "Rok 2100 jest bardzo odległy. Dokładne przewidywanie technologii tego okresu jest niemożliwe, dlatego każdy scenariusz należy traktować jako hipotetyczny.";
-
-    }
-
-    document.getElementById("yearText")
-        .textContent=text;
+    document.getElementById("progressText")
+    .innerText=progress+"% materiału";
 
 }
 
@@ -1848,167 +1800,345 @@ function futureYear(year){
 
 const facts=[
 
-"🤖 AI może analizować ogromne ilości danych znacznie szybciej niż człowiek.",
+"Pierwsze wrażenie gościa często powstaje już podczas kontaktu z recepcją.",
 
-"🌌 Światło potrzebuje około 8 minut i 20 sekund, aby dotrzeć ze Słońca do Ziemi.",
+"Housekeeping ma ogromny wpływ na ocenę jakości hotelu.",
 
-"💻 Alan Turing odegrał fundamentalną rolę w rozwoju informatyki teoretycznej.",
+"Hotel działa sprawnie wtedy, gdy jego działy współpracują ze sobą.",
 
-"⚡ Nikola Tesla był związany z rozwojem systemów wykorzystujących prąd przemienny.",
+"Turystyka łączy wiele dziedzin: geografię, ekonomię, kulturę i transport.",
 
-"🧮 Ada Lovelace jest jedną z najważniejszych postaci w historii programowania.",
+"Bezpieczeństwo żywności jest jednym z podstawowych elementów profesjonalnej gastronomii.",
 
-"🚀 Roboty są szczególnie przydatne w badaniu miejsc, do których człowiekowi trudno dotrzeć."
+"Systemy PMS pomagają hotelom zarządzać rezerwacjami i pobytami gości.",
+
+"Profesjonalna obsługa klienta wymaga nie tylko wiedzy, ale również komunikacji."
 
 ];
 
-function randomFact(){
+let factIndex=0;
 
-    const fact=
-        facts[
-            Math.floor(
-                Math.random()*facts.length
-            )
-        ];
+setInterval(()=>{
 
-    document.getElementById("fact")
-        .innerHTML=
-        fact+
-        "<br><br><button onclick='randomFact()'>Losuj kolejną</button>";
+    factIndex++;
 
-}
+    if(factIndex>=facts.length){
+        factIndex=0;
+    }
+
+    document.getElementById("fact").innerText=facts[factIndex];
+
+},5000);
 
 
 /* =========================
    QUIZ
 ========================= */
 
-const questions=[
+const quiz=[
 
 {
-q:"Co oznacza skrót AI?",
+q:"Co oznacza termin check-in?",
 a:[
-"Artificial Intelligence",
-"Automatic Internet",
-"Advanced Interface"
+"Zakończenie pobytu",
+"Przyjęcie gościa do hotelu",
+"Sprzątanie pokoju",
+"Rezerwację restauracji"
+],
+correct:1
+},
+
+{
+q:"Za utrzymanie czystości pokoi odpowiada przede wszystkim:",
+a:[
+"Housekeeping",
+"Marketing",
+"Recepcja",
+"Administracja"
 ],
 correct:0
 },
 
 {
-q:"Która planeta jest jednym z głównych celów przyszłej eksploracji?",
+q:"Co oznacza skrót PMS?",
 a:[
-"Mars",
-"Wenus",
-"Merkury"
+"Personal Marketing Service",
+"Property Management System",
+"Professional Menu Service",
+"Public Management School"
+],
+correct:1
+},
+
+{
+q:"Który element jest częścią produktu turystycznego?",
+a:[
+"Transport",
+"Procesor komputera",
+"System operacyjny",
+"Drukarka"
 ],
 correct:0
 },
 
 {
-q:"Czym zajmuje się robotyka?",
+q:"HACCP związany jest przede wszystkim z:",
 a:[
-"Projektowaniem i wykorzystaniem robotów",
-"Wyłącznie astronomią",
-"Wyłącznie grafiką"
+"Reklamą hotelu",
+"Bezpieczeństwem żywności",
+"Projektowaniem budynków",
+"Transportem lotniczym"
 ],
-correct:0
-},
-
-{
-q:"Kim była Ada Lovelace?",
-a:[
-"Matematyczką",
-"Astronautką",
-"Biolożką"
-],
-correct:0
+correct:1
 }
 
 ];
 
-let questionIndex=0;
+let quizIndex=0;
 let score=0;
 
 function loadQuiz(){
 
-    if(questionIndex>=questions.length){
+    const item=quiz[quizIndex];
 
-        document.getElementById("question")
-            .textContent=
-            "Quiz zakończony.";
+    document.getElementById("question").innerHTML=
+    `<strong>${quizIndex+1}. ${item.q}</strong>`;
 
-        document.getElementById("answers")
-            .innerHTML=
-            "<strong>Twój wynik: "+
-            score+
-            "/"+
-            questions.length+
-            "</strong>";
+    document.getElementById("quizOptions").innerHTML=
+    item.a.map((answer,i)=>`
+
+    <button class="quiz-option"
+    onclick="answerQuiz(${i})">
+
+    ${answer}
+
+    </button>
+
+    `).join("");
+
+    document.getElementById("quizResult").style.display="none";
+
+}
+
+function answerQuiz(index){
+
+    const result=document.getElementById("quizResult");
+
+    result.style.display="block";
+
+    if(index===quiz[quizIndex].correct){
+
+        score++;
+
+        result.className="quiz-result success";
+
+        result.innerHTML=
+        "✅ <strong>Dobrze!</strong> Świetna odpowiedź.";
+
+    }else{
+
+        result.className="quiz-result warning";
+
+        result.innerHTML=
+        "❌ <strong>Nie tym razem.</strong> Sprawdź odpowiedź i zapamiętaj ją.";
+
+    }
+
+}
+
+function nextQuestion(){
+
+    quizIndex++;
+
+    if(quizIndex>=quiz.length){
+
+        alert(
+        "Koniec quizu! Twój wynik: "+
+        score+"/"+quiz.length
+        );
+
+        quizIndex=0;
+        score=0;
+
+    }
+
+    loadQuiz();
+
+}
+
+
+/* =========================
+   FISZKI
+========================= */
+
+const flashcards=[
+
+{
+q:"Co oznacza check-in?",
+a:"Proces przyjęcia gościa do hotelu."
+},
+
+{
+q:"Co oznacza check-out?",
+a:"Proces zakończenia pobytu gościa."
+},
+
+{
+q:"Co to jest PMS?",
+a:"System zarządzania obiektem hotelarskim."
+},
+
+{
+q:"Czym zajmuje się housekeeping?",
+a:"Między innymi utrzymaniem czystości i przygotowaniem pokoi."
+},
+
+{
+q:"Co oznacza HACCP?",
+a:"System służący do identyfikacji i kontroli zagrożeń związanych z bezpieczeństwem żywności."
+},
+
+{
+q:"Co oznacza VIP?",
+a:"Gość wymagający szczególnej uwagi ze względu na charakter pobytu lub status."
+}
+
+];
+
+let cardIndex=0;
+let cardFront=true;
+
+function renderCard(){
+
+    const card=flashcards[cardIndex];
+
+    document.getElementById("flashcard").innerText=
+    cardFront ? card.q : card.a;
+
+}
+
+function flipCard(){
+
+    cardFront=!cardFront;
+
+    renderCard();
+
+}
+
+function nextCard(){
+
+    cardIndex++;
+
+    if(cardIndex>=flashcards.length){
+        cardIndex=0;
+    }
+
+    cardFront=true;
+
+    renderCard();
+
+}
+
+function previousCard(){
+
+    cardIndex--;
+
+    if(cardIndex<0){
+        cardIndex=flashcards.length-1;
+    }
+
+    cardFront=true;
+
+    renderCard();
+
+}
+
+
+/* =========================
+   SYMULATOR RECEPCJI
+========================= */
+
+function checkIn(){
+
+    const name=
+    document.getElementById("guestName").value.trim();
+
+    const nights=
+    Number(document.getElementById("nights").value);
+
+    const room=
+    document.getElementById("roomType").value;
+
+    if(!name){
+
+        alert("Wpisz imię i nazwisko gościa.");
 
         return;
 
     }
 
-    const item=
-        questions[questionIndex];
+    let price=220;
+    let roomName="jednoosobowy";
 
-    document.getElementById("question")
-        .textContent=
-        item.q;
+    if(room==="double"){
+        price=320;
+        roomName="dwuosobowy";
+    }
 
-    const answers=
-        document.getElementById("answers");
+    if(room==="family"){
+        price=450;
+        roomName="rodzinny";
+    }
 
-    answers.innerHTML="";
+    const total=price*nights;
 
-    item.a.forEach((answer,index)=>{
+    document.getElementById("hotelResult").innerHTML=`
 
-        const button=
-            document.createElement("button");
+    <div style="
+    background:#eef8f1;
+    color:#183b25;
+    padding:18px;
+    border-radius:7px;
+    ">
 
-        button.className="quiz-answer";
+    <h3>✅ Meldowanie zakończone</h3>
 
-        button.textContent=
-            answer;
+    <p>
+    <strong>Gość:</strong> ${name}
+    </p>
 
-        button.onclick=()=>{
+    <p>
+    <strong>Pokój:</strong> ${roomName}
+    </p>
 
-            if(index===item.correct){
+    <p>
+    <strong>Liczba nocy:</strong> ${nights}
+    </p>
 
-                score++;
+    <p>
+    <strong>Szacunkowa cena:</strong> ${total} zł
+    </p>
 
-                document.getElementById("score")
-                    .textContent=
-                    "✓ Dobra odpowiedź! Wynik: "+
-                    score;
+    <hr>
 
-            }else{
+    <p>
+    Recepcjonista powinien przekazać gościowi
+    najważniejsze informacje dotyczące pobytu.
+    </p>
 
-                document.getElementById("score")
-                    .textContent=
-                    "✗ Nie tym razem. Wynik: "+
-                    score;
+    </div>
 
-            }
-
-            setTimeout(()=>{
-
-                questionIndex++;
-
-                loadQuiz();
-
-            },700);
-
-        };
-
-        answers.appendChild(button);
-
-    });
+    `;
 
 }
 
+
+/* =========================
+   START
+========================= */
+
 loadQuiz();
+renderCard();
 
 </script>
 
