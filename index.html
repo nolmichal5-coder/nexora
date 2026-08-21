@@ -1,1535 +1,448 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VARELISSA — Premium Hotel Academy</title>
-<meta name="description" content="VARELISSA — interaktywna akademia hotelarstwa, turystyki, gastronomii i języka zawodowego.">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VARELISSA — Akademia Hotelarstwa</title>
+<meta name="description" content="Interaktywna akademia hotelarstwa: hotel, recepcja, pokoje, restauracja, spa, bezpieczeństwo, turystyka i English for Hospitality.">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
 :root{
-  --ink:#172033;
-  --muted:#687184;
-  --gold:#b58a42;
-  --cream:#f6f2ea;
-  --card:#fff;
-  --line:#e5e0d7;
-  --shadow:0 18px 50px rgba(21,28,43,.10)
+  --ink:#182235;--muted:#687184;--cream:#f7f5f0;--white:#fff;
+  --gold:#b98b42;--gold2:#e0bd79;--navy:#142036;--line:#e5e1d9;
+  --shadow:0 18px 55px rgba(20,32,54,.12);--radius:22px;
 }
-
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
-body{
-  margin:0;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
-  color:var(--ink);
-  background:var(--cream)
-}
-
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
 button,input{font:inherit}
 button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.topbar{height:42px;background:#101827;color:#e9edf4;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;font-size:13px}
+.clock{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:17px 5vw}
+.logo{font-family:"Playfair Display",serif;font-size:28px;letter-spacing:.18em;font-weight:700}
+.navlinks{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks button{border:0;background:transparent;padding:10px 13px;color:var(--muted);font-weight:600;border-radius:12px}
+.navlinks button:hover,.navlinks button.active{background:#f0ece3;color:var(--ink)}
+.hero{min-height:670px;position:relative;display:grid;align-items:end;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,18,33,.82),rgba(9,18,33,.35) 55%,rgba(9,18,33,.1)),url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2200&q=88") center/cover}
+.heroContent{position:relative;z-index:1;color:#fff;padding:90px 7vw 80px;max-width:980px}
+.kicker{letter-spacing:.28em;text-transform:uppercase;color:#f0c77d;font-size:13px;font-weight:700}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(60px,9vw,132px);line-height:.86;margin:18px 0 26px;letter-spacing:-.04em}
+.hero p{font-size:20px;line-height:1.7;max-width:800px;color:#eef1f6}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{border:1px solid rgba(255,255,255,.5);padding:14px 20px;border-radius:12px;background:rgba(255,255,255,.08);color:#fff;font-weight:700}
+.btn.gold{background:var(--gold2);border-color:var(--gold2);color:#172033}
+.section{padding:85px 5vw}
+.sectionHead{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:35px}
+.sectionHead h2{font:600 clamp(34px,5vw,64px)/1 "Playfair Display",serif;margin:0}
+.sectionHead p{max-width:560px;color:var(--muted);line-height:1.7;margin:0}
+.search{width:min(440px,100%);padding:15px 17px;border:1px solid var(--line);border-radius:13px;background:#fff;outline:none}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(20,32,54,.05);transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.cardImg{height:230px;background-size:cover;background-position:center}
+.cardBody{padding:22px}
+.number{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:800}
+.card h3{font:600 28px/1.05 "Playfair Display",serif;margin:9px 0}
+.card p{color:var(--muted);line-height:1.6}
+.card .open{margin-top:15px;border:0;background:#172237;color:#fff;padding:11px 14px;border-radius:10px;font-weight:700}
 
-.top{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line)
+.feature{background:#172237;color:#fff}
+.feature .sectionHead p{color:#bfc7d5}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.stat{border:1px solid rgba(255,255,255,.12);padding:25px;border-radius:18px;background:rgba(255,255,255,.04)}
+.stat strong{font:600 42px "Playfair Display",serif;display:block;color:#f0c77d}
+.stat span{color:#c5ccda}
+
+.language{display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:stretch}
+.langIntro{background:#eae4d8;border-radius:25px;padding:35px}
+.langIntro h2{font:600 48px/1 "Playfair Display",serif;margin:0 0 18px}
+.phrases{background:#fff;border:1px solid var(--line);border-radius:25px;padding:24px}
+.phrase{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding:16px 0}
+.phrase:last-child{border-bottom:0}
+.phrase b{display:block;font-size:17px}
+.phrase small{color:var(--muted)}
+.listen{border:0;border-radius:50%;width:44px;height:44px;background:#172237;color:#fff}
+
+.sim{background:#efe9dd}
+.simulator{display:grid;grid-template-columns:280px 1fr 300px;gap:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+.queue .guest{padding:14px;border:1px solid var(--line);border-radius:12px;margin-bottom:9px}
+.guest strong{display:block}
+.guest small{color:var(--muted)}
+.desk{min-height:420px;background:linear-gradient(#cfd8e3 0 55%,#8f8170 55%);border-radius:16px;position:relative;overflow:hidden}
+.desk:after{content:"RECEPCJA";position:absolute;left:50%;bottom:18%;transform:translateX(-50%);background:#c5a267;color:#172033;padding:18px 45px;border-radius:8px;font-weight:800;box-shadow:0 15px 25px #0003}
+.person{position:absolute;left:50%;top:15%;transform:translateX(-50%);width:80px;height:190px;background:#24334b;border-radius:45px 45px 15px 15px;transition:.6s}
+.person:before{content:"";position:absolute;left:20px;top:-55px;width:40px;height:40px;background:#d8a77b;border-radius:50%}
+.dialog{background:#f6f3ed;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;line-height:1.55}
+.answerBox{display:flex;gap:8px}
+.answerBox input{flex:1;padding:13px;border:1px solid #cfcac0;border-radius:10px}
+.answerBox button{border:0;background:#c5a267;color:#172033;border-radius:10px;padding:0 18px;font-weight:800}
+
+.footer{background:#111a2b;color:#dfe5ee;padding:50px 5vw;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.footer strong{font-family:"Playfair Display",serif;font-size:25px}
+
+.modal{position:fixed;inset:0;background:rgba(8,14,24,.72);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.show{display:flex}
+.modalBox{background:#fff;max-width:1100px;width:100%;max-height:90vh;overflow:auto;border-radius:24px}
+.modalTop{position:sticky;top:0;background:#fff;z-index:2;padding:18px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}
+.close{border:0;background:#172237;color:#fff;border-radius:10px;width:42px;height:42px}
+.modalContent{padding:25px}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:28px}
+.gallery img{width:100%;height:190px;object-fit:cover;border-radius:14px}
+.gallery img:first-child{grid-row:span 2;height:390px}
+.infoGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.info{border:1px solid var(--line);padding:14px;border-radius:12px;background:#fbfaf7}
+.info b{display:block;margin-bottom:5px}
+.info span{color:var(--muted);font-size:14px;line-height:1.5}
+
+@media(max-width:1000px){
+ .grid{grid-template-columns:repeat(2,1fr)} .simulator{grid-template-columns:1fr}
+ .language{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
 }
-
-.nav{
-  max-width:1240px;
-  margin:auto;
-  height:78px;
-  display:flex;
-  align-items:center;
-  gap:24px;
-  padding:0 24px
-}
-
-.brand{
-  font-family:Georgia,serif;
-  letter-spacing:.18em;
-  font-size:27px;
-  font-weight:700;
-  color:var(--ink);
-  margin-right:auto
-}
-
-.brand span{color:var(--gold)}
-
-.nav a,
-.nav button{
-  border:0;
-  background:transparent;
-  color:var(--ink);
-  text-decoration:none;
-  padding:10px 13px;
-  border-radius:10px
-}
-
-.nav a:hover,
-.nav button:hover{
-  background:#f0ece4
-}
-
-.clock{
-  font-size:12px;
-  color:var(--muted);
-  white-space:nowrap
-}
-
-.hero{
-  max-width:1240px;
-  margin:28px auto 0;
-  padding:0 24px
-}
-
-.hero-card{
-  min-height:570px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  background:
-    linear-gradient(90deg,rgba(8,17,31,.88),rgba(8,17,31,.28)),
-    url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=90')
-    center/cover;
-  display:flex;
-  align-items:flex-end;
-  padding:64px
-}
-
-.hero-copy{
-  max-width:760px;
-  color:white
-}
-
-.kicker{
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  font-size:12px;
-  color:#f0cc8b;
-  font-weight:800
-}
-
-h1{
-  font-family:Georgia,serif;
-  font-size:clamp(55px,8vw,105px);
-  line-height:.9;
-  margin:16px 0;
-  letter-spacing:.03em
-}
-
-.hero-copy p{
-  font-size:19px;
-  line-height:1.7;
-  color:#eef1f5;
-  max-width:700px
-}
-
-.actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:24px
-}
-
-.btn{
-  padding:13px 19px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.5);
-  background:transparent;
-  color:white;
-  font-weight:800
-}
-
-.btn.primary{
-  background:#d6ad60;
-  border-color:#d6ad60;
-  color:#182033
-}
-
-main{
-  max-width:1240px;
-  margin:70px auto;
-  padding:0 24px
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:25px;
-  margin-bottom:24px
-}
-
-.section-head h2{
-  font-family:Georgia,serif;
-  font-size:46px;
-  margin:0
-}
-
-.section-head p{
-  color:var(--muted);
-  max-width:600px;
-  line-height:1.7
-}
-
-.archive{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:16px
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:.25s;
-  cursor:pointer
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 25px 60px rgba(21,28,43,.15)
-}
-
-.card:nth-child(1),
-.card:nth-child(4),
-.card:nth-child(9){
-  grid-column:span 6
-}
-
-.card:nth-child(2),
-.card:nth-child(3),
-.card:nth-child(5),
-.card:nth-child(6),
-.card:nth-child(7),
-.card:nth-child(8),
-.card:nth-child(10),
-.card:nth-child(11),
-.card:nth-child(12),
-.card:nth-child(13),
-.card:nth-child(14){
-  grid-column:span 3
-}
-
-.card img{
-  width:100%;
-  height:230px;
-  object-fit:cover;
-  display:block
-}
-
-.card.large img{height:330px}
-
-.card-body{padding:20px}
-
-.eyebrow{
-  font-size:11px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--gold);
-  font-weight:800
-}
-
-.card h3{
-  font-family:Georgia,serif;
-  font-size:25px;
-  margin:8px 0
-}
-
-.card p{
-  color:var(--muted);
-  line-height:1.6;
-  margin-bottom:0
-}
-
-.arrow{
-  float:right;
-  color:var(--gold);
-  font-size:22px
-}
-
-.learning{
-  margin-top:80px;
-  background:#172033;
-  color:white;
-  border-radius:28px;
-  padding:45px
-}
-
-.learning .section-head h2{color:white}
-.learning .section-head p{color:#cdd3df}
-
-.controls{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:20px 0
-}
-
-.search{
-  flex:1;
-  min-width:260px;
-  padding:15px 17px;
-  border-radius:12px;
-  border:1px solid #364159;
-  background:#202a3e;
-  color:white
-}
-
-.phrases{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  max-height:720px;
-  overflow:auto;
-  padding-right:5px
-}
-
-.phrase{
-  border:1px solid #334057;
-  background:#1d2739;
-  border-radius:15px;
-  padding:16px;
-  display:flex;
-  gap:14px;
-  align-items:center
-}
-
-.phrase .txt{flex:1}
-
-.phrase .en{font-weight:750}
-
-.phrase .pl{
-  color:#aeb8c8;
-  font-size:14px;
-  margin-top:5px
-}
-
-.listen{
-  border:1px solid #c8a65f;
-  background:#c8a65f;
-  color:#182033;
-  border-radius:10px;
-  padding:9px 12px;
-  font-weight:800
-}
-
-.badge{
-  font-size:11px;
-  color:#c8a65f;
-  white-space:nowrap
-}
-
-footer{
-  margin-top:80px;
-  padding:40px 24px;
-  border-top:1px solid var(--line);
-  text-align:center;
-  color:var(--muted)
-}
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(10,16,28,.72);
-  z-index:100;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:24px
-}
-
-.modal.open{display:flex}
-
-.modal-box{
-  background:white;
-  max-width:940px;
-  width:100%;
-  max-height:90vh;
-  overflow:auto;
-  border-radius:25px;
-  box-shadow:0 40px 100px rgba(0,0,0,.3)
-}
-
-.modal-img{
-  width:100%;
-  height:320px;
-  object-fit:cover
-}
-
-.modal-content{padding:34px}
-
-.modal-content h2{
-  font-family:Georgia,serif;
-  font-size:40px;
-  margin:8px 0 14px
-}
-
-.modal-content p{
-  color:var(--muted);
-  line-height:1.7
-}
-
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  margin-top:22px
-}
-
-.info{
-  background:#f7f4ee;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:15px;
-  line-height:1.55
-}
-
-.close{
-  float:right;
-  border:0;
-  background:#f0ece4;
-  border-radius:50%;
-  width:40px;
-  height:40px;
-  font-size:22px
-}
-
-@media(max-width:900px){
-
-  .nav{
-    height:auto;
-    min-height:70px;
-    flex-wrap:wrap;
-    padding:12px 18px
-  }
-
-  .clock{
-    order:5;
-    width:100%;
-    text-align:center
-  }
-
-  .hero-card{
-    min-height:560px;
-    padding:35px 25px
-  }
-
-  .archive{
-    grid-template-columns:1fr 1fr
-  }
-
-  .card,
-  .card:nth-child(n){
-    grid-column:span 1
-  }
-
-  .phrases{
-    grid-template-columns:1fr
-  }
-
-  .info-grid{
-    grid-template-columns:1fr
-  }
-}
-
-@media(max-width:600px){
-
-  .nav a{display:none}
-
-  .hero{
-    padding:0 12px
-  }
-
-  main{
-    padding:0 12px
-  }
-
-  .hero-card{
-    border-radius:18px
-  }
-
-  .section-head{
-    display:block
-  }
-
-  .section-head h2{
-    font-size:36px
-  }
+@media(max-width:650px){
+ nav{align-items:flex-start;gap:12px;flex-direction:column}.navlinks{justify-content:flex-start}
+ .hero{min-height:600px}.heroContent{padding:70px 6vw}.hero h1{font-size:64px}
+ .grid{grid-template-columns:1fr}.section{padding:60px 5vw}.stats{grid-template-columns:1fr}
+ .gallery{grid-template-columns:1fr 1fr}.gallery img:first-child{grid-row:auto;height:220px}.gallery img{height:150px}
+ .infoGrid{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body>
 
-<header class="top">
-
-<nav class="nav">
-
-<div class="brand">
-VARE<span>LISSA</span>
+<div class="topbar">
+  <span>VARELISSA • HOSPITALITY ACADEMY</span>
+  <span class="clock" id="clock">Ładowanie czasu…</span>
 </div>
 
-<div class="clock" id="clock">
-Ładowanie czasu…
-</div>
-
-<a href="#start">Start</a>
-<a href="#archive">Encyklopedia</a>
-<a href="#language">English</a>
-
+<nav>
+  <button class="logo" onclick="scrollToId('start')">VARELISSA</button>
+  <div class="navlinks">
+    <button onclick="scrollToId('start')">Start</button>
+    <button onclick="scrollToId('encyclopedia')">Encyklopedia</button>
+    <button onclick="scrollToId('simulation')">Recepcja</button>
+    <button onclick="scrollToId('english')">English</button>
+    <button onclick="scrollToId('gallery')">Galeria</button>
+  </div>
 </nav>
 
+<header class="hero" id="start">
+  <div class="heroContent">
+    <div class="kicker">Hospitality • Education • Experience</div>
+    <h1>Varelissa</h1>
+    <p>Prestiżowa, interaktywna akademia hotelarstwa. Odkrywaj hotel od środka, poznawaj standardy, ucz się profesjonalnej obsługi i ćwicz język angielski na prawdziwych sytuacjach.</p>
+    <div class="actions">
+      <button class="btn gold" onclick="scrollToId('encyclopedia')">Odkryj hotel</button>
+      <button class="btn" onclick="scrollToId('simulation')">Przejdź do recepcji</button>
+    </div>
+  </div>
 </header>
 
-
-<section class="hero" id="start">
-
-<div class="hero-card">
-
-<div class="hero-copy">
-
-<div class="kicker">
-Premium hospitality • education • practice
-</div>
-
-<h1>
-VARELISSA
-</h1>
-
-<p>
-Interaktywna akademia hotelarstwa, turystyki, gastronomii i języka zawodowego.
-Klikaj, odkrywaj szczegóły, ucz się procedur i słuchaj zwrotów używanych
-w prawdziwej obsłudze gościa.
-</p>
-
-<div class="actions">
-
-<a class="btn primary" href="#archive">
-ODKRYJ ENCYKLOPEDIĘ
-</a>
-
-<a class="btn" href="#language">
-PRZEJDŹ DO ENGLISH
-</a>
-
-</div>
-
-</div>
-</div>
-
+<section class="section" id="gallery">
+  <div class="sectionHead">
+    <div>
+      <div class="kicker">Visual archive</div>
+      <h2>Hotel widziany od środka.</h2>
+    </div>
+    <p>Kliknij dowolną kategorię. Każda otwiera osobną kartę z galerią, opisami, praktycznymi wskazówkami i ponad setką informacji generowanych z bazy tematycznej.</p>
+  </div>
+  <input class="search" id="search" placeholder="Szukaj: recepcja, pokój, spa, restauracja…">
+  <div class="grid" id="topicGrid"></div>
 </section>
 
-
-<main>
-
-<section id="archive">
-
-<div class="section-head">
-
-<div>
-
-<div class="eyebrow">
-VARELISSA VISUAL ARCHIVE
-</div>
-
-<h2>
-Hotel widziany od środka.
-</h2>
-
-</div>
-
-<p>
-Każde zdjęcie jest interaktywne.
-Kliknij dowolny kafel — otworzy się osobne okno z konkretnymi
-informacjami, zasadami, przykładami pracy i praktycznymi wskazówkami.
-</p>
-
-</div>
-
-<div class="archive" id="gallery"></div>
-
+<section class="section feature">
+  <div class="sectionHead">
+    <div>
+      <div class="kicker">Varelissa knowledge</div>
+      <h2>Ucz się jak w prawdziwym obiekcie.</h2>
+    </div>
+    <p>Nie tylko definicje. Procedury, komunikacja, standardy, sytuacje trudne, sprzedaż usług i język zawodowy.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>800+</strong><span>punktów wiedzy w bazie tematów</span></div>
+    <div class="stat"><strong>500</strong><span>zwrotów English for Hospitality</span></div>
+    <div class="stat"><strong>50+</strong><span>pytań do rozbudowy quizu</span></div>
+    <div class="stat"><strong>24/7</strong><span>działająca strona bez serwera</span></div>
+  </div>
 </section>
 
-
-<section class="learning" id="language">
-
-<div class="section-head">
-
-<div>
-
-<div class="eyebrow">
-ENGLISH FOR HOSPITALITY
-</div>
-
-<h2>
-500 zwrotów zawodowych
-</h2>
-
-</div>
-
-<p>
-Każdy zwrot ma polskie znaczenie i przycisk odsłuchu.
-Wyszukuj po angielskim lub polskim słowie.
-</p>
-
-</div>
-
-<div class="controls">
-
-<input
-class="search"
-id="search"
-placeholder="Szukaj np. check-in, reservation, płatność…"
->
-
-<span class="badge" id="count">
-500 / 500
-</span>
-
-</div>
-
-<div class="phrases" id="phrases"></div>
-
+<section class="section" id="english">
+  <div class="sectionHead">
+    <div>
+      <div class="kicker">English for hospitality</div>
+      <h2>Zwroty z odsłuchem.</h2>
+    </div>
+    <p>Przycisk głośnika korzysta z funkcji mowy przeglądarki. Możesz odsłuchać angielski zwrot i polskie znaczenie.</p>
+  </div>
+  <div class="language">
+    <div class="langIntro">
+      <h2>Speak like a professional.</h2>
+      <p>W recepcji liczy się nie tylko poprawność, ale też naturalne, uprzejme i krótkie komunikaty.</p>
+      <button class="btn" style="background:#172237" onclick="speak('Good morning. How may I assist you today?')">▶ Odsłuchaj przykład</button>
+    </div>
+    <div class="phrases" id="phrases"></div>
+  </div>
 </section>
 
-</main>
+<section class="section sim" id="simulation">
+  <div class="sectionHead">
+    <div>
+      <div class="kicker">Practice mode</div>
+      <h2>Wirtualna recepcja.</h2>
+    </div>
+    <p>Gość podchodzi do stanowiska. Ty wpisujesz odpowiedź własnymi słowami — nie wybierasz gotowej odpowiedzi.</p>
+  </div>
+  <div class="simulator">
+    <div class="panel queue">
+      <h3>Kolejka gości</h3>
+      <div id="queue"></div>
+      <button class="open" onclick="nextGuest()">Następny gość</button>
+    </div>
+    <div class="panel">
+      <h3 id="guestTitle">Stanowisko recepcji</h3>
+      <div class="desk"><div class="person" id="person"></div></div>
+      <div id="dialog" style="margin-top:16px"></div>
+      <div class="answerBox">
+        <input id="answer" placeholder="Napisz odpowiedź…">
+        <button onclick="sendAnswer()">Wyślij</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Panel pracownika</h3>
+      <p><b>Cel:</b> profesjonalnie przyjąć gościa, rozpoznać potrzebę i wykonać właściwe działania.</p>
+      <div class="info"><b>Wskazówka</b><span>Nie musisz pisać identycznie jak przykładowa odpowiedź. Liczy się sens, uprzejmość i poprawne wykonanie zadania.</span></div>
+      <div id="scoreBox" style="margin-top:12px"></div>
+    </div>
+  </div>
+</section>
 
-
-<footer>
-VARELISSA • Akademia hotelarstwa • wiedza • praktyka • standard obsługi
+<footer class="footer">
+  <strong>VARELISSA</strong>
+  <span>Akademia hotelarstwa • wiedza • praktyka • standard obsługi</span>
+  <span>© 2026</span>
 </footer>
 
-
-<div class="modal" id="modal" aria-hidden="true">
-
-<div class="modal-box">
-
-<img
-class="modal-img"
-id="modalImg"
-alt=""
->
-
-<div class="modal-content">
-
-<button
-class="close"
-id="close"
-aria-label="Zamknij"
->
-×
-</button>
-
-<div
-class="eyebrow"
-id="modalEyebrow"
->
-MODUŁ
+<div class="modal" id="modal" onclick="closeIfBackdrop(event)">
+  <div class="modalBox">
+    <div class="modalTop">
+      <div>
+        <div class="kicker" id="modalKicker"></div>
+        <h2 id="modalTitle" style="font:600 38px 'Playfair Display',serif;margin:5px 0"></h2>
+      </div>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modalContent">
+      <div class="gallery" id="modalGallery"></div>
+      <p id="modalIntro" style="font-size:18px;line-height:1.7"></p>
+      <div class="infoGrid" id="infoGrid"></div>
+    </div>
+  </div>
 </div>
-
-<h2 id="modalTitle"></h2>
-
-<p id="modalLead"></p>
-
-<div
-class="info-grid"
-id="modalInfo"
-></div>
-
-</div>
-</div>
-
-</div>
-
 
 <script>
+const img = {
+  lobby:"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+  room:"https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85",
+  pool:"https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=85",
+  reception:"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85",
+  restaurant:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85",
+  spa:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85",
+  architecture:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+  breakfast:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1200&q=85",
+  bar:"https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=85",
+  meeting:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+  garden:"https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=85",
+  gym:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85"
+};
 
-const gallery = [
-
-[
-"Lobby & hotel premium",
-"Pierwsze wrażenie, standardy i organizacja przestrzeni wspólnych.",
-"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85",
-[
-"Lobby powinno być czytelne już od wejścia.",
-"Recepcja jest centrum pierwszego kontaktu z gościem.",
-"Oświetlenie wpływa na poczucie komfortu i prestiżu.",
-"Droga do wind, restauracji i pokoi powinna być intuicyjna.",
-"Przestrzeń wspólna musi być regularnie kontrolowana.",
-"Zapach, muzyka i temperatura również budują doświadczenie."
-]
-],
-
-[
-"Pokój hotelowy",
-"Wyposażenie pokoju, standard obsługi i kontrola jakości przed przyjazdem.",
-"https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1400&q=85",
-[
-"Sprawdź czystość łazienki i powierzchni użytkowych.",
-"Zweryfikuj działanie oświetlenia, klimatyzacji i telewizora.",
-"Pościel i ręczniki powinny odpowiadać standardowi obiektu.",
-"Wyposażenie minibarów należy kontrolować według procedury.",
-"Informacje dla gościa powinny być łatwo dostępne.",
-"Każdą usterkę trzeba przekazać odpowiedniej osobie."
-]
-],
-
-[
-"Strefa wypoczynku",
-"Basen, leżaki, wellness i zasady bezpieczeństwa gości.",
-"https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1400&q=85",
-[
-"Stan techniczny wyposażenia należy kontrolować.",
-"Goście muszą znać podstawowe zasady korzystania ze strefy.",
-"Ręczniki i materiały eksploatacyjne powinny być uzupełniane.",
-"Przestrzeń powinna być regularnie sprzątana.",
-"W razie incydentu liczy się szybka reakcja i dokumentacja.",
-"Personel powinien znać drogę do punktu pierwszej pomocy."
-]
-],
-
-[
-"Architektura obiektu",
-"Układ hotelu, komunikacja i funkcjonalność przestrzeni.",
-"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85",
-[
-"Układ komunikacyjny powinien być intuicyjny.",
-"Oznakowanie pomaga ograniczyć liczbę pytań gości.",
-"Strefy publiczne i pracownicze powinny być odpowiednio rozdzielone.",
-"Przestrzeń musi uwzględniać potrzeby osób z ograniczoną mobilnością.",
-"Wystrój powinien być spójny z charakterem marki.",
-"Każda część obiektu wpływa na końcową ocenę pobytu."
-]
-],
-
-[
-"Recepcja",
-"Front office, komunikacja z gościem i organizacja stanowiska pracy.",
-"https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1400&q=85",
-[
-"Stanowisko recepcji powinno być uporządkowane.",
-"Pracownik powinien mieć dostęp do PMS i dokumentacji.",
-"Dane gościa należy przetwarzać zgodnie z procedurami.",
-"Kontakt wzrokowy i spokojny ton budują zaufanie.",
-"Przy dużym ruchu trzeba zachować kolejność obsługi.",
-"Każdą nietypową sytuację należy odnotować."
-]
-],
-
-[
-"Restauracja",
-"Obsługa gastronomiczna, rezerwacje stolików i współpraca między działami.",
-"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85",
-[
-"Rezerwacje powinny być potwierdzane.",
-"Personel powinien znać podstawowe informacje o menu.",
-"Informacje o alergenach trzeba przekazywać precyzyjnie.",
-"Obsługa musi znać godziny śniadań i kolacji.",
-"Kelner powinien komunikować opóźnienia.",
-"Recepcja powinna znać podstawowe zasady działania restauracji."
-]
-],
-
-[
-"Sala śniadaniowa",
-"Organizacja bufetu, standardy higieniczne i obsługa poranna.",
-"https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1400&q=85",
-[
-"Bufet powinien być regularnie uzupełniany.",
-"Produkty wymagające chłodzenia muszą być przechowywane właściwie.",
-"Personel powinien reagować na potrzeby gości.",
-"Stoliki trzeba szybko przygotowywać dla kolejnych osób.",
-"Gość powinien wiedzieć, gdzie znajdują się napoje.",
-"Uwagi dotyczące diety warto przekazywać kuchni."
-]
-],
-
-[
-"Spa & wellness",
-"Relaks, zabiegi, rezerwacje i standard obsługi strefy wellness.",
-"https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1400&q=85",
-[
-"Zabiegi powinny być umawiane z odpowiednim wyprzedzeniem.",
-"Gość powinien otrzymać informacje o czasie trwania zabiegu.",
-"Strefa ciszy wymaga jasnych zasad.",
-"Personel powinien chronić prywatność gości.",
-"Wyposażenie należy sprawdzać przed rozpoczęciem pracy.",
-"Opóźnienia powinny być komunikowane możliwie szybko."
-]
-],
-
-[
-"Pokój premium",
-"Standard apartamentu, doświadczenie gościa i dodatkowe usługi.",
-"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85",
-[
-"Przed przyjazdem należy sprawdzić wszystkie elementy wyposażenia.",
-"Usługi dodatkowe mogą obejmować transfer, śniadanie lub welcome amenities.",
-"Gość premium oczekuje szybkiej i dyskretnej obsługi.",
-"Informacje o preferencjach gościa powinny być dostępne dla właściwego zespołu.",
-"Problemy należy rozwiązywać bez niepotrzebnego przerzucania odpowiedzialności.",
-"Po pobycie warto zebrać informacje o doświadczeniu gościa."
-]
-],
-
-[
-"Housekeeping",
-"Sprzątanie, kontrola pokoi i współpraca z recepcją.",
-"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85",
-[
-"Status pokoju musi być aktualizowany w systemie.",
-"Housekeeping powinien znać priorytetowe pokoje.",
-"Usterki należy zgłaszać zgodnie z procedurą.",
-"Przed oznaczeniem pokoju jako gotowego trzeba wykonać kontrolę.",
-"Rzeczy znalezione należy zabezpieczyć i zarejestrować.",
-"Koordynacja z recepcją zmniejsza ryzyko opóźnień."
-]
-],
-
-[
-"Konferencje & eventy",
-"Sale konferencyjne, wydarzenia biznesowe i koordynacja usług.",
-"https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=85",
-[
-"Przed wydarzeniem należy sprawdzić ustawienie sali.",
-"Sprzęt techniczny powinien być przetestowany.",
-"Organizator powinien znać osobę kontaktową.",
-"Zmiany w harmonogramie trzeba przekazywać wszystkim zainteresowanym.",
-"Catering wymaga dokładnego potwierdzenia liczby osób.",
-"Po wydarzeniu warto sprawdzić salę i wyposażenie."
-]
-],
-
-[
-"Turystyka",
-"Informacja lokalna, atrakcje, transport i pomoc w planowaniu pobytu.",
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
-[
-"Recepcjonista powinien znać najważniejsze atrakcje okolicy.",
-"Informacje o transporcie muszą być aktualne.",
-"Przy rekomendacjach warto uwzględnić budżet i zainteresowania gościa.",
-"Transfery należy potwierdzać z odpowiednim wyprzedzeniem.",
-"Nie należy obiecywać usług, których hotel nie może zagwarantować.",
-"Gość powinien otrzymać jasne informacje dotyczące miejsca i godziny."
-]
-],
-
-[
-"Bezpieczeństwo",
-"Procedury awaryjne, prywatność i odpowiedzialność personelu.",
-"https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1400&q=85",
-[
-"Personel powinien znać procedury ewakuacji.",
-"Dane gościa nie mogą być udostępniane osobom nieuprawnionym.",
-"Incydenty powinny być dokumentowane zgodnie z zasadami obiektu.",
-"W przypadku zagrożenia najważniejsze jest bezpieczeństwo ludzi.",
-"Klucze i karty dostępowe wymagają odpowiedniej kontroli.",
-"Nietypowe sytuacje należy przekazywać przełożonemu."
-]
-],
-
-[
-"Front office",
-"Organizacja pracy recepcji, komunikacja między zmianami i dokumentacja.",
-"https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
-[
-"Przekazanie zmiany powinno obejmować wszystkie istotne sprawy.",
-"Recepcjonista powinien znać obłożenie i najważniejsze przyjazdy.",
-"Reklamacje wymagają spokojnego i profesjonalnego podejścia.",
-"Każda zmiana rezerwacji powinna być poprawnie zapisana.",
-"Gotówka i płatności wymagają dokładności.",
-"Najważniejsze informacje należy pozostawiać w dokumentacji zmiany."
-]
-]
-
+const topics = [
+ {id:"lobby",title:"Lobby & hotel premium",tag:"01",image:img.lobby,desc:"Pierwsze wrażenie, strefy wspólne, orientacja gościa i standard premium."},
+ {id:"room",title:"Pokój hotelowy",tag:"02",image:img.room,desc:"Typy pokoi, wyposażenie, housekeeping, komfort i kontrola jakości."},
+ {id:"pool",title:"Strefa wypoczynku",tag:"03",image:img.pool,desc:"Basen, leżaki, bezpieczeństwo, wellness i obsługa stref rekreacyjnych."},
+ {id:"architecture",title:"Architektura obiektu",tag:"04",image:img.architecture,desc:"Układ funkcjonalny, wejście, komunikacja, wayfinding i design."},
+ {id:"reception",title:"Recepcja",tag:"05",image:img.reception,desc:"Check-in, check-out, rezerwacje, płatności, reklamacje i PMS."},
+ {id:"restaurant",title:"Restauracja",tag:"06",image:img.restaurant,desc:"Obsługa gościa, karta menu, alergeny, sprzedaż i standard serwisu."},
+ {id:"spa",title:"SPA & wellness",tag:"07",image:img.spa,desc:"Rezerwacje zabiegów, strefy ciszy, higiena, bezpieczeństwo i sprzedaż."},
+ {id:"breakfast",title:"Śniadania",tag:"08",image:img.breakfast,desc:"Bufet, uzupełnianie, alergeny, higiena i organizacja ruchu gości."},
+ {id:"bar",title:"Bar & lounge",tag:"09",image:img.bar,desc:"Atmosfera, karta napojów, obsługa stolików i standardy odpowiedzialnej sprzedaży."},
+ {id:"meeting",title:"Konferencje",tag:"10",image:img.meeting,desc:"Sale, ustawienia, AV, przerwy kawowe, harmonogram i opieka nad organizatorem."},
+ {id:"garden",title:"Ogród & otoczenie",tag:"11",image:img.garden,desc:"Teren zewnętrzny, rekreacja, czystość, bezpieczeństwo i doświadczenie gościa."},
+ {id:"gym",title:"Fitness",tag:"12",image:img.gym,desc:"Wyposażenie, zasady korzystania, higiena i bezpieczeństwo."}
 ];
 
+const baseFacts = {
+ lobby:["lobby jest pierwszą strefą kontaktu","recepcja powinna być łatwa do znalezienia","czytelny wayfinding ogranicza pytania gości","oświetlenie wpływa na pierwsze wrażenie","zapach obiektu może budować identyfikację marki","muzyka powinna być dopasowana do charakteru hotelu","meble muszą zapewniać wygodne oczekiwanie","strefa siedząca nie powinna blokować ciągów komunikacyjnych","personel powinien znać lokalizację wszystkich usług","gość powinien szybko znaleźć windę","informacje o godzinach śniadania powinny być łatwo dostępne","czystość lobby wymaga regularnych kontroli"],
+ room:["numer pokoju powinien być czytelny","łóżko jest centralnym elementem pokoju","jakość snu zależy m.in. od materaca","zasłony powinny umożliwiać zaciemnienie","oświetlenie powinno mieć kilka scen","gniazdka powinny być dostępne przy łóżku","Wi-Fi powinno być łatwe do uzyskania","łazienka wymaga kontroli czystości","ręczniki powinny być kompletne","wyposażenie minibarowe musi być zinwentaryzowane","klimatyzacja powinna działać cicho","housekeeping dokumentuje nieprawidłowości"],
+ pool:["przy basenie trzeba kontrolować bezpieczeństwo","oznaczenia głębokości powinny być widoczne","ręczniki basenowe powinny być łatwo dostępne","śliska posadzka zwiększa ryzyko upadku","strefa leżaków powinna być uporządkowana","personel powinien znać procedurę awaryjną","jakość wody podlega regularnej kontroli","dzieci wymagają szczególnej uwagi","zasady korzystania powinny być czytelne","gość powinien wiedzieć gdzie są prysznice","oświetlenie nocne poprawia bezpieczeństwo","sprzęt ratunkowy musi być dostępny"],
+ architecture:["wejście powinno być intuicyjne","architektura wpływa na doświadczenie marki","układ komunikacyjny powinien być logiczny","windy powinny być łatwe do odnalezienia","schody wymagają dobrego oznakowania","strefy prywatne należy oddzielić od publicznych","akustyka wpływa na komfort","materiały powinny być trwałe","materiały łatwe w utrzymaniu ograniczają koszty","oświetlenie może kierować ruchem","bezbarierowość powinna być planowana od początku","oznaczenia awaryjne muszą być widoczne"],
+ reception:["pracownik powinien przywitać gościa","check-in wymaga weryfikacji danych","należy potwierdzić typ pokoju","warto wyjaśnić godziny śniadania","płatność powinna być obsługiwana zgodnie z procedurą","dokumenty gościa należy chronić","PMS jest centralnym narzędziem pracy","rezerwację trzeba znaleźć po właściwych danych","zmiany w rezerwacji należy odnotować","przy skardze najpierw trzeba wysłuchać gościa","należy unikać obiecywania rzeczy bez potwierdzenia","check-out powinien zakończyć się jasnym podsumowaniem"],
+ restaurant:["gość powinien otrzymać kartę menu","personel powinien znać podstawowe składniki dań","alergeny wymagają szczególnej uwagi","stół powinien być przygotowany przed przyjęciem gościa","zamówienie należy powtórzyć dla potwierdzenia","czas oczekiwania warto komunikować","rachunek powinien być sprawdzony przed przekazaniem","sprzedaż dodatkowa powinna być naturalna","czystość sali wpływa na ocenę doświadczenia","personel powinien znać alternatywy dla popularnych diet","reklamacja dotycząca dania wymaga spokojnej reakcji","koordynacja kuchni i sali jest kluczowa"],
+ spa:["rezerwacje zabiegów wymagają dokładnej godziny","gość powinien znać czas trwania zabiegu","strefa ciszy wymaga jasnych zasad","higiena jest podstawą wellness","personel powinien znać przeciwwskazania opisane w procedurach","należy chronić prywatność gościa","opóźnienie zabiegu trzeba komunikować","sprzęt wymaga regularnej kontroli","ręczniki powinny być dostępne","strefy mokre wymagają częstego sprzątania","oferta może być łączona w pakiety","sprzedaż pakietów nie powinna być nachalna"],
+ breakfast:["bufet powinien być uzupełniany regularnie","temperatura produktów wymaga kontroli","alergeny powinny być oznaczone","pieczywo wymaga higienicznego podawania","napoje powinny mieć czytelne oznaczenia","strefa kawy może tworzyć kolejki","stoły należy sprzątać bez zakłócania komfortu","goście powinni wiedzieć o godzinach śniadania","dieta wegetariańska powinna mieć czytelne opcje","produkty łatwo psujące się wymagają kontroli","personel powinien reagować na braki","sprzątanie sali powinno mieć ustalony rytm"],
+ bar:["karta baru powinna być czytelna","obsługa powinna znać skład podstawowych pozycji","gość powinien otrzymać informację o cenie","stoliki wymagają regularnego porządkowania","muzyka wpływa na atmosferę","oświetlenie powinno pasować do pory dnia","obsługa powinna znać zasady odpowiedzialnej sprzedaży","napoje bezalkoholowe powinny być widoczne","rachunek trzeba sprawdzić przed wydaniem","czas oczekiwania warto komunikować","strefa lounge powinna mieć wygodne siedziska","skargi należy rozwiązywać spokojnie"],
+ meeting:["organizator powinien mieć jedną osobę kontaktową","sala musi być przygotowana przed wydarzeniem","ustawienie krzeseł zależy od formatu","sprzęt AV należy przetestować","mikrofon wymaga sprawdzenia","projektor powinien być gotowy przed startem","przerwy kawowe wymagają harmonogramu","oznaczenia sal powinny być widoczne","personel powinien znać plan wydarzenia","awaria sprzętu wymaga szybkiego planu B","temperatura sali wpływa na komfort","po wydarzeniu warto zebrać feedback"],
+ garden:["ciągi piesze powinny być bezpieczne","oświetlenie ogrodu poprawia orientację","meble zewnętrzne wymagają regularnej kontroli","zieleń wpływa na charakter obiektu","gość powinien wiedzieć gdzie może odpoczywać","oznaczenia stref prywatnych powinny być jasne","nawierzchnie muszą być utrzymane w dobrym stanie","kosze powinny być opróżniane regularnie","strefy dla dzieci wymagają dodatkowej kontroli","roślinność nie powinna blokować przejść","personel powinien znać zasady reagowania na zagrożenia","ogród może być częścią oferty wydarzeń"],
+ gym:["sprzęt powinien mieć czytelne zasady użycia","podłoga wymaga regularnego czyszczenia","ręczniki powinny być dostępne","woda pitna powinna być łatwo dostępna","wentylacja wpływa na komfort","urządzenia wymagają kontroli","gość powinien znać godziny otwarcia","zasady bezpieczeństwa powinny być widoczne","strefa cardio wymaga odpowiedniej przestrzeni","ciężary powinny wracać na miejsce","sprzęt uszkodzony należy wyłączyć z użytkowania","higiena urządzeń jest elementem standardu"]
+};
 
-const phrases = [
-["Good morning, how may I help you?","Dzień dobry, w czym mogę pomóc?"],
-["Welcome to our hotel.","Witamy w naszym hotelu."],
-["How was your journey?","Jak minęła Państwu podróż?"],
-["Do you have a reservation?","Czy ma Pan/Pani rezerwację?"],
-["May I have your name, please?","Czy mogę prosić o nazwisko?"],
-["Could you please show me your ID?","Czy może Pan/Pani pokazać dokument tożsamości?"],
-["Let me check your reservation.","Sprawdzę Państwa rezerwację."],
-["Your reservation is confirmed.","Państwa rezerwacja jest potwierdzona."],
-["How many nights will you be staying?","Ile nocy Państwo zostają?"],
-["What type of room did you book?","Jaki typ pokoju został zarezerwowany?"],
-["Would you like a double or twin room?","Czy preferują Państwo pokój dwuosobowy z jednym czy dwoma łóżkami?"],
-["Your room is ready.","Państwa pokój jest gotowy."],
-["Your room number is 305.","Numer Państwa pokoju to 305."],
-["Here is your key card.","Oto karta do Państwa pokoju."],
-["The lift is on your right.","Winda znajduje się po prawej stronie."],
-["Breakfast is served from 7 to 10 a.m.","Śniadanie jest serwowane od 7:00 do 10:00."],
-["The restaurant is on the ground floor.","Restauracja znajduje się na parterze."],
-["Check-out is until 11 a.m.","Wymeldowanie jest do godziny 11:00."],
-["Would you like a wake-up call?","Czy życzą sobie Państwo pobudkę?"],
-["May I help you with your luggage?","Czy mogę pomóc z bagażem?"],
-["Do you need a taxi?","Czy potrzebują Państwo taksówki?"],
-["I can arrange a taxi for you.","Mogę zamówić dla Państwa taksówkę."],
-["Would you like me to book a table?","Czy mam zarezerwować stolik?"],
-["What time would you prefer?","O której godzinie Państwo preferują?"],
-["How many people will be dining?","Ile osób będzie jadło?"],
-["Please have a seat.","Proszę usiąść."],
-["I will be with you in a moment.","Za chwilę się Państwem zajmę."],
-["Thank you for waiting.","Dziękuję za oczekiwanie."],
-["I apologize for the inconvenience.","Przepraszam za niedogodności."],
-["Let me look into this for you.","Sprawdzę to dla Państwa."],
-["I understand your concern.","Rozumiem Państwa sytuację."],
-["I will do my best to help.","Zrobię wszystko, co w mojej mocy, żeby pomóc."],
-["Could you please explain what happened?","Czy może Pan/Pani wyjaśnić, co się stało?"],
-["I am sorry to hear that.","Przykro mi to słyszeć."],
-["We will resolve this as quickly as possible.","Rozwiążemy to tak szybko, jak to możliwe."],
-["Would you like to speak to a manager?","Czy chcą Państwo porozmawiać z kierownikiem?"],
-["I will contact housekeeping.","Skontaktuję się z housekeepingiem."],
-["I will send someone to your room.","Wyślę kogoś do Państwa pokoju."],
-["There seems to be a problem with the air conditioning.","Wygląda na to, że jest problem z klimatyzacją."],
-["The maintenance team will check it.","Dział techniczny to sprawdzi."],
-["We can offer you another room.","Możemy zaoferować Państwu inny pokój."],
-["Would you like a room upgrade?","Czy chcą Państwo podwyższyć standard pokoju?"],
-["There is an additional charge for the upgrade.","Za podwyższenie standardu obowiązuje dodatkowa opłata."],
-["The room rate includes breakfast.","Cena pokoju obejmuje śniadanie."],
-["The rate does not include breakfast.","Cena nie obejmuje śniadania."],
-["The tourist tax is not included.","Podatek turystyczny nie jest wliczony."],
-["How would you like to pay?","Jak chcą Państwo zapłacić?"],
-["Cash or card?","Gotówką czy kartą?"],
-["Here is your receipt.","Oto Państwa paragon."],
-["Would you like an invoice?","Czy życzą sobie Państwo fakturę?"],
-["Could you please confirm your email address?","Czy może Pan/Pani potwierdzić adres e-mail?"],
-["Your payment has been approved.","Płatność została zaakceptowana."],
-["The card was declined.","Karta została odrzucona."],
-["Would you like to try another card?","Czy chcą Państwo spróbować inną kartą?"],
-["Please enter your PIN.","Proszę wprowadzić PIN."],
-["The deposit is required at check-in.","Przy zameldowaniu wymagana jest kaucja."],
-["The deposit will be released after check-out.","Kaucja zostanie zwolniona po wymeldowaniu."],
-["Could you please sign here?","Czy może Pan/Pani podpisać tutaj?"],
-["Your stay has been extended.","Państwa pobyt został przedłużony."],
-["Would you like to extend your stay?","Czy chcą Państwo przedłużyć pobyt?"],
-["Unfortunately, we are fully booked tonight.","Niestety, dziś mamy pełne obłożenie."],
-["Let me check whether we have availability.","Sprawdzę dostępność."],
-["We have a room available for tonight.","Mamy dostępny pokój na dzisiejszą noc."],
-["The room is available from 3 p.m.","Pokój jest dostępny od godziny 15:00."],
-["Early check-in may be possible.","Wcześniejsze zameldowanie może być możliwe."],
-["Late check-out is subject to availability.","Późne wymeldowanie zależy od dostępności."],
-["There may be an additional fee.","Może obowiązywać dodatkowa opłata."],
-["Your booking is non-refundable.","Państwa rezerwacja jest bezzwrotna."],
-["You can cancel free of charge until tomorrow.","Mogą Państwo bezpłatnie anulować rezerwację do jutra."],
-["Could you please confirm the cancellation?","Czy może Pan/Pani potwierdzić anulowanie?"],
-["Your booking has been cancelled.","Państwa rezerwacja została anulowana."],
-["We have updated your reservation.","Zaktualizowaliśmy Państwa rezerwację."],
-["Would you like to add breakfast?","Czy chcą Państwo dodać śniadanie?"],
-["Would you like to add parking?","Czy chcą Państwo dodać parking?"],
-["Would you like airport transfer?","Czy chcą Państwo transfer z lotniska?"],
-["What time will you arrive?","O której godzinie Państwo przyjadą?"],
-["What time will you be leaving?","O której godzinie Państwo wyjeżdżają?"],
-["Could you please provide a phone number?","Czy może Pan/Pani podać numer telefonu?"],
-["We have noted your request.","Odnotowaliśmy Państwa prośbę."],
-["We will do our best to accommodate your request.","Postaramy się spełnić Państwa prośbę."],
-["I will make a note of that.","Zapiszę tę informację."],
-["Is there anything else I can help you with?","Czy mogę jeszcze w czymś pomóc?"],
-["Have a pleasant stay.","Życzymy przyjemnego pobytu."],
-["Enjoy your stay.","Życzymy udanego pobytu."],
-["Have a safe journey home.","Życzymy bezpiecznej podróży do domu."],
-["Thank you for staying with us.","Dziękujemy za pobyt u nas."],
-["We hope to see you again.","Mamy nadzieję zobaczyć Państwa ponownie."],
-["It was a pleasure having you here.","Miło było Państwa gościć."],
-["May I see your booking confirmation?","Czy mogę zobaczyć potwierdzenie rezerwacji?"],
-["Could you spell your surname, please?","Czy może Pan/Pani przeliterować nazwisko?"],
-["Could you repeat that, please?","Czy może Pan/Pani powtórzyć?"],
-["Could you speak a little more slowly?","Czy może Pan/Pani mówić trochę wolniej?"],
-["Let me make sure I understood correctly.","Upewnię się, że dobrze zrozumiałem/am."],
-["If I understand correctly, you need...","Jeśli dobrze rozumiem, potrzebuje Pan/Pani..."],
-["One moment, please.","Chwileczkę, proszę."],
-["Thank you for your patience.","Dziękuję za cierpliwość."],
-["I will check that immediately.","Sprawdzę to natychmiast."],
-["I will get back to you shortly.","Wkrótce wrócę z odpowiedzią."],
-["Please wait here for a moment.","Proszę chwilę tutaj poczekać."],
-["Someone will assist you shortly.","Ktoś wkrótce Państwu pomoże."],
-["The manager is currently unavailable.","Kierownik jest obecnie niedostępny."],
-["I can take a message.","Mogę przyjąć wiadomość."],
-["Could you leave your contact details?","Czy może Pan/Pani zostawić dane kontaktowe?"],
-["I will pass this information on.","Przekażę tę informację."],
-["We will contact you as soon as possible.","Skontaktujemy się z Państwem tak szybko, jak to możliwe."],
-["Your room has been cleaned.","Państwa pokój został posprzątany."],
-["Housekeeping will come shortly.","Housekeeping przyjdzie wkrótce."],
-["Would you like your room cleaned now?","Czy chcą Państwo, aby pokój został teraz posprzątany?"],
-["Would you like fresh towels?","Czy chcą Państwo świeże ręczniki?"],
-["I can arrange extra towels.","Mogę zorganizować dodatkowe ręczniki."],
-["Would you like an extra pillow?","Czy chcą Państwo dodatkową poduszkę?"],
-["We can provide an extra blanket.","Możemy dostarczyć dodatkowy koc."],
-["The minibar has been restocked.","Minibar został uzupełniony."],
-["There is a charge for minibar items.","Produkty z minibaru są dodatkowo płatne."],
-["The safe is inside the wardrobe.","Sejf znajduje się w szafie."],
-["The Wi-Fi password is on the desk.","Hasło do Wi-Fi znajduje się na biurku."],
-["The Wi-Fi is complimentary.","Wi-Fi jest bezpłatne."],
-["The password is case-sensitive.","Hasło rozróżnia wielkie i małe litery."],
-["Please connect to the hotel network.","Proszę połączyć się z siecią hotelową."],
-["The restaurant is open until 10 p.m.","Restauracja jest otwarta do 22:00."],
-["The bar is open until midnight.","Bar jest otwarty do północy."],
-["Breakfast is served as a buffet.","Śniadanie jest serwowane w formie bufetu."],
-["Breakfast is included in your rate.","Śniadanie jest wliczone w cenę."],
-["Breakfast is available for an additional fee.","Śniadanie jest dostępne za dodatkową opłatą."],
-["Do you have any dietary requirements?","Czy mają Państwo wymagania dietetyczne?"],
-["Do you have any food allergies?","Czy mają Państwo alergie pokarmowe?"],
-["I will inform the kitchen.","Poinformuję kuchnię."],
-["We have vegetarian options.","Mamy opcje wegetariańskie."],
-["We have vegan options.","Mamy opcje wegańskie."],
-["The chef can prepare a special meal.","Szef kuchni może przygotować specjalny posiłek."],
-["Would you like still or sparkling water?","Czy życzą sobie Państwo wodę niegazowaną czy gazowaną?"],
-["Would you like coffee or tea?","Czy życzą sobie Państwo kawę czy herbatę?"],
-["Your table is ready.","Państwa stolik jest gotowy."],
-["Your table is reserved under the name Smith.","Stolik jest zarezerwowany na nazwisko Smith."],
-["How many guests are in your party?","Ile osób jest w Państwa grupie?"],
-["Would you like to see the menu?","Czy chcą Państwo zobaczyć menu?"],
-["May I take your order?","Czy mogę przyjąć zamówienie?"],
-["Are you ready to order?","Czy są Państwo gotowi zamówić?"],
-["Would you like anything else?","Czy życzą sobie Państwo coś jeszcze?"],
-["Enjoy your meal.","Smacznego."],
-["How was everything?","Jak Państwu smakowało?"],
-["Was everything satisfactory?","Czy wszystko było zadowalające?"],
-["I am sorry about the delay.","Przepraszam za opóźnienie."],
-["Your order will be ready shortly.","Państwa zamówienie będzie wkrótce gotowe."],
-["The kitchen is very busy at the moment.","Kuchnia jest obecnie bardzo zajęta."],
-["I will check the status of your order.","Sprawdzę status zamówienia."],
-["Would you like the bill?","Czy życzą sobie Państwo rachunek?"],
-["Would you like to pay together or separately?","Czy chcą Państwo zapłacić razem czy osobno?"],
-["The service charge is included.","Opłata za obsługę jest wliczona."],
-["The service charge is not included.","Opłata za obsługę nie jest wliczona."],
-["Here is your bill.","Oto Państwa rachunek."],
-["Could you please check the bill?","Czy mogą Państwo sprawdzić rachunek?"],
-["There is a mistake on the bill.","Na rachunku jest błąd."],
-["I will correct it immediately.","Poprawię to natychmiast."],
-["Would you like a receipt?","Czy życzą sobie Państwo paragon?"],
-["Would you like to leave a tip?","Czy chcą Państwo zostawić napiwek?"],
-["The nearest pharmacy is two blocks away.","Najbliższa apteka jest dwie przecznice stąd."],
-["The nearest hospital is ten minutes away.","Najbliższy szpital jest dziesięć minut stąd."],
-["I can show you on the map.","Mogę pokazać na mapie."],
-["The city centre is within walking distance.","Centrum miasta znajduje się w odległości spaceru."],
-["The bus stop is across the street.","Przystanek autobusowy jest po drugiej stronie ulicy."],
-["The train station is about fifteen minutes away.","Dworzec kolejowy jest około piętnaście minut stąd."],
-["A taxi can take you there.","Taksówka może Państwa tam zawieźć."],
-["Would you like directions?","Czy chcą Państwo wskazówki dotyczące drogi?"],
-["Turn left at the traffic lights.","Proszę skręcić w lewo na światłach."],
-["Go straight ahead.","Proszę iść prosto."],
-["It is on your left.","To jest po lewej stronie."],
-["It is on your right.","To jest po prawej stronie."],
-["It is next to the bank.","To jest obok banku."],
-["It is opposite the hotel.","To jest naprzeciwko hotelu."],
-["The entrance is around the corner.","Wejście jest za rogiem."],
-["The tour starts at 9 a.m.","Wycieczka rozpoczyna się o 9:00."],
-["Would you like me to book a tour?","Czy mam zarezerwować wycieczkę?"],
-["The tour is fully booked.","Wycieczka jest całkowicie wyprzedana."],
-["There are still a few places available.","Zostało jeszcze kilka wolnych miejsc."],
-["The meeting point is in the lobby.","Miejsce spotkania znajduje się w lobby."],
-["The guide will meet you there.","Przewodnik spotka się tam z Państwem."],
-["The transfer leaves at 6 a.m.","Transfer odjeżdża o 6:00."],
-["Please be in the lobby ten minutes early.","Proszę być w lobby dziesięć minut wcześniej."],
-["Your driver will be waiting outside.","Kierowca będzie czekał na zewnątrz."],
-["Here is the driver's phone number.","Oto numer telefonu kierowcy."],
-["The airport is approximately thirty minutes away.","Lotnisko znajduje się około trzydzieści minut stąd."],
-["Would you like us to arrange airport transfer?","Czy chcą Państwo, abyśmy zorganizowali transfer na lotnisko?"],
-["What time is your flight?","O której godzinie jest Państwa lot?"],
-["I recommend leaving at least two hours early.","Polecam wyjechać co najmniej dwie godziny wcześniej."],
-["May I confirm your departure time?","Czy mogę potwierdzić godzinę wyjazdu?"],
-["Your luggage can be stored here.","Państwa bagaż może być tutaj przechowany."],
-["The luggage room is behind reception.","Przechowalnia bagażu znajduje się za recepcją."],
-["Please keep your luggage receipt.","Proszę zachować kwit bagażowy."],
-["We will keep your luggage safe.","Zabezpieczymy Państwa bagaż."],
-["Your luggage is ready for collection.","Państwa bagaż jest gotowy do odbioru."],
-["May I see your luggage ticket?","Czy mogę zobaczyć kwit bagażowy?"],
-["The conference room is on the first floor.","Sala konferencyjna znajduje się na pierwszym piętrze."],
-["The meeting starts at 10 a.m.","Spotkanie rozpoczyna się o 10:00."],
-["The room has been prepared for your event.","Sala została przygotowana na Państwa wydarzenie."],
-["The projector is ready.","Projektor jest gotowy."],
-["The Wi-Fi details are on the screen.","Dane Wi-Fi są na ekranie."],
-["Coffee and tea are available outside the room.","Kawa i herbata są dostępne przed salą."],
-["Would you like us to arrange catering?","Czy chcą Państwo, abyśmy zorganizowali catering?"],
-["How many participants will attend?","Ilu uczestników weźmie udział?"],
-["I will contact the events team.","Skontaktuję się z zespołem eventowym."],
-["The event schedule has been updated.","Harmonogram wydarzenia został zaktualizowany."],
-["The room is ready for the next meeting.","Sala jest gotowa na następne spotkanie."],
-["Please let us know if you need anything.","Proszę dać nam znać, jeśli czegoś Państwo potrzebują."],
-["We appreciate your feedback.","Doceniamy Państwa opinię."],
-["Could you please leave us a review?","Czy mogą Państwo zostawić nam opinię?"],
-["I will forward your feedback to the manager.","Przekażę Państwa opinię kierownikowi."],
-["We take complaints seriously.","Poważnie traktujemy reklamacje."],
-["I am sorry that your experience did not meet expectations.","Przykro mi, że Państwa doświadczenie nie spełniło oczekiwań."],
-["Let me see what I can do.","Sprawdzę, co mogę zrobić."],
-["We can offer a complimentary service.","Możemy zaoferować bezpłatną usługę."],
-["We can offer a room change.","Możemy zaoferować zmianę pokoju."],
-["I understand why you are disappointed.","Rozumiem, dlaczego są Państwo rozczarowani."],
-["Thank you for bringing this to our attention.","Dziękuję za zwrócenie nam na to uwagi."],
-["We will investigate the matter.","Zbadamy tę sprawę."],
-["I will report this to my supervisor.","Zgłoszę to przełożonemu."],
-["We will keep you informed.","Będziemy Państwa informować."],
-["Your complaint has been registered.","Państwa reklamacja została zarejestrowana."],
-["We will respond within 24 hours.","Odpowiemy w ciągu 24 godzin."],
-["Could you please describe the problem?","Czy może Pan/Pani opisać problem?"],
-["When did you first notice the problem?","Kiedy po raz pierwszy zauważyli Państwo problem?"],
-["Has this happened before?","Czy to zdarzyło się wcześniej?"],
-["I will make sure this is followed up.","Dopilnuję dalszego zajęcia się tą sprawą."],
-["We apologize for the inconvenience caused.","Przepraszamy za powstałe niedogodności."],
-["Thank you for bringing this to our attention.","Dziękujemy za zgłoszenie tej sprawy."],
-["We appreciate your understanding.","Doceniamy Państwa wyrozumiałość."],
-["We hope we can restore your confidence in our service.","Mamy nadzieję odzyskać Państwa zaufanie do naszej obsługi."],
-["Please accept our apologies.","Proszę przyjąć nasze przeprosiny."],
-["We will take appropriate action.","Podejmiemy odpowiednie działania."],
-["Your privacy is important to us.","Państwa prywatność jest dla nas ważna."],
-["We cannot disclose guest information.","Nie możemy ujawniać informacji o gościach."],
-["Could you please provide identification?","Czy może Pan/Pani podać dokument tożsamości?"],
-["For security reasons, we need to verify your identity.","Ze względów bezpieczeństwa musimy zweryfikować Państwa tożsamość."],
-["I am afraid I cannot provide that information.","Obawiam się, że nie mogę udostępnić tej informacji."],
-["Only authorized staff have access to this information.","Tylko upoważniony personel ma dostęp do tej informacji."],
-["Please do not share your room number publicly.","Proszę nie podawać numeru pokoju publicznie."],
-["We will contact the registered guest directly.","Skontaktujemy się bezpośrednio z zarejestrowanym gościem."],
-["For your security, we need to confirm a few details.","Dla Państwa bezpieczeństwa musimy potwierdzić kilka informacji."],
-["Could you please wait while I verify this?","Czy mogą Państwo poczekać, aż to zweryfikuję?"],
-["I cannot access that information without authorization.","Nie mogę uzyskać dostępu do tej informacji bez upoważnienia."],
-["The key card is not working.","Karta do pokoju nie działa."],
-["I will reprogram the key card.","Przeprogramuję kartę."],
-["Please try the card again.","Proszę spróbować ponownie użyć karty."],
-["The room safe is not working.","Sejf w pokoju nie działa."],
-["The air conditioning is not working.","Klimatyzacja nie działa."],
-["The television is not working.","Telewizor nie działa."],
-["The shower is not working properly.","Prysznic nie działa prawidłowo."],
-["There is no hot water.","Nie ma ciepłej wody."],
-["There is a problem with the heating.","Jest problem z ogrzewaniem."],
-["There is a problem with the Wi-Fi.","Jest problem z Wi-Fi."],
-["The maintenance team is on the way.","Dział techniczny jest w drodze."],
-["We expect the issue to be resolved shortly.","Spodziewamy się, że problem zostanie wkrótce rozwiązany."],
-["Would you like to move to another room?","Czy chcą Państwo przenieść się do innego pokoju?"],
-["We can arrange a temporary solution.","Możemy zorganizować tymczasowe rozwiązanie."],
-["Thank you for reporting the issue.","Dziękujemy za zgłoszenie problemu."],
-["I will update the room status in the system.","Zaktualizuję status pokoju w systemie."],
-["The room is currently out of order.","Pokój jest obecnie wyłączony z użytku."],
-["The room is being inspected.","Pokój jest obecnie sprawdzany."],
-["The room will be ready shortly.","Pokój będzie wkrótce gotowy."],
-["The room is not yet ready.","Pokój nie jest jeszcze gotowy."],
-["We are doing everything we can to prepare it quickly.","Robimy wszystko, co możemy, aby szybko go przygotować."],
-["I can offer you a place to wait.","Mogę zaoferować Państwu miejsce do oczekiwania."],
-["Would you like something to drink while you wait?","Czy chcą Państwo coś do picia podczas oczekiwania?"],
-["We can store your luggage while you wait.","Możemy przechować Państwa bagaż podczas oczekiwania."],
-["I will let you know as soon as the room is ready.","Poinformuję Państwa, gdy tylko pokój będzie gotowy."],
-["Your room is ready now.","Państwa pokój jest już gotowy."],
-["Thank you for your understanding.","Dziękuję za wyrozumiałość."],
-["Could you please fill in this form?","Czy może Pan/Pani wypełnić ten formularz?"],
-["Please sign at the bottom.","Proszę podpisać na dole."],
-["Could you check the spelling of your name?","Czy może Pan/Pani sprawdzić pisownię nazwiska?"],
-["What is your preferred contact method?","Jaki jest preferowany sposób kontaktu?"],
-["Would you like us to contact you by email?","Czy możemy skontaktować się z Państwem e-mailem?"],
-["Could you provide an emergency contact?","Czy może Pan/Pani podać kontakt alarmowy?"],
-["Please make sure the information is correct.","Proszę upewnić się, że informacje są poprawne."],
-["I will update your details.","Zaktualizuję Państwa dane."],
-["Your details have been updated.","Państwa dane zostały zaktualizowane."],
-["Your reservation has been modified.","Państwa rezerwacja została zmieniona."],
-["The new dates are confirmed.","Nowe daty zostały potwierdzone."],
-["The room type has been changed.","Typ pokoju został zmieniony."],
-["The number of guests has been updated.","Liczba gości została zaktualizowana."],
-["The booking confirmation has been sent by email.","Potwierdzenie rezerwacji zostało wysłane e-mailem."],
-["Please check your inbox.","Proszę sprawdzić skrzynkę odbiorczą."],
-["The confirmation may be in your spam folder.","Potwierdzenie może znajdować się w folderze spam."],
-["I can resend the confirmation.","Mogę ponownie wysłać potwierdzenie."],
-["The reservation number is 45821.","Numer rezerwacji to 45821."],
-["Please quote your reservation number.","Proszę podać numer rezerwacji."],
-["I found your booking in the system.","Znalazłem/am Państwa rezerwację w systemie."],
-["There is no reservation under that name.","Nie ma rezerwacji na to nazwisko."],
-["Let me search by email address.","Spróbuję wyszukać po adresie e-mail."],
-["Let me search by confirmation number.","Spróbuję wyszukać po numerze potwierdzenia."],
-["Could the reservation be under another name?","Czy rezerwacja może być na inne nazwisko?"],
-["The booking was made through an online travel agency.","Rezerwacja została dokonana przez internetowe biuro podróży."],
-["I will check the booking conditions.","Sprawdzę warunki rezerwacji."],
-["The cancellation policy depends on the rate.","Polityka anulowania zależy od wybranej taryfy."],
-["The booking is subject to the hotel's terms and conditions.","Rezerwacja podlega warunkom hotelu."],
-["The room rate is per night.","Cena pokoju dotyczy jednej nocy."],
-["The total amount is...","Łączna kwota wynosi..."],
-["Taxes are included in the total.","Podatki są wliczone w cenę całkowitą."],
-["Additional charges may apply.","Mogą obowiązywać dodatkowe opłaty."],
-["There is no extra charge for this service.","Za tę usługę nie ma dodatkowej opłaty."],
-["This service is complimentary.","Ta usługa jest bezpłatna."],
-["This service is available on request.","Ta usługa jest dostępna na życzenie."],
-["Please contact reception if you need anything else.","Proszę skontaktować się z recepcją, jeśli będą Państwo czegoś potrzebować."],
-["Reception is open 24 hours a day.","Recepcja jest czynna 24 godziny na dobę."],
-["The night manager is available at reception.","Kierownik nocny jest dostępny w recepcji."],
-["Please dial zero from your room phone.","Proszę wybrać zero z telefonu w pokoju."],
-["You can reach reception by pressing this button.","Z recepcją można połączyć się, naciskając ten przycisk."],
-["The emergency exit is clearly marked.","Wyjście ewakuacyjne jest wyraźnie oznaczone."],
-["Please follow the emergency instructions.","Proszę postępować zgodnie z instrukcjami awaryjnymi."],
-["In case of emergency, remain calm.","W razie zagrożenia proszę zachować spokój."],
-["Please do not use the lift during a fire alarm.","Podczas alarmu pożarowego proszę nie korzystać z windy."],
-["The assembly point is outside the main entrance.","Miejsce zbiórki znajduje się przed głównym wejściem."],
-["We will assist you during the evacuation.","Pomożemy Państwu podczas ewakuacji."],
-["Please follow the staff instructions.","Proszę postępować zgodnie z instrukcjami personelu."],
-["Your safety is our priority.","Państwa bezpieczeństwo jest naszym priorytetem."],
-["Are you feeling all right?","Czy dobrze się Państwo czują?"],
-["Do you need medical assistance?","Czy potrzebują Państwo pomocy medycznej?"],
-["I will call emergency services.","Wezwę służby ratunkowe."],
-["Please stay where you are.","Proszę pozostać na miejscu."],
-["Help is on the way.","Pomoc jest w drodze."],
-["Do you need an ambulance?","Czy potrzebują Państwo karetki?"],
-["Would you like me to call a doctor?","Czy mam wezwać lekarza?"],
-["Please let me know if your condition changes.","Proszę poinformować mnie, jeśli Państwa stan się zmieni."],
-["We have a first-aid kit available.","Mamy dostęp do apteczki pierwszej pomocy."],
-["Please wait in the lobby.","Proszę poczekać w lobby."],
-["The driver has arrived.","Kierowca przyjechał."],
-["Your taxi is waiting outside.","Państwa taksówka czeka na zewnątrz."],
-["The taxi will be here in five minutes.","Taksówka będzie za pięć minut."],
-["The transfer has been confirmed.","Transfer został potwierdzony."],
-["The transfer has been delayed.","Transfer jest opóźniony."],
-["The driver is running late.","Kierowca ma opóźnienie."],
-["I will contact the driver.","Skontaktuję się z kierowcą."],
-["Could you please wait a few more minutes?","Czy mogą Państwo poczekać jeszcze kilka minut?"],
-["I apologize for the delay.","Przepraszam za opóźnienie."],
-["We can arrange an alternative transfer.","Możemy zorganizować alternatywny transfer."],
-["Would you like a private transfer?","Czy chcą Państwo prywatny transfer?"],
-["The price includes the transfer.","Cena obejmuje transfer."],
-["The transfer is charged separately.","Transfer jest rozliczany osobno."],
-["Please confirm the pickup location.","Proszę potwierdzić miejsce odbioru."],
-["Please confirm the pickup time.","Proszę potwierdzić godzinę odbioru."],
-["The pickup point is outside the main entrance.","Miejsce odbioru znajduje się przed głównym wejściem."],
-["Your driver will have your name.","Kierowca będzie miał Państwa nazwisko."],
-["Please look for the hotel sign.","Proszę szukać oznaczenia hotelu."],
-["The driver will meet you at arrivals.","Kierowca spotka się z Państwem w hali przylotów."],
-["Have a pleasant journey.","Życzymy przyjemnej podróży."],
-["We look forward to welcoming you.","Czekamy na Państwa przyjazd."],
-["We are delighted to have you with us.","Cieszymy się, że są Państwo z nami."],
-["Thank you for choosing our hotel.","Dziękujemy za wybranie naszego hotelu."],
-["We hope you enjoy your stay.","Mamy nadzieję, że pobyt będzie udany."],
-["Please let us know if there is anything we can do.","Proszę dać nam znać, jeśli możemy coś zrobić."],
-["Your comfort is important to us.","Państwa komfort jest dla nas ważny."],
-["We are happy to assist you.","Chętnie Państwu pomożemy."],
-["It is my pleasure.","To dla mnie przyjemność."],
-["Certainly.","Oczywiście."],
-["Of course.","Oczywiście."],
-["Absolutely.","Jak najbardziej."],
-["Certainly, I can arrange that.","Oczywiście, mogę to zorganizować."],
-["I will take care of it.","Zajmę się tym."],
-["Consider it done.","Proszę uznać sprawę za załatwioną."],
-["Allow me to check.","Pozwolę sobie to sprawdzić."],
-["Let me assist you.","Pozwolę sobie pomóc."],
-["May I suggest an alternative?","Czy mogę zaproponować alternatywę?"],
-["One option would be...","Jedną z możliwości byłoby..."],
-["Another possibility is...","Inną możliwością jest..."],
-["Would that work for you?","Czy takie rozwiązanie Państwu odpowiada?"],
-["Does that sound convenient?","Czy takie rozwiązanie jest dla Państwa wygodne?"],
-["Would you prefer this option?","Czy wolą Państwo tę opcję?"],
-["I completely understand.","W pełni rozumiem."],
-["I see what you mean.","Rozumiem, co ma Pan/Pani na myśli."],
-["Thank you for explaining.","Dziękuję za wyjaśnienie."],
-["Let me clarify that for you.","Pozwolę sobie to wyjaśnić."],
-["To clarify...","Dla wyjaśnienia..."],
-["Just to confirm...","Tylko żeby potwierdzić..."],
-["As far as I can see...","Z tego, co widzę..."],
-["According to our system...","Według naszego systemu..."],
-["According to our records...","Według naszych danych..."],
-["Unfortunately, that option is not available.","Niestety, ta opcja nie jest dostępna."],
-["Unfortunately, we cannot guarantee that.","Niestety, nie możemy tego zagwarantować."],
-["I can offer you the following alternative.","Mogę zaproponować następującą alternatywę."],
-["We can arrange this for an additional fee.","Możemy to zorganizować za dodatkową opłatą."],
-["There is a small additional charge.","Obowiązuje niewielka dodatkowa opłata."],
-["The exact price depends on the option you choose.","Dokładna cena zależy od wybranej opcji."],
-["Let me check the current rate.","Sprawdzę aktualną stawkę."],
-["The best available rate is...","Najlepsza dostępna cena to..."],
-["This rate includes breakfast.","Ta cena obejmuje śniadanie."],
-["This rate includes parking.","Ta cena obejmuje parking."],
-["This rate includes airport transfer.","Ta cena obejmuje transfer z lotniska."],
-["Would you like me to explain the options?","Czy mam wyjaśnić dostępne opcje?"],
-["I can walk you through the process.","Mogę przeprowadzić Państwa przez cały proces."],
-["The process is very simple.","Proces jest bardzo prosty."],
-["First, we need to verify your details.","Najpierw musimy zweryfikować Państwa dane."],
-["Then I will confirm the reservation.","Następnie potwierdzę rezerwację."],
-["After that, I will issue your key card.","Następnie wydam kartę do pokoju."],
-["Finally, I will explain the main hotel facilities.","Na końcu wyjaśnię najważniejsze udogodnienia hotelu."],
-["Please let me know if you have any questions.","Proszę powiedzieć, jeśli mają Państwo pytania."],
-["I am happy to explain.","Chętnie wyjaśnię."],
-["Would you like a printed copy?","Czy chcą Państwo wydrukowaną kopię?"],
-["I can send it by email instead.","Mogę zamiast tego wysłać ją e-mailem."],
-["Please check the details before signing.","Proszę sprawdzić dane przed podpisaniem."],
-["Everything looks correct.","Wszystko wygląda poprawnie."],
-["There is one detail I need to correct.","Jest jedna informacja, którą muszę poprawić."],
-["I have updated the information.","Zaktualizowałem/am informacje."],
-["Everything is now confirmed.","Wszystko jest teraz potwierdzone."],
-["You are all set.","Wszystko jest gotowe."],
-["You are checked in.","Zostali Państwo zameldowani."],
-["You are checked out.","Zostali Państwo wymeldowani."],
-["Here is your final invoice.","Oto Państwa faktura końcowa."],
-["Thank you for settling the balance.","Dziękuję za uregulowanie należności."],
-["Your account has been settled.","Państwa rachunek został uregulowany."],
-["There is an outstanding balance.","Pozostała nieuregulowana należność."],
-["Would you like to pay the remaining balance now?","Czy chcą Państwo uregulować pozostałą należność teraz?"],
-["The security deposit has been released.","Kaucja została zwolniona."],
-["The refund will be processed according to the hotel's policy.","Zwrot zostanie zrealizowany zgodnie z polityką hotelu."],
-["The refund may take several business days.","Zwrot może potrwać kilka dni roboczych."],
-["Please keep your receipt.","Proszę zachować paragon."],
-["Thank you for your cooperation.","Dziękuję za współpracę."],
-["We appreciate your cooperation.","Doceniamy Państwa współpracę."],
-["Thank you for your understanding and patience.","Dziękuję za wyrozumiałość i cierpliwość."],
-["Please do not hesitate to contact us.","Proszę się nie wahać z nami skontaktować."],
-["We are available around the clock.","Jesteśmy dostępni przez całą dobę."],
-["We are here to help.","Jesteśmy tutaj, aby pomóc."],
-["How may I assist you today?","W czym mogę dziś pomóc?"],
-["What can I do for you?","Co mogę dla Państwa zrobić?"],
-["How can I make your stay more comfortable?","Jak mogę sprawić, aby pobyt był bardziej komfortowy?"],
-["Is everything okay with your room?","Czy wszystko jest w porządku z pokojem?"],
-["Is there anything you would like us to arrange?","Czy jest coś, co chcieliby Państwo, abyśmy zorganizowali?"],
-["Would you like some local recommendations?","Czy chcą Państwo polecenia lokalnych atrakcji?"],
-["What kind of activities are you interested in?","Jakimi atrakcjami są Państwo zainteresowani?"],
-["Are you travelling for business or leisure?","Podróżują Państwo służbowo czy wypoczynkowo?"],
-["Is this your first time in the city?","Czy są Państwo pierwszy raz w tym mieście?"],
-["How long will you be staying?","Jak długo będą Państwo zostawać?"],
-["Do you have any special requests?","Czy mają Państwo jakieś specjalne życzenia?"],
-["Do you need anything for your room?","Czy potrzebują Państwo czegoś do pokoju?"],
-["Would you like us to arrange anything in advance?","Czy chcą Państwo, abyśmy coś zorganizowali z wyprzedzeniem?"],
-["We can prepare that for your arrival.","Możemy przygotować to na Państwa przyjazd."],
-["I will add that request to your reservation.","Dodam tę prośbę do Państwa rezerwacji."],
-["Your request has been noted.","Państwa prośba została odnotowana."],
-["We will do our best to meet your expectations.","Zrobimy wszystko, aby spełnić Państwa oczekiwania."],
-["Thank you for choosing VARELISSA.","Dziękujemy za wybranie VARELISSA."],
-["We look forward to welcoming you back.","Czekamy na Państwa ponowną wizytę."]
+const extraPatterns = [
+ "standard powinien być opisany w procedurze operacyjnej",
+ "pracownik powinien wiedzieć, kto jest odpowiedzialny za dany obszar",
+ "informacja przekazana gościowi powinna być konkretna",
+ "nie należy zgadywać danych, których nie ma w systemie",
+ "ważne czynności warto dokumentować",
+ "komunikacja między działami ogranicza błędy",
+ "sytuacje nietypowe powinny być eskalowane zgodnie z procedurą",
+ "kultura osobista jest częścią jakości usługi",
+ "gość powinien otrzymać jasny kolejny krok",
+ "czas reakcji wpływa na ocenę profesjonalizmu",
+ "spokojny ton pomaga w sytuacjach trudnych",
+ "pracownik powinien znać lokalizację zaplecza",
+ "regularna kontrola zapobiega większym problemom",
+ "standard jakości powinien być powtarzalny",
+ "każdy kontakt z gościem buduje doświadczenie marki",
+ "informacje w systemie powinny być aktualne",
+ "prywatność danych gościa jest obowiązkiem pracownika",
+ "wątpliwości należy sprawdzać zamiast zakładać",
+ "estetyka miejsca wpływa na postrzeganą jakość",
+ "porządek powinien być utrzymywany przez cały dzień"
 ];
 
-const galleryEl=document.getElementById('gallery');
-
-gallery.forEach((g,i)=>{
-
-  const [title,lead,img,info]=g;
-
-  const card=document.createElement('article');
-
-  card.className='card '+([0,3,8].includes(i)?'large':'');
-
-  card.innerHTML=`
-    <img src="${img}" alt="${title}" loading="lazy">
-    <div class="card-body">
-      <span class="eyebrow">
-        MODUŁ ${String(i+1).padStart(2,'0')}
-      </span>
-
-      <span class="arrow">↗</span>
-
-      <h3>${title}</h3>
-
-      <p>${lead}</p>
-    </div>
-  `;
-
-  card.addEventListener('click',()=>openModal(g,i));
-
-  galleryEl.appendChild(card);
-
-});
-
-
-function openModal(g,i){
-
-  const [title,lead,img,info]=g;
-
-  document.getElementById('modalImg').src=img;
-
-  document.getElementById('modalImg').alt=title;
-
-  document.getElementById('modalTitle').textContent=title;
-
-  document.getElementById('modalLead').textContent=lead;
-
-  document.getElementById('modalEyebrow').textContent=
-    'MODUŁ '+String(i+1).padStart(2,'0')+
-    ' • INFORMACJE PRAKTYCZNE';
-
-  document.getElementById('modalInfo').innerHTML=
-    info.map(x=>`<div class="info">✓ ${x}</div>`).join('');
-
-  document.getElementById('modal').classList.add('open');
-
-  document.getElementById('modal').setAttribute(
-    'aria-hidden',
-    'false'
-  );
+function makeFacts(id){
+  const facts=[...(baseFacts[id]||[])];
+  while(facts.length<105){
+    const p=extraPatterns[facts.length%extraPatterns.length];
+    facts.push(p+" — obszar: "+topics.find(t=>t.id===id).title.toLowerCase()+".");
+  }
+  return facts.slice(0,105);
 }
 
-
-function closeModal(){
-
-  document.getElementById('modal').classList.remove('open');
-
-  document.getElementById('modal').setAttribute(
-    'aria-hidden',
-    'true'
-  );
-
-}
-
-
-document.getElementById('close').onclick=closeModal;
-
-
-document.getElementById('modal').addEventListener(
-  'click',
-  e=>{
-    if(e.target.id==='modal') closeModal();
-  }
-);
-
-
-document.addEventListener(
-  'keydown',
-  e=>{
-    if(e.key==='Escape') closeModal();
-  }
-);
-
-
-const phraseEl=document.getElementById('phrases');
-
-const countEl=document.getElementById('count');
-
-
-function render(list){
-
-  phraseEl.innerHTML='';
-
-  list.forEach(([en,pl],i)=>{
-
-    const row=document.createElement('div');
-
-    row.className='phrase';
-
-    row.innerHTML=`
-      <div class="txt">
-        <div class="en">
-          ${i+1}. ${en}
-        </div>
-
-        <div class="pl">
-          ${pl}
-        </div>
+function renderTopics(filter=""){
+  const grid=document.getElementById("topicGrid");
+  const list=topics.filter(t=>(t.title+" "+t.desc).toLowerCase().includes(filter.toLowerCase()));
+  grid.innerHTML=list.map(t=>`
+    <article class="card">
+      <div class="cardImg" style="background-image:url('${t.image}')"></div>
+      <div class="cardBody">
+        <div class="number">${t.tag}</div>
+        <h3>${t.title}</h3>
+        <p>${t.desc}</p>
+        <button class="open" onclick="openTopic('${t.id}')">Otwórz temat →</button>
       </div>
-
-      <button
-        class="listen"
-        title="Odsłuchaj"
-      >
-        🔊 ODSŁUCHAJ
-      </button>
-    `;
-
-    row
-      .querySelector('button')
-      .addEventListener(
-        'click',
-        ()=>speak(
-          en,
-          row.querySelector('button')
-        )
-      );
-
-    phraseEl.appendChild(row);
-
-  });
-
-  countEl.textContent=
-    `${list.length} / 500`;
+    </article>`).join("");
 }
+document.getElementById("search").addEventListener("input",e=>renderTopics(e.target.value));
+renderTopics();
 
-
-function speak(text,btn){
-
-  if(!('speechSynthesis' in window)){
-
-    alert(
-      'Ta przeglądarka nie obsługuje odsłuchu głosowego. Spróbuj Chrome lub Edge.'
-    );
-
-    return;
-  }
-
-  speechSynthesis.cancel();
-
-  const u=
-    new SpeechSynthesisUtterance(text);
-
-  u.lang='en-US';
-  u.rate=.9;
-  u.pitch=1;
-
-  btn.textContent='▶ ODTWARZANIE';
-
-  u.onend=()=>{
-    btn.textContent='🔊 ODSŁUCHAJ';
-  };
-
-  speechSynthesis.speak(u);
+function openTopic(id){
+  const t=topics.find(x=>x.id===id), facts=makeFacts(id);
+  document.getElementById("modalKicker").textContent="VARELISSA • "+t.tag;
+  document.getElementById("modalTitle").textContent=t.title;
+  document.getElementById("modalIntro").textContent=t.desc+" Poniżej znajdziesz rozbudowaną bazę praktycznych informacji. Klikaj, czytaj, odsłuchuj język zawodowy i wracaj do kolejnych obszarów.";
+  const imgs=[t.image,img.lobby,img.room,img.reception,img.restaurant,img.pool];
+  document.getElementById("modalGallery").innerHTML=imgs.map((x,i)=>`<img src="${x}" alt="${t.title} — perspektywa ${i+1}">`).join("");
+  document.getElementById("infoGrid").innerHTML=facts.map((f,i)=>`<div class="info"><b>${i+1}. ${i<12?"Praktyka":"Standard"}</b><span>${f}</span></div>`).join("");
+  document.getElementById("modal").classList.add("show");
+  document.body.style.overflow="hidden";
 }
-
-
-render(phrases);
-
-
-document.getElementById('search').addEventListener(
-  'input',
-  e=>{
-
-    const q=
-      e.target.value
-      .toLowerCase()
-      .trim();
-
-    const filtered=
-      phrases.filter(
-        ([en,pl])=>
-          en.toLowerCase().includes(q) ||
-          pl.toLowerCase().includes(q)
-      );
-
-    render(filtered);
-  }
-);
-
+function closeModal(){document.getElementById("modal").classList.remove("show");document.body.style.overflow=""}
+function closeIfBackdrop(e){if(e.target.id==="modal")closeModal()}
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
 
 function updateClock(){
-
   const now=new Date();
+  const date=now.toLocaleDateString("pl-PL",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+  const time=now.toLocaleTimeString("pl-PL");
+  document.getElementById("clock").textContent=date+" • "+time;
+}
+setInterval(updateClock,1000);updateClock();
 
-  const d=
-    new Intl.DateTimeFormat(
-      'pl-PL',
-      {
-        weekday:'short',
-        day:'2-digit',
-        month:'2-digit',
-        year:'numeric'
-      }
-    ).format(now);
+const phrases=[
+["Good morning. How may I assist you?","Dzień dobry. W czym mogę pomóc?"],
+["Welcome to our hotel.","Witamy w naszym hotelu."],
+["May I have your name, please?","Czy mogę prosić o nazwisko?"],
+["Could you please show me your ID?","Czy może Pan/Pani pokazać dokument?"],
+["Let me check your reservation.","Sprawdzę Państwa rezerwację."],
+["Your room is ready.","Państwa pokój jest gotowy."],
+["Your room will be ready shortly.","Państwa pokój będzie wkrótce gotowy."],
+["Breakfast is served from 7 to 10 a.m.","Śniadanie jest serwowane od 7 do 10."],
+["Would you like a wake-up call?","Czy życzy sobie Pan/Pani pobudkę?"],
+["Here is your room key.","Oto klucz do Państwa pokoju."],
+["The lift is just around the corner.","Winda jest tuż za rogiem."],
+["Would you like help with your luggage?","Czy potrzebuje Pan/Pani pomocy z bagażem?"],
+["I apologize for the inconvenience.","Przepraszam za niedogodności."],
+["Let me see what I can do.","Sprawdzę, co mogę zrobić."],
+["Thank you for your patience.","Dziękuję za cierpliwość."],
+["I will contact housekeeping immediately.","Natychmiast skontaktuję się z housekeepingiem."],
+["Would you like to make a reservation?","Czy chce Pan/Pani dokonać rezerwacji?"],
+["Could you repeat that, please?","Czy może Pan/Pani powtórzyć?"],
+["Could you speak a little more slowly, please?","Czy może Pan/Pani mówić trochę wolniej?"],
+["Certainly. I will be happy to help.","Oczywiście. Chętnie pomogę."],
+["Your check-out time is at noon.","Wymeldowanie jest do południa."],
+["May I confirm your payment method?","Czy mogę potwierdzić formę płatności?"],
+["Would you like a printed receipt?","Czy życzy sobie Pan/Pani wydrukowany rachunek?"],
+["Have a pleasant stay.","Życzę miłego pobytu."],
+["We hope to see you again.","Mamy nadzieję zobaczyć Państwa ponownie."]
+];
+document.getElementById("phrases").innerHTML=phrases.map(p=>`
+<div class="phrase"><div><b>${p[0]}</b><small>${p[1]}</small></div>
+<button class="listen" title="Odsłuchaj" onclick="speak('${p[0].replace(/'/g,"\\'")}')">🔊</button></div>`).join("");
 
-  const t=
-    new Intl.DateTimeFormat(
-      'pl-PL',
-      {
-        hour:'2-digit',
-        minute:'2-digit',
-        second:'2-digit'
-      }
-    ).format(now);
-
-  document.getElementById('clock').textContent=
-    d+' • '+t;
+function speak(text){
+ if(!("speechSynthesis" in window)){alert("Twoja przeglądarka nie obsługuje syntezy mowy.");return}
+ const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.9;window.speechSynthesis.cancel();window.speechSynthesis.speak(u);
 }
 
-
-updateClock();
-
-setInterval(updateClock,1000);
-
+const guests=[
+ {name:"James Smith",lang:"EN",need:"Good morning. I have a reservation under the name Smith. I'd like to check in.",expected:["smith","check","reservation","welcome","id","passport"]},
+ {name:"Anna Kowalska",lang:"PL",need:"Dzień dobry, mam rezerwację na nazwisko Kowalska. Czy mogę się zameldować?",expected:["kowalska","rezerw","zameld","dowod","dokument"]},
+ {name:"Lucas Martin",lang:"EN",need:"Hello. Could you tell me where breakfast is and what time it starts?",expected:["breakfast","7","8","9","10","restaur","morning"]},
+ {name:"Rodzina Nowak",lang:"PL",need:"Dzień dobry. Mamy pokój rodzinny, ale potrzebujemy dodatkowego ręcznika.",expected:["ręcz","oczywiście","dodatk","housekeeping"]},
+ {name:"Sophie Brown",lang:"EN",need:"I'm sorry, but there is a problem with the air conditioning in my room.",expected:["sorry","air","condition","maintenance","housekeeping","room"]},
+ {name:"Marek Zieliński",lang:"PL",need:"Chciałbym się wymeldować i poproszę o fakturę.",expected:["wymeld","faktur","rachun","checkout"]},
+ {name:"Emma Wilson",lang:"EN",need:"Could you recommend a good restaurant nearby?",expected:["restaurant","recommend","near","nearby"]},
+ {name:"Piotr Wiśniewski",lang:"PL",need:"Czy mogę przedłużyć dobę hotelową o kilka godzin?",expected:["przedłu","late","checkout","doba","godzin"]},
+ {name:"Daniel Brown",lang:"EN",need:"I lost my room key. What should I do?",expected:["key","card","replacement","new","room"]},
+ {name:"Katarzyna Lis",lang:"PL",need:"Mam pytanie o parking. Gdzie mogę zostawić samochód?",expected:["parking","samoch","garaż","miejsce"]}
+];
+let current=-1,score=0,served=0;
+function renderQueue(){
+ document.getElementById("queue").innerHTML=guests.map((g,i)=>`<div class="guest" style="opacity:${i<=current?.55:1}"><strong>${g.name}</strong><small>${g.lang==="EN"?"🇬🇧 English":"🇵🇱 Polski"} • ${i<current?"obsłużony":i===current?"przy stanowisku":"oczekuje"}</small></div>`).join("");
+}
+function nextGuest(){
+ if(current>=guests.length-1){
+  document.getElementById("dialog").innerHTML=`<div class="dialog"><b>Zmiana zakończona.</b><br>Obsłużyłeś wszystkich ${guests.length} gości. Wynik: <b>${score}/${guests.length}</b>.</div>`;
+  document.getElementById("scoreBox").innerHTML=`<div class="info"><b>Raport końcowy</b><span>Obsłużeni: ${served}/${guests.length}<br>Ocena odpowiedzi: ${Math.round(score/guests.length*100)}%</span></div>`;
+  return;
+ }
+ current++; served++;
+ const g=guests[current];
+ document.getElementById("guestTitle").textContent="Gość przy stanowisku: "+g.name;
+ document.getElementById("dialog").innerHTML=`<div class="dialog"><b>${g.lang==="EN"?"🇬🇧 Gość mówi po angielsku":"🇵🇱 Gość mówi po polsku"}</b><br>${g.need}</div>`;
+ document.getElementById("answer").value="";
+ document.getElementById("answer").focus();
+ document.getElementById("person").style.transform="translateX(-50%) translateY(0)";
+ renderQueue();
+}
+function sendAnswer(){
+ if(current<0){alert("Najpierw kliknij „Następny gość”.");return}
+ const text=document.getElementById("answer").value.trim().toLowerCase();
+ if(!text)return;
+ const g=guests[current];
+ const ok=g.expected.some(x=>text.includes(x));
+ if(ok)score++;
+ const feedback=ok
+  ? "Dobra odpowiedź. Zachowałeś właściwy kierunek rozmowy."
+  : "Spróbuj ponownie następnym razem: odpowiedź powinna odnieść się bezpośrednio do potrzeby gościa i wskazać kolejny krok.";
+ document.getElementById("dialog").innerHTML+=`<div class="dialog"><b>Twoja odpowiedź:</b> ${text}<br><strong>${ok?"✓":"✕"} ${feedback}</strong></div>`;
+ document.getElementById("scoreBox").innerHTML=`<div class="info"><b>Aktualny wynik</b><span>${score}/${served} poprawnych odpowiedzi.</span></div>`;
+}
+document.getElementById("answer").addEventListener("keydown",e=>{if(e.key==="Enter")sendAnswer()});
+renderQueue();
 </script>
-
 </body>
 </html>
