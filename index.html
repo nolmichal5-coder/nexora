@@ -82,6 +82,15 @@ select{padding:13px;border:1px solid #cfc6b5;background:white;border-radius:5px}
 .result{padding:15px;background:#f1eadc;margin-top:15px}
 .footer{background:#071321;color:#dfe6ec;padding:55px 5%;text-align:center}
 .footer strong{letter-spacing:5px;color:var(--gold2)}
+
+.modal{position:fixed;inset:0;background:rgba(3,10,18,.78);display:none;align-items:center;justify-content:center;padding:25px;z-index:200}
+.modal.open{display:flex}.modal-box{width:min(1050px,100%);max-height:90vh;overflow:auto;background:var(--paper);border:1px solid var(--gold);box-shadow:0 30px 100px #0008;border-radius:8px}
+.modal-head{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:26px 30px;display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.modal-head h2{margin:0;font-size:34px}.modal-close{border:1px solid #ffffff55;background:transparent;color:#fff;border-radius:4px;padding:8px 12px;font-size:20px}
+.modal-body{padding:30px}.module-section{border-bottom:1px solid var(--line);padding:0 0 20px;margin:0 0 22px}.module-section h3{font-size:24px;margin:0 0 8px;color:#263a4e}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.fact{background:#f7f1e5;border-left:3px solid var(--gold);padding:15px}.fact b{display:block;margin-bottom:4px}
+@media(max-width:700px){.module-grid{grid-template-columns:1fr}.modal{padding:10px}.modal-body{padding:20px}}
+
 .toast{position:fixed;right:20px;bottom:20px;background:#0a1726;color:white;padding:15px 20px;border-left:4px solid var(--gold2);box-shadow:var(--shadow);display:none;z-index:100}
 @media(max-width:850px){
  .nav{align-items:flex-start;flex-direction:column}.navlinks{margin:0}
@@ -98,7 +107,7 @@ select{padding:13px;border:1px solid #cfc6b5;background:white;border-radius:5px}
 <a class="brand" href="#start">HOTEL<span>IUM</span></a>
 <div class="navlinks">
 <button onclick="go('encyklopedia')">Encyklopedia</button>
-<button onclick="go('symulator')">Symulator</button>
+<button onclick="go('virtual-reception')">Wirtualna recepcja</button><button onclick="go('symulator')">Symulator</button>
 <button onclick="go('turystyka')">Turystyka</button>
 <button onclick="go('gastronomia')">Gastronomia</button>
 <button onclick="go('english')">English</button><button onclick="go('quiz')">Quiz</button>
@@ -136,6 +145,70 @@ select{padding:13px;border:1px solid #cfc6b5;background:white;border-radius:5px}
 <div class="encyclopedia">
 <aside class="sidebar" id="side"></aside>
 <main class="article" id="article"><h2>Wybierz zagadnienie</h2><p>Po lewej stronie znajdziesz działy. Kliknij temat, aby otworzyć pełne opracowanie.</p></main>
+</div>
+</section>
+
+
+<section class="container" id="virtual-reception">
+<div class="section-head">
+  <div>
+    <h2>HOTELIUM VIRTUAL FRONT DESK</h2>
+    <p>Wirtualne stanowisko pracy. Gość prowadzi rozmowę, a Ty musisz odpowiadać, wyszukiwać rezerwację i wykonywać kolejne czynności w systemie hotelowym.</p>
+  </div>
+</div>
+<div class="simulator" style="background:linear-gradient(135deg,#071321,#17314a)">
+  <div style="display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:18px">
+    <div style="background:#fff;color:#1d2733;border-radius:7px;padding:20px">
+      <div class="eyebrow" style="color:#806126">FRONT DESK</div>
+      <h3 id="guestName">Mr. James Smith</h3>
+      <p id="guestLine">Good afternoon. I have a reservation under the name Smith.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" onclick="setLang('en')">🇬🇧 English</button>
+        <button class="btn alt" style="color:#101823;border-color:#806126" onclick="setLang('pl')">🇵🇱 Polski</button>
+      </div>
+      <p id="guestHint" style="font-size:13px;color:#66717d">Odpowiedz gościowi profesjonalnie. System poprowadzi rozmowę dalej.</p>
+    </div>
+
+    <div style="background:#eef1f3;color:#17202a;border-radius:7px;padding:18px">
+      <div style="background:#172536;color:white;padding:12px;border-radius:5px 5px 0 0">
+        <b>HOTELIUM PMS</b><span style="float:right">● ONLINE</span>
+      </div>
+      <div style="background:white;padding:15px;min-height:270px">
+        <div id="pmsScreen"><b>RECEPCJA</b><hr>
+          <p>Wybierz czynność:</p>
+          <button class="choice" onclick="pmsAction('find')">🔎 Znajdź rezerwację</button>
+          <button class="choice" onclick="pmsAction('room')">🛏️ Sprawdź pokój</button>
+          <button class="choice" onclick="pmsAction('payment')">💳 Sprawdź płatność</button>
+          <button class="choice" onclick="pmsAction('key')">🔑 Przygotuj kartę</button>
+          <button class="choice" onclick="pmsAction('checkout')">🧾 Zamknij pobyt</button>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <input id="staffReply" class="search" placeholder="Wpisz odpowiedź do gościa..." onkeydown="if(event.key==='Enter')sendReply()">
+        <button class="btn" style="margin-top:8px" onclick="sendReply()">WYŚLIJ ODPOWIEDŹ</button>
+      </div>
+    </div>
+
+    <div style="background:#081321;color:white;border-radius:7px;padding:20px">
+      <div class="eyebrow">GUEST PROFILE</div>
+      <h3 style="color:white">Rezerwacja #HTL-2048</h3>
+      <p><b>Gość:</b> James Smith</p>
+      <p><b>Pokój:</b> 407 · Deluxe</p>
+      <p><b>Termin:</b> 21–24 sierpnia</p>
+      <p><b>Osoby:</b> 2</p>
+      <p><b>Śniadanie:</b> Tak</p>
+      <p><b>Płatność:</b> Gwarancja kartą</p>
+      <p><b>Status:</b> <span id="roomStatus">Ready</span></p>
+      <hr>
+      <div id="taskStatus">Zadanie: rozpocznij rozmowę z gościem.</div>
+      <div class="progress"><i id="deskProgress"></i></div>
+      <div id="scoreBox">Wynik: 0/100</div>
+    </div>
+  </div>
+  <div class="log" id="deskLog">HOTELIUM FRONT DESK ENGINE
+> Stanowisko uruchomione.
+> Gość oczekuje na obsługę.
+> Wykonuj czynności samodzielnie i czytaj komunikaty systemu.</div>
 </div>
 </section>
 
@@ -203,6 +276,14 @@ select{padding:13px;border:1px solid #cfc6b5;background:white;border-radius:5px}
 <p>Encyklopedia · praktyka · symulacje · wiedza branżowa</p>
 <p>Wersja działająca lokalnie w jednej stronie HTML. Możesz ją dowolnie rozwijać o kolejne rozdziały, zdjęcia, materiały i moduły.</p>
 </footer>
+
+<div class="modal" id="moduleModal" onclick="if(event.target===this)closeModule()">
+ <div class="modal-box">
+  <div class="modal-head"><div><div class="eyebrow">HOTELIUM · MODUŁ WIEDZY</div><h2 id="moduleTitle"></h2></div><button class="modal-close" onclick="closeModule()">×</button></div>
+  <div class="modal-body" id="moduleBody"></div>
+ </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -324,10 +405,144 @@ function searchArticles(){
  renderArticles(articles.filter(a=>(cat==='all'||a.cat===cat)&&(!q||(a.title+' '+a.text+' '+a.sections.flat().join(' ')).toLowerCase().includes(q))));
 }
 function renderCards(id,data){
- document.getElementById(id).innerHTML=data.map(x=>`<article class="card"><div class="photo" style="background-image:url('${x[2]}')"></div><div class="card-body"><h3>${x[0]}</h3><p>${x[1]}</p><button class="linkbtn" onclick="toast('Moduł ${x[0]} otwarty — możesz rozbudować go o kolejne rozdziały.')">OTWÓRZ MODUŁ →</button></div></article>`).join('');
+ document.getElementById(id).innerHTML=data.map((x,i)=>`<article class="card">
+ <div class="photo" style="background-image:url('${x[2]}')"></div>
+ <div class="card-body"><h3>${x[0]}</h3><p>${x[1]}</p>
+ <button class="linkbtn" onclick="openModule('${id}',${i})">OTWÓRZ PEŁNY MODUŁ →</button></div></article>`).join('');
 }
+const moduleInfo={
+"Turystyka":[
+["Turystyka krajowa","Turystyka krajowa obejmuje podróże realizowane na terenie własnego kraju. W hotelarstwie oznacza to znajomość potrzeb gości weekendowych, rodzinnych, biznesowych i grupowych.","Podstawowe elementy","walory turystyczne · baza noclegowa · gastronomia · transport · informacja turystyczna · atrakcje · bezpieczeństwo"],
+["Profil turysty","Należy rozpoznawać cel podróży, długość pobytu, budżet, sposób transportu, oczekiwania dotyczące wyżywienia i potrzeby dostępności.","Obsługa","sprawna informacja · rekomendacje lokalne · jasne ceny · elastyczność · kultura komunikacji"],
+["Produkt turystyczny","Produkt może łączyć nocleg, śniadanie, transport, atrakcję, przewodnika i program czasu wolnego. Jego jakość jest sumą wszystkich elementów.","Przykład","pakiet weekendowy + nocleg + śniadanie + bilet do atrakcji + transfer + późne wymeldowanie"],
+["Dokumentacja i organizacja","Każdy program powinien mieć harmonogram, osoby odpowiedzialne, koszty, kontakty, informacje dla uczestnika i wariant awaryjny.","Kontrola jakości","po imprezie analizuje się opinie, koszty, opóźnienia, reklamacje i elementy wymagające poprawy."]
+],
+"Turystyka2":[]
+};
+const detailedModules={
+"Turystyka": {
+"Turystyka krajowa":["Definicja i zakres","Turystyka krajowa to podróżowanie po własnym kraju w celach wypoczynkowych, poznawczych, biznesowych, zdrowotnych lub rodzinnych.","Rodzaje","wypoczynkowa · krajoznawcza · biznesowa · zdrowotna · religijna · aktywna · weekendowa","Co musi znać pracownik","najważniejsze atrakcje regionu · transport · godziny otwarcia · orientacyjne czasy przejazdu · dostępność · lokalne wydarzenia","W hotelu","recepcjonista powinien umieć przygotować krótką, konkretną rekomendację dopasowaną do czasu i zainteresowań gościa"],
+"Transport turystyczny":["Rodzaje transportu","Transport autokarowy, kolejowy, lotniczy, morski, samochodowy oraz transfery lokalne.","Na co zwracać uwagę","rozkład · czas przejazdu · przesiadki · bagaż · dostępność · opóźnienia · miejsce zbiórki","Obsługa gościa","pracownik powinien przekazać informację w sposób jednoznaczny i sprawdzić aktualność danych przed przekazaniem ich gościowi","Plan awaryjny","przy opóźnieniu należy poinformować gościa, zaproponować alternatywę i udokumentować istotne zmiany"],
+"Atrakcje turystyczne":["Kategorie atrakcji","zabytki · muzea · przyroda · sport · wydarzenia · gastronomia · rozrywka · atrakcje rodzinne","Dobór rekomendacji","wiek, zainteresowania, czas, budżet, pogoda, mobilność i język gościa","Profesjonalna rekomendacja","zamiast samej nazwy podaj: dlaczego warto, jak dojechać, ile czasu przeznaczyć i na co uważać","Sprzedaż doświadczenia","hotel może łączyć atrakcję z noclegiem, transportem, posiłkiem lub usługą dodatkową"],
+"Obsługa turysty":["Pierwszy kontakt","powitanie · rozpoznanie potrzeby · konkretna odpowiedź · sprawdzenie zrozumienia","Informacja","informacja powinna być aktualna, neutralna i łatwa do wykonania przez gościa","Trudny przypadek","jeżeli pracownik nie zna odpowiedzi, powinien powiedzieć, że ją sprawdzić, zamiast zgadywać","Język zawodowy","ważne są zwroty dotyczące kierunku, czasu, ceny, rezerwacji, transportu i bezpieczeństwa"]
+},
+"Gastronomia":{
+"Technologia gastronomiczna":["Proces produkcji","przyjęcie surowca → magazynowanie → przygotowanie wstępne → obróbka → obróbka cieplna → porcjowanie → wydanie","Stanowisko pracy","ergonomia, higiena, kolejność operacji, czyste narzędzia i ograniczenie krzyżowania się dróg czystych i brudnych","Jakość","smak, temperatura, wygląd, gramatura, powtarzalność i bezpieczeństwo","Organizacja","karta technologiczna powinna pomagać utrzymać stały sposób przygotowania potrawy"],
+"Kuchnia hotelowa":["Typowe usługi","śniadania · bufety · à la carte · bankiety · room service · konferencje","Śniadanie hotelowe","przygotowanie bufetu, uzupełnianie, oznaczenie produktów, higiena i kontrola jakości","Room service","przyjęcie zamówienia, potwierdzenie czasu, przygotowanie tacy/wózka, dostarczenie i rozliczenie","Bankiet","wymaga harmonogramu, liczby porcji, koordynacji kuchni i sali oraz planu uzupełniania"],
+"Żywienie człowieka":["Podstawy","energia, białka, tłuszcze, węglowodany, witaminy, składniki mineralne i woda","Planowanie","posiłki powinny być różnorodne i dopasowane do grupy odbiorców","Alergeny","informacja o składnikach i alergenach musi być przekazywana zgodnie z procedurami obiektu i obowiązującymi wymaganiami","Praktyka hotelowa","ważne są także porcjowanie, estetyka, temperatura i dostępność odpowiednich wariantów menu"],
+"Organizacja restauracji":["Przepływ obsługi","gość → przyjęcie → zamówienie → kuchnia/bar → kontrola → serwis → rachunek → płatność → zamknięcie","Stanowiska","manager, kelner, kucharz, pomoc kuchenna, bar, stewarding i inne role zależnie od obiektu","Komunikacja","zamówienie musi być przekazane dokładnie, a zmiany lub alergie jasno zaznaczone","Jakość","kontroluje się czas, kompletność, temperaturę, prezentację, czystość i reakcję na potrzeby gościa"]
+}
+};
+function openModule(sectionId,index){
+ const arr=sectionId==='tourCards'?tour:food;
+ const category=sectionId==='tourCards'?'Turystyka':'Gastronomia';
+ const title=arr[index][0];
+ const d=detailedModules[category][title];
+ if(!d){toast('Moduł jest gotowy do rozbudowy.');return}
+ document.getElementById('moduleTitle').textContent=title;
+ document.getElementById('moduleBody').innerHTML=`
+ <p style="font-size:19px">${d[1]}</p>
+ <div class="module-grid">
+ <div class="fact"><b>${d[2]}</b>${d[3]}</div>
+ <div class="fact"><b>${d[4]}</b>${d[5]}</div>
+ <div class="fact"><b>${d[6]}</b>${d[7]}</div>
+ </div>
+ <div class="module-section"><h3>Jak zastosować to w hotelu?</h3>
+ <p>Pracownik powinien przełożyć wiedzę na konkretną sytuację: rozpoznać potrzebę gościa, zebrać informacje, wybrać właściwe rozwiązanie, wykonać usługę lub przekazać zadanie właściwej osobie i odnotować istotne zdarzenie.</p></div>
+ <div class="module-section"><h3>Lista kontrolna</h3>
+ <ul><li>sprawdź aktualność informacji</li><li>ustal odpowiedzialność za wykonanie zadania</li><li>przekaż gościowi jasne informacje</li><li>kontroluj jakość wykonania</li><li>zapisz istotne zdarzenia i uwagi</li></ul></div>
+ <div class="module-section"><h3>Powiązane działy HOTELIUM</h3>
+ <p><button class="linkbtn" onclick="go('encyklopedia');closeModule()">→ Encyklopedia</button> · <button class="linkbtn" onclick="go('english');closeModule()">→ English for Hospitality</button> · <button class="linkbtn" onclick="go('symulator');closeModule()">→ Symulator pracy</button></p></div>`;
+ document.getElementById('moduleModal').classList.add('open');
+}
+function closeModule(){document.getElementById('moduleModal').classList.remove('open')}
+
 renderCards('tourCards',tour);renderCards('foodCards',food);
 renderArticles();
+
+
+let deskLang='en', deskStep=0, deskScore=0;
+const deskScenarios={
+en:[
+["guest","Good afternoon. I have a reservation under the name Smith.","Odpowiedz na powitanie i poproś o dokument tożsamości."],
+["id","Here you are. My passport.","Podziękuj i znajdź rezerwację w systemie."],
+["find","Yes, the reservation is for three nights. Is breakfast included?","Potwierdź rezerwację i sprawdź szczegóły pobytu."],
+["room","Great. Can I check in now?","Sprawdź gotowość pokoju 407."],
+["payment","Thank you. How much is the deposit?","Sprawdź warunki płatności/gwarancji."],
+["key","Everything looks good. Could I have the room key, please?","Przygotuj kartę do pokoju i przekaż najważniejsze informacje."],
+["finish","Thank you very much.","Zakończ check-in profesjonalnym pożegnaniem."]
+],
+pl:[
+["guest","Dzień dobry. Mam rezerwację na nazwisko Smith.","Przywitaj gościa i rozpocznij obsługę."],
+["id","Oczywiście, proszę. Oto mój dokument.","Podziękuj i znajdź rezerwację w systemie."],
+["find","Tak, rezerwacja jest na trzy noce. Czy śniadanie jest w cenie?","Potwierdź rezerwację i sprawdź szczegóły pobytu."],
+["room","Świetnie. Czy mogę się już zameldować?","Sprawdź gotowość pokoju 407."],
+["payment","Dobrze. Jaka jest wysokość kaucji?","Sprawdź warunki płatności/gwarancji."],
+["key","Wszystko się zgadza. Czy mogę prosić o kartę do pokoju?","Przygotuj kartę i przekaż najważniejsze informacje."],
+["finish","Dziękuję bardzo.","Zakończ check-in profesjonalnym pożegnaniem."]
+]};
+function setLang(lang){
+ deskLang=lang; deskStep=0; deskScore=0;
+ document.getElementById('staffReply').value='';
+ document.getElementById('scoreBox').textContent='Wynik: 0/100';
+ document.getElementById('deskProgress').style.width='0%';
+ document.getElementById('pmsScreen').innerHTML='<b>RECEPCJA</b><hr><p>Wybierz czynność:</p>'+
+ ['find','room','payment','key','checkout'].map((a,i)=>`<button class="choice" onclick="pmsAction('${a}')">${['🔎 Znajdź rezerwację','🛏️ Sprawdź pokój','💳 Sprawdź płatność','🔑 Przygotuj kartę','🧾 Zamknij pobyt'][i]}</button>`).join('');
+ deskLog('Tryb '+(lang==='en'?'English':'Polski')+' uruchomiony.');
+ updateDesk();
+}
+function updateDesk(){
+ const x=deskScenarios[deskLang][deskStep];
+ document.getElementById('guestLine').textContent=x[1];
+ document.getElementById('guestHint').textContent=x[2];
+ document.getElementById('taskStatus').textContent='Zadanie: '+x[2];
+}
+function deskLog(msg){
+ const el=document.getElementById('deskLog');
+ el.textContent += '\n> '+msg;
+ el.scrollTop=el.scrollHeight;
+}
+function sendReply(){
+ const input=document.getElementById('staffReply');
+ const text=input.value.trim();
+ if(!text){toast('Najpierw wpisz odpowiedź dla gościa.');return;}
+ const x=deskScenarios[deskLang][deskStep];
+ let good=false;
+ if(deskLang==='en'){
+   const keywords=[
+    ['good','afternoon','reservation'],['passport','id','document'],['reservation','breakfast'],['room','ready','check'],
+    ['deposit','payment','card'],['key','room','breakfast'],['welcome','enjoy','stay','thank']
+   ][Math.min(deskStep,6)];
+   good=keywords.some(k=>text.toLowerCase().includes(k));
+ }else{
+   const keywords=[['dzień','witam','pomóc'],['dokument','dowód','paszport'],['rezerw','śniad'],['pokój','zameld'],['płat','kauc','karta'],['karta','pokój'],['pobyt','zapraszam','dziękuję']];
+   good=keywords[Math.min(deskStep,6)].some(k=>text.toLowerCase().includes(k));
+ }
+ deskLog((deskLang==='en'?'STAFF: ':'PRACOWNIK: ')+text);
+ if(good){deskScore=Math.min(100,deskScore+10);deskLog('✓ Odpowiedź uznana za profesjonalną.');}
+ else{deskLog('△ Odpowiedź wymaga poprawy. System zapisuje wskazówkę szkoleniową.');}
+ deskStep++;
+ document.getElementById('scoreBox').textContent='Wynik: '+deskScore+'/100';
+ document.getElementById('deskProgress').style.width=(deskStep/deskScenarios[deskLang].length*100)+'%';
+ input.value='';
+ if(deskStep>=deskScenarios[deskLang].length){
+   document.getElementById('guestLine').textContent=deskLang==='en'?'Thank you. Have a great day!':'Dziękuję. Życzę miłego dnia!';
+   document.getElementById('taskStatus').textContent='CHECK-IN ZAKOŃCZONY — raport gotowy.';
+   deskLog('PROCES ZAKOŃCZONY. Raport szkoleniowy wygenerowany.');
+   toast('Check-in zakończony. Wynik: '+deskScore+'/100');
+ }else updateDesk();
+}
+function pmsAction(action){
+ let msg='';
+ if(action==='find'){msg='REZERWACJA #HTL-2048 znaleziona. James Smith · 21–24 sierpnia · Deluxe 407 · 2 osoby.';deskScore=Math.min(100,deskScore+10);}
+ if(action==='room'){msg='POKÓJ 407: Ready / Inspected. Pokój gotowy do sprzedaży.';document.getElementById('roomStatus').textContent='Inspected';deskScore=Math.min(100,deskScore+10);}
+ if(action==='payment'){msg='PŁATNOŚĆ: gwarancja kartą. Śniadanie w cenie. Brak zaległości.';deskScore=Math.min(100,deskScore+10);}
+ if(action==='key'){msg='KARTA 407 przygotowana. Dostęp aktywny dla pobytu 21–24 sierpnia.';deskScore=Math.min(100,deskScore+10);}
+ if(action==='checkout'){msg='Ta czynność jest przeznaczona do scenariusza CHECK-OUT. Wróć do modułu wymeldowania.';}
+ deskLog(msg);
+ document.getElementById('scoreBox').textContent='Wynik: '+deskScore+'/100';
+}
+setLang('en');
 
 function runScenario(key,btn){
  currentScenario=key; document.querySelectorAll('.roles button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
