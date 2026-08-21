@@ -98,9 +98,325 @@ select{padding:13px;border:1px solid #cfc6b5;background:white;border-radius:5px}
  .encyclopedia,.sim-grid{grid-template-columns:1fr}
  .sidebar{position:static}.infobox{float:none;width:auto;margin:0 0 20px}
 }
+
+<style>
+/* HOTELIUM 13.0 — cinematic guest approach */
+.guest-avatar{
+  animation: guestApproach 6s cubic-bezier(.22,.61,.36,1) infinite alternate;
+  transform-origin: bottom center;
+}
+.guest-avatar:before{animation: subtleHead 6s ease-in-out infinite alternate}
+.reception-room:before{
+  content:"";
+  position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(circle at 75% 22%,rgba(255,220,150,.22),transparent 18%),
+    linear-gradient(90deg,transparent 0 65%,rgba(255,255,255,.08) 66%,transparent 67%);
+  pointer-events:none;
+}
+.walk-path{
+  position:absolute;z-index:2;left:7%;right:7%;bottom:20%;
+  height:3px;background:linear-gradient(90deg,transparent,#c8a86b,transparent);
+  opacity:.5;
+}
+.walk-label{
+  position:absolute;z-index:5;left:7%;top:10%;
+  color:white;background:rgba(5,12,18,.72);padding:9px 13px;border-radius:4px;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  backdrop-filter:blur(5px);
+}
+@keyframes guestApproach{
+  0%{right:3%;transform:scale(.78) translateY(18px);filter:brightness(.78)}
+  55%{right:23%;transform:scale(.88) translateY(8px);filter:brightness(.9)}
+  100%{right:37%;transform:scale(1) translateY(0);filter:brightness(1)}
+}
+@keyframes subtleHead{
+  0%{transform:translateY(2px)}
+  100%{transform:translateY(-1px)}
+}
+.guest-arrival{
+  position:absolute;z-index:6;right:7%;bottom:48%;color:#fff;
+  opacity:0;animation:arrivalText 6s ease-in-out infinite;
+  background:rgba(8,17,27,.86);border:1px solid rgba(200,168,107,.55);
+  padding:10px 14px;border-radius:5px;font-size:12px;
+}
+@keyframes arrivalText{
+  0%,25%{opacity:0;transform:translateY(8px)}
+  38%,82%{opacity:1;transform:translateY(0)}
+  95%,100%{opacity:0;transform:translateY(-5px)}
+}
+@media(max-width:900px){
+ .guest-avatar{animation-duration:5s}
+}
+</style>
 </style>
 </head>
 <body>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--hx:#0b1724;--hg:#c8a86b;--hw:#f7f4ed;--hm:#d9d5cc}
+body{font-family:Inter,system-ui,sans-serif;background:#f4f1eb!important;color:#172331}
+h1,h2,h3,.hotelium-logo{font-family:Cinzel,Georgia,serif!important;letter-spacing:.035em}
+#hoteliumNewHome{min-height:100vh;background:radial-gradient(circle at 75% 10%,#27435b 0,#0b1724 38%,#050b12 100%);color:white;position:relative;overflow:hidden}
+#hoteliumNewHome:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,9,15,.95) 0%,rgba(4,9,15,.72) 45%,rgba(4,9,15,.15) 100%);pointer-events:none}
+.hx-top{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:24px 5vw;border-bottom:1px solid rgba(255,255,255,.12)}
+.hotelium-logo{font-size:31px;font-weight:700;color:#fff}.hotelium-logo span{color:var(--hg)}
+.hx-nav{display:flex;gap:10px;flex-wrap:wrap}.hx-nav button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25);padding:10px 15px;border-radius:3px;cursor:pointer}.hx-nav button:hover{border-color:var(--hg);color:var(--hg)}
+.hx-hero{position:relative;z-index:2;min-height:540px;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:40px;padding:55px 5vw}
+.hx-kicker{color:var(--hg);letter-spacing:.22em;font-size:12px;font-weight:700}
+.hx-hero h1{font-size:clamp(48px,7vw,96px);line-height:.95;margin:16px 0}.hx-hero h1 em{font-style:normal;color:var(--hg)}
+.hx-hero p{max-width:620px;color:#d8e0e6;font-size:17px;line-height:1.75}
+.hx-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hx-btn{padding:14px 19px;border-radius:3px;border:1px solid var(--hg);background:var(--hg);color:#0b1724;font-weight:800;cursor:pointer}.hx-btn.ghost{background:transparent;color:white}
+.hx-photo{height:470px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 100px rgba(0,0,0,.5);position:relative;background:#1a2937}
+.hx-photo img{width:100%;height:100%;object-fit:cover;display:block}.hx-photo:after{content:"WIRTUALNA RECEPCJA";position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-family:Cinzel,serif;letter-spacing:.15em}
+.hx-strip{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}.hx-strip div{padding:24px 5vw;border-right:1px solid rgba(255,255,255,.12)}.hx-strip b{font-family:Cinzel,serif;font-size:20px}.hx-strip small{display:block;color:#9eabb6;margin-top:5px}
+#deskVisual{display:none;padding:55px 5vw;background:#eeeae2;color:#152333}
+.desk-wrap{max-width:1280px;margin:auto}.desk-title{text-align:center;margin-bottom:25px}.desk-title h2{font-size:44px;margin:5px}.desk-scene{display:grid;grid-template-columns:1fr 1.25fr;gap:25px;align-items:stretch}
+.reception-room{min-height:560px;border-radius:10px;overflow:hidden;position:relative;background:#20303c url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85') center/cover;box-shadow:0 20px 50px rgba(0,0,0,.18)}
+.reception-room:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,9,15,.75),rgba(3,9,15,.05) 65%);pointer-events:none}
+.guest-avatar{position:absolute;z-index:2;right:12%;bottom:16%;width:145px;height:260px;border-radius:70px 70px 22px 22px;background:linear-gradient(145deg,#263f55,#111c28);box-shadow:0 20px 30px rgba(0,0,0,.3)}
+.guest-avatar:before{content:"";position:absolute;width:74px;height:74px;border-radius:50%;background:#d4aa83;left:35px;top:-25px}.guest-avatar:after{content:"GUEST";position:absolute;bottom:-30px;left:37px;color:white;font-size:11px;letter-spacing:.12em}
+.reception-desk{position:absolute;z-index:3;left:8%;right:8%;bottom:8%;height:130px;border-radius:7px 7px 2px 2px;background:linear-gradient(#b7a27e,#6d5a40);box-shadow:0 25px 35px rgba(0,0,0,.4)}
+.monitor{position:absolute;z-index:4;width:190px;height:125px;left:27%;bottom:98px;border:10px solid #111b24;border-radius:7px;background:#07121d;box-shadow:0 8px 15px rgba(0,0,0,.5)}
+.monitor:after{content:"HOTELIUM PMS";position:absolute;inset:20px 12px;color:#d5b56f;font-family:Cinzel,serif;font-size:17px;display:flex;align-items:center;justify-content:center;text-align:center}
+.desk-card{background:white;border-radius:8px;padding:25px;box-shadow:0 15px 45px rgba(0,0,0,.1)}.desk-card h3{margin-top:0}.desk-card input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #ccd2d7;border-radius:4px;margin:8px 0}.desk-status{background:#f4f1eb;padding:14px;border-left:4px solid var(--hg);margin:12px 0}
+@media(max-width:900px){.hx-hero,.desk-scene{grid-template-columns:1fr}.hx-photo{height:350px}.hx-strip{grid-template-columns:1fr 1fr}.hx-strip div{padding:18px}.reception-room{min-height:430px}}
+</style>
+
+<section id="hoteliumNewHome">
+ <header class="hx-top">
+  <div class="hotelium-logo">HOTEL<span>IUM</span></div>
+  <nav class="hx-nav">
+   <button onclick="document.getElementById('deskVisual').style.display='block';document.getElementById('deskVisual').scrollIntoView({behavior:'smooth'})">Wirtualna recepcja</button>
+   <button onclick="document.getElementById('queueDesk').scrollIntoView({behavior:'smooth'})">Kolejka gości</button><button onclick="go('english')">English</button>
+   <button onclick="go('quiz')">Quiz</button>
+  </nav>
+ </header>
+ <div class="hx-hero">
+  <div>
+   <div class="hx-kicker">HOSPITALITY · EDUCATION · SIMULATION</div>
+   <h1>HOTEL<em>IUM</em></h1>
+   <p>Nowoczesna akademia hotelarstwa, turystyki i gastronomii. Ucz się jak w prawdziwym obiekcie: rozmawiaj z gościem, obsługuj rezerwację, korzystaj z systemu hotelowego i rozwiązuj sytuacje zawodowe.</p>
+   <div class="hx-actions">
+    <button class="hx-btn" onclick="document.getElementById('deskVisual').style.display='block';document.getElementById('deskVisual').scrollIntoView({behavior:'smooth'})">WEJDŹ DO RECEPCJI</button>
+    <button class="hx-btn ghost" onclick="go('english')">ENGLISH FOR HOSPITALITY</button>
+   </div>
+  </div>
+  <div class="hx-photo">
+   <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85" alt="Eleganckie lobby hotelowe">
+  </div>
+ </div>
+ <div class="hx-strip">
+  <div><b>01</b><small>Encyklopedia</small></div><div><b>02</b><small>Wirtualna recepcja</small></div><div><b>03</b><small>Język zawodowy</small></div><div><b>04</b><small>Symulacje i quizy</small></div>
+ </div>
+</section>
+
+<section id="deskVisual">
+ <div class="desk-wrap">
+  <div class="desk-title"><div class="hx-kicker">LIVE SIMULATION</div><h2>Stanowisko recepcji</h2><p>Gość podchodzi do biurka. Komputer recepcji jest przed Tobą. Wpisuj odpowiedzi i wykonuj czynności.</p></div>
+  <div class="desk-scene">
+   <div class="reception-room">
+    <div class="walk-label">LIVE · GOŚĆ W DRODZE DO RECEPCJI</div>
+    <div class="walk-path"></div>
+    <div class="guest-arrival">Dzień dobry — gość właśnie podchodzi do stanowiska.</div>
+    <div class="guest-avatar"></div><div class="monitor"></div><div class="reception-desk"></div>
+   </div>
+   <div class="desk-card">
+    <h3>Komputer recepcji · HOTELIUM PMS</h3>
+    <div class="desk-status" id="visualGuest">🇬🇧 Guest: “Good afternoon. I have a reservation under the name Smith.”</div>
+    <label><b>Twoja odpowiedź</b></label>
+    <input id="visualReply" placeholder="Wpisz odpowiedź dla gościa..." onkeydown="if(event.key==='Enter')visualSend()">
+    <button class="hx-btn" onclick="visualSend()">WYŚLIJ</button>
+    <hr>
+    <h3>Czynności PMS</h3>
+    <button class="choice" onclick="visualPms('reservation')">🔎 Znajdź rezerwację</button>
+    <button class="choice" onclick="visualPms('room')">🛏️ Sprawdź pokój</button>
+    <button class="choice" onclick="visualPms('payment')">💳 Sprawdź płatność</button>
+    <button class="choice" onclick="visualPms('key')">🔑 Wydaj kartę</button>
+    <div class="desk-status" id="visualSystem">SYSTEM: oczekiwanie na pierwszą czynność.</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="queueDesk">
+ <div class="queue-shell">
+  <div class="queue-head">
+   <div><div class="hx-kicker">HOTELIUM · LIVE FRONT DESK</div><h2>KOLEJKA GOŚCI</h2><p>Obsłuż wszystkich. Każdy klient ma inną sytuację. Na końcu otrzymasz pełny raport.</p></div>
+   <button class="queue-btn" onclick="startQueue()">▶ ROZPOCZNIJ ZMIANĘ</button>
+  </div>
+  <div class="queue-grid">
+   <div class="queue-panel"><h3>Oczekujący goście</h3><div id="queueList" class="queue-list"></div></div>
+   <div class="queue-panel">
+    <h3>Stanowisko recepcji</h3>
+    <div class="queue-scene"><div id="queueGuest" class="queue-guest"></div><div class="queue-monitor">HOTELIUM<br>PMS</div><div class="queue-counter"></div></div>
+    <div style="margin-top:15px"><b id="queueGuestLine">Kliknij „Rozpocznij zmianę”.</b></div>
+    <input id="queueReply" class="queue-input" placeholder="Odpowiedz gościowi..." onkeydown="if(event.key==='Enter')queueReply()">
+    <button class="queue-btn" onclick="queueReply()">WYŚLIJ ODPOWIEDŹ</button>
+    <div id="queueAction" style="margin-top:10px"></div>
+   </div>
+   <div class="queue-panel">
+    <h3>Panel PMS</h3>
+    <button class="choice" onclick="queuePms('reservation')">🔎 Znajdź rezerwację</button>
+    <button class="choice" onclick="queuePms('room')">🛏️ Sprawdź pokój</button>
+    <button class="choice" onclick="queuePms('payment')">💳 Sprawdź płatność</button>
+    <button class="choice" onclick="queuePms('key')">🔑 Wydaj kartę</button>
+    <div id="queueSystem" class="desk-status">SYSTEM: oczekiwanie.</div>
+    <h3>Historia zmiany</h3><div id="queueLog" class="queue-log">HOTELIUM SHIFT ENGINE\n> Gotowy.</div>
+   </div>
+  </div>
+  <div id="queueResult" class="queue-result">
+   <div class="hx-kicker">SHIFT COMPLETE</div><div class="score-big" id="finalScore">0/100</div>
+   <h2 id="finalTitle">Zmiana zakończona</h2>
+   <p id="finalDetails"></p>
+   <button class="queue-btn" onclick="startQueue()">↻ NOWA ZMIANA</button>
+  </div>
+ </div>
+</section>
+
+<style>
+#queueDesk{background:#eeeae2;padding:55px 5vw;color:#152333}
+.queue-shell{max-width:1320px;margin:auto}
+.queue-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}
+.queue-head h2{font-family:Cinzel,serif;font-size:42px;margin:5px 0}
+.queue-grid{display:grid;grid-template-columns:1.15fr 1fr 1.15fr;gap:20px}
+.queue-panel{background:#fff;border-radius:9px;padding:20px;box-shadow:0 12px 35px rgba(0,0,0,.1)}
+.queue-list{display:flex;flex-direction:column;gap:9px;max-height:480px;overflow:auto}
+.queue-person{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid #ddd8ce;border-radius:6px;background:#faf9f6}
+.queue-person.active{border-color:#c8a86b;background:#f7f0df}
+.avatar-small{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#172b3c;color:#c8a86b;font-weight:800}
+.queue-scene{height:480px;border-radius:9px;position:relative;overflow:hidden;background:linear-gradient(#b8c5cb 0 52%,#77634c 52% 100%)}
+.queue-scene:before{content:"";position:absolute;left:0;right:0;top:55px;height:2px;background:#d8c39b;box-shadow:0 65px #d8c39b}
+.queue-counter{position:absolute;left:7%;right:7%;bottom:12%;height:105px;background:linear-gradient(#c7b18b,#735c3e);border-radius:7px}
+.queue-monitor{position:absolute;z-index:3;left:32%;bottom:92px;width:150px;height:105px;background:#08131d;border:9px solid #1a232a;border-radius:6px;color:#c8a86b;display:grid;place-items:center;font-family:Cinzel,serif;font-size:15px}
+.queue-guest{position:absolute;z-index:4;bottom:22%;right:3%;width:110px;height:200px;border-radius:55px 55px 15px 15px;background:linear-gradient(145deg,#263e53,#111a23);transition:all 1.5s cubic-bezier(.2,.7,.2,1)}
+.queue-guest:before{content:"";position:absolute;width:58px;height:58px;border-radius:50%;background:#d3a77f;left:26px;top:-20px}
+.queue-guest.at-desk{right:29%;transform:scale(1.03)}
+.queue-guest.walking{animation:walkToDesk 2.3s ease forwards}
+@keyframes walkToDesk{from{right:3%;transform:scale(.8)}to{right:29%;transform:scale(1.03)}}
+.queue-result{background:#071321;color:#fff;border-radius:9px;padding:24px;margin-top:20px;display:none}
+.score-big{font-family:Cinzel,serif;font-size:55px;color:#c8a86b}
+.queue-btn{padding:12px 16px;border:1px solid #c8a86b;background:#c8a86b;color:#0b1724;border-radius:4px;font-weight:800;cursor:pointer}
+.queue-input{width:100%;box-sizing:border-box;padding:13px;border:1px solid #cfd4d8;border-radius:4px;margin:8px 0}
+.queue-log{height:145px;overflow:auto;background:#081321;color:#b9c9d6;border-radius:5px;padding:13px;font-family:monospace;font-size:12px;white-space:pre-line}
+@media(max-width:1050px){.queue-grid{grid-template-columns:1fr}.queue-head{display:block}}
+</style>
+
+<script>
+const hotelQueue=[
+{name:"James Smith",icon:"JS",line:"🇬🇧 Good afternoon. I have a reservation under the name Smith.",steps:["id","reservation","room","key"],need:["passport","document","id","reservation","breakfast","room","ready","key"]},
+{name:"Anna Kowalska",icon:"AK",line:"🇵🇱 Dzień dobry. Mam rezerwację, ale pokój miał być gotowy od 14:00.",steps:["reservation","room"],need:["rezerw","pokój","gotowy","sprawdz"]},
+{name:"Lucas Martin",icon:"LM",line:"🇬🇧 Hello. I don't have a reservation. Do you have any rooms available?",steps:["availability","room","payment"],need:["available","room","reservation","pokój","room"]},
+{name:"Rodzina Nowak",icon:"RN",line:"🇵🇱 Dzień dobry. Mamy rezerwację dla czterech osób i potrzebujemy łóżeczka dla dziecka.",steps:["reservation","special","key"],need:["rezerw","łóżecz","dzieck","karta","pokój"]},
+{name:"Sophie Brown",icon:"SB",line:"🇬🇧 Excuse me, there is a problem with my room. The air conditioning isn't working.",steps:["problem","maintenance"],need:["sorry","maintenance","techn","problem","room","pokój"]},
+{name:"Marek Zieliński",icon:"MZ",line:"🇵🇱 Chciałbym się wymeldować. Czy może Pan sprawdzić mój rachunek?",steps:["checkout","payment"],need:["wymeld","rachun","płat","checkout","bill"]}
+];
+let qIndex=0,qStep=0,qScore=0,qCorrect=0,qErrors=0,qStart=0,qTimer=null;
+
+function renderQueue(){
+ const list=document.getElementById('queueList');
+ list.innerHTML=hotelQueue.map((g,i)=>`<div class="queue-person ${i===qIndex?'active':''}"><div class="avatar-small">${g.icon}</div><div><b>${g.name}</b><small style="display:block;color:#707a82">${i<qIndex?'✓ Obsłużony':i===qIndex?'● Przy stanowisku':'Oczekuje'}</small></div></div>`).join('');
+}
+function qlog(s){const e=document.getElementById('queueLog');e.textContent+='\\n> '+s;e.scrollTop=e.scrollHeight}
+function startQueue(){
+ qIndex=0;qStep=0;qScore=0;qCorrect=0;qErrors=0;qStart=Date.now();
+ document.getElementById('queueResult').style.display='none';
+ document.getElementById('queueReply').value='';
+ renderQueue();bringGuest();
+ if(qTimer)clearInterval(qTimer);
+ qTimer=setInterval(()=>{},1000);
+ qlog('NOWA ZMIANA rozpoczęta. Liczba gości: '+hotelQueue.length+'.');
+}
+function bringGuest(){
+ const g=hotelQueue[qIndex];
+ const guest=document.getElementById('queueGuest');
+ guest.classList.remove('at-desk');guest.classList.add('walking');
+ setTimeout(()=>guest.classList.add('at-desk'),2300);
+ document.getElementById('queueGuestLine').textContent=g.line;
+ document.getElementById('queueAction').innerHTML='<small>Etap '+(qStep+1)+' · odpowiedz i wykonaj czynność w PMS.</small>';
+ renderQueue();
+ qlog('GOŚĆ: '+g.name+' podchodzi do stanowiska.');
+}
+function queueReply(){
+ if(qIndex>=hotelQueue.length)return;
+ const g=hotelQueue[qIndex],inp=document.getElementById('queueReply'),v=inp.value.trim().toLowerCase();
+ if(!v){toast('Wpisz odpowiedź.');return}
+ const key=g.need[Math.min(qStep,g.need.length-1)];
+ const good=v.includes(key) || (key==='id'&&(v.includes('passport')||v.includes('dokument'))) || (key==='room'&&(v.includes('pokój')||v.includes('room')));
+ qlog(g.name+' · '+(good?'✓ poprawna odpowiedź':'△ odpowiedź wymaga poprawy'));
+ if(good){qCorrect++;qScore=Math.min(100,qScore+Math.round(60/(hotelQueue.length*g.steps.length)));}
+ else qErrors++;
+ qStep++;
+ inp.value='';
+ if(qStep>=g.steps.length){finishGuest();} else {document.getElementById('queueGuestLine').textContent=nextGuestLine(g,qStep);}
+}
+function nextGuestLine(g,s){
+ const lines={
+ reservation:"🇬🇧 Could you please confirm the details of my reservation?",
+ room:"🇬🇧 Is the room ready now?",
+ key:"🇬🇧 Could I have the room key, please?",
+ availability:"🇬🇧 What rooms do you have available?",
+ payment:"🇬🇧 How much do I need to pay?",
+ special:"🇵🇱 Czy może Pan odnotować to życzenie w rezerwacji?",
+ problem:"🇬🇧 Could someone help me with the air conditioning?",
+ maintenance:"🇬🇧 When can the technician come?",
+ checkout:"🇵🇱 Chciałbym zamknąć pobyt i otrzymać rachunek."
+ };
+ return lines[g.steps[s]]||"🇬🇧 Thank you. What should we do next?";
+}
+function finishGuest(){
+ const g=hotelQueue[qIndex];
+ qlog('✓ '+g.name+' OBSŁUŻONY. Następny gość przygotowuje się do podejścia.');
+ qIndex++;qStep=0;
+ if(qIndex>=hotelQueue.length){finishShift();return}
+ setTimeout(bringGuest,1400);
+}
+function queuePms(action){
+ const msgs={reservation:'REZERWACJA: znaleziono dane gościa i warunki pobytu.',room:'POKÓJ: status sprawdzony. Aktualizacja przekazana recepcji.',payment:'PŁATNOŚĆ: saldo i gwarancja wyświetlone w PMS.',key:'KARTA: przygotowana zgodnie z pobytem.'};
+ document.getElementById('queueSystem').textContent='✓ '+msgs[action];
+ qlog('PMS · '+msgs[action]);
+}
+function finishShift(){
+ clearInterval(qTimer);
+ const elapsed=Math.round((Date.now()-qStart)/1000);
+ qScore=Math.max(0,Math.min(100,Math.round(100*qCorrect/(qCorrect+qErrors||1))));
+ let title=qScore>=90?'WYBITNA ZMIANA':qScore>=75?'BARDZO DOBRA ZMIANA':qScore>=60?'DOBRA ZMIANA':'ZMIANA DO DOSKONALENIA';
+ document.getElementById('finalScore').textContent=qScore+'/100';
+ document.getElementById('finalTitle').textContent=title;
+ document.getElementById('finalDetails').textContent=`Obsłużeni goście: ${hotelQueue.length} · poprawne reakcje: ${qCorrect} · błędy: ${qErrors} · czas zmiany: ${elapsed}s.`;
+ document.getElementById('queueResult').style.display='block';
+ document.getElementById('queueGuestLine').textContent='Kolejka zakończona. Wszyscy goście zostali obsłużeni.';
+ qlog('SHIFT COMPLETE · WYNIK '+qScore+'/100');
+ renderQueue();
+}
+</script>
+
+<script>
+let visualStep=0;
+const visualGuests=[
+["🇬🇧 Guest: “Good afternoon. I have a reservation under the name Smith.”","Poproś o dokument tożsamości."],
+["🇬🇧 Guest: “Here you are. Is breakfast included?”","Potwierdź rezerwację i sprawdź śniadanie."],
+["🇬🇧 Guest: “Can I check in now?”","Sprawdź gotowość pokoju."],
+["🇬🇧 Guest: “Could I have the room key, please?”","Przygotuj kartę i przekaż informacje."],
+["🇬🇧 Guest: “Thank you very much.”","Zakończ profesjonalnie obsługę."]
+];
+function visualSend(){
+ const el=document.getElementById('visualReply'),v=el.value.trim();
+ if(!v){toast('Wpisz odpowiedź dla gościa.');return}
+ const keywords=[['id','passport','document'],['reservation','breakfast'],['room','ready','check'],['key','room'],['thank','welcome','enjoy']];
+ const good=keywords[Math.min(visualStep,4)].some(k=>v.toLowerCase().includes(k));
+ document.getElementById('visualSystem').textContent=(good?'✓ Odpowiedź pasuje do sytuacji. ':'△ Sprawdź, czy odpowiedź jest profesjonalna. ')+visualGuests[visualStep][1];
+ visualStep=Math.min(visualStep+1,visualGuests.length-1);
+ document.getElementById('visualGuest').textContent=visualGuests[visualStep][0];
+ el.value='';
+}
+function visualPms(a){
+ const messages={reservation:'REZERWACJA #HTL-2048 · James Smith · pokój 407 · 21–24 sierpnia · 2 osoby.',room:'POKÓJ 407 · Deluxe · STATUS: INSPECTED / READY.',payment:'PŁATNOŚĆ · gwarancja kartą · śniadanie w cenie · brak zaległości.',key:'KARTA 407 · AKTYWNA · pobyt 21–24 sierpnia.'};
+ document.getElementById('visualSystem').textContent='✓ '+messages[a];
+}
+</script>
+
 <div class="topbar"><span>HOTELIUM 10.0 · WIEDZA · PRAKTYKA · STANDARD</span><span id="clock"></span></div>
 <header>
 <nav class="nav">
@@ -148,6 +464,15 @@ select{padding:13px;border:1px solid #cfc6b5;background:white;border-radius:5px}
 </div>
 </section>
 
+
+
+<div class="grid" style="margin-bottom:30px">
+<article class="card"><div class="card-body"><div class="eyebrow">01 · RECEPCJA</div><h3>Recepcja hotelowa</h3><p>Rozbudowane kompendium od powitania gościa po check-out i współpracę z działami.</p><button class="btn" onclick="openKnowledge('recepcja')">OTWÓRZ PEŁNE KOMPENDIUM</button></div></article>
+<article class="card"><div class="card-body"><div class="eyebrow">02 · TURYSTYKA</div><h3>Turystyka</h3><p>Podstawowe pojęcia, rodzaje turystyki, produkt turystyczny i profesjonalna informacja.</p><button class="btn" onclick="openKnowledge('turystyka')">OTWÓRZ PEŁNE KOMPENDIUM</button></div></article>
+<article class="card"><div class="card-body"><div class="eyebrow">03 · GASTRONOMIA</div><h3>Gastronomia i żywienie</h3><p>Obsługa, organizacja pracy, alergeny, bezpieczeństwo żywności i serwis.</p><button class="btn" onclick="openKnowledge('gastronomia')">OTWÓRZ PEŁNE KOMPENDIUM</button></div></article>
+<article class="card"><div class="card-body"><div class="eyebrow">04 · HOUSEKEEPING</div><h3>Służba pięter</h3><p>Statusy pokoi, sprzątanie, Lost & Found, usterki i współpraca z recepcją.</p><button class="btn" onclick="openKnowledge('housekeeping')">OTWÓRZ PEŁNE KOMPENDIUM</button></div></article>
+<article class="card"><div class="card-body"><div class="eyebrow">05 · REZERWACJE</div><h3>Rezerwacje</h3><p>Od zapytania i potwierdzenia po zmiany, anulacje i sytuacje niestandardowe.</p><button class="btn" onclick="openKnowledge('rezerwacje')">OTWÓRZ PEŁNE KOMPENDIUM</button></div></article>
+</div>
 
 <section class="container" id="virtual-reception">
 <div class="section-head">
@@ -544,6 +869,77 @@ function pmsAction(action){
 }
 setLang('en');
 
+
+const moduleKnowledge = {
+"recepcja":{
+title:"Recepcja hotelowa — kompletny przewodnik",
+intro:"Recepcja jest centrum operacyjnym hotelu. Łączy obsługę gościa, sprzedaż, komunikację między działami, kontrolę pobytu i dokumentację.",
+sections:[
+["Rola recepcji","Recepcja odpowiada m.in. za przyjmowanie rezerwacji, check-in, check-out, obsługę telefoniczną, informacje dla gości, rozliczenia, klucze/karty, koordynację zgłoszeń i przekazywanie informacji innym działom."],
+["Check-in","Standardowy przebieg obejmuje powitanie, identyfikację gościa, odnalezienie rezerwacji, potwierdzenie terminu i rodzaju pokoju, weryfikację płatności, zebranie wymaganych danych, przekazanie informacji o hotelu, wydanie karty/klucza i życzenie udanego pobytu."],
+["Check-out","Pracownik powinien potwierdzić numer pokoju i dane gościa, sprawdzić saldo oraz usługi dodatkowe, przedstawić rachunek, przyjąć płatność, zamknąć pobyt, odebrać kartę jeśli jest wymagana i przekazać informację do housekeeping o zwolnieniu pokoju."],
+["Standard obsługi","Profesjonalna obsługa powinna być uprzejma, konkretna, dyskretna i nastawiona na rozwiązanie problemu. W rozmowie należy unikać żargonu, podnoszenia głosu i obietnic, których hotel nie może spełnić."],
+["Dokumentacja","Każda istotna czynność powinna pozostawić ślad w systemie zgodnie z procedurami obiektu: zmiana statusu pokoju, zgłoszenie usterki, reklamacja, płatność, anulowanie lub zmiana rezerwacji."],
+["Współpraca z działami","Recepcja współpracuje z housekeeping, gastronomią, techniką, ochroną, sprzedażą i kierownictwem. Dobra komunikacja skraca czas reakcji i zmniejsza liczbę błędów."]
+]},
+"turystyka":{
+title:"Turystyka — kompendium",
+intro:"Turystyka obejmuje podróże i pobyty poza codziennym środowiskiem oraz całą organizację usług potrzebnych turyście.",
+sections:[
+["Podstawowe pojęcia","Turysta odbywa podróż i korzysta z usług turystycznych. W praktyce wyróżnia się m.in. turystykę wypoczynkową, kulturową, biznesową, zdrowotną, kwalifikowaną, miejską, wiejską i przyrodniczą."],
+["Produkt turystyczny","Może obejmować atrakcje, transport, nocleg, gastronomię, usługi przewodnickie, wydarzenia i informacje. Dla klienta liczy się nie tylko pojedyncza usługa, ale całe doświadczenie."],
+["Informacja turystyczna","Pracownik powinien umieć wskazać atrakcje, dojazd, godziny otwarcia, lokalne wydarzenia, podstawowe zasady bezpieczeństwa i alternatywy w razie złej pogody."],
+["Obsługa turysty","Należy rozpoznać potrzeby gościa, dopytać o budżet, czas, zainteresowania i sposób poruszania się. Rekomendacje powinny być aktualne i jasno przedstawione."],
+["Zrównoważona turystyka","Ważne są ograniczanie negatywnego wpływu na środowisko, wspieranie lokalnej społeczności, szacunek dla dziedzictwa i racjonalne korzystanie z zasobów."]
+]},
+"gastronomia":{
+title:"Gastronomia i żywienie — kompendium",
+intro:"Gastronomia obejmuje organizację produkcji i sprzedaży żywności oraz profesjonalną obsługę konsumenta.",
+sections:[
+["Organizacja pracy","W gastronomii znaczenie mają przygotowanie stanowiska, mise en place, higiena, prawidłowy obieg naczyń i żywności, komunikacja kuchnia–sala oraz kontrola czasu realizacji."],
+["Obsługa gościa","Kelner powinien znać kartę, potrafić wyjaśnić skład dania, przyjąć zamówienie, zapytać o alergie i preferencje, przekazać zamówienie kuchni oraz prawidłowo rozliczyć rachunek."],
+["Alergeny","Informacja o alergenach musi być traktowana poważnie. Nie wolno zgadywać składu potrawy. W razie wątpliwości należy sprawdzić informacje zgodnie z procedurą lokalu."],
+["Bezpieczeństwo żywności","Kluczowe są higiena rąk, czystość powierzchni, właściwe przechowywanie, kontrola temperatur, zapobieganie zanieczyszczeniom krzyżowym i przestrzeganie procedur bezpieczeństwa żywności."],
+["Serwis","Do podstaw należą przygotowanie sali, znajomość zasad obsługi, przyjmowanie zamówień, odpowiednia kolejność działań, kontrola satysfakcji i sprawne rozliczenie."]
+]},
+"housekeeping":{
+title:"Housekeeping — organizacja pracy służby pięter",
+intro:"Housekeeping odpowiada za czystość, przygotowanie i stan pokoi oraz wielu przestrzeni hotelowych.",
+sections:[
+["Statusy pokoi","W systemie hotelowym mogą występować statusy takie jak vacant, occupied, dirty, clean, inspected, out of order. Konkretne nazwy zależą od PMS hotelu."],
+["Sprzątanie pokoju","Praca obejmuje przygotowanie wózka, wejście zgodnie z procedurą, wentylację, usunięcie odpadów, łazienkę, ścielenie łóżka, uzupełnienie wyposażenia, kontrolę stanu i końcową inspekcję."],
+["Lost & Found","Znalezione przedmioty powinny być zabezpieczone, opisane, zarejestrowane i przechowywane zgodnie z procedurą obiektu. Nie należy samodzielnie zatrzymywać znalezionych rzeczy."],
+["Usterki","Uszkodzenia należy zgłaszać odpowiedniemu działowi i odnotować zgodnie z procedurą. Jeśli problem wpływa na możliwość sprzedaży pokoju, status pokoju powinien zostać odpowiednio zmieniony."],
+["Współpraca z recepcją","Recepcja potrzebuje aktualnych informacji o gotowości pokoi, a housekeeping potrzebuje informacji o priorytetach, przyjazdach, przedłużeniach i szczególnych wymaganiach."]
+]},
+"rezerwacje":{
+title:"Rezerwacje hotelowe — od zapytania do przyjazdu",
+intro:"Rezerwacja jest procesem sprzedażowym, w którym hotel ustala warunki pobytu i zabezpiecza dostępność usługi.",
+sections:[
+["Dane rezerwacji","Typowo potrzebne są dane gościa, termin, liczba osób, typ pokoju, planowany przyjazd, sposób gwarancji, cena, oferta oraz uwagi i życzenia specjalne."],
+["Kanały sprzedaży","Rezerwacje mogą pochodzić bezpośrednio od gościa, z telefonu, poczty elektronicznej, strony hotelu, OTA, biura podróży lub firmy."],
+["Zmiany i anulacje","Pracownik powinien sprawdzić warunki taryfy, termin anulacji i ewentualne opłaty. Zmiana powinna zostać zapisana w systemie, a klient powinien otrzymać jasne potwierdzenie."],
+["Overbooking","Sprzedaż większej liczby pokoi niż fizyczna dostępność wymaga procedur zarządzania ryzykiem. W razie problemu hotel powinien postępować zgodnie z własną polityką i obowiązującymi zasadami."],
+["Potwierdzenie","Profesjonalne potwierdzenie zawiera najważniejsze informacje o terminie, typie pokoju, cenie, warunkach i sposobie kontaktu."]
+]}
+};
+
+function openKnowledge(key){
+ const m=moduleKnowledge[key];
+ if(!m){toast("Moduł jest w przygotowaniu.");return;}
+ let body=`<div class="eyebrow" style="color:#806126">HOTELIUM · ENCYCLOPEDIA</div><h2>${m.title}</h2><p style="font-size:16px">${m.intro}</p>`;
+ body+=m.sections.map((x,i)=>`<article style="margin:24px 0"><h3>${i+1}. ${x[0]}</h3><p>${x[1]}</p></article>`).join("");
+ body+=`<hr><h3>Najważniejsze do zapamiętania</h3><ul>${m.sections.map(x=>`<li>${x[0]}</li>`).join("")}</ul>`;
+ showHoteliumModal(body);
+}
+function showHoteliumModal(content){
+ let old=document.getElementById("hoteliumModal"); if(old)old.remove();
+ const d=document.createElement("div"); d.id="hoteliumModal";
+ d.style.cssText="position:fixed;inset:0;background:rgba(3,10,18,.78);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px";
+ d.innerHTML=`<div style="background:#fff;color:#1b2633;max-width:980px;width:100%;max-height:90vh;overflow:auto;border-radius:10px;padding:32px;position:relative;box-shadow:0 25px 80px rgba(0,0,0,.4)"><button onclick="document.getElementById('hoteliumModal').remove()" style="position:absolute;right:18px;top:14px;font-size:26px;border:0;background:none;cursor:pointer">×</button>${content}</div>`;
+ document.body.appendChild(d);
+}
+
 function runScenario(key,btn){
  currentScenario=key; document.querySelectorAll('.roles button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
  document.getElementById('simTitle').textContent=scenarios[key].title;
@@ -617,6 +1013,15 @@ function speakEnglish(text){
 }
 renderEnglish();
 
+
+function hoteliumQuizFeedback(isCorrect, correctText){
+ let old=document.getElementById("quizFeedback"); if(old)old.remove();
+ const d=document.createElement("div"); d.id="quizFeedback";
+ d.style.cssText="margin-top:16px;padding:16px;border-radius:8px;background:"+(isCorrect?"#e9f7ee":"#fff0f0")+";border:1px solid "+(isCorrect?"#57a773":"#d66");
+ d.innerHTML=(isCorrect?"<b>✓ POPRAWNIE!</b>":"<b>✗ NIEPOPRAWNIE</b>")+"<p style='margin:7px 0'>"+correctText+"</p>";
+ const q=document.querySelector("#quiz"); if(q)q.querySelector(".section-head")?.after(d);
+}
+
 function nextQuestion(){
  const q=quiz[qIndex%quiz.length];qIndex++;
  document.getElementById('qText').textContent=q[0];
@@ -632,6 +1037,20 @@ function answerQuiz(btn,choice,correct){
 nextQuestion();
 
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2500)}
+</script>
+
+<script>
+(function(){
+  const status = document.getElementById('visualSystem');
+  if(!status) return;
+  let live = true;
+  setInterval(function(){
+    if(live && document.getElementById('visualGuest')){
+      status.textContent = '● LIVE SIMULATION · Gość podchodzi do stanowiska recepcji…';
+    }
+    live = !live;
+  }, 6000);
+})();
 </script>
 </body>
 </html>
