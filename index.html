@@ -1,345 +1,542 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NEXORA — technologie, sztuczna inteligencja i przyszłość.">
-  <title>NEXORA — Przyszłość zaczyna się tutaj</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta name="description" content="NEXORA — nowoczesny świat technologii, sztucznej inteligencji i przyszłości.">
+<meta name="theme-color" content="#080612">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<title>NEXORA — Nowa era technologii</title>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #07080d;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #06050d;
+    color: white;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: #7c3cff;
+    filter: blur(180px);
+    opacity: .18;
+    top: -250px;
+    left: -200px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #00aaff;
+    filter: blur(180px);
+    opacity: .12;
+    right: -200px;
+    bottom: -200px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* NAVIGACJA */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    background: rgba(6,5,13,.65);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    background: linear-gradient(90deg,#9d4dff,#d65cff,#5e8cff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 950px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid rgba(180,90,255,.5);
+    border-radius: 50px;
+    color: #d6a6ff;
+    background: rgba(140,50,255,.08);
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 10vw, 125px);
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -5px;
+}
+
+.gradient {
+    background: linear-gradient(90deg,#fff,#b85cff,#6c8cff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 35px auto;
+    color: #aaa;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-primary {
+    color: white;
+    background: linear-gradient(90deg,#873cff,#c34dff);
+    box-shadow: 0 0 35px rgba(155,65,255,.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 50px rgba(155,65,255,.6);
+}
+
+.btn-secondary {
+    color: white;
+    border: 1px solid #333;
+    background: rgba(255,255,255,.03);
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,.08);
+    transform: translateY(-4px);
+}
+
+/* SEKCJE */
+
+section {
+    padding: 120px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.section-title small {
+    color: #b75cff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: clamp(38px,6vw,70px);
+    margin-top: 15px;
+}
+
+.section-title p {
+    color: #999;
+    max-width: 650px;
+    margin: 20px auto;
+    line-height: 1.7;
+}
+
+/* KARTY */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    padding: 35px;
+    min-height: 260px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.015)
+    );
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(175,75,255,.5);
+    box-shadow: 0 20px 70px rgba(110,40,180,.18);
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: linear-gradient(135deg,#833cff,#c04cff);
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #999;
+    line-height: 1.7;
+}
+
+/* AI */
+
+.ai-section {
+    background:
+        radial-gradient(circle at center,rgba(130,50,255,.14),transparent 55%);
+}
+
+.ai-box {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(170,80,255,.25);
+    background: rgba(255,255,255,.035);
+    text-align: center;
+}
+
+.ai-box h2 {
+    font-size: clamp(40px,6vw,75px);
+    margin-bottom: 20px;
+}
+
+.ai-box p {
+    color: #aaa;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* PRZYSZŁOŚĆ */
+
+.future {
+    text-align: center;
+}
+
+.future-number {
+    font-size: clamp(90px,18vw,220px);
+    font-weight: 900;
+    line-height: .8;
+    background: linear-gradient(90deg,#873cff,#d65cff,#5e8cff);
+    -webkit-background-clip: text;
+    color: transparent;
+    opacity: .9;
+}
+
+.future p {
+    max-width: 700px;
+    margin: 45px auto;
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* STOPKA */
+
+footer {
+    padding: 60px 8%;
+    border-top: 1px solid rgba(255,255,255,.08);
+    text-align: center;
+    color: #777;
+}
+
+footer .logo {
+    margin-bottom: 15px;
+}
+
+/* RESPONSYWNOŚĆ */
+
+@media(max-width:800px) {
 
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(7, 8, 13, 0.85);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding: 0 5%;
     }
 
-    .nav-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 3px;
-    }
-
-    .logo span {
-      color: #7c5cff;
+    nav ul {
+        gap: 15px;
     }
 
     nav a {
-      color: #bbb;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
+        font-size: 12px;
     }
 
-    nav a:hover {
-      color: white;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 25px 80px;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(124,92,255,0.25), transparent 35%),
-        radial-gradient(circle at 80% 80%, rgba(0,200,255,0.12), transparent 30%);
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 8px 16px;
-      border: 1px solid rgba(124,92,255,0.5);
-      border-radius: 50px;
-      color: #b7a9ff;
-      font-size: 13px;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-size: clamp(55px, 10vw, 110px);
-      line-height: 0.95;
-      letter-spacing: -5px;
-      margin-bottom: 30px;
-    }
-
-    h1 span {
-      color: #8b70ff;
+    .hero h1 {
+        letter-spacing: -3px;
     }
 
     .hero p {
-      color: #aaa;
-      font-size: 19px;
-      max-width: 650px;
-      margin: auto auto 35px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 50px;
-      background: #ffffff;
-      color: #08090d;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 35px rgba(255,255,255,0.15);
+        font-size: 16px;
     }
 
     section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 100px 25px;
-    }
-
-    .section-title {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .section-description {
-      color: #999;
-      margin-bottom: 45px;
+        padding: 90px 6%;
     }
 
     .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      padding: 30px;
-      min-height: 230px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      background: rgba(255,255,255,0.025);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(124,92,255,0.5);
-      background: rgba(124,92,255,0.06);
-    }
-
-    .icon {
-      font-size: 35px;
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #999;
-    }
-
-    .future {
-      text-align: center;
-      padding: 120px 25px;
-      background:
-        radial-gradient(circle at center, rgba(124,92,255,0.18), transparent 50%);
-    }
-
-    .future h2 {
-      font-size: clamp(40px, 7vw, 75px);
-      margin-bottom: 20px;
-    }
-
-    .future p {
-      max-width: 650px;
-      margin: auto;
-      color: #999;
-      font-size: 18px;
-    }
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 35px 25px;
-      text-align: center;
-      color: #666;
-    }
-
-    @media (max-width: 750px) {
-      .cards {
         grid-template-columns: 1fr;
-      }
-
-      nav a {
-        display: none;
-      }
-
-      h1 {
-        letter-spacing: -3px;
-      }
     }
-  </style>
+
+    .ai-box {
+        padding: 50px 25px;
+    }
+}
+
+@media(max-width:500px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .hero {
+        padding-top: 110px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .future-number {
+        font-size: 100px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <div class="logo">NEX<span>ORA</span></div>
+<nav>
+    <div class="logo">NEX<span>ORA</span></div>
 
-      <div>
-        <a href="#technologie">Technologie</a>
-        <a href="#ai">AI</a>
-        <a href="#przyszlosc">Przyszłość</a>
-      </div>
-    </div>
-  </nav>
+    <ul>
+        <li><a href="#technologie">Technologie</a></li>
+        <li><a href="#ai">AI</a></li>
+        <li><a href="#przyszlosc">Przyszłość</a></li>
+    </ul>
+</nav>
 
-  <header class="hero">
+<section class="hero">
+
     <div class="hero-content">
-      <div class="tag">NOWA ERA TECHNOLOGII</div>
 
-      <h1>
-        WITAJ W<br>
-        <span>NEXORA.</span>
-      </h1>
+        <div class="badge">NOWA ERA TECHNOLOGII</div>
 
-      <p>
-        Odkrywaj sztuczną inteligencję, najnowsze technologie,
-        niezwykłe gadżety i pomysły, które zmieniają przyszłość.
-      </p>
+        <h1>
+            WITAJ W<br>
+            <span class="gradient">NEXORA.</span>
+        </h1>
 
-      <a class="button" href="#technologie">Odkryj NEXORA →</a>
+        <p>
+            Odkrywaj sztuczną inteligencję, najnowsze technologie
+            i idee, które mogą zmienić sposób, w jaki wygląda przyszłość.
+        </p>
+
+        <div class="buttons">
+            <a href="#technologie" class="btn btn-primary">
+                Odkryj NEXORA →
+            </a>
+
+            <a href="#ai" class="btn btn-secondary">
+                Poznaj AI
+            </a>
+        </div>
+
     </div>
-  </header>
 
-  <section id="technologie">
-    <h2 class="section-title">Świat jutra.</h2>
+</section>
 
-    <p class="section-description">
-      Technologie, które już dziś zmieniają sposób, w jaki żyjemy.
-    </p>
+<section id="technologie">
+
+    <div class="section-title">
+        <small>01 — Technologie</small>
+
+        <h2>Świat się zmienia.</h2>
+
+        <p>
+            Technologie rozwijają się szybciej niż kiedykolwiek.
+            NEXORA zbiera najciekawsze kierunki rozwoju w jednym miejscu.
+        </p>
+    </div>
 
     <div class="cards">
 
-      <div class="card">
-        <div class="icon">🤖</div>
-        <h3>Sztuczna inteligencja</h3>
-        <p>
-          Poznaj możliwości AI i zobacz, jak sztuczna inteligencja
-          zmienia świat.
-        </p>
-      </div>
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Nowe technologie</h3>
+            <p>
+                Poznaj rozwiązania, które mogą wpłynąć na nasze
+                codzienne życie i świat przyszłości.
+            </p>
+        </div>
 
-      <div class="card">
-        <div class="icon">🚀</div>
-        <h3>Przyszłość</h3>
-        <p>
-          Odkrywaj technologie, które jeszcze niedawno
-          wydawały się science fiction.
-        </p>
-      </div>
+        <div class="card">
+            <div class="icon">◈</div>
+            <h3>Robotyka</h3>
+            <p>
+                Maszyny stają się coraz bardziej inteligentne,
+                precyzyjne i samodzielne.
+            </p>
+        </div>
 
-      <div class="card">
-        <div class="icon">⚡</div>
-        <h3>Innowacje</h3>
-        <p>
-          Nowe pomysły, wynalazki i rozwiązania,
-          które mogą zmienić nasze życie.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="ai">
-    <h2 class="section-title">AI zmienia wszystko.</h2>
-
-    <p class="section-description">
-      Sztuczna inteligencja przestaje być wizją przyszłości.
-      Staje się częścią naszej codzienności.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">🧠</div>
-        <h3>Inteligentne systemy</h3>
-        <p>
-          AI potrafi analizować informacje, rozpoznawać obrazy,
-          tworzyć tekst i pomagać ludziom w pracy.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">💡</div>
-        <h3>Nowe możliwości</h3>
-        <p>
-          Kreatywność, nauka i technologia spotykają się
-          w jednym miejscu.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🌐</div>
-        <h3>Połączony świat</h3>
-        <p>
-          Technologie coraz bardziej łączą ludzi,
-          urządzenia i informacje.
-        </p>
-      </div>
+        <div class="card">
+            <div class="icon">∞</div>
+            <h3>Cyfrowy świat</h3>
+            <p>
+                Internet, urządzenia i cyfrowe rozwiązania
+                łączą ludzi z całego świata.
+            </p>
+        </div>
 
     </div>
-  </section>
 
-  <section class="future" id="przyszlosc">
-    <h2>Przyszłość zaczyna się teraz.</h2>
+</section>
+
+<section id="ai" class="ai-section">
+
+    <div class="section-title">
+        <small>02 — Artificial Intelligence</small>
+
+        <h2>AI zmienia wszystko.</h2>
+    </div>
+
+    <div class="ai-box">
+
+        <h2>INTELIGENCJA.</h2>
+
+        <p>
+            Sztuczna inteligencja przestaje być tylko wizją przyszłości.
+            Pomaga tworzyć, analizować, odkrywać i rozwiązywać problemy,
+            których wcześniej nie potrafiliśmy rozwiązać.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="przyszlosc" class="future">
+
+    <div class="section-title">
+        <small>03 — Przyszłość</small>
+        <h2>Co będzie dalej?</h2>
+    </div>
+
+    <div class="future-number">∞</div>
 
     <p>
-      NEXORA to miejsce dla ludzi ciekawych tego,
-      co znajduje się za następnym horyzontem.
+        Nikt dokładnie nie wie, jak będzie wyglądał świat za 10,
+        20 czy 50 lat. Jedno jest pewne — przyszłość zaczyna się
+        od pomysłów, które tworzymy dzisiaj.
     </p>
-  </section>
 
-  <footer>
-    © 2026 NEXORA — Technologia. AI. Przyszłość.
-  </footer>
+    <a href="#top" class="btn btn-primary">
+        Wróć na początek ↑
+    </a>
+
+</section>
+
+<footer>
+
+    <div class="logo">NEX<span>ORA</span></div>
+
+    <p>
+        © 2026 NEXORA — Nowa era technologii.
+    </p>
+
+</footer>
 
 </body>
 </html>
