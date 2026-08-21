@@ -3,2429 +3,420 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOTELIUM — Encyklopedia Hotelarstwa i Turystyki</title>
-<meta name="description" content="Interaktywna encyklopedia hotelarstwa, turystyki, gastronomii i symulator pracy hotelu.">
-
+<title>HOTELIUM 10.0 — Encyklopedia Hotelarstwa</title>
+<meta name="description" content="HOTELIUM 10.0 — interaktywna encyklopedia hotelarstwa, turystyki, gastronomii i organizacji pracy hotelu.">
 <style>
 :root{
-  --bg:#f6f7f9;
-  --paper:#fff;
-  --ink:#20242a;
-  --muted:#66707a;
-  --line:#d9dde2;
-  --navy:#182533;
-  --navy2:#223448;
-  --gold:#b38a3c;
-  --gold2:#d7b56a;
-  --blue:#245b8f;
-  --green:#2e6d55;
-  --red:#9a3e3e;
-  --shadow:0 8px 28px rgba(20,30,40,.08);
+  --navy:#0b1626; --navy2:#101f35; --gold:#b99145; --gold2:#e0c17b;
+  --cream:#f7f3ea; --paper:#fffdf8; --ink:#1d2733; --muted:#66717d;
+  --line:#ded7c8; --green:#2f6b57; --red:#8b3b3b; --shadow:0 18px 50px rgba(8,18,30,.12);
 }
-
 *{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font-family:Georgia,"Times New Roman",serif;
-  line-height:1.65;
-}
-
-button,input,select,textarea{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  color:var(--blue);
-}
-
-.topbar{
-  background:var(--navy);
-  color:#fff;
-  padding:10px 4%;
-  font-family:Arial,sans-serif;
-  font-size:13px;
-}
-
-.header{
-  background:var(--paper);
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:20;
-}
-
-.head-inner{
-  max-width:1400px;
-  margin:auto;
-  padding:18px 3%;
-  display:flex;
-  align-items:center;
-  gap:24px;
-}
-
-.brand{
-  font-family:Georgia,serif;
-  font-weight:700;
-  font-size:32px;
-  letter-spacing:2px;
-  color:var(--navy);
-}
-
-.brand span{
-  color:var(--gold);
-}
-
-.subtitle{
-  color:var(--muted);
-  font-family:Arial,sans-serif;
-  font-size:13px;
-}
-
-.search{
-  margin-left:auto;
-  display:flex;
-  gap:8px;
-  min-width:320px;
-}
-
-.search input{
-  width:100%;
-  padding:11px 14px;
-  border:1px solid var(--line);
-  border-radius:4px;
-}
-
-.btn{
-  border:1px solid var(--line);
-  background:#fff;
-  color:var(--ink);
-  padding:10px 14px;
-  border-radius:4px;
-}
-
-.btn.primary{
-  background:var(--navy);
-  color:#fff;
-  border-color:var(--navy);
-}
-
-.btn.gold{
-  background:var(--gold);
-  color:#fff;
-  border-color:var(--gold);
-}
-
-.nav{
-  border-top:1px solid #eee;
-}
-
-.nav-inner{
-  max-width:1400px;
-  margin:auto;
-  padding:0 3%;
-  display:flex;
-  gap:4px;
-  overflow:auto;
-}
-
-.nav button{
-  border:0;
-  background:transparent;
-  padding:12px 14px;
-  color:#39424c;
-  font-family:Arial,sans-serif;
-  font-size:13px;
-}
-
-.nav button:hover,
-.nav button.active{
-  background:#eef1f4;
-}
-
-.layout{
-  max-width:1400px;
-  margin:28px auto;
-  display:grid;
-  grid-template-columns:245px minmax(0,1fr) 260px;
-  gap:24px;
-  padding:0 3%;
-}
-
-.side,
-.right{
-  font-family:Arial,sans-serif;
-  font-size:13px;
-}
-
-.panel{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:5px;
-  padding:18px;
-  box-shadow:var(--shadow);
-}
-
-.panel h3{
-  font-family:Georgia,serif;
-  margin:0 0 10px;
-  font-size:17px;
-}
-
-.toc button{
-  display:block;
-  width:100%;
-  text-align:left;
-  border:0;
-  background:transparent;
-  padding:7px 0;
-  color:#35536e;
-}
-
-.toc button:hover{
-  text-decoration:underline;
-}
-
-.hero{
-  background:linear-gradient(135deg,#182533,#2d4359);
-  color:#fff;
-  padding:34px;
-  border-radius:6px;
-  margin-bottom:22px;
-  box-shadow:var(--shadow);
-}
-
-.hero h1{
-  font-size:42px;
-  line-height:1.1;
-  margin:0 0 12px;
-}
-
-.hero p{
-  max-width:850px;
-  color:#dce4eb;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:20px;
-}
-
-.stat{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  padding:14px;
-  border-radius:4px;
-}
-
-.stat b{
-  display:block;
-  font-size:22px;
-}
-
-.article{
-  background:#fff;
-  border:1px solid var(--line);
-  padding:28px;
-  border-radius:5px;
-  box-shadow:var(--shadow);
-  margin-bottom:22px;
-}
-
-.article h1{
-  font-size:34px;
-  line-height:1.2;
-  margin-top:0;
-}
-
-.article h2{
-  font-size:24px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:7px;
-  margin-top:30px;
-}
-
-.article h3{
-  font-size:19px;
-}
-
-.lead{
-  font-size:18px;
-  color:#424b54;
-}
-
-.infobox{
-  float:right;
-  width:270px;
-  margin:0 0 20px 24px;
-  border:1px solid #bfc7cf;
-  background:#f8fafb;
-  font-family:Arial,sans-serif;
-  font-size:13px;
-}
-
-.infobox .ib-title{
-  background:var(--navy);
-  color:#fff;
-  text-align:center;
-  padding:9px;
-  font-weight:bold;
-}
-
-.infobox img{
-  width:100%;
-  height:145px;
-  object-fit:cover;
-}
-
-.infobox table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-.infobox td{
-  padding:6px 8px;
-  border-top:1px solid #dce1e5;
-  vertical-align:top;
-}
-
-.infobox td:first-child{
-  font-weight:bold;
-  width:42%;
-}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin:14px 0;
-}
-
-.tag{
-  background:#edf1f4;
-  padding:4px 8px;
-  border-radius:3px;
-  font:12px Arial,sans-serif;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-
-.card{
-  border:1px solid var(--line);
-  background:#fff;
-  padding:18px;
-  border-radius:5px;
-  box-shadow:0 3px 14px rgba(20,30,40,.05);
-}
-
-.card h3{
-  margin:0 0 6px;
-  font-size:18px;
-}
-
-.card p{
-  margin:0 0 10px;
-  color:#5e6871;
-  font-size:14px;
-}
-
-.card img{
-  width:calc(100% + 36px);
-  height:130px;
-  object-fit:cover;
-  margin:-18px -18px 12px;
-}
-
-.notice{
-  padding:14px 16px;
-  border-left:4px solid var(--gold);
-  background:#fbf7ed;
-  margin:18px 0;
-}
-
-.success{
-  border-left-color:var(--green);
-  background:#eef7f2;
-}
-
-.warning{
-  border-left-color:var(--red);
-  background:#fbefef;
-}
-
-table.data{
-  width:100%;
-  border-collapse:collapse;
-  margin:15px 0;
-  font-family:Arial,sans-serif;
-  font-size:13px;
-}
-
-.data th,
-.data td{
-  border:1px solid var(--line);
-  padding:9px;
-  text-align:left;
-}
-
-.data th{
-  background:#eef1f4;
-}
-
-.figure{
-  margin:18px 0;
-}
-
-.figure img{
-  width:100%;
-  max-height:360px;
-  object-fit:cover;
-  border-radius:4px;
-}
-
-.caption{
-  font:12px Arial,sans-serif;
-  color:var(--muted);
-  margin-top:5px;
-}
-
-.quiz-question{
-  padding:16px;
-  border:1px solid var(--line);
-  margin:10px 0;
-  background:#fafbfc;
-}
-
-.quiz-question label{
-  display:block;
-  padding:7px;
-  border-radius:3px;
-}
-
-.quiz-question label:hover{
-  background:#eef1f4;
-}
-
-.result{
-  font-family:Arial,sans-serif;
-  font-weight:bold;
-  margin-top:15px;
-}
-
-.rolebar{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-bottom:16px;
-}
-
-.rolebar button.active{
-  background:var(--navy);
-  color:#fff;
-}
-
-.task{
-  border:1px solid var(--line);
-  padding:18px;
-  margin:10px 0;
-  background:#fff;
-}
-
-.task.done{
-  border-left:4px solid var(--green);
-  background:#f1f8f4;
-}
-
-.task h3{
-  margin:0 0 5px;
-}
-
-.task-actions{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-
-.progress{
-  height:9px;
-  background:#e6e9ec;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.progress div{
-  height:100%;
-  background:var(--gold);
-  width:0;
-  transition:.3s;
-}
-
-.footer{
-  background:var(--navy);
-  color:#d8e0e7;
-  padding:35px 4%;
-  margin-top:40px;
-  font-family:Arial,sans-serif;
-}
-
-.footer-inner{
-  max-width:1400px;
-  margin:auto;
-}
-
-.small{
-  font:12px Arial,sans-serif;
-  color:var(--muted);
-}
-
-.backtop{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  border:0;
-  background:var(--navy);
-  color:#fff;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:none;
-}
-
-@media(max-width:1100px){
-  .layout{
-    grid-template-columns:210px 1fr;
-  }
-
-  .right{
-    display:none;
-  }
-
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:760px){
-  .head-inner{
-    flex-wrap:wrap;
-  }
-
-  .search{
-    min-width:100%;
-    margin-left:0;
-  }
-
-  .layout{
-    display:block;
-    padding:0 12px;
-  }
-
-  .side{
-    display:none;
-  }
-
-  .hero h1{
-    font-size:32px;
-  }
-
-  .hero-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .infobox{
-    float:none;
-    width:100%;
-    margin:0 0 20px;
-  }
-
-  .article{
-    padding:18px;
-  }
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.7}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.topbar{background:var(--navy);color:#fff;padding:10px 5%;display:flex;justify-content:space-between;gap:20px;font:13px Arial,sans-serif}
+header{background:linear-gradient(135deg,#081321,#142944);color:white;position:sticky;top:0;z-index:50;box-shadow:0 5px 25px #0003}
+.nav{max-width:1450px;margin:auto;display:flex;align-items:center;gap:28px;padding:18px 4%}
+.brand{font-size:31px;letter-spacing:7px;font-weight:bold;color:#fff;text-decoration:none}
+.brand span{color:var(--gold2)}
+.navlinks{margin-left:auto;display:flex;flex-wrap:wrap;gap:8px}
+.navlinks button{border:0;background:transparent;color:#e8edf3;padding:10px 13px;border-radius:5px}
+.navlinks button:hover{background:#ffffff14;color:var(--gold2)}
+.hero{min-height:650px;padding:80px 6%;display:grid;place-items:center;text-align:center;color:white;
+background:linear-gradient(90deg,#071321dd,#0b1b30b5),url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero-inner{max-width:1000px}
+.eyebrow{letter-spacing:5px;text-transform:uppercase;color:var(--gold2);font:12px Arial,sans-serif}
+.hero h1{font-size:clamp(58px,10vw,132px);line-height:.9;margin:18px 0;letter-spacing:13px}
+.hero h1 span{color:var(--gold2)}
+.hero p{font-size:21px;max-width:850px;margin:20px auto;color:#eef2f5}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{border:1px solid var(--gold2);padding:13px 21px;border-radius:4px;background:var(--gold);color:#101823;font-weight:bold}
+.btn.alt{background:transparent;color:white}
+.container{max-width:1450px;margin:auto;padding:65px 5%}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;border-bottom:2px solid var(--line);margin-bottom:28px}
+.section-head h2{font-size:37px;margin:0 0 8px}
+.section-head p{color:var(--muted);max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:7px;overflow:hidden}
+.card .photo{height:170px;background-size:cover;background-position:center}
+.card-body{padding:22px}
+.card h3{margin:0 0 7px;font-size:22px}
+.card p{color:#4e5965;margin:0 0 14px}
+.linkbtn{border:0;background:none;color:#806126;font-weight:bold;padding:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:-50px;position:relative}
+.stat{background:white;border:1px solid var(--line);padding:22px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:33px;color:var(--navy)}
+.stat small{font:12px Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}
+.search{flex:1;min-width:260px;padding:14px 16px;border:1px solid #cfc6b5;border-radius:5px;background:white}
+select{padding:13px;border:1px solid #cfc6b5;background:white;border-radius:5px}
+.encyclopedia{display:grid;grid-template-columns:270px 1fr;gap:25px}
+.sidebar{background:var(--navy);color:white;padding:20px;border-radius:7px;position:sticky;top:110px;height:max-content}
+.sidebar button{width:100%;text-align:left;background:transparent;color:#e9edf2;border:0;border-bottom:1px solid #ffffff15;padding:11px}
+.sidebar button:hover,.sidebar button.active{color:var(--gold2)}
+.article{background:var(--paper);padding:34px;border:1px solid var(--line);min-height:500px}
+.article h2{font-size:34px;margin-top:0}
+.article h3{font-size:24px;color:#25384c;margin-top:30px}
+.infobox{float:right;width:290px;margin:0 0 20px 30px;border:1px solid var(--line);background:#faf7ef}
+.infobox h4{margin:0;background:var(--navy);color:white;padding:12px}
+.infobox p{padding:0 15px;font-size:14px}
+.quote{border-left:4px solid var(--gold);padding:12px 20px;background:#f6f0e3;margin:25px 0}
+.table{width:100%;border-collapse:collapse;background:white}
+.table th,.table td{border:1px solid var(--line);padding:10px;text-align:left}
+.simulator{background:linear-gradient(135deg,#0b1727,#132c46);color:white;padding:35px;border-radius:8px;box-shadow:var(--shadow)}
+.sim-grid{display:grid;grid-template-columns:300px 1fr;gap:25px}
+.roles button{display:block;width:100%;padding:13px;margin:8px 0;border:1px solid #ffffff22;background:#ffffff0c;color:white;text-align:left;border-radius:5px}
+.roles button.active{border-color:var(--gold2);background:#c29b5018}
+.workflow{background:#081321;border:1px solid #ffffff16;padding:22px;border-radius:6px}
+.step{padding:13px;border-bottom:1px solid #ffffff12;display:flex;gap:12px}
+.step.done{color:#9bd6b9}
+.step .dot{width:23px;height:23px;border:1px solid #fff5;border-radius:50%;display:grid;place-items:center;flex:none}
+.log{margin-top:18px;background:#050b12;color:#b7d8c8;padding:15px;border-radius:5px;min-height:90px;font:13px Consolas,monospace;white-space:pre-wrap}
+.progress{height:8px;background:#ffffff14;border-radius:10px;overflow:hidden;margin:18px 0}
+.progress i{display:block;height:100%;width:0;background:var(--gold2);transition:width .5s}
+.quiz{background:white;border:1px solid var(--line);padding:28px}
+.choice{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;padding:12px;margin:9px 0;border-radius:4px}
+.choice:hover{border-color:var(--gold)}
+.result{padding:15px;background:#f1eadc;margin-top:15px}
+.footer{background:#071321;color:#dfe6ec;padding:55px 5%;text-align:center}
+.footer strong{letter-spacing:5px;color:var(--gold2)}
+.toast{position:fixed;right:20px;bottom:20px;background:#0a1726;color:white;padding:15px 20px;border-left:4px solid var(--gold2);box-shadow:var(--shadow);display:none;z-index:100}
+@media(max-width:850px){
+ .nav{align-items:flex-start;flex-direction:column}.navlinks{margin:0}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .encyclopedia,.sim-grid{grid-template-columns:1fr}
+ .sidebar{position:static}.infobox{float:none;width:auto;margin:0 0 20px}
 }
 </style>
 </head>
-
 <body>
-
-<div class="topbar">
-HOTELIUM · Encyklopedia hotelarstwa, turystyki, gastronomii i organizacji usług
-</div>
-
-<header class="header">
-
-<div class="head-inner">
-
-<div>
-<div class="brand">
-HOTEL<span>IUM</span>
-</div>
-
-<div class="subtitle">
-centrum wiedzy i praktycznych symulacji
-</div>
-</div>
-
-<div class="search">
-
-<input
-id="search"
-placeholder="Szukaj artykułu, pojęcia lub stanowiska..."
-oninput="searchSite()"
->
-
-<button class="btn primary" onclick="searchSite()">
-Szukaj
-</button>
-
-</div>
-</div>
-
+<div class="topbar"><span>HOTELIUM 10.0 · WIEDZA · PRAKTYKA · STANDARD</span><span id="clock"></span></div>
+<header>
 <nav class="nav">
-
-<div class="nav-inner">
-
-<button class="active" onclick="showView('home',this)">
-Strona główna
-</button>
-
-<button onclick="showView('encyclopedia',this)">
-Encyklopedia
-</button>
-
-<button onclick="showView('simulator',this)">
-Symulator hotelu
-</button>
-
-<button onclick="showView('quiz',this)">
-Quizy
-</button>
-
-<button onclick="showView('dictionary',this)">
-Słownik
-</button>
-
-<button onclick="showView('resources',this)">
-Materiały
-</button>
-
+<a class="brand" href="#start">HOTEL<span>IUM</span></a>
+<div class="navlinks">
+<button onclick="go('encyklopedia')">Encyklopedia</button>
+<button onclick="go('symulator')">Symulator</button>
+<button onclick="go('turystyka')">Turystyka</button>
+<button onclick="go('gastronomia')">Gastronomia</button>
+<button onclick="go('english')">English</button><button onclick="go('quiz')">Quiz</button>
 </div>
 </nav>
-
 </header>
 
-<div class="layout">
+<section class="hero" id="start">
+<div class="hero-inner">
+<div class="eyebrow">Kompendium wiedzy branżowej · wydanie 10.0</div>
+<h1>HOTEL<span>IUM</span></h1>
+<p>Prestiżowa, interaktywna encyklopedia hotelarstwa, turystyki, gastronomii i organizacji pracy. Od podstaw zawodu po zaawansowane procedury, standardy obsługi i symulacje pracy prawdziwego obiektu.</p>
+<div class="actions">
+<button class="btn" onclick="go('encyklopedia')">OTWÓRZ ENCYKLOPEDIĘ</button>
+<button class="btn alt" onclick="go('symulator')">URUCHOM SYMULATOR</button>
+</div>
+</div>
+</section>
 
-<aside class="side">
-
-<div class="panel toc">
-
-<h3>Spis działów</h3>
-
-<button onclick="openArticle('hotelarstwo')">
-Hotelarstwo
-</button>
-
-<button onclick="openArticle('recepcja')">
-Recepcja
-</button>
-
-<button onclick="openArticle('housekeeping')">
-Housekeeping
-</button>
-
-<button onclick="openArticle('gastronomia')">
-Gastronomia
-</button>
-
-<button onclick="openArticle('turystyka')">
-Turystyka
-</button>
-
-<button onclick="openArticle('zarzadzanie')">
-Zarządzanie
-</button>
-
-<button onclick="openArticle('marketing')">
-Marketing
-</button>
-
-<button onclick="openArticle('haccp')">
-HACCP i bezpieczeństwo
-</button>
-
-<button onclick="openArticle('wellness')">
-SPA & Wellness
-</button>
-
-<button onclick="openArticle('sustainability')">
-Zrównoważony rozwój
-</button>
-
+<div class="container">
+<div class="stats">
+<div class="stat"><b>100+</b><small>opracowanych zagadnień</small></div>
+<div class="stat"><b>8</b><small>obszarów branży</small></div>
+<div class="stat"><b>24/7</b><small>interaktywna nauka</small></div>
+<div class="stat"><b>∞</b><small>możliwości rozbudowy</small></div>
+</div>
 </div>
 
-<div class="panel" style="margin-top:15px">
-
-<h3>Tryb nauki</h3>
-
-<p>
-Przeczytaj artykuł, wykonaj zadanie,
-a następnie sprawdź się w quizie.
-</p>
-
-<button class="btn gold" onclick="showView('quiz')">
-Rozpocznij quiz
-</button>
-
+<section class="container" id="encyklopedia">
+<div class="section-head"><div><h2>Encyklopedia HOTELIUM</h2><p>Wybierz dział albo wyszukaj dowolne zagadnienie. Każdy artykuł zawiera definicje, zastosowanie praktyczne, procedury, przykłady, pojęcia pokrewne i wskazówki zawodowe.</p></div></div>
+<div class="toolbar">
+<input id="search" class="search" placeholder="Szukaj np. check-in, HACCP, housekeeping, turystyka..." oninput="searchArticles()">
+<select id="category" onchange="renderArticles()"><option value="all">Wszystkie działy</option></select>
 </div>
-
-</aside>
-
-<main id="app"></main>
-
-<aside class="right">
-
-<div class="panel">
-
-<h3>Hotelium w liczbach</h3>
-
-<p>
-<b>20+</b> rozbudowanych działów
-</p>
-
-<p>
-<b>100+</b> zagadnień i pojęć
-</p>
-
-<p>
-<b>30+</b> zadań praktycznych
-</p>
-
-<p>
-<b>3</b> ścieżki symulacji
-</p>
-
+<div class="encyclopedia">
+<aside class="sidebar" id="side"></aside>
+<main class="article" id="article"><h2>Wybierz zagadnienie</h2><p>Po lewej stronie znajdziesz działy. Kliknij temat, aby otworzyć pełne opracowanie.</p></main>
 </div>
+</section>
 
-<div class="panel" style="margin-top:15px">
-
-<h3>Przydatne</h3>
-
-<button
-class="btn"
-style="width:100%;margin-bottom:7px"
-onclick="window.scrollTo({top:0,behavior:'smooth'})"
->
-↑ Początek
-</button>
-
-<button
-class="btn"
-style="width:100%"
-onclick="showView('dictionary')"
->
-Otwórz słownik
-</button>
-
+<section class="container" id="symulator">
+<div class="section-head"><div><h2>HOTELIUM OPERATIONS SIMULATOR</h2><p>To nie jest zwykły przycisk „wykonano”. Wybierasz rolę i scenariusz, a system sam przeprowadza cały proces krok po kroku, tworzy dokumenty, wpisy do dziennika i przekazuje zadanie do kolejnego działu.</p></div></div>
+<div class="simulator">
+<div class="sim-grid">
+<div class="roles">
+<strong>WYBIERZ SCENARIUSZ</strong>
+<button class="active" onclick="runScenario('checkin',this)">Recepcja · zameldowanie</button>
+<button onclick="runScenario('checkout',this)">Recepcja · wymeldowanie</button>
+<button onclick="runScenario('housekeeping',this)">Housekeeping · przygotowanie pokoju</button>
+<button onclick="runScenario('restaurant',this)">Gastronomia · obsługa zamówienia</button>
+<button onclick="runScenario('complaint',this)">Guest Relations · reklamacja</button>
+<button onclick="runScenario('reservation',this)">Rezerwacje · nowa rezerwacja</button>
 </div>
-
-</aside>
-
+<div class="workflow">
+<h3 id="simTitle">Automatyczny proces</h3>
+<div class="progress"><i id="bar"></i></div>
+<div id="steps"></div>
+<div class="log" id="log">System HOTELIUM gotowy.\nWybierz scenariusz, aby rozpocząć automatyczną symulację.</div>
+<button class="btn" onclick="startSim()">▶ URUCHOM PROCES</button>
 </div>
+</div>
+</div>
+</section>
+
+<section class="container" id="turystyka">
+<div class="section-head"><div><h2>Turystyka</h2><p>Od organizacji ruchu turystycznego po produkt turystyczny, transport, atrakcje, bezpieczeństwo i obsługę klienta.</p></div></div>
+<div class="grid" id="tourCards"></div>
+</section>
+
+<section class="container" id="gastronomia">
+<div class="section-head"><div><h2>Gastronomia i żywienie</h2><p>Technologia gastronomiczna, organizacja produkcji, obsługa konsumenta, bezpieczeństwo żywności i ekonomika gastronomii.</p></div></div>
+<div class="grid" id="foodCards"></div>
+</section>
+
+
+<section class="container" id="english">
+<div class="section-head"><div><h2>English for Hospitality · Język zawodowy</h2>
+<p>Praktyczny słownik i gotowe zwroty do recepcji, restauracji, housekeeping, rezerwacji, reklamacji i kontaktu z turystą.</p></div></div>
+<div class="toolbar">
+<input id="engSearch" class="search" placeholder="Szukaj: check-in, reservation, complaint..." oninput="renderEnglish()">
+<select id="engCat" onchange="renderEnglish()">
+<option value="all">Wszystkie sytuacje</option>
+<option>Recepcja</option><option>Rezerwacje</option><option>Housekeeping</option>
+<option>Gastronomia</option><option>Reklamacje</option><option>Turystyka</option>
+</select>
+</div>
+<div class="grid" id="englishCards"></div>
+</section>
+
+<section class="container" id="quiz">
+<div class="section-head"><div><h2>Akademia HOTELIUM</h2><p>Sprawdź wiedzę. Pytania są losowane, a wynik zapisuje się lokalnie w przeglądarce.</p></div></div>
+<div class="quiz">
+<h3 id="qText">Ładowanie pytania...</h3>
+<div id="choices"></div>
+<div class="result" id="quizResult">Wynik: 0 pkt</div>
+<button class="btn" onclick="nextQuestion()">NASTĘPNE PYTANIE</button>
+</div>
+</section>
 
 <footer class="footer">
-
-<div class="footer-inner">
-
-<div class="brand" style="color:#fff">
-HOTEL<span>IUM</span>
-</div>
-
-<p>
-Interaktywna encyklopedia wiedzy o hotelarstwie,
-turystyce, gastronomii i organizacji usług.
-</p>
-
-<p
-class="small"
-style="color:#aeb9c3"
->
-Materiał ma charakter edukacyjny.
-Przepisy, normy i procedury należy zawsze
-weryfikować w aktualnych źródłach branżowych i prawnych.
-</p>
-
-</div>
-
+<strong>HOTELIUM 10.0</strong>
+<p>Encyklopedia · praktyka · symulacje · wiedza branżowa</p>
+<p>Wersja działająca lokalnie w jednej stronie HTML. Możesz ją dowolnie rozwijać o kolejne rozdziały, zdjęcia, materiały i moduły.</p>
 </footer>
-
-<button
-class="backtop"
-id="backtop"
-onclick="window.scrollTo({top:0,behavior:'smooth'})"
->
-↑
-</button>
-
+<div class="toast" id="toast"></div>
 
 <script>
-
-const img = {
-
-hotel:
-"https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
-
-reception:
-"https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
-
-room:
-"https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80",
-
-food:
-"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
-
-tourism:
-"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-
-spa:
-"https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80"
-
-};
-
-
-const articles = {
-
-hotelarstwo:{
-title:"Hotelarstwo",
-category:"Hotelarstwo",
-image:img.hotel,
-
-lead:
-"Hotelarstwo to działalność związana z zapewnianiem gościom noclegu oraz szerokiego zakresu usług towarzyszących. Nowoczesny hotel jest systemem współpracujących działów, procesów i ludzi.",
-
-sections:[
-
-[
-"Definicja i zakres",
-
-"Hotelarstwo obejmuje planowanie, organizowanie i świadczenie usług noclegowych oraz usług uzupełniających. W praktyce łączy elementy obsługi klienta, gastronomii, zarządzania personelem, finansów, marketingu, technologii i bezpieczeństwa."
-],
-
-[
-"Typy obiektów",
-
-"Do obiektów noclegowych zalicza się m.in. hotele, motele, pensjonaty, domy wycieczkowe, schroniska, pola biwakowe i inne formy zakwaterowania. Poszczególne obiekty różnią się zakresem usług, standardem, wielkością i grupą docelową."
-],
-
-[
-"Organizacja hotelu",
-
-"Typowy hotel może posiadać recepcję, dział rezerwacji, housekeeping, gastronomię, dział techniczny, sprzedaż i marketing, finanse, ochronę oraz kierownictwo. W małych obiektach jedna osoba może pełnić kilka funkcji."
-],
-
-[
-"Cykl pobytu gościa",
-
-"Proces można podzielić na etap przed przyjazdem, przyjazd i check-in, pobyt, świadczenie usług dodatkowych oraz check-out i obsługę posprzedażową. Każdy etap wymaga przekazywania informacji pomiędzy działami."
-],
-
-[
-"Jakość usług",
-
-"Jakość nie polega wyłącznie na wyglądzie obiektu. Obejmuje przewidywalność procesu, szybkość reakcji, kulturę komunikacji, bezpieczeństwo, czystość, dostępność informacji i zdolność rozwiązywania problemów."
-],
-
-[
-"Wskaźniki pracy",
-
-"W praktyce analizuje się m.in. obłożenie, średnią cenę pokoju, przychód na dostępny pokój, długość pobytu, anulacje, opinie gości, koszty pracy i sprzedaż usług dodatkowych."
-]
-
-]
-},
-
-
-recepcja:{
-title:"Recepcja hotelowa",
-category:"Front Office",
-image:img.reception,
-
-lead:
-"Recepcja jest centrum komunikacji hotelu. Odpowiada za kontakt z gościem, obsługę rezerwacji, meldowanie i wymeldowanie, rozliczenia oraz przekazywanie informacji innym działom.",
-
-sections:[
-
-[
-"Przygotowanie stanowiska",
-
-"Przed rozpoczęciem zmiany należy sprawdzić listę przyjazdów i wyjazdów, status pokoi, informacje o VIP-ach, wiadomości od poprzedniej zmiany, płatności, depozyty, zadania specjalne i sytuacje wymagające obserwacji."
-],
-
-[
-"Rezerwacja",
-
-"Rezerwacja powinna zawierać dane potrzebne do realizacji pobytu: termin, liczbę osób, typ pokoju, plan taryfowy, warunki anulacji, sposób gwarancji, wymagania gościa i informacje dotyczące usług dodatkowych."
-],
-
-[
-"Check-in",
-
-"Proces obejmuje powitanie, identyfikację rezerwacji, weryfikację wymaganych danych, potwierdzenie warunków pobytu, płatność lub zabezpieczenie płatności, przekazanie informacji o hotelu oraz wydanie dostępu do pokoju."
-],
-
-[
-"Obsługa w trakcie pobytu",
-
-"Recepcja przyjmuje prośby, udziela informacji, koordynuje usługi i przekazuje zadania do odpowiednich działów. Ważna jest precyzja: pracownik powinien potwierdzić, co zostało zlecone, komu i na kiedy."
-],
-
-[
-"Reklamacje",
-
-"Najpierw należy wysłuchać gościa bez przerywania, ustalić fakty, przeprosić za niedogodność bez składania obietnic niemożliwych do spełnienia, zaproponować rozwiązanie zgodne z kompetencjami i udokumentować sprawę."
-],
-
-[
-"Check-out",
-
-"Przed wymeldowaniem należy sprawdzić rachunek, dodatkowe usługi i ewentualne należności. Po rozliczeniu należy zamknąć pobyt, przekazać informację o statusie pokoju i — jeśli hotel stosuje taki proces — poprosić o opinię."
-],
-
-[
-"Przekazanie zmiany",
-
-"Kolejna osoba powinna otrzymać jasną informację o otwartych sprawach, reklamacjach, płatnościach, oczekujących usługach i nietypowych sytuacjach. Dobre przekazanie zmiany ogranicza błędy i powtarzanie pytań gości."
-]
-
-]
-},
-
-
-housekeeping:{
-title:"Housekeeping i służba pięter",
-category:"Operacje hotelowe",
-image:img.room,
-
-lead:
-"Housekeeping odpowiada za czystość, porządek, stan wyposażenia oraz przygotowanie pokoi i przestrzeni wspólnych zgodnie ze standardem obiektu.",
-
-sections:[
-
-[
-"Planowanie pracy",
-
-"Lista zadań powinna uwzględniać pokoje wyjeżdżających gości, pokoje do ponownego przygotowania, pobyty kontynuowane, priorytety, zgłoszenia techniczne i zadania okresowe."
-],
-
-[
-"Standard pokoju",
-
-"Kontrola obejmuje m.in. łóżko, tekstylia, powierzchnie, łazienkę, wyposażenie, oświetlenie, temperaturę, zapach, stan techniczny i uzupełnienie materiałów dla gościa."
-],
-
-[
-"Status pokoju",
-
-"W symulatorze hotelu pokój może mieć status: zajęty, wolny, do sprzątania, w trakcie sprzątania, gotowy, z usterką lub poza sprzedażą. Status powinien być zgodny z rzeczywistym stanem pokoju."
-],
-
-[
-"Usterki",
-
-"Uszkodzone wyposażenie należy zgłosić do działu technicznego zgodnie z procedurą obiektu. Pracownik nie powinien samodzielnie wykonywać napraw, do których nie ma kompetencji."
-],
-
-[
-"Lost & Found",
-
-"Przedmiot pozostawiony przez gościa powinien być zabezpieczony, opisany i przekazany zgodnie z procedurą hotelu. Ważna jest identyfikowalność: kto znalazł przedmiot, kiedy i gdzie."
-]
-
-]
-},
-
-
-gastronomia:{
-title:"Gastronomia hotelowa",
-category:"Food & Beverage",
-image:img.food,
-
-lead:
-"Gastronomia hotelowa obejmuje przygotowanie i sprzedaż żywności oraz napojów, obsługę restauracji, śniadań, room service, bankietów i wydarzeń.",
-
-sections:[
-
-[
-"Organizacja restauracji",
-
-"Sprawna obsługa wymaga podziału ról, przygotowania sali, kontroli rezerwacji, znajomości menu, komunikacji kuchnia–sala i prawidłowego rozliczania zamówień."
-],
-
-[
-"Obsługa gościa",
-
-"Kelner powinien znać kartę, składniki, podstawowe alergeny wskazane w dokumentacji lokalu, sposób podania oraz dostępne warianty. Wątpliwości należy sprawdzać zamiast zgadywać."
-],
-
-[
-"Śniadanie hotelowe",
-
-"Śniadanie może mieć formę bufetu lub serwisu. Należy kontrolować uzupełnianie potraw, temperatury zgodnie z procedurami, czystość stanowisk, oznaczenia i dostępność naczyń."
-],
-
-[
-"Higiena żywności",
-
-"Bezpieczna praca obejmuje higienę osobistą, zapobieganie zanieczyszczeniom krzyżowym, prawidłowe przechowywanie i kontrolę procesów zgodnie z systemem bezpieczeństwa żywności."
-],
-
-[
-"Menu",
-
-"Dobrze zaprojektowane menu powinno być czytelne, spójne z profilem obiektu i możliwe do realizacji przez kuchnię. Warto uwzględniać sezonowość, koszty, popularność pozycji i potrzeby gości."
-]
-
-]
-},
-
-
-turystyka:{
-title:"Turystyka",
-category:"Turystyka",
-image:img.tourism,
-
-lead:
-"Turystyka obejmuje przemieszczanie się i czasowe pobyty poza codziennym środowiskiem w celach m.in. wypoczynkowych, poznawczych, biznesowych i społecznych.",
-
-sections:[
-
-[
-"Rodzaje turystyki",
-
-"Wyróżnia się m.in. turystykę wypoczynkową, kulturową, biznesową, kwalifikowaną, miejską, przyrodniczą, zdrowotną, kulinarną i wiele innych form. Jeden wyjazd może łączyć kilka motywów."
-],
-
-[
-"Produkt turystyczny",
-
-"Produkt może być pojedynczą usługą, np. noclegiem, albo pakietem obejmującym transport, nocleg, wyżywienie, atrakcje i opiekę. Wartość dla turysty wynika z całego doświadczenia."
-],
-
-[
-"Organizacja wyjazdu",
-
-"Planowanie obejmuje określenie celu, grupy, terminu, budżetu, transportu, noclegu, programu, bezpieczeństwa, ubezpieczenia i informacji dla uczestników."
-],
-
-[
-"Obsługa turysty",
-
-"Profesjonalna komunikacja powinna być konkretna, aktualna i dostosowana do odbiorcy. W przypadku zmian programu należy szybko przekazywać informację oraz proponować rozwiązania."
-],
-
-[
-"Destynacja",
-
-"O atrakcyjności miejsca decydują m.in. walory przyrodnicze i kulturowe, infrastruktura, dostępność, bezpieczeństwo, oferta gastronomiczna, wydarzenia i jakość informacji."
-]
-
-]
-},
-
-
-zarzadzanie:{
-title:"Zarządzanie hotelem",
-category:"Management",
-image:img.hotel,
-
-lead:
-"Zarządzanie hotelem polega na koordynowaniu ludzi, procesów, finansów, jakości i sprzedaży tak, aby obiekt realizował swoje cele i zapewniał gościom dobrą jakość usług.",
-
-sections:[
-
-[
-"Planowanie",
-
-"Kierownictwo określa cele, budżety, standardy i priorytety. Plan powinien uwzględniać sezonowość, popyt, konkurencję i dostępność personelu."
-],
-
-[
-"Personel",
-
-"Ważne są rekrutacja, wdrożenie, szkolenia, grafiki, komunikacja, ocena pracy i rozwój. Dobrze zaprojektowany proces ogranicza błędy i poprawia doświadczenie gościa."
-],
-
-[
-"Kontrola jakości",
-
-"Kontrola może obejmować audyty, checklisty, opinie, reklamacje, wyniki sprzedaży i obserwacje operacyjne. Najlepsze efekty daje połączenie danych liczbowych z informacją od pracowników i gości."
-],
-
-[
-"Finanse",
-
-"Hotel kontroluje przychody z pokoi, gastronomii i usług dodatkowych oraz koszty pracy, energii, zakupów, utrzymania i marketingu."
-],
-
-[
-"Kryzysy",
-
-"Procedury awaryjne powinny określać role, sposób komunikacji, priorytet bezpieczeństwa i dokumentowanie zdarzeń. W sytuacjach wymagających interwencji służb należy postępować zgodnie z prawem i procedurami obiektu."
-]
-
-]
-},
-
-
-marketing:{
-title:"Marketing hotelu",
-category:"Marketing",
-image:img.hotel,
-
-lead:
-"Marketing hotelowy łączy budowanie marki, sprzedaż, komunikację, analizę rynku i zarządzanie doświadczeniem gościa.",
-
-sections:[
-
-[
-"Pozycjonowanie",
-
-"Hotel powinien wiedzieć, dla kogo jest przeznaczony, czym się wyróżnia i jaką wartość oferuje. Jasne pozycjonowanie ułatwia tworzenie komunikacji i oferty."
-],
-
-[
-"Kanały sprzedaży",
-
-"Rezerwacje mogą pochodzić z własnej strony, telefonu, maila, agentów, platform pośredniczących, partnerów i innych kanałów. Każdy kanał ma koszty i specyfikę."
-],
-
-[
-"Opinie gości",
-
-"Opinie dostarczają informacji o mocnych i słabych stronach usługi. Odpowiedź powinna być rzeczowa, kulturalna i zgodna z polityką hotelu."
-],
-
-[
-"Treści",
-
-"Zdjęcia, opisy pokoi, informacje o okolicy, menu, atrakcjach i usługach powinny odpowiadać rzeczywistości. Przejrzysta informacja zmniejsza ryzyko rozczarowania."
-],
-
-[
-"Lojalność",
-
-"Programy lojalnościowe mogą nagradzać powroty, dodatkowe usługi i długoterminową relację z klientem. Ważne jest, aby korzyść była zrozumiała i realna."
-]
-
-]
-},
-
-
-haccp:{
-title:"HACCP i bezpieczeństwo żywności",
-category:"Bezpieczeństwo",
-image:img.food,
-
-lead:
-"HACCP to system podejścia do bezpieczeństwa żywności, który identyfikuje zagrożenia i określa sposoby ich kontroli w procesie.",
-
-sections:[
-
-[
-"Cel systemu",
-
-"Celem jest zapobieganie zagrożeniom, a nie tylko wykrywanie problemu po fakcie. Proces powinien być udokumentowany i dopasowany do konkretnej działalności."
-],
-
-[
-"Rodzaje zagrożeń",
-
-"Analizuje się zagrożenia biologiczne, chemiczne i fizyczne oraz sytuacje, które mogą prowadzić do niebezpiecznej żywności."
-],
-
-[
-"Proces",
-
-"W praktyce analizuje się etapy od przyjęcia surowca przez magazynowanie i przygotowanie aż po wydanie. Właściwe działania zależą od rodzaju produktu i procesu."
-],
-
-[
-"Dokumentacja",
-
-"Zapisy powinny być czytelne, aktualne i możliwe do zweryfikowania. Personel musi wiedzieć, co kontroluje, kiedy, jak i co zrobić w przypadku odchylenia."
-],
-
-[
-"Szkolenie",
-
-"Najlepszy system nie działa bez ludzi, którzy rozumieją procedury. Szkolenie powinno łączyć teorię z ćwiczeniami na stanowisku pracy."
-]
-
-]
-},
-
-
-wellness:{
-title:"SPA & Wellness",
-category:"Usługi dodatkowe",
-image:img.spa,
-
-lead:
-"Usługi SPA i wellness mogą zwiększać atrakcyjność hotelu i długość pobytu, ale wymagają dobrej organizacji, bezpieczeństwa i profesjonalnej obsługi.",
-
-sections:[
-
-[
-"Oferta",
-
-"Może obejmować strefę relaksu, zabiegi, masaże, sauny, basen, fitness i pakiety pobytowe. Zakres powinien odpowiadać możliwościom obiektu i kompetencjom personelu."
-],
-
-[
-"Rezerwacje",
-
-"Warto prowadzić harmonogram zabiegów, uwzględniać czas przygotowania stanowiska, przerwy i zasady anulacji."
-],
-
-[
-"Obsługa",
-
-"Gość powinien otrzymać jasną informację o przebiegu usługi, czasie trwania, przeciwwskazaniach wskazanych przez personel oraz zasadach korzystania ze strefy."
-],
-
-[
-"Sprzedaż pakietów",
-
-"Pakiet może łączyć nocleg, śniadanie i usługę wellness. Jego opis powinien dokładnie określać zakres świadczeń."
-]
-
-]
-},
-
-
-sustainability:{
-title:"Zrównoważone hotelarstwo",
-category:"Rozwój",
-image:img.hotel,
-
-lead:
-"Zrównoważone hotelarstwo szuka równowagi między jakością usług, wpływem środowiskowym, odpowiedzialnością społeczną i efektywnością ekonomiczną.",
-
-sections:[
-
-[
-"Energia",
-
-"Hotel może ograniczać zużycie energii poprzez efektywne urządzenia, sterowanie oświetleniem, monitoring zużycia i właściwe utrzymanie instalacji."
-],
-
-[
-"Woda",
-
-"Ważne są wykrywanie wycieków, efektywne wyposażenie, racjonalne pranie tekstyliów i edukacja gości bez wywierania na nich presji."
-],
-
-[
-"Odpady",
-
-"Działania obejmują ograniczanie marnowania żywności, segregację, ponowne wykorzystanie i odpowiedzialne zakupy."
-],
-
-[
-"Lokalność",
-
-"Współpraca z lokalnymi dostawcami i atrakcjami może wzmacniać gospodarkę regionu i jednocześnie tworzyć ciekawsze doświadczenie turysty."
-],
-
-[
-"Komunikacja",
-
-"Deklaracje ekologiczne powinny być prawdziwe i możliwe do udokumentowania. Unikanie przesadnych obietnic buduje wiarygodność marki."
-]
-
-]
-}
-
-};
-
-
-const dictionary=[
-
-["ADR","Average Daily Rate — średnia cena sprzedanego pokoju w określonym okresie."],
-
-["Check-in","Proces przyjęcia gościa do hotelu i rozpoczęcia pobytu."],
-
-["Check-out","Proces zakończenia pobytu i rozliczenia gościa."],
-
-["FO","Front Office — obszar hotelu związany m.in. z recepcją i bezpośrednią obsługą gościa."],
-
-["F&B","Food & Beverage — gastronomiczna część działalności hotelu."],
-
-["Housekeeping","Dział odpowiedzialny m.in. za czystość i przygotowanie pokoi."],
-
-["No-show","Sytuacja, w której gość nie pojawia się mimo dokonanej rezerwacji."],
-
-["Overbooking","Sprzedaż większej liczby rezerwacji niż dostępnych miejsc, stosowana przez niektóre obiekty jako strategia zarządzania popytem."],
-
-["RevPAR","Revenue per Available Room — przychód przypadający na dostępny pokój."],
-
-["Walk-in","Gość zgłaszający się bez wcześniejszej rezerwacji."],
-
-["VIP","Gość traktowany według specjalnych ustaleń obiektu ze względu na status lub charakter pobytu."],
-
-["Lost & Found","Procedura postępowania z przedmiotami pozostawionymi przez gości."],
-
-["Room status","Informacja o aktualnym stanie pokoju, np. gotowy, do sprzątania lub zajęty."],
-
-["Upselling","Sprzedaż droższego lub bardziej rozbudowanego wariantu usługi."],
-
-["Cross-selling","Sprzedaż dodatkowych usług uzupełniających podstawową usługę."],
-
-["Touroperator","Podmiot organizujący i sprzedający pakiety lub imprezy turystyczne."],
-
-["Allergen","Substancja lub składnik mogący wywołać reakcję alergiczną u osoby wrażliwej."],
-
-["Mise en place","Przygotowanie stanowiska i składników przed rozpoczęciem pracy gastronomicznej."],
-
-["SOP","Standard Operating Procedure — standardowa procedura wykonywania procesu."],
-
-["Occupancy","Wskaźnik wykorzystania dostępnej bazy noclegowej w określonym czasie."]
-
+const articles = [
+{cat:"Hotelarstwo",title:"Hotel — definicja i funkcje",text:"Hotel jest obiektem świadczącym usługi noclegowe oraz szereg usług towarzyszących. W praktyce hotel łączy funkcję pobytową, usługową, informacyjną i gospodarczą.",sections:[
+["Najważniejsze funkcje","Zapewnienie noclegu, bezpieczeństwa, higieny, informacji, obsługi rezerwacji, rozliczeń oraz organizacji pobytu gościa."],
+["Struktura hotelu","Typowy obiekt może obejmować recepcję, rezerwacje, housekeeping, gastronomię, sprzedaż, technikę, administrację, ochronę i zarządzanie."],
+["Standard pracy","Podstawą jest powtarzalność procedur, kultura osobista, poufność danych, punktualność, komunikacja międzydziałowa oraz kontrola jakości."],
+["W praktyce","Każda usługa powinna mieć właściciela procesu, określony standard, sposób kontroli i procedurę postępowania w sytuacji niestandardowej."]]},
+{cat:"Hotelarstwo",title:"Recepcja hotelowa",text:"Recepcja jest centralnym punktem kontaktu z gościem. Łączy sprzedaż, informację, obsługę pobytu, rozliczenia i komunikację z pozostałymi działami.",sections:[
+["Check-in","Weryfikacja rezerwacji, danych, terminu pobytu, liczby osób, sposobu płatności, przekazanie informacji o obiekcie i wydanie dostępu do pokoju."],
+["Check-out","Sprawdzenie salda, usług dodatkowych, płatności, zwrotu klucza/karty oraz zebranie informacji zwrotnej."],
+["Komunikacja","Recepcja przekazuje zadania housekeepingowi, gastronomii, technice i managerowi. Wysoka jakość zależy od kompletności informacji."],
+["Dokumentacja","Pracownik powinien dokumentować istotne zdarzenia, zmiany rezerwacji, reklamacje, zgłoszenia techniczne i rozliczenia zgodnie z procedurami obiektu."]]},
+{cat:"Hotelarstwo",title:"Housekeeping",text:"Housekeeping odpowiada za czystość, porządek, przygotowanie jednostek mieszkalnych i części wspólnych oraz kontrolę standardu.",sections:[
+["Przygotowanie pokoju","Wietrzenie, kontrola wyposażenia, ścielenie łóżka, czyszczenie powierzchni, łazienka, uzupełnienie materiałów i kontrola końcowa."],
+["Statusy pokoi","Przykładowe statusy to vacant clean, vacant dirty, occupied, inspected, out of order. Status musi odpowiadać faktycznemu stanowi pokoju."],
+["Kontrola jakości","Kontrola obejmuje czystość, kompletność wyposażenia, zapach, temperaturę, oświetlenie, stan techniczny i przygotowanie materiałów dla gościa."],
+["Współpraca","Usterka zgłoszona przez housekeeping powinna trafić do techniki, a zmiana statusu pokoju do recepcji."]]},
+{cat:"Hotelarstwo",title:"Rezerwacja hotelowa",text:"Rezerwacja tworzy zobowiązanie organizacyjne między obiektem a gościem i powinna zawierać komplet kluczowych danych.",sections:[
+["Dane rezerwacji","Termin, liczba osób, typ pokoju, planowana godzina przyjazdu, dane kontaktowe, cena, warunki anulacji i sposób gwarancji."],
+["Etapy","Zapytanie → oferta → potwierdzenie → gwarancja → przyjazd → pobyt → rozliczenie → historia."],
+["Overbooking","Zarządzanie dostępnością wymaga kontroli puli pokoi, typów jednostek, anulacji, no-show i prognoz popytu."],
+["Dobra praktyka","Każda zmiana powinna mieć zapis: kto, kiedy, co zmienił i z jakiego powodu."]]},
+{cat:"Hotelarstwo",title:"Obsługa reklamacji",text:"Reklamacja jest sytuacją wymagającą jednocześnie empatii, zebrania faktów i rozwiązania problemu.",sections:[
+["Model rozmowy","Wysłuchaj → potwierdź zrozumienie → przeproś za doświadczenie → ustal fakty → zaproponuj rozwiązanie → potwierdź wykonanie → zapisz zdarzenie."],
+["Czego unikać","Obwiniania innych działów, obietnic bez pokrycia, podnoszenia tonu i ujawniania danych innych gości."],
+["Eskalacja","Sprawy finansowe, bezpieczeństwa, zdrowia lub powtarzających się usterek powinny trafić do osoby uprawnionej do decyzji."],
+["Cel","Nie chodzi tylko o zamknięcie reklamacji, lecz o odzyskanie zaufania i usunięcie przyczyny problemu."]]},
+{cat:"Gastronomia",title:"HACCP — podstawy",text:"HACCP jest systemem analizy zagrożeń i krytycznych punktów kontroli w procesie żywnościowym.",sections:[
+["Zagrożenia","Biologiczne, chemiczne i fizyczne. Analiza dotyczy całego przepływu produktu."],
+["Kontrola","Istotne są m.in. temperatura, czas, higiena, zapobieganie zanieczyszczeniom krzyżowym i prawidłowe przechowywanie."],
+["Dokumentacja","Procedury powinny wskazywać co kontrolować, jak często, kto kontroluje i co zrobić w przypadku odchylenia."],
+["Praktyka","HACCP jest systemem zarządzania bezpieczeństwem, a nie samą listą temperatur."]]},
+{cat:"Gastronomia",title:"Obsługa konsumenta",text:"Profesjonalna obsługa gastronomiczna łączy znajomość menu, techniki serwisu, komunikację i bezpieczeństwo.",sections:[
+["Przyjęcie gościa","Powitanie, wskazanie miejsca, przekazanie menu, odpowiedź na pytania i przyjęcie zamówienia."],
+["Doradztwo","Kelner powinien znać składniki, alergeny, metody przygotowania, wielkość porcji i możliwe modyfikacje zgodnie z zasadami lokalu."],
+["Serwis","Zamówienie musi być przekazane kuchni czytelnie, a wydanie dań skoordynowane i zgodne z kolejnością obsługi."],
+["Rozliczenie","Rachunek powinien być sprawdzony przed przedstawieniem, a sposób płatności obsłużony zgodnie z procedurą."]]},
+{cat:"Turystyka",title:"Produkt turystyczny",text:"Produkt turystyczny to zestaw dóbr i usług tworzących doświadczenie podróżnego.",sections:[
+["Elementy","Atrakcje, transport, nocleg, gastronomia, informacja, infrastruktura i usługi dodatkowe."],
+["Projektowanie","Należy określić grupę docelową, potrzeby, budżet, sezonowość, dostępność i sposób sprzedaży."],
+["Jakość","Doświadczenie klienta zależy od całej podróży, dlatego pojedynczy słaby element może obniżyć ocenę całego produktu."],
+["Przykład","Weekendowy pobyt może łączyć nocleg, śniadanie, transfer, wejście do atrakcji, przewodnika i program czasu wolnego."]]},
+{cat:"Turystyka",title:"Organizacja imprezy turystycznej",text:"Organizacja imprezy wymaga planowania, harmonogramu, kalkulacji i zarządzania ryzykiem.",sections:[
+["Plan","Cel → grupa → program → transport → nocleg → wyżywienie → atrakcje → budżet → dokumentacja → komunikacja."],
+["Harmonogram","Każdy punkt powinien mieć godzinę, miejsce, osobę odpowiedzialną i plan awaryjny."],
+["Ryzyko","Opóźnienia, pogoda, awarie, choroba uczestnika, zmiana dostępności atrakcji i problemy transportowe."],
+["Ocena","Po imprezie warto analizować koszty, opinie klientów, incydenty i elementy wymagające poprawy."]]},
+{cat:"Zarządzanie",title:"Revenue management",text:"Revenue management polega na zarządzaniu ceną i dostępnością w celu maksymalizacji przychodu przy określonym popycie.",sections:[
+["Dane","Obłożenie, ADR, RevPAR, pickup, lead time, segmenty klientów, sezonowość i konkurencja."],
+["Strategia","Cena nie powinna być zmieniana przypadkowo. Powinna wynikać z popytu, dostępności i zasad sprzedaży."],
+["Segmentacja","Inne potrzeby mają grupy biznesowe, leisure, grupowe, rodzinne i tranzytowe."],
+["Wniosek","Najlepsza cena to nie zawsze najniższa cena; ważne jest dopasowanie oferty do gotowości klienta do zapłaty."]]},
+{cat:"Zarządzanie",title:"Marketing hotelu",text:"Marketing hotelu buduje rozpoznawalność, pozyskuje rezerwacje i wzmacnia relację z gościem.",sections:[
+["Kanały","Strona internetowa, wyszukiwarki, media społecznościowe, newsletter, OTA, partnerzy i sprzedaż bezpośrednia."],
+["Treść","Zdjęcia, opisy pokoi, doświadczenia, okolica, gastronomia, udogodnienia i opinie klientów."],
+["Konwersja","Strona powinna szybko odpowiadać na pytania: gdzie, za ile, co otrzymuję, dlaczego tutaj i jak zarezerwować."],
+["Reputacja","Opinie należy monitorować, analizować i wykorzystywać do poprawy jakości."]]},
+{cat:"Bezpieczeństwo",title:"Bezpieczeństwo gościa",text:"Bezpieczeństwo jest elementem jakości usługi hotelowej i wymaga procedur, przeszkolenia oraz szybkiej komunikacji.",sections:[
+["Obszary","Pożar, ewakuacja, medyczne sytuacje nagłe, awarie techniczne, bezpieczeństwo danych i kontrola dostępu."],
+["Procedury","Pracownik powinien znać instrukcje obiektu, numery wewnętrzne, drogi ewakuacyjne i sposób raportowania zdarzeń."],
+["Poufność","Dane gościa nie powinny być ujawniane osobom nieuprawnionym."],
+["Raport","Po zdarzeniu należy zapisać fakty, czas, działania i osoby powiadomione zgodnie z procedurą obiektu."]]}
 ];
 
-
-const roles={
-
-"Recepcja":[
-
-[
-"Przyjazd gościa",
-"Otwórz rezerwację, sprawdź termin, typ pokoju i wymagania. Następnie wykonaj check-in.",
-"checkin"
-],
-
-[
-"Płatność",
-"Zweryfikuj sposób rozliczenia i potwierdź należność zgodnie z warunkami rezerwacji.",
-"payment"
-],
-
-[
-"Przekazanie do housekeepingu",
-"Po prawidłowym przyjęciu gościa przekaż informację o pobycie do kolejnego działu.",
-"handoff"
-]
-
-],
-
-"Housekeeping":[
-
-[
-"Przygotowanie pokoju",
-"Sprawdź status pokoju, wykonaj checklistę czystości i oznacz pokój jako gotowy.",
-"room"
-],
-
-[
-"Kontrola wyposażenia",
-"Sprawdź wyposażenie i zgłoś ewentualną usterkę do działu technicznego.",
-"repair"
-],
-
-[
-"Przekazanie statusu",
-"Zaktualizuj status pokoju, aby recepcja otrzymała aktualną informację.",
-"handoff"
-]
-
-],
-
-"Restauracja":[
-
-[
-"Przygotowanie sali",
-"Przygotuj stanowiska, sprawdź rezerwacje i dostępność menu.",
-"service"
-],
-
-[
-"Obsługa zamówienia",
-"Przyjmij zamówienie, potwierdź szczegóły i przekaż je do realizacji.",
-"order"
-],
-
-[
-"Rozliczenie",
-"Sprawdź rachunek i zakończ obsługę stolika.",
-"bill"
-]
-
-],
-
-"Concierge":[
-
-[
-"Prośba gościa",
-"Zidentyfikuj potrzebę gościa i wybierz odpowiednią usługę lub informację.",
-"request"
-],
-
-[
-"Organizacja usługi",
-"Przygotuj rozwiązanie i przekaż potwierdzenie gościowi.",
-"service"
-],
-
-[
-"Notatka dla zespołu",
-"Zapisz informację, która może być ważna dla kolejnej zmiany.",
-"handoff"
-]
-
-]
-
-};
-
-
-let currentView="home";
-
-let selectedRole="Recepcja";
-
-let simState={};
-
-
-let quizQuestions=[
-
-[
-"Co jest podstawowym celem recepcji?",
-"Koordynacja kontaktu z gościem i procesów front office",
-"Tylko sprzedaż pamiątek",
-"Wyłącznie sprzątanie pokoi",
-0
-],
-
-[
-"Co oznacza check-out?",
-"Rozpoczęcie pobytu",
-"Zakończenie pobytu i rozliczenie",
-"Przygotowanie śniadania",
-1
-],
-
-[
-"Który dział odpowiada za przygotowanie pokoi?",
-"Housekeeping",
-"Marketing",
-"Księgowość",
-0
-],
-
-[
-"Co oznacza no-show?",
-"Gość nie pojawił się mimo rezerwacji",
-"Gość przedłużył pobyt",
-"Gość zamówił room service",
-0
-],
-
-[
-"Jaki jest sens przekazania zmiany?",
-"Ukrycie problemów",
-"Przekazanie otwartych spraw i ważnych informacji",
-"Zmiana nazwy hotelu",
-1
-],
-
-[
-"HACCP dotyczy przede wszystkim:",
-"Bezpieczeństwa żywności",
-"Projektowania logo",
-"Sprzedaży pokoi",
-0
-],
-
-[
-"ADR oznacza:",
-"Średnią cenę sprzedanego pokoju",
-"Liczbę pracowników",
-"Liczbę reklamacji",
-0
-],
-
-[
-"Upselling to:",
-"Sprzedaż droższego wariantu usługi",
-"Sprzątanie pokoju",
-"Anulowanie rezerwacji",
-0
-]
-
+const tour = [
+["Turystyka krajowa","Ruch turystyczny, walory, infrastruktura i organizacja pobytu.", "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"],
+["Transport turystyczny","Autokar, kolej, lotnictwo, transfery i logistyka podróży.","https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80"],
+["Atrakcje turystyczne","Dziedzictwo kulturowe, przyroda, wydarzenia i doświadczenia.","https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80"],
+["Obsługa turysty","Informacja, komunikacja, potrzeby klienta i budowanie doświadczenia.","https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80"]
+];
+const food = [
+["Technologia gastronomiczna","Proces produkcji potraw, organizacja stanowisk i jakość.", "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80"],
+["Kuchnia hotelowa","Śniadania, bufety, à la carte, bankiety i room service.","https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80"],
+["Żywienie człowieka","Składniki pokarmowe, bilans energetyczny i planowanie posiłków.","https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=80"],
+["Organizacja restauracji","Stanowiska, przepływ zamówienia, serwis i rozliczenie.","https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"]
 ];
 
+const scenarios={
+checkin:{title:"RECEPCJA · AUTOMATYCZNY CHECK-IN",steps:["System wykrywa przyjazd gościa i otwiera rezerwację.","Weryfikuje termin, liczbę osób, typ pokoju i status rezerwacji.","Generuje kartę pobytu oraz kontrolę danych.","Sprawdza gotowość pokoju i komunikuje się z housekeepingiem.","Rejestruje płatność lub gwarancję zgodnie z ustawieniami rezerwacji.","Generuje instrukcję pobytu: śniadanie, Wi‑Fi, godziny usług i kontakt z recepcją.","Nadaje numer pokoju i przygotowuje elektroniczny klucz.","Zapisuje zdarzenie w dzienniku recepcji i przekazuje status do kolejnego procesu.","Generuje podsumowanie pobytu dla pracownika recepcji." ]},
+checkout:{title:"RECEPCJA · AUTOMATYCZNY CHECK-OUT",steps:["System pobiera kartę pobytu i sprawdza planowany termin wyjazdu.","Pobiera wszystkie usługi dodatkowe z konta pokoju.","Łączy pozycje w rachunek końcowy i wykonuje kontrolę spójności.","Sprawdza płatność i zapisuje sposób rozliczenia.","Aktualizuje status pokoju na wymagający obsługi.","Automatycznie tworzy zadanie dla housekeeping.","Zapisuje godzinę wymeldowania i notatkę operacyjną.","Generuje propozycję krótkiej ankiety satysfakcji.","Zamyka pobyt i archiwizuje dokumentację operacyjną."]},
+housekeeping:{title:"HOUSEKEEPING · AUTOMATYCZNE PRZYGOTOWANIE POKOJU",steps:["System pobiera listę pokoi wymagających przygotowania.","Ustala priorytet według godziny przyjazdu i typu pokoju.","Generuje kartę zadania dla pracownika piętra.","Wykonuje wirtualną kontrolę: łóżko, łazienka, powierzchnie, wyposażenie i materiały.","Wykrywa przykładową usterkę i automatycznie tworzy zgłoszenie do techniki.","Po usunięciu usterki aktualizuje status techniczny.","Wykonuje kontrolę końcową standardu pokoju.","Ustawia status pokoju na „gotowy do sprzedaży”.","Przekazuje informację do recepcji i zapisuje raport zmiany."]},
+restaurant:{title:"GASTRONOMIA · AUTOMATYCZNA REALIZACJA ZAMÓWIENIA",steps:["System przyjmuje zamówienie i nadaje numer pozycji.","Analizuje składniki oraz oznaczenia alergenów.","Przekazuje bon do właściwego stanowiska kuchni.","Uruchamia kolejkę produkcyjną i ustala kolejność wydania.","Rejestruje kontrolę kompletności zamówienia.","Przekazuje informację kelnerowi o gotowości.","Dopisuje usługę do konta gościa lub stolika.","Generuje rachunek i przygotowuje rozliczenie.","Zamyka zamówienie i aktualizuje raport sprzedaży."]},
+complaint:{title:"GUEST RELATIONS · AUTOMATYCZNA OBSŁUGA REKLAMACJI",steps:["System rejestruje zgłoszenie i nadaje numer sprawy.","Klasyfikuje problem według obszaru i pilności.","Tworzy kartę sprawy z miejscem na fakty i oczekiwania gościa.","Przekazuje zadanie do odpowiedzialnego działu.","Monitoruje termin odpowiedzi i eskaluje brak reakcji.","Generuje propozycję rozwiązania na podstawie typu sprawy.","Rejestruje decyzję pracownika uprawnionego do zamknięcia sprawy.","Wysyła status do recepcji i zapisuje wynik.","Aktualizuje bazę problemów powtarzalnych do analizy jakości."]},
+reservation:{title:"REZERWACJE · AUTOMATYCZNE UTWORZENIE REZERWACJI",steps:["System przyjmuje zapytanie i identyfikuje termin oraz liczbę osób.","Sprawdza dostępność według typu pokoju.","Buduje ofertę z ceną, warunkami i usługami dodatkowymi.","Tworzy rekord rezerwacji.","Nadaje status gwarancji i termin płatności.","Generuje potwierdzenie rezerwacji.","Przekazuje informację do recepcji i housekeeping.","Dodaje wydarzenie do prognozy obłożenia.","Zapisuje rezerwację w historii klienta."]}
+};
 
-function app(){
+const quiz=[
+["Który dział najczęściej odpowiada za status czystości pokoju?","Housekeeping",["Recepcja","Housekeeping","Marketing","Księgowość"]],
+["Co oznacza ADR w hotelarstwie?","Średnia cena sprzedanego pokoju",["Liczba reklamacji","Średnia cena sprzedanego pokoju","Koszt śniadania","Liczba pracowników"]],
+["Jaki jest podstawowy cel HACCP?","Zapewnienie bezpieczeństwa żywności",["Zwiększenie sprzedaży","Zapewnienie bezpieczeństwa żywności","Ustalanie cen pokoi","Marketing hotelu"]],
+["Co powinno nastąpić po zgłoszeniu usterki pokoju?","Przekazanie informacji do właściwego działu i zapisanie zgłoszenia",["Ignorowanie problemu","Przekazanie informacji do właściwego działu i zapisanie zgłoszenia","Zmiana ceny bez sprawdzenia","Usunięcie rezerwacji"]],
+["Co jest kluczowe podczas check-in?","Weryfikacja rezerwacji i prawidłowe przygotowanie pobytu",["Tylko wręczenie klucza","Weryfikacja rezerwacji i prawidłowe przygotowanie pobytu","Sprzedaż wycieczki","Zamknięcie rachunku"]]
+];
 
-return document.getElementById("app");
+let currentScenario='checkin', running=false, qIndex=0, score=0;
 
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function clock(){document.getElementById('clock').textContent=new Date().toLocaleString('pl-PL')}
+setInterval(clock,1000);clock();
+
+const cats=[...new Set(articles.map(a=>a.cat))];
+const catSelect=document.getElementById('category');
+cats.forEach(c=>catSelect.insertAdjacentHTML('beforeend',`<option>${c}</option>`));
+const side=document.getElementById('side');
+cats.forEach(c=>side.insertAdjacentHTML('beforeend',`<button onclick="filterCat('${c}')">${c}</button>`));
+
+function renderArticles(list=articles){
+ const area=document.getElementById('article');
+ if(!list.length){area.innerHTML='<h2>Brak wyników</h2><p>Spróbuj innego hasła.</p>';return}
+ area.innerHTML=`<h2>${list[0].title}</h2><div class="infobox"><h4>HOTELIUM · HASŁO</h4><p><b>Dział:</b> ${list[0].cat}</p><p><b>Typ:</b> opracowanie branżowe</p><p><b>Zakres:</b> teoria + praktyka</p></div><p>${list[0].text}</p>${list[0].sections.map(s=>`<h3>${s[0]}</h3><p>${s[1]}</p>`).join('')}<div class="quote">Wiedza branżowa nabiera wartości wtedy, gdy można przełożyć ją na działanie. HOTELIUM łączy definicje z praktyką.</div><h3>Tematy powiązane</h3><p>${articles.filter(a=>a.cat===list[0].cat&&a.title!==list[0].title).slice(0,6).map(a=>`<button class="linkbtn" onclick="openArticle('${a.title.replace(/'/g,"\\'")}')">${a.title}</button>`).join(' · ')}</p>`;
 }
-
-
-function showView(view,btn){
-
-currentView=view;
-
-if(btn){
-
-document
-.querySelectorAll(".nav button")
-.forEach(x=>x.classList.remove("active"));
-
-btn.classList.add("active");
-
+function openArticle(title){renderArticles([articles.find(a=>a.title===title)])}
+function filterCat(cat){catSelect.value=cat;renderArticles(articles.filter(a=>a.cat===cat))}
+function searchArticles(){
+ const q=document.getElementById('search').value.toLowerCase().trim();
+ const cat=catSelect.value;
+ renderArticles(articles.filter(a=>(cat==='all'||a.cat===cat)&&(!q||(a.title+' '+a.text+' '+a.sections.flat().join(' ')).toLowerCase().includes(q))));
 }
-
-if(view==="home") renderHome();
-
-if(view==="encyclopedia") renderEncyclopedia();
-
-if(view==="simulator") renderSimulator();
-
-if(view==="quiz") renderQuiz();
-
-if(view==="dictionary") renderDictionary();
-
-if(view==="resources") renderResources();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
+function renderCards(id,data){
+ document.getElementById(id).innerHTML=data.map(x=>`<article class="card"><div class="photo" style="background-image:url('${x[2]}')"></div><div class="card-body"><h3>${x[0]}</h3><p>${x[1]}</p><button class="linkbtn" onclick="toast('Moduł ${x[0]} otwarty — możesz rozbudować go o kolejne rozdziały.')">OTWÓRZ MODUŁ →</button></div></article>`).join('');
 }
+renderCards('tourCards',tour);renderCards('foodCards',food);
+renderArticles();
 
-
-function renderHome(){
-
-app().innerHTML=`
-
-<section class="hero">
-
-<h1>HOTELIUM</h1>
-
-<p>
-Rozbudowana encyklopedia hotelarstwa,
-turystyki, gastronomii i organizacji usług
-— połączona z praktycznym symulatorem pracy hotelu.
-</p>
-
-<div class="hero-grid">
-
-<div class="stat">
-<b>20+</b>
-działów wiedzy
-</div>
-
-<div class="stat">
-<b>100+</b>
-pojęć i zagadnień
-</div>
-
-<div class="stat">
-<b>30+</b>
-zadań praktycznych
-</div>
-
-<div class="stat">
-<b>∞</b>
-możliwości rozbudowy
-</div>
-
-</div>
-
-</section>
-
-
-<div class="article">
-
-<div class="infobox">
-
-<div class="ib-title">
-HOTELIUM
-</div>
-
-<img src="${img.hotel}">
-
-<table>
-
-<tr>
-<td>Typ</td>
-<td>encyklopedia + symulator</td>
-</tr>
-
-<tr>
-<td>Zakres</td>
-<td>hotelarstwo, turystyka, gastronomia</td>
-</tr>
-
-<tr>
-<td>Tryb</td>
-<td>wiedza / praktyka</td>
-</tr>
-
-</table>
-
-</div>
-
-
-<h1>Witaj w Hotelium</h1>
-
-<p class="lead">
-To miejsce zostało zaprojektowane tak,
-aby wiedzę można było nie tylko czytać,
-ale również wykorzystywać w praktyce.
-</p>
-
-<p>
-Wybierz artykuł z encyklopedii albo uruchom
-symulator. W symulatorze działania jednego
-stanowiska wpływają na kolejne etapy obsługi gościa.
-</p>
-
-<div class="notice success">
-
-<b>Tryb praktyczny:</b>
-
-rozpocznij od recepcji, przygotuj przyjazd gościa,
-wykonaj płatność i przekaż zadanie do kolejnego działu.
-
-</div>
-
-
-<h2>Najważniejsze działy</h2>
-
-
-<div class="grid">
-
-${Object.entries(articles).map(([id,a])=>`
-
-<div class="card">
-
-<img src="${a.image}">
-
-<h3>${a.title}</h3>
-
-<p>
-${a.lead.slice(0,120)}…
-</p>
-
-<button
-class="btn"
-onclick="openArticle('${id}')"
->
-Czytaj artykuł →
-</button>
-
-</div>
-
-`).join("")}
-
-</div>
-
-</div>
-
-`;
-
+function runScenario(key,btn){
+ currentScenario=key; document.querySelectorAll('.roles button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ document.getElementById('simTitle').textContent=scenarios[key].title;
+ document.getElementById('steps').innerHTML=scenarios[key].steps.map((s,i)=>`<div class="step" id="st${i}"><span class="dot">${i+1}</span><span>${s}</span></div>`).join('');
+ document.getElementById('bar').style.width='0%';document.getElementById('log').textContent='Scenariusz załadowany. Kliknij URUCHOM PROCES.';
 }
-
-
-function openArticle(id){
-
-const a=articles[id];
-
-if(!a)return;
-
-currentView="article";
-
-app().innerHTML=`
-
-<article class="article">
-
-<div class="infobox">
-
-<div class="ib-title">
-${a.title}
-</div>
-
-<img src="${a.image}">
-
-<table>
-
-<tr>
-<td>Dział</td>
-<td>${a.category}</td>
-</tr>
-
-<tr>
-<td>Artykuł</td>
-<td>Hotelium</td>
-</tr>
-
-<tr>
-<td>Zakres</td>
-<td>${a.sections.length} rozdziałów</td>
-</tr>
-
-</table>
-
-</div>
-
-
-<h1>
-${a.title}
-</h1>
-
-
-<div class="tags">
-
-<span class="tag">
-${a.category}
-</span>
-
-<span class="tag">
-wiedza
-</span>
-
-<span class="tag">
-praktyka
-</span>
-
-</div>
-
-
-<p class="lead">
-${a.lead}
-</p>
-
-
-<div class="figure">
-
-<img src="${a.image}">
-
-<div class="caption">
-Ilustracja tematyczna.
-</div>
-
-</div>
-
-
-${a.sections.map((s,i)=>`
-
-<section>
-
-<h2>
-${i+1}. ${s[0]}
-</h2>
-
-<p>
-${s[1]}
-</p>
-
-${i===1?`
-
-<div class="notice">
-
-<b>Wskazówka praktyczna:</b>
-
-Zawsze rozdzielaj fakt, procedurę i własną interpretację.
-W pracy branżowej szczegóły zależą od standardów konkretnego obiektu.
-
-</div>
-
-`:""}
-
-</section>
-
-`).join("")}
-
-
-<h2>
-Sprawdź się
-</h2>
-
-<p>
-Po przeczytaniu artykułu przejdź do quizu
-i sprawdź, ile informacji pamiętasz.
-</p>
-
-<button
-class="btn primary"
-onclick="showView('quiz')"
->
-Przejdź do quizu →
-</button>
-
-<button
-class="btn"
-onclick="showView('encyclopedia')"
->
-← Wróć do encyklopedii
-</button>
-
-</article>
-
-`;
-
+function startSim(){
+ if(running)return;running=true;
+ const s=scenarios[currentScenario].steps;let i=0;
+ document.getElementById('log').textContent='HOTELIUM OPERATIONS ENGINE\n> Inicjalizacja procesu...\n';
+ function tick(){
+   if(i>=s.length){document.getElementById('log').textContent+=`> PROCES ZAKOŃCZONY.\n> ${s.length} etapów wykonanych.\n> Raport operacyjny wygenerowany.\n> Zadania międzydziałowe przekazane automatycznie.`;document.getElementById('bar').style.width='100%';running=false;return}
+   document.getElementById('st'+i).classList.add('done');
+   document.getElementById('log').textContent+=`> ETAP ${i+1}: ${s[i]}\n`;
+   document.getElementById('bar').style.width=((i+1)/s.length*100)+'%';i++;setTimeout(tick,650);
+ }
+ tick();
 }
+runScenario('checkin',document.querySelector('.roles button'));
 
 
-function renderEncyclopedia(){
+const english = [
+["Recepcja","Good morning. How may I help you?","Dzień dobry. W czym mogę pomóc?"],
+["Recepcja","Do you have a reservation?","Czy ma Pan/Pani rezerwację?"],
+["Recepcja","May I see your ID, please?","Czy mogę prosić o dokument tożsamości?"],
+["Recepcja","Your room is ready.","Pański/Pani pokój jest gotowy."],
+["Recepcja","Here is your room key.","Oto klucz/karta do pokoju."],
+["Recepcja","Breakfast is served from 7 to 10 a.m.","Śniadanie jest serwowane od 7:00 do 10:00."],
+["Recepcja","The Wi-Fi password is available at the reception desk.","Hasło do Wi-Fi jest dostępne w recepcji."],
+["Recepcja","How was your stay?","Jak minął Państwu pobyt?"],
+["Rezerwacje","I would like to make a reservation.","Chciałbym/Chciałabym dokonać rezerwacji."],
+["Rezerwacje","What dates would you like to stay?","W jakim terminie chcieliby Państwo się zatrzymać?"],
+["Rezerwacje","How many guests will be staying?","Ilu gości będzie nocować?"],
+["Rezerwacje","Would you like a single or double room?","Czy chcą Państwo pokój jedno- czy dwuosobowy?"],
+["Rezerwacje","Your reservation is confirmed.","Państwa rezerwacja jest potwierdzona."],
+["Rezerwacje","What time do you expect to arrive?","O której godzinie planują Państwo przyjazd?"],
+["Housekeeping","Housekeeping. May I come in?","Służba pięter. Czy mogę wejść?"],
+["Housekeeping","Would you like your room cleaned now?","Czy chcą Państwo, aby pokój został teraz posprzątany?"],
+["Housekeeping","I will replace the towels.","Wymienię ręczniki."],
+["Housekeeping","There is a maintenance issue in this room.","W tym pokoju występuje problem techniczny."],
+["Gastronomia","Are you ready to order?","Czy są Państwo gotowi złożyć zamówienie?"],
+["Gastronomia","Would you like something to drink?","Czy życzą sobie Państwo coś do picia?"],
+["Gastronomia","Do you have any food allergies?","Czy mają Państwo alergie pokarmowe?"],
+["Gastronomia","Today's special is...","Daniem dnia jest..."],
+["Gastronomia","Would you like the bill?","Czy życzą sobie Państwo rachunek?"],
+["Reklamacje","I'm sorry to hear that.","Przykro mi to słyszeć."],
+["Reklamacje","Let me see what I can do for you.","Sprawdzę, co mogę dla Państwa zrobić."],
+["Reklamacje","I understand your concern.","Rozumiem Państwa problem."],
+["Reklamacje","We will resolve this as quickly as possible.","Rozwiążemy ten problem tak szybko, jak to możliwe."],
+["Turystyka","How can I get to the city centre?","Jak mogę dostać się do centrum miasta?"],
+["Turystyka","I can recommend a few local attractions.","Mogę polecić kilka lokalnych atrakcji."],
+["Turystyka","The nearest bus stop is...","Najbliższy przystanek autobusowy znajduje się..."],
+["Turystyka","Would you like a map of the area?","Czy życzą sobie Państwo mapę okolicy?"]
+];
 
-app().innerHTML=`
-
-<div class="article">
-
-<h1>
-Encyklopedia
-</h1>
-
-<p class="lead">
-Indeks głównych artykułów Hotelium.
-</p>
-
-<div class="grid">
-
-${Object.entries(articles).map(([id,a])=>`
-
-<div class="card">
-
-<h3>
-${a.title}
-</h3>
-
-<p>
-${a.category}
-</p>
-
-<button
-class="btn"
-onclick="openArticle('${id}')"
->
-Otwórz →
-</button>
-
-</div>
-
-`).join("")}
-
-</div>
-
-</div>
-
-`;
-
+function renderEnglish(){
+ const q=(document.getElementById('engSearch')?.value||'').toLowerCase();
+ const cat=document.getElementById('engCat')?.value||'all';
+ const data=english.filter(x=>(cat==='all'||x[0]===cat)&&(!q||x.join(' ').toLowerCase().includes(q)));
+ document.getElementById('englishCards').innerHTML=data.map(x=>`
+ <article class="card"><div class="card-body">
+ <div class="eyebrow" style="color:#806126">${x[0]}</div>
+ <h3>${x[1]}</h3><p><b>PL:</b> ${x[2]}</p>
+ <button class="linkbtn" onclick="speakEnglish('${x[1].replace(/'/g,"\\'")}')">🔊 ODSŁUCHAJ ZWROT</button>
+ </div></article>`).join('');
 }
-
-
-function renderSimulator(){
-
-const list=roles[selectedRole]||roles["Recepcja"];
-
-const done=
-list.filter((_,i)=>simState[selectedRole+"-"+i]).length;
-
-app().innerHTML=`
-
-<div class="article">
-
-<h1>
-Symulator pracy hotelu
-</h1>
-
-<p class="lead">
-Wybierz stanowisko i wykonuj zadania.
-Zakończone czynności pozostają zapisane
-podczas bieżącej sesji.
-</p>
-
-
-<div class="rolebar">
-
-${Object.keys(roles).map(r=>`
-
-<button
-class="btn ${r===selectedRole?"active":""}"
-onclick="selectRole('${r}')"
->
-${r}
-</button>
-
-`).join("")}
-
-</div>
-
-
-<div class="panel">
-
-<b>
-Postęp: ${done}/${list.length}
-</b>
-
-<div class="progress">
-
-<div
-style="width:${done/list.length*100}%"
-></div>
-
-</div>
-
-</div>
-
-
-${list.map((t,i)=>{
-
-const key=selectedRole+"-"+i;
-
-const is=!!simState[key];
-
-return `
-
-<div class="task ${is?"done":""}">
-
-<h3>
-${i+1}. ${t[0]} ${is?"✓":""}
-</h3>
-
-<p>
-${t[1]}
-</p>
-
-<div class="task-actions">
-
-<button
-class="btn ${is?"":"primary"}"
-onclick="completeTask('${selectedRole}',${i})"
->
-${is?"Wykonano ✓":"Wykonaj zadanie"}
-</button>
-
-${i<list.length-1&&!is?"":"<span class='small'>Po wykonaniu informacja może zostać przekazana dalej.</span>"}
-
-</div>
-
-</div>
-
-`;
-
-}).join("")}
-
-
-<div class="notice">
-
-<b>Przepływ hotelowy:</b>
-
-Recepcja → Housekeeping → Restauracja →
-Concierge → rozliczenie.
-
-W prawdziwym obiekcie kolejność zależy od
-sytuacji i organizacji hotelu.
-
-</div>
-
-</div>
-
-`;
-
+function speakEnglish(text){
+ if('speechSynthesis' in window){
+   const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.88;speechSynthesis.cancel();speechSynthesis.speak(u);
+ } else toast('Twoja przeglądarka nie obsługuje odczytu głosowego.');
 }
+renderEnglish();
 
-
-function selectRole(r){
-
-selectedRole=r;
-
-renderSimulator();
-
+function nextQuestion(){
+ const q=quiz[qIndex%quiz.length];qIndex++;
+ document.getElementById('qText').textContent=q[0];
+ document.getElementById('choices').innerHTML=q[2].map(c=>`<button class="choice" onclick="answerQuiz(this,'${c.replace(/'/g,"\\'")}','${q[1].replace(/'/g,"\\'")}')">${c}</button>`).join('');
+ document.getElementById('quizResult').textContent=`Wynik: ${score} pkt`;
 }
-
-
-function completeTask(role,i){
-
-simState[role+"-"+i]=true;
-
-if(role==="Recepcja"&&i===2)
-simState["Housekeeping-0"]=true;
-
-if(role==="Housekeeping"&&i===2)
-simState["Restauracja-0"]=true;
-
-renderSimulator();
-
+function answerQuiz(btn,choice,correct){
+ document.querySelectorAll('.choice').forEach(b=>b.disabled=true);
+ if(choice===correct){score++;btn.style.borderColor='#2f6b57';toast('Dobra odpowiedź! +1 pkt');}
+ else{btn.style.borderColor='#8b3b3b';toast('Sprawdź opracowanie w encyklopedii.')}
+ document.getElementById('quizResult').textContent=`Wynik: ${score} pkt`;
 }
+nextQuestion();
 
-
-function renderQuiz(){
-
-app().innerHTML=`
-
-<div class="article">
-
-<h1>
-Centrum testów
-</h1>
-
-<p class="lead">
-Odpowiedz na pytania i sprawdź wynik.
-</p>
-
-
-<form id="quizForm">
-
-${quizQuestions.map((q,i)=>`
-
-<div class="quiz-question">
-
-<b>
-${i+1}. ${q[0]}
-</b>
-
-${q.slice(1,4).map((x,j)=>`
-
-<label>
-
-<input
-type="radio"
-name="q${i}"
-value="${j}"
->
-
-${x}
-
-</label>
-
-`).join("")}
-
-</div>
-
-`).join("")}
-
-
-<button
-type="button"
-class="btn primary"
-onclick="checkQuiz()"
->
-Sprawdź wynik
-</button>
-
-<div
-id="quizResult"
-class="result"
-></div>
-
-</form>
-
-</div>
-
-`;
-
-}
-
-
-function checkQuiz(){
-
-let score=0;
-
-quizQuestions.forEach((q,i)=>{
-
-const x=
-document.querySelector(
-`input[name="q${i}"]:checked`
-);
-
-if(x&&+x.value===q[4])
-score++;
-
-});
-
-document.getElementById("quizResult").textContent=
-
-`Wynik: ${score}/${quizQuestions.length}. ${
-score>=7
-?"Bardzo dobrze."
-:"Warto wrócić do artykułów i spróbować ponownie."
-}`;
-
-}
-
-
-function renderDictionary(){
-
-app().innerHTML=`
-
-<div class="article">
-
-<h1>
-Słownik hotelarski
-</h1>
-
-<p class="lead">
-Szybkie wyjaśnienia najczęściej spotykanych pojęć.
-</p>
-
-
-<input
-id="dictSearch"
-class="search"
-style="width:100%;margin:0 0 15px"
-placeholder="Filtruj pojęcia..."
-oninput="filterDict()"
->
-
-
-<div id="dictList">
-
-${dictionary.map(x=>`
-
-<div class="task dict-item">
-
-<h3>
-${x[0]}
-</h3>
-
-<p>
-${x[1]}
-</p>
-
-</div>
-
-`).join("")}
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-function filterDict(){
-
-const v=
-document
-.getElementById("dictSearch")
-.value
-.toLowerCase();
-
-document
-.querySelectorAll(".dict-item")
-.forEach(x=>
-
-x.style.display=
-x.textContent
-.toLowerCase()
-.includes(v)
-?"block"
-:"none"
-
-);
-
-}
-
-
-function renderResources(){
-
-app().innerHTML=`
-
-<div class="article">
-
-<h1>
-Materiały i dalsza nauka
-</h1>
-
-<p class="lead">
-Hotelium może być rozwijane o kolejne artykuły,
-zdjęcia, materiały wideo i źródła branżowe.
-</p>
-
-
-<h2>
-Jak korzystać
-</h2>
-
-<ol>
-
-<li>
-Wybierz temat w encyklopedii.
-</li>
-
-<li>
-Przeczytaj rozdziały i definicje.
-</li>
-
-<li>
-Wykonaj zadanie w symulatorze.
-</li>
-
-<li>
-Sprawdź się w quizie.
-</li>
-
-<li>
-W razie potrzeby wróć do słownika.
-</li>
-
-</ol>
-
-
-<div class="notice warning">
-
-<b>Ważne:</b>
-
-Materiały edukacyjne nie zastępują aktualnych
-przepisów, regulaminów konkretnego obiektu
-ani instrukcji bezpieczeństwa.
-
-</div>
-
-
-<h2>
-Pomysły na dalszą rozbudowę
-</h2>
-
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-📊 Analityka hotelu
-</h3>
-
-<p>
-Obłożenie, ADR, RevPAR, przychody,
-koszty i raporty.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🧑‍💼 Rozmowy z gościem
-</h3>
-
-<p>
-Scenariusze reklamacji, próśb,
-VIP i sytuacji nietypowych.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🧾 Dokumenty
-</h3>
-
-<p>
-Ćwiczenia z rezerwacjami,
-rachunkami, kartami pobytu i raportami.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🌍 Destynacje
-</h3>
-
-<p>
-Rozbudowane profile miejsc,
-atrakcji i produktów turystycznych.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🎬 Wideo
-</h3>
-
-<p>
-Moduł na materiały edukacyjne
-i branżowe z YouTube.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-🏆 Egzamin
-</h3>
-
-<p>
-Pełny test końcowy z punktacją i wynikiem.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-function searchSite(){
-
-const v=
-document
-.getElementById("search")
-.value
-.trim()
-.toLowerCase();
-
-if(!v){
-
-if(currentView==="home")
-renderHome();
-
-return;
-
-}
-
-
-const results=
-Object.entries(articles)
-.filter(([id,a])=>
-
-(
-a.title+
-" "+
-a.category+
-" "+
-a.lead+
-" "+
-a.sections.flat().join(" ")
-)
-.toLowerCase()
-.includes(v)
-
-);
-
-
-app().innerHTML=`
-
-<div class="article">
-
-<h1>
-Wyniki wyszukiwania
-</h1>
-
-<p>
-Fraza:
-<b>${v}</b>
-</p>
-
-
-${
-results.length
-
-?
-
-`
-
-<div class="grid">
-
-${results.map(([id,a])=>`
-
-<div class="card">
-
-<h3>
-${a.title}
-</h3>
-
-<p>
-${a.lead.slice(0,180)}…
-</p>
-
-<button
-class="btn"
-onclick="openArticle('${id}')"
->
-Otwórz →
-</button>
-
-</div>
-
-`).join("")}
-
-</div>
-
-`
-
-:
-
-`
-
-<div class='notice warning'>
-
-Nie znaleziono artykułu.
-Spróbuj innego hasła.
-
-</div>
-
-`
-
-}
-
-</div>
-
-`;
-
-}
-
-
-window.addEventListener(
-"scroll",
-()=>document.getElementById("backtop").style.display=
-scrollY>500?"block":"none"
-);
-
-
-renderHome();
-
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2500)}
 </script>
-
 </body>
 </html>
