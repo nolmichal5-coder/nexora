@@ -3,748 +3,1283 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="NEXORA — nowoczesny świat technologii, sztucznej inteligencji i przyszłości.">
-<meta name="theme-color" content="#080612">
-
-<title>NEXORA — Nowa era technologii</title>
+<meta name="description" content="NEXORA — technologia, sztuczna inteligencja i przyszłość.">
+<title>NEXORA — Centrum Technologii Przyszłości</title>
 
 <style>
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #06050d;
-    color: white;
-    overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #070512;
+  color: white;
+  overflow-x: hidden;
 }
 
+/* TŁO */
+
 body::before {
-    content: "";
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    background: #7c3cff;
-    filter: blur(180px);
-    opacity: .18;
-    top: -250px;
-    left: -200px;
-    pointer-events: none;
-    z-index: -1;
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #7b00ff;
+  filter: blur(180px);
+  opacity: .22;
+  top: -180px;
+  left: -150px;
+  z-index: -2;
 }
 
 body::after {
-    content: "";
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    background: #00aaff;
-    filter: blur(180px);
-    opacity: .12;
-    right: -200px;
-    bottom: -200px;
-    pointer-events: none;
-    z-index: -1;
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #ff00c8;
+  filter: blur(180px);
+  opacity: .15;
+  bottom: -200px;
+  right: -150px;
+  z-index: -2;
 }
 
-/* NAVIGACJA */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* NAWIGACJA */
 
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 8%;
-    background: rgba(6,5,13,.65);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(7,5,18,.75);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .logo {
-    font-size: 25px;
-    font-weight: 900;
-    letter-spacing: 3px;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 .logo span {
-    background: linear-gradient(90deg,#9d4dff,#d65cff,#5e8cff);
-    -webkit-background-clip: text;
-    color: transparent;
+  color: #c000ff;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 35px;
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
 }
 
-nav a {
-    color: #bbb;
-    text-decoration: none;
-    font-size: 14px;
-    transition: .3s;
+.nav-links a {
+  color: #ccc;
+  transition: .3s;
+  cursor: pointer;
 }
 
-nav a:hover {
-    color: white;
+.nav-links a:hover {
+  color: #d400ff;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 /* HERO */
 
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 20px 80px;
-    position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
 }
 
 .hero-content {
-    max-width: 950px;
+  max-width: 950px;
 }
 
 .badge {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid rgba(180,90,255,.5);
-    border-radius: 50px;
-    color: #d6a6ff;
-    background: rgba(140,50,255,.08);
-    font-size: 13px;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #c000ff;
+  border-radius: 40px;
+  color: #e98cff;
+  margin-bottom: 25px;
+  background: rgba(190,0,255,.08);
 }
 
 .hero h1 {
-    font-size: clamp(55px, 10vw, 125px);
-    line-height: .9;
-    font-weight: 900;
-    letter-spacing: -5px;
+  font-size: clamp(55px, 10vw, 115px);
+  line-height: .9;
+  margin-bottom: 30px;
+  font-weight: 900;
 }
 
 .gradient {
-    background: linear-gradient(90deg,#fff,#b85cff,#6c8cff);
-    -webkit-background-clip: text;
-    color: transparent;
+  background: linear-gradient(90deg,#fff,#e100ff,#8d4dff);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .hero p {
-    max-width: 650px;
-    margin: 35px auto;
-    color: #aaa;
-    font-size: 19px;
-    line-height: 1.7;
+  color: #c9c4d5;
+  font-size: 20px;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: auto;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .btn {
-    display: inline-block;
-    padding: 16px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
+  border: 0;
+  border-radius: 12px;
+  padding: 15px 25px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: .3s;
 }
 
 .btn-primary {
-    color: white;
-    background: linear-gradient(90deg,#873cff,#c34dff);
-    box-shadow: 0 0 35px rgba(155,65,255,.35);
-}
-
-.btn-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 50px rgba(155,65,255,.6);
+  background: linear-gradient(90deg,#a000ff,#ff00c8);
+  box-shadow: 0 0 30px rgba(200,0,255,.3);
 }
 
 .btn-secondary {
-    color: white;
-    border: 1px solid #333;
-    background: rgba(255,255,255,.03);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.2);
 }
 
-.btn-secondary:hover {
-    background: rgba(255,255,255,.08);
-    transform: translateY(-4px);
+.btn:hover {
+  transform: translateY(-4px) scale(1.02);
 }
 
 /* SEKCJE */
 
 section {
-    padding: 120px 8%;
+  padding: 100px 7%;
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 65px;
+  text-align: center;
+  margin-bottom: 55px;
 }
 
 .section-title small {
-    color: #b75cff;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: bold;
+  color: #d000ff;
+  font-weight: bold;
 }
 
 .section-title h2 {
-    font-size: clamp(38px,6vw,70px);
-    margin-top: 15px;
+  font-size: clamp(35px,5vw,60px);
+  margin-top: 10px;
 }
 
 .section-title p {
-    color: #999;
-    max-width: 650px;
-    margin: 20px auto;
-    line-height: 1.7;
+  max-width: 650px;
+  margin: 15px auto;
+  color: #aaa;
+  line-height: 1.7;
 }
 
 /* KARTY */
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 25px;
-    max-width: 1200px;
-    margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
 }
 
 .card {
-    padding: 35px;
-    min-height: 260px;
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 24px;
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.07),
-        rgba(255,255,255,.015)
-    );
-    transition: .4s;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.045);
+  border-radius: 22px;
+  transition: .35s;
+  cursor: pointer;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(175,75,255,.5);
-    box-shadow: 0 20px 70px rgba(110,40,180,.18);
+  transform: translateY(-8px);
+  border-color: #b000ff;
+  box-shadow: 0 15px 50px rgba(130,0,255,.15);
 }
 
 .icon {
-    width: 55px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    background: linear-gradient(135deg,#833cff,#c04cff);
-    font-size: 25px;
-    margin-bottom: 25px;
+  font-size: 42px;
+  margin-bottom: 20px;
 }
 
 .card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
 
 .card p {
-    color: #999;
-    line-height: 1.7;
+  color: #aaa;
+  line-height: 1.7;
+}
+
+/* STATYSTYKI */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.stat {
+  padding: 30px 15px;
+  background: rgba(255,255,255,.04);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.stat strong {
+  display: block;
+  font-size: 45px;
+  color: #df00ff;
+}
+
+.stat span {
+  color: #aaa;
 }
 
 /* AI */
 
-.ai-section {
-    background:
-        radial-gradient(circle at center,rgba(130,50,255,.14),transparent 55%);
-}
-
 .ai-box {
-    max-width: 1100px;
-    margin: auto;
-    padding: 70px 50px;
-    border-radius: 30px;
-    border: 1px solid rgba(170,80,255,.25);
-    background: rgba(255,255,255,.035);
-    text-align: center;
+  max-width: 850px;
+  margin: auto;
+  padding: 35px;
+  border-radius: 25px;
+  background: linear-gradient(
+    145deg,
+    rgba(150,0,255,.12),
+    rgba(255,0,200,.05)
+  );
+  border: 1px solid rgba(200,0,255,.3);
 }
 
-.ai-box h2 {
-    font-size: clamp(40px,6vw,75px);
-    margin-bottom: 20px;
+.ai-box input {
+  width: 100%;
+  padding: 17px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.15);
+  color: white;
+  border-radius: 12px;
+  outline: none;
 }
 
-.ai-box p {
-    color: #aaa;
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.8;
+.ai-box input:focus {
+  border-color: #c000ff;
+}
+
+.ai-answer {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(0,0,0,.3);
+  border-radius: 14px;
+  color: #ddd;
+  min-height: 70px;
+  line-height: 1.7;
 }
 
 /* PRZYSZŁOŚĆ */
 
-.future {
-    text-align: center;
+.future-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.future-card {
+  padding: 45px;
+  text-align: center;
+  border-radius: 25px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.1);
 }
 
 .future-number {
-    font-size: clamp(90px,18vw,220px);
-    font-weight: 900;
-    line-height: .8;
-    background: linear-gradient(90deg,#873cff,#d65cff,#5e8cff);
-    -webkit-background-clip: text;
-    color: transparent;
-    opacity: .9;
+  font-size: 90px;
+  font-weight: 900;
+  color: #df00ff;
 }
 
-.future p {
-    max-width: 700px;
-    margin: 45px auto;
-    color: #aaa;
-    font-size: 18px;
-    line-height: 1.8;
+.future-card h3 {
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 
-/* STOPKA */
+.future-card p {
+  color: #aaa;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: auto;
+}
+
+.slider {
+  width: 100%;
+  margin-top: 35px;
+  accent-color: #d000ff;
+}
+
+/* QUIZ */
+
+.quiz {
+  max-width: 750px;
+  margin: auto;
+  padding: 35px;
+  border-radius: 25px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.quiz-question {
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+
+.answers {
+  display: grid;
+  gap: 12px;
+}
+
+.answer {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.answer:hover {
+  border-color: #c000ff;
+  background: rgba(190,0,255,.12);
+}
+
+.quiz-result {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ddd;
+}
+
+/* CTA */
+
+.cta {
+  text-align: center;
+  padding: 110px 20px;
+  background:
+    radial-gradient(circle at center,
+    rgba(180,0,255,.2),
+    transparent 55%);
+}
+
+.cta h2 {
+  font-size: clamp(40px,7vw,75px);
+  margin-bottom: 20px;
+}
+
+.cta p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* FOOTER */
 
 footer {
-    padding: 60px 8%;
-    border-top: 1px solid rgba(255,255,255,.08);
-    text-align: center;
-    color: #777;
+  padding: 40px 7%;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #777;
 }
 
-footer .logo {
-    margin-bottom: 15px;
+footer strong {
+  color: white;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-box {
+  max-width: 650px;
+  width: 100%;
+  background: #100b20;
+  border: 1px solid #b000ff;
+  border-radius: 22px;
+  padding: 35px;
+  position: relative;
+  box-shadow: 0 0 80px rgba(160,0,255,.25);
+}
+
+.close {
+  position: absolute;
+  right: 18px;
+  top: 15px;
+  border: 0;
+  background: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-box h2 {
+  margin-bottom: 15px;
+}
+
+.modal-box p {
+  color: #aaa;
+  line-height: 1.8;
 }
 
 /* RESPONSYWNOŚĆ */
 
-@media(max-width:800px) {
+@media(max-width:850px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 
-    nav {
-        padding: 0 5%;
-    }
+  .stats {
+    grid-template-columns: repeat(2,1fr);
+  }
 
-    nav ul {
-        gap: 15px;
-    }
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: #0c0818;
+    display: none;
+    flex-direction: column;
+  }
 
-    nav a {
-        font-size: 12px;
-    }
+  .nav-links.open {
+    display: flex;
+  }
 
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    section {
-        padding: 90px 6%;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .ai-box {
-        padding: 50px 25px;
-    }
+  .menu-btn {
+    display: block;
+  }
 }
 
 @media(max-width:500px) {
+  section {
+    padding: 75px 5%;
+  }
 
-    nav ul {
-        display: none;
-    }
+  .stats {
+    grid-template-columns: 1fr;
+  }
 
-    .logo {
-        font-size: 21px;
-    }
+  .future-number {
+    font-size: 65px;
+  }
 
-    .hero {
-        padding-top: 110px;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-    }
-
-    .future-number {
-        font-size: 100px;
-    }
+  footer {
+    flex-direction: column;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">NEX<span>ORA</span></div>
+<!-- NAWIGACJA -->
 
-    <ul>
-        <li><a href="#technologie">Technologie</a></li>
-        <li><a href="#ai">AI</a></li>
-        <li><a href="#przyszlosc">Przyszłość</a></li>
-    </ul>
+<nav>
+  <a href="#start" class="logo">NEX<span>ORA</span></a>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#technologie" onclick="closeMenu()">Technologie</a>
+    <a href="#ai" onclick="closeMenu()">AI</a>
+    <a href="#quiz" onclick="closeMenu()">Quiz</a>
+    <a href="#przyszlosc" onclick="closeMenu()">Przyszłość</a>
+  </div>
 </nav>
 
-<section class="hero">
 
-    <div class="hero-content">
+<!-- HERO -->
 
-        <div class="badge">NOWA ERA TECHNOLOGII</div>
+<section class="hero" id="start">
+  <div class="hero-content">
 
-        <h1>
-            WITAJ W<br>
-            <span class="gradient">NEXORA.</span>
-        </h1>
+    <div class="badge">✦ NOWA ERA TECHNOLOGII</div>
 
-        <p>
-            Odkrywaj sztuczną inteligencję, najnowsze technologie
-            i idee, które mogą zmienić sposób, w jaki wygląda przyszłość.
-        </p>
-
-        <div class="buttons">
-            <a href="#technologie" class="btn btn-primary">
-                Odkryj NEXORA →
-            </a>
-
-            <a href="#ai" class="btn btn-secondary">
-                Poznaj AI
-            </a>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="technologie">
-
-    <div class="section-title">
-        <small>01 — Technologie</small>
-
-        <h2>Świat się zmienia.</h2>
-
-        <p>
-            Technologie rozwijają się szybciej niż kiedykolwiek.
-            NEXORA zbiera najciekawsze kierunki rozwoju w jednym miejscu.
-        </p>
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="icon">⚡</div>
-            <h3>Nowe technologie</h3>
-            <p>
-                Poznaj rozwiązania, które mogą wpłynąć na nasze
-                codzienne życie i świat przyszłości.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">◈</div>
-            <h3>Robotyka</h3>
-            <p>
-                Maszyny stają się coraz bardziej inteligentne,
-                precyzyjne i samodzielne.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">∞</div>
-            <h3>Cyfrowy świat</h3>
-            <p>
-                Internet, urządzenia i cyfrowe rozwiązania
-                łączą ludzi z całego świata.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="ai" class="ai-section">
-
-    <div class="section-title">
-        <small>02 — Artificial Intelligence</small>
-
-        <h2>AI zmienia wszystko.</h2>
-    </div>
-
-    <div class="ai-box">
-
-        <h2>INTELIGENCJA.</h2>
-
-        <p>
-            Sztuczna inteligencja przestaje być tylko wizją przyszłości.
-            Pomaga tworzyć, analizować, odkrywać i rozwiązywać problemy,
-            których wcześniej nie potrafiliśmy rozwiązać.
-        </p>
-
-    </div>
-
-</section>
-
-<section id="przyszlosc" class="future">
-
-    <div class="section-title">
-        <small>03 — Przyszłość</small>
-        <h2>Co będzie dalej?</h2>
-    </div>
-
-    <div class="future-number">∞</div>
+    <h1>
+      WITAJ W<br>
+      <span class="gradient">NEXORA.</span>
+    </h1>
 
     <p>
-        Nikt dokładnie nie wie, jak będzie wyglądał świat za 10,
-        20 czy 50 lat. Jedno jest pewne — przyszłość zaczyna się
-        od pomysłów, które tworzymy dzisiaj.
+      Odkrywaj sztuczną inteligencję, nowe technologie
+      i pomysły, które mogą zmienić sposób, w jaki
+      wygląda przyszłość.
     </p>
 
-    <a href="#top" class="btn btn-primary">
-        Wróć na początek ↑
-    </a>
+    <div class="buttons">
+      <a href="#technologie" class="btn btn-primary">
+        Odkryj NEXORA →
+      </a>
 
-</section>
+      <a href="#ai" class="btn btn-secondary">
+        Poznaj AI
+      </a>
+    </div>
 
-<footer>
-
-    <div class="logo">NEX<span>ORA</span></div>
-
-    <p>
-        © 2026 NEXORA — Nowa era technologii.
-    </p>
-
-</footer>
-<!-- NEXORA 3.0 — CENTRUM AI -->
-<style>
-.ai-box {
-  margin: 60px auto;
-  max-width: 900px;
-  padding: 35px;
-  border: 1px solid rgba(180,80,255,.45);
-  border-radius: 25px;
-  background: linear-gradient(135deg, rgba(30,10,55,.95), rgba(10,20,45,.95));
-  box-shadow: 0 0 40px rgba(150,60,255,.25);
-  text-align: center;
-}
-
-.ai-box h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.ai-box p {
-  opacity: .8;
-}
-
-.ai-input {
-  width: 80%;
-  padding: 16px;
-  margin: 20px 0 10px;
-  border-radius: 12px;
-  border: 1px solid #9b4dff;
-  background: #111;
-  color: white;
-  font-size: 16px;
-  outline: none;
-}
-
-.ai-button {
-  padding: 15px 25px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  background: linear-gradient(90deg,#7b2cff,#d946ef);
-  color: white;
-  transition: .3s;
-}
-
-.ai-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(180,70,255,.6);
-}
-
-.ai-answer {
-  margin-top: 25px;
-  padding: 20px;
-  border-radius: 15px;
-  background: rgba(255,255,255,.06);
-  min-height: 30px;
-}
-</style>
-
-<section class="ai-box" id="centrum-ai">
-  <h2>🤖 NEXORA AI</h2>
-  <p>Twoje centrum sztucznej inteligencji.</p>
-
-  <input
-    class="ai-input"
-    id="aiQuestion"
-    type="text"
-    placeholder="Napisz pytanie..."
-  >
-
-  <br>
-
-  <button class="ai-button" onclick="nexoraAI()">
-    ✨ Zapytaj NEXORA AI
-  </button>
-
-  <div class="ai-answer" id="aiAnswer">
-    AI czeka na Twoje pytanie...
   </div>
 </section>
 
+
+<!-- TECHNOLOGIE -->
+
+<section id="technologie">
+
+  <div class="section-title">
+    <small>01 — TECHNOLOGIE</small>
+    <h2>Co zmienia świat?</h2>
+    <p>
+      Kliknij dowolną kartę, aby dowiedzieć się więcej.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card"
+         onclick="showInfo(
+         '🤖 Sztuczna inteligencja',
+         'AI potrafi analizować ogromne ilości danych, rozpoznawać obrazy, rozumieć język i pomagać ludziom w codziennych zadaniach. W przyszłości może stać się jednym z najważniejszych narzędzi ludzkości.'
+         )">
+
+      <div class="icon">🤖</div>
+      <h3>Sztuczna inteligencja</h3>
+      <p>
+        Systemy, które potrafią analizować informacje
+        i wykonywać zadania wymagające inteligencji.
+      </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="showInfo(
+         '🚀 Kosmos',
+         'Nowoczesne rakiety, satelity i technologie kosmiczne pozwalają nam coraz lepiej poznawać Wszechświat. Kolejnym krokiem może być stała obecność ludzi poza Ziemią.'
+         )">
+
+      <div class="icon">🚀</div>
+      <h3>Kosmos</h3>
+      <p>
+        Ludzkość coraz dalej przesuwa granice
+        eksploracji przestrzeni kosmicznej.
+      </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="showInfo(
+         '🧬 Biotechnologia',
+         'Połączenie biologii i technologii pozwala rozwijać nowe metody leczenia, badać komórki oraz tworzyć rozwiązania inspirowane naturą.'
+         )">
+
+      <div class="icon">🧬</div>
+      <h3>Biotechnologia</h3>
+      <p>
+        Technologie inspirowane życiem mogą
+        zmienić medycynę i naukę.
+      </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="showInfo(
+         '⚡ Energia przyszłości',
+         'Przyszłość energetyki może opierać się na coraz wydajniejszych źródłach energii, magazynowaniu oraz inteligentnych sieciach.'
+         )">
+
+      <div class="icon">⚡</div>
+      <h3>Energia</h3>
+      <p>
+        Poszukujemy sposobów na czystszą
+        i bardziej wydajną energię.
+      </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="showInfo(
+         '🥽 Technologie immersyjne',
+         'VR i AR pozwalają łączyć świat cyfrowy z rzeczywistością. Mogą znaleźć zastosowanie w edukacji, pracy, rozrywce i komunikacji.'
+         )">
+
+      <div class="icon">🥽</div>
+      <h3>VR / AR</h3>
+      <p>
+        Cyfrowe światy mogą coraz mocniej
+        łączyć się z naszym codziennym życiem.
+      </p>
+
+    </div>
+
+
+    <div class="card"
+         onclick="showInfo(
+         '🌐 Internet przyszłości',
+         'Internet staje się coraz szybszy, inteligentniejszy i bardziej połączony z urządzeniami znajdującymi się wokół nas.'
+         )">
+
+      <div class="icon">🌐</div>
+      <h3>Internet</h3>
+      <p>
+        Miliony urządzeń mogą współpracować
+        w jednej globalnej sieci.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- STATYSTYKI -->
+
+<section>
+
+  <div class="section-title">
+    <small>02 — SKALA</small>
+    <h2>Przyszłość jest bliżej, niż myślisz.</h2>
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong class="counter" data-target="100">0</strong>
+      <span>pomysłów</span>
+    </div>
+
+    <div class="stat">
+      <strong class="counter" data-target="24">0</strong>
+      <span>godziny innowacji</span>
+    </div>
+
+    <div class="stat">
+      <strong class="counter" data-target="365">0</strong>
+      <span>dni rozwoju</span>
+    </div>
+
+    <div class="stat">
+      <strong class="counter" data-target="∞">∞</strong>
+      <span>możliwości</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AI -->
+
+<section id="ai">
+
+  <div class="section-title">
+    <small>03 — NEXORA AI</small>
+    <h2>Porozmawiaj z przyszłością.</h2>
+    <p>
+      Zadaj pytanie. To demonstracyjna wersja AI działająca
+      bez dodatkowych serwerów.
+    </p>
+  </div>
+
+  <div class="ai-box">
+
+    <input
+      id="aiQuestion"
+      type="text"
+      placeholder="Np. Czy AI zmieni świat?"
+      onkeydown="if(event.key==='Enter') nexoraAI()"
+    >
+
+    <div class="buttons" style="justify-content:flex-start">
+
+      <button class="btn btn-primary" onclick="nexoraAI()">
+        ✨ Zapytaj NEXORA AI
+      </button>
+
+      <button class="btn btn-secondary"
+              onclick="randomQuestion()">
+        🎲 Losowe pytanie
+      </button>
+
+    </div>
+
+    <div class="ai-answer" id="aiAnswer">
+      AI czeka na Twoje pytanie...
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRZYSZŁOŚĆ -->
+
+<section id="przyszlosc">
+
+  <div class="section-title">
+    <small>04 — PRZYSZŁOŚĆ</small>
+    <h2>W którym roku chcesz zajrzeć?</h2>
+    <p>
+      Przesuń suwak i zobacz wizję przyszłości.
+    </p>
+  </div>
+
+  <div class="future-container">
+
+    <div class="future-card">
+
+      <div class="future-number" id="futureYear">
+        2050
+      </div>
+
+      <h3 id="futureTitle">
+        Miasta przyszłości
+      </h3>
+
+      <p id="futureText">
+        Inteligentne miasta mogą automatycznie zarządzać
+        transportem, energią i infrastrukturą.
+      </p>
+
+      <input
+        class="slider"
+        type="range"
+        min="2030"
+        max="2100"
+        value="2050"
+        oninput="changeFuture(this.value)"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quiz">
+
+  <div class="section-title">
+    <small>05 — SPRAWDŹ SIĘ</small>
+    <h2>Jak dobrze znasz przyszłość?</h2>
+    <p>
+      Odpowiedz na kilka pytań.
+    </p>
+  </div>
+
+  <div class="quiz">
+
+    <div class="quiz-question" id="quizQuestion">
+      1. Co oznacza skrót AI?
+    </div>
+
+    <div class="answers" id="answers"></div>
+
+    <div class="quiz-result" id="quizResult"></div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <h2>
+    Przyszłość zaczyna się <span class="gradient">teraz.</span>
+  </h2>
+
+  <p>
+    To dopiero początek NEXORA.
+  </p>
+
+  <button
+    class="btn btn-primary"
+    onclick="showInfo(
+      '🚀 NEXORA',
+      'Właśnie odkryłeś interaktywną wersję NEXORA. Możemy ją dalej rozbudować o prawdziwe AI, logowanie, bazę danych, animacje, gry, wiadomości technologiczne i wiele więcej.'
+    )"
+  >
+    Odkryj NEXORA jeszcze raz →
+  </button>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div>
+    <strong>NEXORA</strong><br>
+    Centrum technologii przyszłości
+  </div>
+
+  <div>
+    © 2026 NEXORA
+  </div>
+
+</footer>
+
+
+<!-- OKNO INFORMACYJNE -->
+
+<div class="modal" id="modal" onclick="closeModal(event)">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal()">
+      ×
+    </button>
+
+    <h2 id="modalTitle"></h2>
+
+    <p id="modalText"></p>
+
+  </div>
+
+</div>
+
+
 <script>
+
+/* MENU */
+
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("open");
+}
+
+function closeMenu() {
+  document.getElementById("navLinks").classList.remove("open");
+}
+
+
+/* OKNA INFORMACYJNE */
+
+function showInfo(title, text) {
+
+  document.getElementById("modalTitle").textContent = title;
+
+  document.getElementById("modalText").textContent = text;
+
+  document.getElementById("modal").classList.add("active");
+}
+
+function closeModal(event) {
+
+  if (!event || event.target.id === "modal") {
+    document.getElementById("modal").classList.remove("active");
+  }
+}
+
+
+/* NEXORA AI */
+
 function nexoraAI() {
-    const input = document.getElementById("aiQuestion");
-    const answer = document.getElementById("aiAnswer");
 
-    if (!input || !answer) {
-        pokazInfo("NEXORA AI", "Centrum AI jest gotowe do dalszej rozbudowy.");
-        return;
+  const question =
+    document.getElementById("aiQuestion").value.trim();
+
+  const answer =
+    document.getElementById("aiAnswer");
+
+  if (!question) {
+
+    answer.innerHTML =
+      "⚠️ Najpierw wpisz pytanie.";
+
+    return;
+  }
+
+  answer.innerHTML = "🧠 NEXORA AI analizuje pytanie...";
+
+  setTimeout(function() {
+
+    let response =
+      "To bardzo ciekawe pytanie. ";
+
+    const q = question.toLowerCase();
+
+    if (q.includes("ai") ||
+        q.includes("sztuczna inteligencja")) {
+
+      response +=
+        "AI może zmienić sposób, w jaki pracujemy, uczymy się i tworzymy. Najważniejsze będzie jednak to, jak ludzie zdecydują się jej używać.";
+
+    } else if (q.includes("kosmos") ||
+               q.includes("mars")) {
+
+      response +=
+        "Eksploracja kosmosu może być jednym z największych wyzwań technologicznych XXI wieku. Mars jest jednym z najczęściej rozważanych kierunków.";
+
+    } else if (q.includes("przyszłość")) {
+
+      response +=
+        "Przyszłość nie jest z góry ustalona. Tworzą ją decyzje, pomysły i technologie rozwijane właśnie dzisiaj.";
+
+    } else if (q.includes("robot")) {
+
+      response +=
+        "Roboty mogą w przyszłości wykonywać coraz więcej zadań, szczególnie tych niebezpiecznych, powtarzalnych lub wymagających dużej precyzji.";
+
+    } else {
+
+      response +=
+        "Centrum NEXORA nie zna jeszcze odpowiedzi na wszystko, ale właśnie dlatego warto zadawać pytania. Każde pytanie może prowadzić do nowego pomysłu.";
+
     }
 
-    const question = input.value.trim();
+    answer.innerHTML =
+      "💡 <strong>Odpowiedź NEXORA:</strong><br><br>" +
+      response;
 
-    if (!question) {
-        answer.innerHTML = "⚠️ Najpierw wpisz pytanie.";
-        return;
-    }
-
-    answer.innerHTML = "🧠 NEXORA AI analizuje pytanie...";
-
-    setTimeout(() => {
-
-        const q = question.toLowerCase();
-        let response;
-
-        if (q.includes("ai") || q.includes("sztuczna inteligencja")) {
-            response =
-                "🤖 AI może pomagać ludziom w nauce, pracy, medycynie, projektowaniu i odkrywaniu nowych technologii.";
-        }
-        else if (q.includes("przyszłość") || q.includes("przyszlosc")) {
-            response =
-                "🚀 Przyszłość może przynieść inteligentne miasta, autonomiczne pojazdy, zaawansowane roboty i technologie, których jeszcze nie znamy.";
-        }
-        else if (q.includes("robot")) {
-            response =
-                "🦾 Roboty mogą w przyszłości pomagać ludziom w domu, przemyśle, medycynie, a nawet w eksploracji kosmosu.";
-        }
-        else if (q.includes("kosmos") || q.includes("mars")) {
-            response =
-                "🌌 Eksploracja kosmosu może być jednym z najważniejszych kierunków rozwoju technologii. Mars jest jednym z głównych celów.";
-        }
-        else if (q.includes("technolog")) {
-            response =
-                "⚡ AI, robotyka, biotechnologia, energia i komputery kwantowe mogą mocno zmienić nasze życie.";
-        }
-        else {
-            response =
-                "💡 To ciekawe pytanie. NEXORA uważa, że przyszłość powstaje właśnie z takich pomysłów jak Twój.";
-        }
-
-        answer.innerHTML =
-            "🧠 <strong>NEXORA AI:</strong><br><br>" + response;
-
-    }, 800);
+  }, 700);
 }
 
 
-function pokazInfo(tytul, tekst) {
-    alert(tytul + "\n\n" + tekst);
+/* LOSOWE PYTANIE */
+
+function randomQuestion() {
+
+  const questions = [
+    "Czy AI zmieni świat?",
+    "Czy ludzie zamieszkają na Marsie?",
+    "Jak będą wyglądały miasta w 2050 roku?",
+    "Czy roboty będą pomagać ludziom?",
+    "Jaka technologia najbardziej zmieni przyszłość?",
+    "Czy kiedyś będziemy podróżować między planetami?"
+  ];
+
+  const random =
+    questions[Math.floor(Math.random() * questions.length)];
+
+  document.getElementById("aiQuestion").value = random;
+
+  nexoraAI();
 }
 
 
-/* KLIKALNE ELEMENTY NEXORY */
+/* PRZYSZŁOŚĆ */
 
-document.querySelectorAll(".card, .feature-card, .tech-card, .future-card")
-.forEach(function(element) {
+function changeFuture(year) {
 
-    element.style.cursor = "pointer";
+  const yearNumber = Number(year);
 
-    element.addEventListener("click", function() {
+  document.getElementById("futureYear").textContent =
+    yearNumber;
 
-        const titleElement = element.querySelector("h2, h3, h4");
+  let title = "";
+  let text = "";
 
-        const title = titleElement
-            ? titleElement.innerText
-            : "NEXORA";
+  if (yearNumber < 2040) {
 
-        const text = element.innerText;
+    title = "Pierwsza fala zmian";
 
-        pokazInfo(title, text);
+    text =
+      "AI, automatyzacja i inteligentne urządzenia coraz mocniej wchodzą do codziennego życia.";
 
-    });
+  } else if (yearNumber < 2070) {
+
+    title = "Miasta przyszłości";
+
+    text =
+      "Transport, energia i infrastruktura mogą być zarządzane przez inteligentne systemy.";
+
+  } else if (yearNumber < 2090) {
+
+    title = "Nowa cywilizacja technologiczna";
+
+    text =
+      "Granica pomiędzy światem cyfrowym i fizycznym może stać się coraz mniej widoczna.";
+
+  } else {
+
+    title = "Nieznana przyszłość";
+
+    text =
+      "Nie wiemy, jak będzie wyglądał świat. I właśnie dlatego przyszłość jest tak fascynująca.";
+
+  }
+
+  document.getElementById("futureTitle").textContent =
+    title;
+
+  document.getElementById("futureText").textContent =
+    text;
+}
+
+
+/* LICZNIKI */
+
+const counters =
+  document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+
+  const target = counter.dataset.target;
+
+  if (target === "∞") return;
+
+  let current = 0;
+
+  const increment =
+    Number(target) / 60;
+
+  const timer =
+    setInterval(() => {
+
+      current += increment;
+
+      if (current >= Number(target)) {
+
+        counter.textContent = target;
+
+        clearInterval(timer);
+
+      } else {
+
+        counter.textContent =
+          Math.floor(current);
+
+      }
+
+    }, 25);
 
 });
 
 
-/* PRZYCISKI „ODKRYJ” I „POZNAJ” */
+/* QUIZ */
 
-document.querySelectorAll("button").forEach(function(button) {
+const quizData = [
 
-    const text = button.innerText.toLowerCase();
+  {
+    question: "1. Co oznacza skrót AI?",
+    answers: [
+      "Artificial Intelligence",
+      "Advanced Internet",
+      "Automatic Information",
+      "Android Intelligence"
+    ],
+    correct: 0
+  },
 
-    if (
-        text.includes("odkryj") ||
-        text.includes("poznaj") ||
-        text.includes("więcej") ||
-        text.includes("sprawdź")
-    ) {
+  {
+    question: "2. Która technologia pozwala tworzyć cyfrowe światy?",
+    answers: [
+      "VR",
+      "GPS",
+      "USB",
+      "Wi-Fi"
+    ],
+    correct: 0
+  },
 
-        button.addEventListener("click", function() {
+  {
+    question: "3. Który kierunek jest często rozważany w kontekście przyszłej eksploracji ludzi?",
+    answers: [
+      "Mars",
+      "Wenus",
+      "Słońce",
+      "Jowisz jako miejsce zamieszkania"
+    ],
+    correct: 0
+  },
 
-            pokazInfo(
-                "🚀 NEXORA",
-                "Odkrywasz kolejną część świata NEXORA — technologie, sztuczna inteligencja i przyszłość."
-            );
+  {
+    question: "4. Co może robić sztuczna inteligencja?",
+    answers: [
+      "Analizować dane",
+      "Myśleć dokładnie jak człowiek",
+      "Przewidywać absolutnie wszystko",
+      "Zmieniać prawa fizyki"
+    ],
+    correct: 0
+  }
 
-        });
+];
 
-    }
+let quizIndex = 0;
+let score = 0;
+
+function loadQuiz() {
+
+  const question =
+    document.getElementById("quizQuestion");
+
+  const answers =
+    document.getElementById("answers");
+
+  const result =
+    document.getElementById("quizResult");
+
+  const data =
+    quizData[quizIndex];
+
+  question.textContent =
+    data.question;
+
+  answers.innerHTML = "";
+
+  result.textContent =
+    "Wynik: " + score + " / " + quizIndex;
+
+  data.answers.forEach((answer, index) => {
+
+    const button =
+      document.createElement("button");
+
+    button.className = "answer";
+
+    button.textContent =
+      answer;
+
+    button.onclick = function() {
+
+      if (index === data.correct) {
+
+        score++;
+
+        result.textContent =
+          "✅ Dobra odpowiedź!";
+
+      } else {
+
+        result.textContent =
+          "❌ Nie tym razem.";
+
+      }
+
+      setTimeout(() => {
+
+        quizIndex++;
+
+        if (quizIndex < quizData.length) {
+
+          loadQuiz();
+
+        } else {
+
+          question.textContent =
+            "🎉 Quiz zakończony!";
+
+          answers.innerHTML = "";
+
+          result.innerHTML =
+            "Twój wynik: <strong>" +
+            score +
+            " / " +
+            quizData.length +
+            "</strong><br><br>" +
+            (score === quizData.length
+              ? "🚀 Perfekcyjnie! NEXORA jest pod wrażeniem."
+              : "💡 Dobra robota! Przyszłość wciąż można odkrywać.");
+
+        }
+
+      }, 900);
+
+    };
+
+    answers.appendChild(button);
+
+  });
+
+}
+
+loadQuiz();
+
+
+/* ESC ZAMYKA OKNO */
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+
+    document
+      .getElementById("modal")
+      .classList.remove("active");
+
+  }
 
 });
 
-
-/* ENTER W NEXORA AI */
-
-const aiInput = document.getElementById("aiQuestion");
-
-if (aiInput) {
-
-    aiInput.addEventListener("keydown", function(event) {
-
-        if (event.key === "Enter") {
-            nexoraAI();
-        }
-
-    });
-
-}
 </script>
+
 </body>
 </html>
