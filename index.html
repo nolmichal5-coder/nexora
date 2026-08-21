@@ -3,539 +3,765 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NEXORA — technologia, sztuczna inteligencja i przyszłość.">
-<title>NEXORA — Centrum Technologii Przyszłości</title>
+<meta name="description" content="NEXORA — interaktywne centrum przyszłości, technologii i sztucznej inteligencji.">
+<title>NEXORA — Future Intelligence</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root{
+  --bg:#05030d;
+  --panel:#0d0919;
+  --panel2:#120c20;
+  --text:#fff;
+  --muted:#aaa4b8;
+  --purple:#9b00ff;
+  --pink:#ff00c8;
+  --cyan:#00eaff;
+  --green:#00ff9d;
+  --border:rgba(255,255,255,.11);
 }
 
-html {
-  scroll-behavior: smooth;
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(145,0,255,.18),transparent 28%),
+    radial-gradient(circle at 90% 80%,rgba(255,0,190,.12),transparent 28%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #070512;
-  color: white;
-  overflow-x: hidden;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:linear-gradient(to bottom,black,transparent);
+  z-index:-1;
 }
 
-/* TŁO */
-
-body::before {
-  content: "";
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  background: #7b00ff;
-  filter: blur(180px);
-  opacity: .22;
-  top: -180px;
-  left: -150px;
-  z-index: -2;
+button,input{
+  font:inherit;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  background: #ff00c8;
-  filter: blur(180px);
-  opacity: .15;
-  bottom: -200px;
-  right: -150px;
-  z-index: -2;
+button{
+  cursor:pointer;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-button,
-input {
-  font: inherit;
+/* NAV */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  background:rgba(5,3,13,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
 }
 
-/* NAWIGACJA */
-
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 18px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(7,5,18,.75);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:3px;
 }
 
-.logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 2px;
+.logo span{
+  color:var(--pink);
 }
 
-.logo span {
-  color: #c000ff;
+.nav-links{
+  display:flex;
+  gap:25px;
+  align-items:center;
 }
 
-.nav-links {
-  display: flex;
-  gap: 30px;
-  align-items: center;
+.nav-links button{
+  border:0;
+  background:none;
+  color:#bbb;
+  transition:.25s;
 }
 
-.nav-links a {
-  color: #ccc;
-  transition: .3s;
-  cursor: pointer;
+.nav-links button:hover{
+  color:white;
+  text-shadow:0 0 15px var(--pink);
 }
 
-.nav-links a:hover {
-  color: #d400ff;
+.menu{
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:28px;
 }
 
-.menu-btn {
-  display: none;
-  background: none;
-  border: 0;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+/* COMMON */
+
+.page{
+  display:none;
+  min-height:100vh;
+  padding-top:72px;
 }
 
-/* HERO */
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 20px 80px;
-  position: relative;
+.page.active{
+  display:block;
 }
 
-.hero-content {
-  max-width: 950px;
+.container{
+  width:min(1180px,90%);
+  margin:auto;
 }
 
-.badge {
-  display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid #c000ff;
-  border-radius: 40px;
-  color: #e98cff;
-  margin-bottom: 25px;
-  background: rgba(190,0,255,.08);
+.section{
+  padding:90px 0;
 }
 
-.hero h1 {
-  font-size: clamp(55px, 10vw, 115px);
-  line-height: .9;
-  margin-bottom: 30px;
-  font-weight: 900;
+.title{
+  text-align:center;
+  margin-bottom:45px;
 }
 
-.gradient {
-  background: linear-gradient(90deg,#fff,#e100ff,#8d4dff);
-  -webkit-background-clip: text;
-  color: transparent;
+.title small{
+  color:var(--pink);
+  font-weight:bold;
+  letter-spacing:2px;
 }
 
-.hero p {
-  color: #c9c4d5;
-  font-size: 20px;
-  line-height: 1.7;
-  max-width: 700px;
-  margin: auto;
+.title h2{
+  font-size:clamp(35px,6vw,65px);
+  margin:10px 0;
 }
 
-.buttons {
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.title p{
+  max-width:700px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.7;
 }
 
-.btn {
-  border: 0;
-  border-radius: 12px;
-  padding: 15px 25px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  transition: .3s;
+.btn{
+  padding:14px 22px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  color:white;
+  background:rgba(255,255,255,.05);
+  transition:.3s;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg,#a000ff,#ff00c8);
-  box-shadow: 0 0 30px rgba(200,0,255,.3);
+.btn:hover{
+  transform:translateY(-4px);
+  border-color:var(--purple);
 }
 
-.btn-secondary {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.2);
+.primary{
+  border:0;
+  background:linear-gradient(90deg,var(--purple),var(--pink));
+  box-shadow:0 0 30px rgba(180,0,255,.25);
 }
 
-.btn:hover {
-  transform: translateY(-4px) scale(1.02);
+.glow{
+  color:#e28aff;
 }
 
-/* SEKCJE */
+/* HOME */
 
-section {
-  padding: 100px 7%;
+.hero{
+  min-height:calc(100vh - 72px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 0;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 55px;
+.hero-content{
+  max-width:950px;
 }
 
-.section-title small {
-  color: #d000ff;
-  font-weight: bold;
+.badge{
+  display:inline-block;
+  padding:9px 18px;
+  border:1px solid rgba(190,0,255,.5);
+  background:rgba(160,0,255,.08);
+  color:#df8dff;
+  border-radius:30px;
+  margin-bottom:25px;
 }
 
-.section-title h2 {
-  font-size: clamp(35px,5vw,60px);
-  margin-top: 10px;
+.hero h1{
+  font-size:clamp(60px,11vw,130px);
+  line-height:.85;
+  font-weight:900;
+  letter-spacing:-5px;
 }
 
-.section-title p {
-  max-width: 650px;
-  margin: 15px auto;
-  color: #aaa;
-  line-height: 1.7;
+.gradient{
+  background:linear-gradient(90deg,#fff,#d000ff,#ff3bd8,#8e7aff);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
-/* KARTY */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 22px;
+.hero p{
+  max-width:720px;
+  margin:30px auto;
+  font-size:20px;
+  color:var(--muted);
+  line-height:1.7;
 }
 
-.card {
-  padding: 32px;
-  border: 1px solid rgba(255,255,255,.1);
-  background: rgba(255,255,255,.045);
-  border-radius: 22px;
-  transition: .35s;
-  cursor: pointer;
+.hero-buttons{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  border-color: #b000ff;
-  box-shadow: 0 15px 50px rgba(130,0,255,.15);
+.hero-orb{
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  border:1px solid rgba(190,0,255,.2);
+  box-shadow:
+    0 0 80px rgba(150,0,255,.15),
+    inset 0 0 80px rgba(255,0,200,.08);
+  animation:float 6s ease-in-out infinite;
+  pointer-events:none;
 }
 
-.icon {
-  font-size: 42px;
-  margin-bottom: 20px;
+@keyframes float{
+  50%{transform:translateY(-25px) rotate(180deg)}
 }
 
-.card h3 {
-  font-size: 24px;
-  margin-bottom: 12px;
+/* DASHBOARD */
+
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
 
-.card p {
-  color: #aaa;
-  line-height: 1.7;
+.stat{
+  padding:25px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.035);
+  border-radius:18px;
 }
 
-/* STATYSTYKI */
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 20px;
-  text-align: center;
+.stat strong{
+  display:block;
+  font-size:38px;
+  color:#d800ff;
 }
 
-.stat {
-  padding: 30px 15px;
-  background: rgba(255,255,255,.04);
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.08);
+.stat span{
+  color:var(--muted);
 }
 
-.stat strong {
-  display: block;
-  font-size: 45px;
-  color: #df00ff;
+/* CARDS */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.stat span {
-  color: #aaa;
+.card{
+  position:relative;
+  padding:28px;
+  min-height:230px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+  overflow:hidden;
+  transition:.35s;
+  cursor:pointer;
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  right:-60px;
+  top:-60px;
+  background:var(--purple);
+  filter:blur(70px);
+  opacity:.15;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(200,0,255,.6);
+  box-shadow:0 20px 50px rgba(120,0,255,.14);
+}
+
+.card .icon{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.card h3{
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.65;
+}
+
+.card .open{
+  margin-top:20px;
+  color:#d982ff;
+}
+
+/* TOPIC VIEW */
+
+.topic-header{
+  padding:70px 0 25px;
+}
+
+.back{
+  margin-bottom:30px;
+}
+
+.topic-hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.topic-image{
+  min-height:350px;
+  border-radius:25px;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:130px;
+  background:
+    radial-gradient(circle at center,rgba(190,0,255,.2),transparent 60%),
+    #0b0715;
+  box-shadow:inset 0 0 80px rgba(130,0,255,.12);
+}
+
+.topic-info h1{
+  font-size:55px;
+  margin-bottom:20px;
+}
+
+.topic-info p{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:18px;
+}
+
+.topic-facts{
+  margin-top:30px;
+  display:grid;
+  gap:12px;
+}
+
+.fact{
+  padding:18px;
+  border-radius:14px;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--border);
 }
 
 /* AI */
 
-.ai-box {
-  max-width: 850px;
-  margin: auto;
-  padding: 35px;
-  border-radius: 25px;
-  background: linear-gradient(
-    145deg,
-    rgba(150,0,255,.12),
-    rgba(255,0,200,.05)
+.ai-panel{
+  max-width:850px;
+  margin:auto;
+  padding:30px;
+  border-radius:25px;
+  border:1px solid rgba(170,0,255,.35);
+  background:rgba(255,255,255,.035);
+}
+
+.ai-input{
+  display:flex;
+  gap:10px;
+}
+
+.ai-input input{
+  flex:1;
+  padding:16px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#080611;
+  color:white;
+  outline:none;
+}
+
+.ai-input input:focus{
+  border-color:var(--purple);
+}
+
+.ai-answer{
+  margin-top:20px;
+  min-height:90px;
+  padding:20px;
+  border-radius:15px;
+  background:#080611;
+  color:#ccc;
+  line-height:1.7;
+}
+
+/* GAME */
+
+.game-box{
+  max-width:900px;
+  margin:auto;
+  padding:30px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  background:rgba(255,255,255,.035);
+}
+
+.game-top{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.game-stat{
+  padding:15px;
+  border-radius:12px;
+  background:#080611;
+  text-align:center;
+}
+
+.game-stat strong{
+  display:block;
+  font-size:25px;
+  color:var(--cyan);
+}
+
+.city{
+  min-height:300px;
+  border-radius:20px;
+  padding:30px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:10px;
+  background:
+    linear-gradient(to top,rgba(0,0,0,.7),transparent),
+    radial-gradient(circle at 50% 30%,rgba(150,0,255,.25),transparent 40%),
+    #090613;
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+
+.building{
+  width:55px;
+  background:linear-gradient(to top,#30005d,#d000ff);
+  border-radius:5px 5px 0 0;
+  box-shadow:0 0 20px rgba(190,0,255,.25);
+  position:relative;
+}
+
+.building:after{
+  content:"";
+  position:absolute;
+  inset:10px 12px;
+  background:repeating-linear-gradient(
+    to bottom,
+    #fff 0 5px,
+    transparent 5px 15px
   );
-  border: 1px solid rgba(200,0,255,.3);
+  opacity:.4;
 }
 
-.ai-box input {
-  width: 100%;
-  padding: 17px;
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.15);
-  color: white;
-  border-radius: 12px;
-  outline: none;
+.game-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:20px;
 }
 
-.ai-box input:focus {
-  border-color: #c000ff;
+.action{
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  color:white;
+  transition:.25s;
 }
 
-.ai-answer {
-  margin-top: 20px;
-  padding: 20px;
-  background: rgba(0,0,0,.3);
-  border-radius: 14px;
-  color: #ddd;
-  min-height: 70px;
-  line-height: 1.7;
+.action:hover{
+  border-color:var(--cyan);
+  transform:translateY(-3px);
 }
 
-/* PRZYSZŁOŚĆ */
-
-.future-container {
-  max-width: 900px;
-  margin: auto;
+.game-message{
+  margin-top:20px;
+  color:#ccc;
+  min-height:30px;
 }
 
-.future-card {
-  padding: 45px;
-  text-align: center;
-  border-radius: 25px;
-  background: rgba(255,255,255,.045);
-  border: 1px solid rgba(255,255,255,.1);
+/* FUTURE */
+
+.future{
+  text-align:center;
 }
 
-.future-number {
-  font-size: 90px;
-  font-weight: 900;
-  color: #df00ff;
+.future-year{
+  font-size:100px;
+  font-weight:900;
+  background:linear-gradient(90deg,#00eaff,#a600ff,#ff00c8);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
-.future-card h3 {
-  font-size: 30px;
-  margin-bottom: 15px;
+.range{
+  width:100%;
+  accent-color:var(--purple);
 }
 
-.future-card p {
-  color: #aaa;
-  line-height: 1.8;
-  max-width: 650px;
-  margin: auto;
+.future-card{
+  max-width:800px;
+  margin:auto;
+  padding:40px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  background:rgba(255,255,255,.04);
 }
 
-.slider {
-  width: 100%;
-  margin-top: 35px;
-  accent-color: #d000ff;
+.future-card h3{
+  font-size:30px;
+  margin:15px;
+}
+
+.future-card p{
+  color:var(--muted);
+  line-height:1.7;
 }
 
 /* QUIZ */
 
-.quiz {
-  max-width: 750px;
-  margin: auto;
-  padding: 35px;
-  border-radius: 25px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
+.quiz{
+  max-width:750px;
+  margin:auto;
+  padding:30px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  background:rgba(255,255,255,.04);
 }
 
-.quiz-question {
-  font-size: 25px;
-  margin-bottom: 25px;
+.quiz h3{
+  font-size:25px;
+  margin-bottom:25px;
 }
 
-.answers {
-  display: grid;
-  gap: 12px;
+.answers{
+  display:grid;
+  gap:10px;
 }
 
-.answer {
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  color: white;
-  text-align: left;
-  cursor: pointer;
-  transition: .25s;
+.answer{
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:rgba(255,255,255,.035);
+  color:white;
+  text-align:left;
+  transition:.25s;
 }
 
-.answer:hover {
-  border-color: #c000ff;
-  background: rgba(190,0,255,.12);
+.answer:hover{
+  border-color:var(--purple);
 }
 
-.quiz-result {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #ddd;
+.result{
+  margin-top:20px;
+  color:#ccc;
 }
 
-/* CTA */
+/* ACHIEVEMENTS */
 
-.cta {
-  text-align: center;
-  padding: 110px 20px;
-  background:
-    radial-gradient(circle at center,
-    rgba(180,0,255,.2),
-    transparent 55%);
+.achievements{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
 }
 
-.cta h2 {
-  font-size: clamp(40px,7vw,75px);
-  margin-bottom: 20px;
+.achievement{
+  padding:22px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.035);
+  opacity:.45;
 }
 
-.cta p {
-  color: #aaa;
-  margin-bottom: 30px;
+.achievement.unlocked{
+  opacity:1;
+  border-color:#c000ff;
+  box-shadow:0 0 25px rgba(190,0,255,.12);
+}
+
+.achievement span{
+  font-size:35px;
 }
 
 /* FOOTER */
 
-footer {
-  padding: 40px 7%;
-  border-top: 1px solid rgba(255,255,255,.08);
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  color: #777;
-}
-
-footer strong {
-  color: white;
+footer{
+  border-top:1px solid var(--border);
+  padding:40px 6%;
+  display:flex;
+  justify-content:space-between;
+  color:#777;
 }
 
 /* MODAL */
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.75);
-  backdrop-filter: blur(10px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 2000;
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:5000;
 }
 
-.modal.active {
-  display: flex;
+.modal.show{
+  display:flex;
 }
 
-.modal-box {
-  max-width: 650px;
-  width: 100%;
-  background: #100b20;
-  border: 1px solid #b000ff;
-  border-radius: 22px;
-  padding: 35px;
-  position: relative;
-  box-shadow: 0 0 80px rgba(160,0,255,.25);
+.modal-box{
+  width:min(650px,100%);
+  padding:35px;
+  border-radius:25px;
+  background:#100a1b;
+  border:1px solid var(--purple);
+  box-shadow:0 0 70px rgba(150,0,255,.25);
+  position:relative;
 }
 
-.close {
-  position: absolute;
-  right: 18px;
-  top: 15px;
-  border: 0;
-  background: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+.modal-close{
+  position:absolute;
+  right:15px;
+  top:10px;
+  background:none;
+  border:0;
+  color:white;
+  font-size:30px;
 }
 
-.modal-box h2 {
-  margin-bottom: 15px;
+.modal-box h2{
+  margin-bottom:15px;
 }
 
-.modal-box p {
-  color: #aaa;
-  line-height: 1.8;
+.modal-box p{
+  color:#bbb;
+  line-height:1.8;
 }
 
-/* RESPONSYWNOŚĆ */
+/* TOAST */
 
-@media(max-width:850px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .stats {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    padding: 25px;
-    background: #0c0818;
-    display: none;
-    flex-direction: column;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .menu-btn {
-    display: block;
-  }
+.toast{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  padding:16px 20px;
+  border-radius:14px;
+  background:#151022;
+  border:1px solid var(--purple);
+  transform:translateY(150px);
+  transition:.4s;
+  z-index:6000;
 }
 
-@media(max-width:500px) {
-  section {
-    padding: 75px 5%;
+.toast.show{
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:72px;
+    left:0;
+    right:0;
+    padding:25px;
+    background:#080611;
+    flex-direction:column;
   }
 
-  .stats {
-    grid-template-columns: 1fr;
+  .nav-links.open{
+    display:flex;
   }
 
-  .future-number {
-    font-size: 65px;
+  .menu{
+    display:block;
   }
 
-  footer {
-    flex-direction: column;
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .dashboard{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .topic-hero{
+    grid-template-columns:1fr;
+  }
+
+  .game-top{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .game-actions{
+    grid-template-columns:1fr;
+  }
+
+  .achievements{
+    grid-template-columns:1fr;
+  }
+
+  .topic-info h1{
+    font-size:40px;
+  }
+
+  .ai-input{
+    flex-direction:column;
+  }
+
+  footer{
+    flex-direction:column;
   }
 }
 </style>
@@ -543,28 +769,42 @@ footer strong {
 
 <body>
 
-<!-- NAWIGACJA -->
+<!-- ================= NAV ================= -->
 
 <nav>
-  <a href="#start" class="logo">NEX<span>ORA</span></a>
 
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <button class="logo" onclick="goHome()">
+    NEX<span>ORA</span>
+  </button>
+
+  <button class="menu" onclick="toggleMenu()">☰</button>
 
   <div class="nav-links" id="navLinks">
-    <a href="#technologie" onclick="closeMenu()">Technologie</a>
-    <a href="#ai" onclick="closeMenu()">AI</a>
-    <a href="#quiz" onclick="closeMenu()">Quiz</a>
-    <a href="#przyszlosc" onclick="closeMenu()">Przyszłość</a>
+
+    <button onclick="goHome()">Start</button>
+    <button onclick="openPage('explore')">Explorer</button>
+    <button onclick="openPage('ai')">NEXORA AI</button>
+    <button onclick="openPage('game')">Gra</button>
+    <button onclick="openPage('quiz')">Quiz</button>
+
   </div>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- ================= HOME ================= -->
 
-<section class="hero" id="start">
+<main class="page active" id="home">
+
+<section class="hero">
+
+  <div class="hero-orb"></div>
+
   <div class="hero-content">
 
-    <div class="badge">✦ NOWA ERA TECHNOLOGII</div>
+    <div class="badge">
+      ✦ NEXORA FUTURE SYSTEM 4.0
+    </div>
 
     <h1>
       WITAJ W<br>
@@ -572,131 +812,270 @@ footer strong {
     </h1>
 
     <p>
-      Odkrywaj sztuczną inteligencję, nowe technologie
-      i pomysły, które mogą zmienić sposób, w jaki
-      wygląda przyszłość.
+      Interaktywne centrum technologii, sztucznej inteligencji,
+      kosmosu i przyszłości. Odkrywaj. Eksperymentuj. Twórz.
     </p>
 
-    <div class="buttons">
-      <a href="#technologie" class="btn btn-primary">
-        Odkryj NEXORA →
-      </a>
+    <div class="hero-buttons">
 
-      <a href="#ai" class="btn btn-secondary">
-        Poznaj AI
-      </a>
+      <button class="btn primary" onclick="openPage('explore')">
+        🚀 Rozpocznij eksplorację
+      </button>
+
+      <button class="btn" onclick="openPage('game')">
+        🎮 Zagraj w przyszłość
+      </button>
+
     </div>
 
   </div>
+
 </section>
 
 
-<!-- TECHNOLOGIE -->
+<section class="section">
 
-<section id="technologie">
+  <div class="title">
 
-  <div class="section-title">
-    <small>01 — TECHNOLOGIE</small>
-    <h2>Co zmienia świat?</h2>
+    <small>NEXORA SYSTEM</small>
+
+    <h2>
+      Przyszłość <span class="gradient">nie czeka.</span>
+    </h2>
+
     <p>
-      Kliknij dowolną kartę, aby dowiedzieć się więcej.
+      Klikaj, odkrywaj i sprawdzaj, jak może wyglądać świat jutra.
     </p>
+
+  </div>
+
+  <div class="dashboard">
+
+    <div class="stat">
+      <strong id="homePoints">0</strong>
+      <span>Punkty odkrywania</span>
+    </div>
+
+    <div class="stat">
+      <strong id="homeTopics">0</strong>
+      <span>Odkryte tematy</span>
+    </div>
+
+    <div class="stat">
+      <strong id="homeAchievements">0</strong>
+      <span>Osiągnięcia</span>
+    </div>
+
+    <div class="stat">
+      <strong>∞</strong>
+      <span>Możliwości</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="title">
+
+    <small>TRYB INTERAKTYWNY</small>
+
+    <h2>Co chcesz odkryć?</h2>
+
   </div>
 
   <div class="cards">
 
-    <div class="card"
-         onclick="showInfo(
-         '🤖 Sztuczna inteligencja',
-         'AI potrafi analizować ogromne ilości danych, rozpoznawać obrazy, rozumieć język i pomagać ludziom w codziennych zadaniach. W przyszłości może stać się jednym z najważniejszych narzędzi ludzkości.'
-         )">
-
+    <div class="card" onclick="openTopic('ai')">
       <div class="icon">🤖</div>
       <h3>Sztuczna inteligencja</h3>
       <p>
-        Systemy, które potrafią analizować informacje
-        i wykonywać zadania wymagające inteligencji.
+        Poznaj możliwości AI i zobacz, jak może zmienić świat.
       </p>
-
+      <div class="open">Otwórz temat →</div>
     </div>
 
-
-    <div class="card"
-         onclick="showInfo(
-         '🚀 Kosmos',
-         'Nowoczesne rakiety, satelity i technologie kosmiczne pozwalają nam coraz lepiej poznawać Wszechświat. Kolejnym krokiem może być stała obecność ludzi poza Ziemią.'
-         )">
-
-      <div class="icon">🚀</div>
+    <div class="card" onclick="openTopic('space')">
+      <div class="icon">🌌</div>
       <h3>Kosmos</h3>
       <p>
-        Ludzkość coraz dalej przesuwa granice
-        eksploracji przestrzeni kosmicznej.
+        Odkryj przyszłość eksploracji Wszechświata.
       </p>
-
+      <div class="open">Otwórz temat →</div>
     </div>
 
-
-    <div class="card"
-         onclick="showInfo(
-         '🧬 Biotechnologia',
-         'Połączenie biologii i technologii pozwala rozwijać nowe metody leczenia, badać komórki oraz tworzyć rozwiązania inspirowane naturą.'
-         )">
-
-      <div class="icon">🧬</div>
-      <h3>Biotechnologia</h3>
+    <div class="card" onclick="openTopic('robots')">
+      <div class="icon">🦾</div>
+      <h3>Roboty</h3>
       <p>
-        Technologie inspirowane życiem mogą
-        zmienić medycynę i naukę.
+        Sprawdź, jak roboty mogą zmienić codzienne życie.
       </p>
-
+      <div class="open">Otwórz temat →</div>
     </div>
 
-
-    <div class="card"
-         onclick="showInfo(
-         '⚡ Energia przyszłości',
-         'Przyszłość energetyki może opierać się na coraz wydajniejszych źródłach energii, magazynowaniu oraz inteligentnych sieciach.'
-         )">
-
+    <div class="card" onclick="openTopic('energy')">
       <div class="icon">⚡</div>
       <h3>Energia</h3>
       <p>
-        Poszukujemy sposobów na czystszą
-        i bardziej wydajną energię.
+        Poznaj technologie energetyczne przyszłości.
       </p>
-
+      <div class="open">Otwórz temat →</div>
     </div>
 
+    <div class="card" onclick="openTopic('vr')">
+      <div class="icon">🥽</div>
+      <h3>VR i AR</h3>
+      <p>
+        Zobacz, jak cyfrowy świat może połączyć się z rzeczywistością.
+      </p>
+      <div class="open">Otwórz temat →</div>
+    </div>
 
-    <div class="card"
-         onclick="showInfo(
-         '🥽 Technologie immersyjne',
-         'VR i AR pozwalają łączyć świat cyfrowy z rzeczywistością. Mogą znaleźć zastosowanie w edukacji, pracy, rozrywce i komunikacji.'
-         )">
+    <div class="card" onclick="openTopic('cities')">
+      <div class="icon">🏙️</div>
+      <h3>Miasta przyszłości</h3>
+      <p>
+        Wyobraź sobie inteligentne miasta roku 2100.
+      </p>
+      <div class="open">Otwórz temat →</div>
+    </div>
 
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="title">
+
+    <small>POZNAJ NEXORĘ</small>
+
+    <h2>Masz wybór.</h2>
+
+  </div>
+
+  <div class="hero-buttons">
+
+    <button class="btn primary" onclick="openPage('ai')">
+      🤖 Zapytaj AI
+    </button>
+
+    <button class="btn" onclick="openPage('future')">
+      🔮 Zobacz przyszłość
+    </button>
+
+    <button class="btn" onclick="openPage('quiz')">
+      🧠 Sprawdź wiedzę
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= EXPLORER ================= -->
+
+<main class="page" id="explore">
+
+<section class="section">
+
+  <div class="title">
+
+    <small>NEXORA EXPLORER</small>
+
+    <h2>Wybierz temat.</h2>
+
+    <p>
+      Kliknij kartę. Otworzy się osobny ekran z informacjami.
+    </p>
+
+  </div>
+
+  <div class="cards">
+
+    <div class="card" onclick="openTopic('ai')">
+      <div class="icon">🤖</div>
+      <h3>AI</h3>
+      <p>Sztuczna inteligencja i jej przyszłość.</p>
+    </div>
+
+    <div class="card" onclick="openTopic('space')">
+      <div class="icon">🌌</div>
+      <h3>Kosmos</h3>
+      <p>Eksploracja przestrzeni kosmicznej.</p>
+    </div>
+
+    <div class="card" onclick="openTopic('robots')">
+      <div class="icon">🦾</div>
+      <h3>Roboty</h3>
+      <p>Maszyny przyszłości.</p>
+    </div>
+
+    <div class="card" onclick="openTopic('energy')">
+      <div class="icon">⚡</div>
+      <h3>Energia</h3>
+      <p>Energetyka przyszłości.</p>
+    </div>
+
+    <div class="card" onclick="openTopic('vr')">
       <div class="icon">🥽</div>
       <h3>VR / AR</h3>
-      <p>
-        Cyfrowe światy mogą coraz mocniej
-        łączyć się z naszym codziennym życiem.
-      </p>
-
+      <p>Światy cyfrowe i rzeczywistość.</p>
     </div>
 
+    <div class="card" onclick="openTopic('cities')">
+      <div class="icon">🏙️</div>
+      <h3>Miasta</h3>
+      <p>Inteligentne miasta przyszłości.</p>
+    </div>
 
-    <div class="card"
-         onclick="showInfo(
-         '🌐 Internet przyszłości',
-         'Internet staje się coraz szybszy, inteligentniejszy i bardziej połączony z urządzeniami znajdującymi się wokół nas.'
-         )">
+  </div>
 
-      <div class="icon">🌐</div>
-      <h3>Internet</h3>
-      <p>
-        Miliony urządzeń mogą współpracować
-        w jednej globalnej sieci.
-      </p>
+</section>
+
+</main>
+
+
+<!-- ================= TOPIC ================= -->
+
+<main class="page" id="topic">
+
+<section class="section">
+
+  <div class="container">
+
+    <button class="btn back" onclick="openPage('explore')">
+      ← Wróć do Explorera
+    </button>
+
+    <div class="topic-hero">
+
+      <div class="topic-image" id="topicIcon">
+        🤖
+      </div>
+
+      <div class="topic-info">
+
+        <h1 id="topicTitle">
+          Sztuczna inteligencja
+        </h1>
+
+        <p id="topicDescription"></p>
+
+        <div class="topic-facts" id="topicFacts"></div>
+
+        <br>
+
+        <button class="btn primary" onclick="addDiscovery()">
+          ✦ Dodaj do odkrytych
+        </button>
+
+      </div>
 
     </div>
 
@@ -704,104 +1083,168 @@ footer strong {
 
 </section>
 
-
-<!-- STATYSTYKI -->
-
-<section>
-
-  <div class="section-title">
-    <small>02 — SKALA</small>
-    <h2>Przyszłość jest bliżej, niż myślisz.</h2>
-  </div>
-
-  <div class="stats">
-
-    <div class="stat">
-      <strong class="counter" data-target="100">0</strong>
-      <span>pomysłów</span>
-    </div>
-
-    <div class="stat">
-      <strong class="counter" data-target="24">0</strong>
-      <span>godziny innowacji</span>
-    </div>
-
-    <div class="stat">
-      <strong class="counter" data-target="365">0</strong>
-      <span>dni rozwoju</span>
-    </div>
-
-    <div class="stat">
-      <strong class="counter" data-target="∞">∞</strong>
-      <span>możliwości</span>
-    </div>
-
-  </div>
-
-</section>
+</main>
 
 
-<!-- AI -->
+<!-- ================= AI ================= -->
 
-<section id="ai">
+<main class="page" id="ai">
 
-  <div class="section-title">
-    <small>03 — NEXORA AI</small>
+<section class="section">
+
+  <div class="title">
+
+    <small>NEXORA AI</small>
+
     <h2>Porozmawiaj z przyszłością.</h2>
+
     <p>
-      Zadaj pytanie. To demonstracyjna wersja AI działająca
-      bez dodatkowych serwerów.
+      Zadaj pytanie. To demonstracyjny system AI działający
+      bez zewnętrznego serwera.
     </p>
+
   </div>
 
-  <div class="ai-box">
+  <div class="ai-panel">
 
-    <input
-      id="aiQuestion"
-      type="text"
-      placeholder="Np. Czy AI zmieni świat?"
-      onkeydown="if(event.key==='Enter') nexoraAI()"
-    >
+    <div class="ai-input">
 
-    <div class="buttons" style="justify-content:flex-start">
+      <input
+        id="aiInput"
+        placeholder="Np. Czy ludzie zamieszkają na Marsie?"
+        onkeydown="if(event.key==='Enter')askAI()"
+      >
 
-      <button class="btn btn-primary" onclick="nexoraAI()">
-        ✨ Zapytaj NEXORA AI
-      </button>
-
-      <button class="btn btn-secondary"
-              onclick="randomQuestion()">
-        🎲 Losowe pytanie
+      <button class="btn primary" onclick="askAI()">
+        Zapytaj
       </button>
 
     </div>
 
     <div class="ai-answer" id="aiAnswer">
-      AI czeka na Twoje pytanie...
+      🧠 NEXORA AI czeka na Twoje pytanie.
     </div>
+
+    <br>
+
+    <button class="btn" onclick="randomQuestion()">
+      🎲 Losowe pytanie
+    </button>
 
   </div>
 
 </section>
 
+</main>
 
-<!-- PRZYSZŁOŚĆ -->
 
-<section id="przyszlosc">
+<!-- ================= GAME ================= -->
 
-  <div class="section-title">
-    <small>04 — PRZYSZŁOŚĆ</small>
-    <h2>W którym roku chcesz zajrzeć?</h2>
+<main class="page" id="game">
+
+<section class="section">
+
+  <div class="title">
+
+    <small>NEXORA GAME</small>
+
+    <h2>🏙️ MIASTO 2100</h2>
+
     <p>
-      Przesuń suwak i zobacz wizję przyszłości.
+      Zbuduj własne futurystyczne miasto.
+      Każda decyzja zmienia jego przyszłość.
     </p>
+
   </div>
 
-  <div class="future-container">
+  <div class="game-box">
+
+    <div class="game-top">
+
+      <div class="game-stat">
+        <strong id="money">100</strong>
+        Energia
+      </div>
+
+      <div class="game-stat">
+        <strong id="people">100</strong>
+        Ludzie
+      </div>
+
+      <div class="game-stat">
+        <strong id="tech">10</strong>
+        Technologia
+      </div>
+
+      <div class="game-stat">
+        <strong id="gameScore">0</strong>
+        Punkty
+      </div>
+
+    </div>
+
+    <div class="city" id="city">
+
+      <div class="building" style="height:90px"></div>
+      <div class="building" style="height:130px"></div>
+      <div class="building" style="height:70px"></div>
+      <div class="building" style="height:160px"></div>
+      <div class="building" style="height:105px"></div>
+
+    </div>
+
+    <div class="game-actions">
+
+      <button class="action" onclick="build('energy')">
+        ⚡ Zbuduj elektrownię
+      </button>
+
+      <button class="action" onclick="build('robot')">
+        🦾 Wyślij roboty
+      </button>
+
+      <button class="action" onclick="build('city')">
+        🏙️ Rozbuduj miasto
+      </button>
+
+    </div>
+
+    <div class="game-message" id="gameMessage">
+      Miasto czeka na pierwszą decyzję burmistrza.
+    </div>
+
+    <br>
+
+    <button class="btn" onclick="resetGame()">
+      ↻ Zacznij od nowa
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FUTURE ================= -->
+
+<main class="page" id="future">
+
+<section class="section">
+
+  <div class="title">
+
+    <small>FUTURE SIMULATOR</small>
+
+    <h2>Jak może wyglądać przyszłość?</h2>
+
+  </div>
+
+  <div class="future">
 
     <div class="future-card">
 
-      <div class="future-number" id="futureYear">
+      <div class="future-year" id="futureYear">
         2050
       </div>
 
@@ -810,17 +1253,19 @@ footer strong {
       </h3>
 
       <p id="futureText">
-        Inteligentne miasta mogą automatycznie zarządzać
-        transportem, energią i infrastrukturą.
+        Inteligentne systemy mogą zarządzać transportem,
+        energią i infrastrukturą.
       </p>
 
+      <br>
+
       <input
-        class="slider"
+        class="range"
         type="range"
         min="2030"
         max="2100"
         value="2050"
-        oninput="changeFuture(this.value)"
+        oninput="changeYear(this.value)"
       >
 
     </div>
@@ -829,66 +1274,92 @@ footer strong {
 
 </section>
 
+</main>
 
-<!-- QUIZ -->
 
-<section id="quiz">
+<!-- ================= QUIZ ================= -->
 
-  <div class="section-title">
-    <small>05 — SPRAWDŹ SIĘ</small>
-    <h2>Jak dobrze znasz przyszłość?</h2>
+<main class="page" id="quiz">
+
+<section class="section">
+
+  <div class="title">
+
+    <small>NEXORA CHALLENGE</small>
+
+    <h2>🧠 Quiz przyszłości</h2>
+
     <p>
-      Odpowiedz na kilka pytań.
+      Sprawdź, ile wiesz o technologiach.
     </p>
+
   </div>
 
   <div class="quiz">
 
-    <div class="quiz-question" id="quizQuestion">
-      1. Co oznacza skrót AI?
-    </div>
+    <h3 id="question"></h3>
 
     <div class="answers" id="answers"></div>
 
-    <div class="quiz-result" id="quizResult"></div>
+    <div class="result" id="quizResult">
+      Wynik: 0
+    </div>
 
   </div>
 
 </section>
 
+</main>
 
-<!-- CTA -->
 
-<section class="cta">
+<!-- ================= ACHIEVEMENTS ================= -->
 
-  <h2>
-    Przyszłość zaczyna się <span class="gradient">teraz.</span>
-  </h2>
+<main class="page" id="achievements">
 
-  <p>
-    To dopiero początek NEXORA.
-  </p>
+<section class="section">
 
-  <button
-    class="btn btn-primary"
-    onclick="showInfo(
-      '🚀 NEXORA',
-      'Właśnie odkryłeś interaktywną wersję NEXORA. Możemy ją dalej rozbudować o prawdziwe AI, logowanie, bazę danych, animacje, gry, wiadomości technologiczne i wiele więcej.'
-    )"
-  >
-    Odkryj NEXORA jeszcze raz →
-  </button>
+  <div class="title">
+
+    <small>NEXORA PROFILE</small>
+
+    <h2>🏆 Osiągnięcia</h2>
+
+  </div>
+
+  <div class="achievements">
+
+    <div class="achievement" id="achExplorer">
+      <span>🌌</span>
+      <h3>Odkrywca</h3>
+      <p>Odkryj pierwszy temat.</p>
+    </div>
+
+    <div class="achievement" id="achAI">
+      <span>🤖</span>
+      <h3>Rozmówca AI</h3>
+      <p>Zadaj pytanie NEXORA AI.</p>
+    </div>
+
+    <div class="achievement" id="achGame">
+      <span>🏙️</span>
+      <h3>Architekt przyszłości</h3>
+      <p>Zdobądź 100 punktów w grze.</p>
+    </div>
+
+  </div>
 
 </section>
 
+</main>
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
   <div>
     <strong>NEXORA</strong><br>
-    Centrum technologii przyszłości
+    Future Intelligence System
   </div>
 
   <div>
@@ -898,13 +1369,13 @@ footer strong {
 </footer>
 
 
-<!-- OKNO INFORMACYJNE -->
+<!-- MODAL -->
 
-<div class="modal" id="modal" onclick="closeModal(event)">
+<div class="modal" id="modal">
 
   <div class="modal-box">
 
-    <button class="close" onclick="closeModal()">
+    <button class="modal-close" onclick="closeModal()">
       ×
     </button>
 
@@ -917,342 +1388,613 @@ footer strong {
 </div>
 
 
+<div class="toast" id="toast">
+  ✦ Osiągnięcie odblokowane!
+</div>
+
+
 <script>
 
-/* MENU */
+/* =========================
+   NAWIGACJA
+========================= */
 
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("open");
-}
+function openPage(id){
 
-function closeMenu() {
-  document.getElementById("navLinks").classList.remove("open");
-}
+  document.querySelectorAll(".page")
+    .forEach(p => p.classList.remove("active"));
 
+  const page = document.getElementById(id);
 
-/* OKNA INFORMACYJNE */
-
-function showInfo(title, text) {
-
-  document.getElementById("modalTitle").textContent = title;
-
-  document.getElementById("modalText").textContent = text;
-
-  document.getElementById("modal").classList.add("active");
-}
-
-function closeModal(event) {
-
-  if (!event || event.target.id === "modal") {
-    document.getElementById("modal").classList.remove("active");
+  if(page){
+    page.classList.add("active");
   }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  document.getElementById("navLinks")
+    .classList.remove("open");
+}
+
+function goHome(){
+  openPage("home");
+}
+
+function toggleMenu(){
+  document.getElementById("navLinks")
+    .classList.toggle("open");
 }
 
 
-/* NEXORA AI */
+/* =========================
+   TEMATY
+========================= */
 
-function nexoraAI() {
+const topics = {
 
-  const question =
-    document.getElementById("aiQuestion").value.trim();
+  ai:{
+    icon:"🤖",
+    title:"Sztuczna inteligencja",
+    description:
+      "AI to technologie pozwalające komputerom analizować dane, rozpoznawać wzorce, rozumieć język i wykonywać zadania, które wcześniej wymagały pracy człowieka.",
+    facts:[
+      "🧠 AI może analizować ogromne ilości danych.",
+      "💬 Modele językowe potrafią pracować z tekstem.",
+      "🔬 AI jest wykorzystywana w nauce i medycynie.",
+      "🚀 Jej rozwój może zmienić wiele zawodów."
+    ]
+  },
+
+  space:{
+    icon:"🌌",
+    title:"Kosmos",
+    description:
+      "Eksploracja kosmosu jest jednym z największych wyzwań technologicznych. Rozwój rakiet, robotów i systemów podtrzymywania życia może pozwolić ludziom działać coraz dalej od Ziemi.",
+    facts:[
+      "🚀 Rakiety pozwalają wynosić ludzi i satelity na orbitę.",
+      "🌕 Księżyc może stać się bazą dla dalszej eksploracji.",
+      "🔴 Mars jest jednym z głównych celów przyszłych misji.",
+      "🌌 Wszechświat pozostaje ogromną zagadką."
+    ]
+  },
+
+  robots:{
+    icon:"🦾",
+    title:"Roboty",
+    description:
+      "Roboty mogą wykonywać zadania niebezpieczne, precyzyjne i powtarzalne. W przyszłości mogą stać się bardziej powszechne w domach, fabrykach i medycynie.",
+    facts:[
+      "🦾 Roboty mogą pracować w niebezpiecznych środowiskach.",
+      "🏭 Automatyzacja jest już wykorzystywana w przemyśle.",
+      "🏥 Roboty mogą pomagać lekarzom.",
+      "🏠 Roboty domowe mogą stać się coraz bardziej zaawansowane."
+    ]
+  },
+
+  energy:{
+    icon:"⚡",
+    title:"Energia przyszłości",
+    description:
+      "Przyszłość energetyki może opierać się na połączeniu odnawialnych źródeł energii, magazynowania oraz inteligentnych sieci.",
+    facts:[
+      "☀️ Energia słoneczna jest jednym z ważnych źródeł odnawialnych.",
+      "🌬️ Elektrownie wiatrowe wykorzystują energię ruchu powietrza.",
+      "🔋 Magazynowanie energii jest kluczowym wyzwaniem.",
+      "⚛️ Fuzja jądrowa jest przedmiotem intensywnych badań."
+    ]
+  },
+
+  vr:{
+    icon:"🥽",
+    title:"VR i AR",
+    description:
+      "Technologie immersyjne pozwalają łączyć świat cyfrowy z rzeczywistym. Mogą być wykorzystywane w edukacji, projektowaniu, rozrywce i pracy.",
+    facts:[
+      "🥽 VR tworzy wirtualne środowiska.",
+      "📱 AR nakłada cyfrowe elementy na rzeczywistość.",
+      "🎮 Technologie immersyjne są popularne w grach.",
+      "🏫 Mogą zmienić sposób nauki."
+    ]
+  },
+
+  cities:{
+    icon:"🏙️",
+    title:"Miasta przyszłości",
+    description:
+      "Inteligentne miasta mogą wykorzystywać czujniki, AI i automatyzację do zarządzania transportem, energią i infrastrukturą.",
+    facts:[
+      "🚦 AI może pomagać zarządzać ruchem.",
+      "⚡ Inteligentne sieci mogą optymalizować energię.",
+      "🚗 Transport autonomiczny może zmienić ulice.",
+      "🌱 Technologie mogą pomóc ograniczać zużycie zasobów."
+    ]
+  }
+
+};
+
+let discovered = 0;
+
+function openTopic(id){
+
+  const topic = topics[id];
+
+  if(!topic) return;
+
+  document.getElementById("topicIcon").textContent =
+    topic.icon;
+
+  document.getElementById("topicTitle").textContent =
+    topic.title;
+
+  document.getElementById("topicDescription").textContent =
+    topic.description;
+
+  const facts =
+    document.getElementById("topicFacts");
+
+  facts.innerHTML="";
+
+  topic.facts.forEach(f=>{
+    const div=document.createElement("div");
+    div.className="fact";
+    div.textContent=f;
+    facts.appendChild(div);
+  });
+
+  addPoints(10);
+
+  openPage("topic");
+}
+
+
+/* =========================
+   PUNKTY
+========================= */
+
+let points =
+  Number(localStorage.getItem("nexoraPoints") || 0);
+
+function addPoints(value){
+
+  points += value;
+
+  localStorage.setItem(
+    "nexoraPoints",
+    points
+  );
+
+  updateDashboard();
+}
+
+function updateDashboard(){
+
+  document.getElementById("homePoints")
+    .textContent=points;
+
+  document.getElementById("homeTopics")
+    .textContent=discovered;
+
+}
+
+function addDiscovery(){
+
+  discovered++;
+
+  addPoints(25);
+
+  if(discovered===1){
+    unlock("achExplorer");
+  }
+
+  toast("✦ Dodano nowe odkrycie!");
+
+}
+
+
+/* =========================
+   AI
+========================= */
+
+function askAI(){
+
+  const input =
+    document.getElementById("aiInput");
 
   const answer =
     document.getElementById("aiAnswer");
 
-  if (!question) {
+  const q =
+    input.value.trim().toLowerCase();
 
-    answer.innerHTML =
-      "⚠️ Najpierw wpisz pytanie.";
+  if(!q){
+
+    answer.textContent=
+      "⚠️ Wpisz pytanie.";
 
     return;
   }
 
-  answer.innerHTML = "🧠 NEXORA AI analizuje pytanie...";
+  answer.innerHTML=
+    "🧠 NEXORA AI analizuje...";
 
-  setTimeout(function() {
+  setTimeout(()=>{
 
-    let response =
-      "To bardzo ciekawe pytanie. ";
+    let text=
+      "To bardzo ciekawe pytanie. Przyszłość nie jest jeszcze napisana — tworzą ją decyzje i pomysły ludzi.";
 
-    const q = question.toLowerCase();
-
-    if (q.includes("ai") ||
-        q.includes("sztuczna inteligencja")) {
-
-      response +=
-        "AI może zmienić sposób, w jaki pracujemy, uczymy się i tworzymy. Najważniejsze będzie jednak to, jak ludzie zdecydują się jej używać.";
-
-    } else if (q.includes("kosmos") ||
-               q.includes("mars")) {
-
-      response +=
-        "Eksploracja kosmosu może być jednym z największych wyzwań technologicznych XXI wieku. Mars jest jednym z najczęściej rozważanych kierunków.";
-
-    } else if (q.includes("przyszłość")) {
-
-      response +=
-        "Przyszłość nie jest z góry ustalona. Tworzą ją decyzje, pomysły i technologie rozwijane właśnie dzisiaj.";
-
-    } else if (q.includes("robot")) {
-
-      response +=
-        "Roboty mogą w przyszłości wykonywać coraz więcej zadań, szczególnie tych niebezpiecznych, powtarzalnych lub wymagających dużej precyzji.";
-
-    } else {
-
-      response +=
-        "Centrum NEXORA nie zna jeszcze odpowiedzi na wszystko, ale właśnie dlatego warto zadawać pytania. Każde pytanie może prowadzić do nowego pomysłu.";
-
+    if(q.includes("ai") ||
+       q.includes("sztuczna")){
+      text=
+        "🤖 AI może zmienić naukę, edukację, medycynę, pracę i sposób tworzenia. Najważniejsze będzie odpowiedzialne wykorzystanie tej technologii.";
     }
 
-    answer.innerHTML =
-      "💡 <strong>Odpowiedź NEXORA:</strong><br><br>" +
-      response;
+    else if(q.includes("mars") ||
+            q.includes("kosmos")){
+      text=
+        "🌌 Mars jest jednym z najważniejszych kierunków przyszłej eksploracji. Zanim ludzie będą mogli tam żyć, trzeba rozwiązać wiele problemów technologicznych.";
+    }
 
-  }, 700);
+    else if(q.includes("robot")){
+      text=
+        "🦾 Roboty mogą wykonywać coraz więcej zadań. Szczególnie przydatne mogą być tam, gdzie praca jest niebezpieczna lub bardzo precyzyjna.";
+    }
+
+    else if(q.includes("przyszłość") ||
+            q.includes("przyszlosc")){
+      text=
+        "🔮 Nikt nie zna dokładnej przyszłości. Możemy jednak przewidywać kierunki rozwoju na podstawie obecnych technologii.";
+    }
+
+    answer.innerHTML=
+      "💡 <strong>NEXORA AI:</strong><br><br>"+text;
+
+    unlock("achAI");
+
+    addPoints(5);
+
+  },700);
+
 }
 
+function randomQuestion(){
 
-/* LOSOWE PYTANIE */
-
-function randomQuestion() {
-
-  const questions = [
+  const qs=[
     "Czy AI zmieni świat?",
     "Czy ludzie zamieszkają na Marsie?",
-    "Jak będą wyglądały miasta w 2050 roku?",
-    "Czy roboty będą pomagać ludziom?",
-    "Jaka technologia najbardziej zmieni przyszłość?",
-    "Czy kiedyś będziemy podróżować między planetami?"
+    "Jak będą wyglądały miasta w 2100 roku?",
+    "Czy roboty będą pracować z ludźmi?",
+    "Jaka technologia zmieni przyszłość?"
   ];
 
-  const random =
-    questions[Math.floor(Math.random() * questions.length)];
+  const q=
+    qs[Math.floor(Math.random()*qs.length)];
 
-  document.getElementById("aiQuestion").value = random;
+  document.getElementById("aiInput").value=q;
 
-  nexoraAI();
+  askAI();
 }
 
 
-/* PRZYSZŁOŚĆ */
+/* =========================
+   GRA
+========================= */
 
-function changeFuture(year) {
+let money=100;
+let people=100;
+let tech=10;
+let gameScore=0;
 
-  const yearNumber = Number(year);
+function updateGame(){
 
-  document.getElementById("futureYear").textContent =
-    yearNumber;
+  document.getElementById("money").textContent=money;
+  document.getElementById("people").textContent=people;
+  document.getElementById("tech").textContent=tech;
+  document.getElementById("gameScore").textContent=gameScore;
 
-  let title = "";
-  let text = "";
+}
 
-  if (yearNumber < 2040) {
+function build(type){
 
-    title = "Pierwsza fala zmian";
+  if(type==="energy"){
 
-    text =
-      "AI, automatyzacja i inteligentne urządzenia coraz mocniej wchodzą do codziennego życia.";
+    if(money<15){
+      gameMessage("❌ Za mało energii!");
+      return;
+    }
 
-  } else if (yearNumber < 2070) {
+    money-=15;
+    tech+=8;
+    people+=5;
+    gameScore+=20;
 
-    title = "Miasta przyszłości";
+    addBuilding(90+Math.random()*100);
 
-    text =
-      "Transport, energia i infrastruktura mogą być zarządzane przez inteligentne systemy.";
-
-  } else if (yearNumber < 2090) {
-
-    title = "Nowa cywilizacja technologiczna";
-
-    text =
-      "Granica pomiędzy światem cyfrowym i fizycznym może stać się coraz mniej widoczna.";
-
-  } else {
-
-    title = "Nieznana przyszłość";
-
-    text =
-      "Nie wiemy, jak będzie wyglądał świat. I właśnie dlatego przyszłość jest tak fascynująca.";
+    gameMessage(
+      "⚡ Zbudowano inteligentną elektrownię."
+    );
 
   }
 
-  document.getElementById("futureTitle").textContent =
-    title;
+  if(type==="robot"){
 
-  document.getElementById("futureText").textContent =
-    text;
+    if(money<20){
+      gameMessage("❌ Brakuje zasobów!");
+      return;
+    }
+
+    money-=20;
+    tech+=15;
+    people+=10;
+    gameScore+=30;
+
+    addBuilding(60+Math.random()*150);
+
+    gameMessage(
+      "🦾 Roboty rozpoczęły pracę w mieście."
+    );
+
+  }
+
+  if(type==="city"){
+
+    if(money<25){
+      gameMessage("❌ Miasto potrzebuje więcej energii.");
+      return;
+    }
+
+    money-=25;
+    people+=25;
+    tech+=5;
+    gameScore+=40;
+
+    addBuilding(100+Math.random()*160);
+    addBuilding(70+Math.random()*130);
+
+    gameMessage(
+      "🏙️ Miasto zostało rozbudowane!"
+    );
+
+  }
+
+  updateGame();
+
+  if(gameScore>=100){
+    unlock("achGame");
+  }
+
+}
+
+function addBuilding(height){
+
+  const city=
+    document.getElementById("city");
+
+  const building=
+    document.createElement("div");
+
+  building.className="building";
+
+  building.style.height=
+    height+"px";
+
+  city.appendChild(building);
+
+}
+
+function gameMessage(text){
+
+  document.getElementById("gameMessage")
+    .textContent=text;
+
+}
+
+function resetGame(){
+
+  money=100;
+  people=100;
+  tech=10;
+  gameScore=0;
+
+  document.getElementById("city").innerHTML=`
+    <div class="building" style="height:90px"></div>
+    <div class="building" style="height:130px"></div>
+    <div class="building" style="height:70px"></div>
+    <div class="building" style="height:160px"></div>
+    <div class="building" style="height:105px"></div>
+  `;
+
+  gameMessage(
+    "Miasto zostało zresetowane. Powodzenia!"
+  );
+
+  updateGame();
+
 }
 
 
-/* LICZNIKI */
+/* =========================
+   PRZYSZŁOŚĆ
+========================= */
 
-const counters =
-  document.querySelectorAll(".counter");
+function changeYear(year){
 
-counters.forEach(counter => {
+  year=Number(year);
 
-  const target = counter.dataset.target;
+  document.getElementById("futureYear")
+    .textContent=year;
 
-  if (target === "∞") return;
+  let title;
+  let text;
 
-  let current = 0;
+  if(year<2040){
 
-  const increment =
-    Number(target) / 60;
+    title="Pierwsza fala zmian";
 
-  const timer =
-    setInterval(() => {
+    text=
+      "AI, automatyzacja i inteligentne urządzenia coraz mocniej wchodzą do codziennego życia.";
 
-      current += increment;
+  }
 
-      if (current >= Number(target)) {
+  else if(year<2070){
 
-        counter.textContent = target;
+    title="Era inteligentnych miast";
 
-        clearInterval(timer);
+    text=
+      "Transport, energia i infrastruktura mogą być zarządzane przez połączone systemy.";
 
-      } else {
+  }
 
-        counter.textContent =
-          Math.floor(current);
+  else if(year<2090){
 
-      }
+    title="Nowa era technologiczna";
 
-    }, 25);
+    text=
+      "Granica pomiędzy światem cyfrowym i fizycznym może stać się coraz mniej wyraźna.";
 
-});
+  }
+
+  else{
+
+    title="Nieznana przyszłość";
+
+    text=
+      "Rok 2100 jest tak odległy, że wiele obecnych przewidywań może okazać się zupełnie nietrafionych.";
+
+  }
+
+  document.getElementById("futureTitle")
+    .textContent=title;
+
+  document.getElementById("futureText")
+    .textContent=text;
+
+}
 
 
-/* QUIZ */
+/* =========================
+   QUIZ
+========================= */
 
-const quizData = [
+const quizData=[
 
   {
-    question: "1. Co oznacza skrót AI?",
-    answers: [
+    q:"Co oznacza skrót AI?",
+    a:[
       "Artificial Intelligence",
-      "Advanced Internet",
-      "Automatic Information",
-      "Android Intelligence"
+      "Automatic Internet",
+      "Advanced Information"
     ],
-    correct: 0
+    c:0
   },
 
   {
-    question: "2. Która technologia pozwala tworzyć cyfrowe światy?",
-    answers: [
+    q:"Która technologia tworzy wirtualne środowisko?",
+    a:[
       "VR",
       "GPS",
-      "USB",
-      "Wi-Fi"
+      "USB"
     ],
-    correct: 0
+    c:0
   },
 
   {
-    question: "3. Który kierunek jest często rozważany w kontekście przyszłej eksploracji ludzi?",
-    answers: [
+    q:"Która planeta jest często wymieniana jako cel przyszłej eksploracji?",
+    a:[
       "Mars",
-      "Wenus",
-      "Słońce",
-      "Jowisz jako miejsce zamieszkania"
+      "Merkury",
+      "Neptun"
     ],
-    correct: 0
+    c:0
   },
 
   {
-    question: "4. Co może robić sztuczna inteligencja?",
-    answers: [
-      "Analizować dane",
-      "Myśleć dokładnie jak człowiek",
-      "Przewidywać absolutnie wszystko",
-      "Zmieniać prawa fizyki"
+    q:"Co może robić robot?",
+    a:[
+      "Wykonywać określone zadania",
+      "Zmieniać prawa fizyki",
+      "Zatrzymywać czas"
     ],
-    correct: 0
+    c:0
   }
 
 ];
 
-let quizIndex = 0;
-let score = 0;
+let quizIndex=0;
+let score=0;
 
-function loadQuiz() {
+function loadQuiz(){
 
-  const question =
-    document.getElementById("quizQuestion");
+  if(quizIndex>=quizData.length){
 
-  const answers =
+    document.getElementById("question")
+      .textContent="🎉 Quiz zakończony!";
+
+    document.getElementById("answers")
+      .innerHTML="";
+
+    document.getElementById("quizResult")
+      .innerHTML=
+      "Twój wynik: <strong>"+
+      score+
+      "/"+
+      quizData.length+
+      "</strong>";
+
+    if(score===quizData.length){
+      addPoints(50);
+      toast("🏆 Perfekcyjny wynik!");
+    }
+
+    return;
+  }
+
+  const data=quizData[quizIndex];
+
+  document.getElementById("question")
+    .textContent=
+    (quizIndex+1)+". "+data.q;
+
+  const answers=
     document.getElementById("answers");
 
-  const result =
-    document.getElementById("quizResult");
+  answers.innerHTML="";
 
-  const data =
-    quizData[quizIndex];
+  data.a.forEach((answer,index)=>{
 
-  question.textContent =
-    data.question;
-
-  answers.innerHTML = "";
-
-  result.textContent =
-    "Wynik: " + score + " / " + quizIndex;
-
-  data.answers.forEach((answer, index) => {
-
-    const button =
+    const button=
       document.createElement("button");
 
-    button.className = "answer";
+    button.className="answer";
+    button.textContent=answer;
 
-    button.textContent =
-      answer;
+    button.onclick=()=>{
 
-    button.onclick = function() {
-
-      if (index === data.correct) {
+      if(index===data.c){
 
         score++;
 
-        result.textContent =
-          "✅ Dobra odpowiedź!";
+        addPoints(10);
 
-      } else {
+        document.getElementById("quizResult")
+          .textContent="✅ Dobra odpowiedź!";
 
-        result.textContent =
-          "❌ Nie tym razem.";
+      }else{
+
+        document.getElementById("quizResult")
+          .textContent="❌ Nie tym razem.";
 
       }
 
-      setTimeout(() => {
+      setTimeout(()=>{
 
         quizIndex++;
 
-        if (quizIndex < quizData.length) {
+        loadQuiz();
 
-          loadQuiz();
-
-        } else {
-
-          question.textContent =
-            "🎉 Quiz zakończony!";
-
-          answers.innerHTML = "";
-
-          result.innerHTML =
-            "Twój wynik: <strong>" +
-            score +
-            " / " +
-            quizData.length +
-            "</strong><br><br>" +
-            (score === quizData.length
-              ? "🚀 Perfekcyjnie! NEXORA jest pod wrażeniem."
-              : "💡 Dobra robota! Przyszłość wciąż można odkrywać.");
-
-        }
-
-      }, 900);
+      },700);
 
     };
 
@@ -1260,24 +2002,111 @@ function loadQuiz() {
 
   });
 
+  document.getElementById("quizResult")
+    .textContent=
+    "Wynik: "+score;
+
 }
 
-loadQuiz();
 
+/* =========================
+   OSIĄGNIĘCIA
+========================= */
 
-/* ESC ZAMYKA OKNO */
+function unlock(id){
 
-document.addEventListener("keydown", function(event) {
+  const element=
+    document.getElementById(id);
 
-  if (event.key === "Escape") {
+  if(!element) return;
 
-    document
-      .getElementById("modal")
-      .classList.remove("active");
+  if(!element.classList.contains("unlocked")){
+
+    element.classList.add("unlocked");
+
+    toast("🏆 Osiągnięcie odblokowane!");
+
+    updateAchievements();
 
   }
 
-});
+}
+
+function updateAchievements(){
+
+  const unlocked=
+    document.querySelectorAll(
+      ".achievement.unlocked"
+    ).length;
+
+  document.getElementById(
+    "homeAchievements"
+  ).textContent=unlocked;
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function toast(text){
+
+  const t=
+    document.getElementById("toast");
+
+  t.textContent=text;
+
+  t.classList.add("show");
+
+  setTimeout(()=>{
+    t.classList.remove("show");
+  },2500);
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function showModal(title,text){
+
+  document.getElementById("modalTitle")
+    .textContent=title;
+
+  document.getElementById("modalText")
+    .textContent=text;
+
+  document.getElementById("modal")
+    .classList.add("show");
+
+}
+
+function closeModal(){
+
+  document.getElementById("modal")
+    .classList.remove("show");
+
+}
+
+document.getElementById("modal")
+  .addEventListener("click",function(e){
+
+    if(e.target===this){
+      closeModal();
+    }
+
+  });
+
+
+/* =========================
+   START
+========================= */
+
+updateDashboard();
+updateGame();
+loadQuiz();
 
 </script>
 
