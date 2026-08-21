@@ -3,44 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="VARELISSA - interaktywna encyklopedia gastronomii, hotelarstwa i turystyki">
-<title>VARELISSA | Centrum Edukacji Zawodowej</title>
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Varelissa — prestiżowa interaktywna encyklopedia gastronomii, hotelarstwa, turystyki i bezpieczeństwa zawodowego.">
+<title>Varelissa — Akademia Gastronomii, Hotelarstwa i Turystyki</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
 :root{
-    --bg:#07111f;
-    --bg2:#0d1b2e;
-    --card:#10243b;
-    --card2:#142c47;
-    --text:#f4f7fb;
-    --muted:#aebdd0;
-    --accent:#4fd1c5;
-    --accent2:#60a5fa;
-    --gold:#f5c451;
-    --danger:#fb7185;
-    --success:#34d399;
-    --border:rgba(255,255,255,.09);
-    --shadow:0 18px 50px rgba(0,0,0,.28);
+    --navy:#07111f;
+    --navy2:#0c1b2e;
+    --blue:#123452;
+    --gold:#c9a45c;
+    --gold2:#e5c982;
+    --cream:#f5f1e8;
+    --white:#ffffff;
+    --text:#172231;
+    --muted:#6c7886;
+    --border:rgba(20,35,50,.12);
+    --shadow:0 25px 70px rgba(5,15,28,.12);
+    --radius:22px;
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
-    font-family:Inter,Segoe UI,Arial,sans-serif;
-    background:
-        radial-gradient(circle at 10% 0%,rgba(79,209,197,.12),transparent 30%),
-        radial-gradient(circle at 90% 10%,rgba(96,165,250,.12),transparent 30%),
-        var(--bg);
+    margin:0;
+    background:#f4f5f7;
     color:var(--text);
-    min-height:100vh;
+    font-family:"DM Sans",Arial,sans-serif;
     line-height:1.65;
 }
 
@@ -52,458 +44,416 @@ button{
     cursor:pointer;
 }
 
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    backdrop-filter:blur(18px);
-    background:rgba(7,17,31,.88);
-    border-bottom:1px solid var(--border);
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
+/* NAVBAR */
+
 .navbar{
-    max-width:1250px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(7,17,31,.88);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+    max-width:1500px;
     margin:auto;
-    padding:14px 20px;
+    padding:17px 28px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:20px;
+    gap:35px;
 }
 
 .logo{
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:2px;
-    color:white;
+    font-family:"Playfair Display",serif;
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.5px;
 }
 
 .logo span{
-    color:var(--accent);
+    color:var(--gold2);
 }
 
 .nav-links{
+    margin-left:auto;
     display:flex;
+    gap:5px;
     flex-wrap:wrap;
-    gap:7px;
-    justify-content:flex-end;
 }
 
-.nav-links button{
-    background:transparent;
-    color:var(--muted);
-    border:1px solid transparent;
-    padding:9px 12px;
-    border-radius:10px;
-    transition:.2s;
+.nav-links a{
+    color:#dce4ec;
+    padding:9px 13px;
+    border-radius:9px;
+    font-size:14px;
+    transition:.25s;
 }
 
-.nav-links button:hover,
-.nav-links button.active{
-    color:white;
-    background:rgba(79,209,197,.1);
-    border-color:rgba(79,209,197,.25);
+.nav-links a:hover{
+    color:#fff;
+    background:rgba(255,255,255,.08);
 }
 
-main{
-    max-width:1250px;
-    margin:auto;
-    padding:35px 20px 80px;
-}
-
-.section{
-    display:none;
-    animation:fade .35s ease;
-}
-
-.section.active{
-    display:block;
-}
-
-@keyframes fade{
-    from{opacity:0;transform:translateY(8px)}
-    to{opacity:1;transform:translateY(0)}
-}
+/* HERO */
 
 .hero{
+    min-height:850px;
     background:
-        linear-gradient(135deg,rgba(79,209,197,.12),rgba(96,165,250,.08)),
-        var(--card);
-    border:1px solid var(--border);
-    border-radius:25px;
-    padding:40px;
-    box-shadow:var(--shadow);
-    margin-bottom:25px;
+        linear-gradient(90deg,rgba(4,12,23,.96),rgba(5,18,32,.72),rgba(5,18,32,.28)),
+        url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    position:relative;
+}
+
+.hero-inner{
+    max-width:1500px;
+    width:100%;
+    margin:auto;
+    padding:140px 35px 100px;
+}
+
+.eyebrow{
+    color:var(--gold2);
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:3px;
+    font-weight:700;
 }
 
 .hero h1{
-    font-size:clamp(38px,7vw,72px);
-    line-height:1;
-    margin-bottom:18px;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(55px,8vw,110px);
+    line-height:.95;
+    max-width:900px;
+    margin:18px 0 25px;
 }
 
 .hero h1 span{
-    color:var(--accent);
-}
-
-.hero h2{
-    font-size:32px;
-    margin-bottom:10px;
+    color:var(--gold2);
 }
 
 .hero p{
-    color:var(--muted);
-    max-width:850px;
+    max-width:760px;
+    font-size:19px;
+    color:#d7e0e8;
+    margin-bottom:35px;
 }
 
-.badges{
+.hero-actions{
     display:flex;
+    gap:12px;
     flex-wrap:wrap;
-    gap:10px;
-    margin-top:25px;
 }
 
-.badge{
-    padding:8px 13px;
-    border-radius:999px;
-    background:rgba(255,255,255,.06);
-    border:1px solid var(--border);
-    color:#dbeafe;
+.btn{
+    border:none;
+    border-radius:11px;
+    padding:13px 20px;
+    font-weight:700;
+    transition:.25s;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:18px;
+.btn-primary{
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    color:#0a1726;
 }
 
-.card{
-    background:linear-gradient(145deg,var(--card),var(--bg2));
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:25px;
-    box-shadow:var(--shadow);
-}
-
-.card h2{
-    margin-bottom:12px;
-}
-
-.card h3{
-    color:#dcecff;
-    margin:22px 0 7px;
-}
-
-.card p{
-    color:var(--muted);
-    margin-bottom:12px;
-}
-
-.card ul{
-    color:var(--muted);
-    padding-left:22px;
-    margin-bottom:14px;
-}
-
-.icon{
-    font-size:42px;
-    margin-bottom:12px;
-}
-
-.action{
-    border:0;
-    border-radius:12px;
-    padding:12px 18px;
-    color:#041018;
-    background:var(--accent);
-    font-weight:800;
-    transition:.2s;
-}
-
-.action:hover{
+.btn-primary:hover{
     transform:translateY(-2px);
-    filter:brightness(1.08);
+    box-shadow:0 12px 30px rgba(201,164,92,.3);
 }
 
-.action.secondary{
-    background:#213a58;
-    color:white;
+.btn-dark{
+    background:#10253b;
+    color:#fff;
 }
 
-.action.gold{
-    background:var(--gold);
+.btn-outline{
+    background:transparent;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.3);
 }
 
-.action.danger{
-    background:var(--danger);
-    color:white;
+.btn-outline:hover{
+    background:rgba(255,255,255,.1);
 }
 
-.section-title{
-    margin-bottom:25px;
-}
-
-.section-title h2{
-    font-size:38px;
-}
-
-.section-title p{
-    color:var(--muted);
-}
-
-.info{
-    margin-top:20px;
-    padding:16px 18px;
-    border-left:4px solid var(--accent);
-    background:rgba(79,209,197,.07);
-    color:#cfe8e6;
-    border-radius:10px;
-}
-
-.warning{
-    border-left-color:var(--gold);
-    background:rgba(245,196,81,.07);
-}
-
-/* QUIZY */
-
-.quiz-select{
+.hero-stats{
     display:flex;
+    gap:50px;
+    margin-top:70px;
     flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:20px;
 }
 
-.quiz-select button{
-    padding:11px 16px;
-    border:1px solid var(--border);
-    background:var(--card);
-    color:white;
-    border-radius:12px;
-}
-
-.quiz-select button.selected{
-    background:var(--accent);
-    color:#041018;
-}
-
-.quiz-box{
-    display:none;
-}
-
-.quiz-box.active{
+.hero-stat strong{
     display:block;
+    font:700 34px "Playfair Display",serif;
+    color:#fff;
 }
 
-.progress{
-    height:10px;
-    background:#1d3148;
-    border-radius:999px;
+.hero-stat span{
+    font-size:13px;
+    color:#aebdca;
+}
+
+/* SEARCH */
+
+.search-wrap{
+    max-width:1200px;
+    margin:-45px auto 0;
+    padding:0 20px;
+    position:relative;
+    z-index:5;
+}
+
+.search-box{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:8px;
+    box-shadow:var(--shadow);
+    display:flex;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:15px 18px;
+    font-size:16px;
+    background:transparent;
+}
+
+/* GENERAL */
+
+.container{
+    max-width:1500px;
+    margin:auto;
+    padding:100px 28px;
+}
+
+.section-head{
+    max-width:800px;
+    margin-bottom:45px;
+}
+
+.section-head h2{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    line-height:1.1;
+    margin:8px 0 15px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:17px;
+}
+
+/* TOPICS */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.topic-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
     overflow:hidden;
-    margin:15px 0 25px;
-}
-
-.progress div{
-    height:100%;
-    width:0;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    box-shadow:0 8px 30px rgba(20,30,40,.05);
     transition:.3s;
 }
 
-.question{
-    font-size:23px;
-    font-weight:800;
-    margin-bottom:20px;
+.topic-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
 }
 
-.answers{
-    display:grid;
-    gap:11px;
+.topic-image{
+    height:250px;
+    position:relative;
+    overflow:hidden;
 }
 
-.answer{
+.topic-image img{
     width:100%;
-    text-align:left;
-    padding:15px;
-    border-radius:13px;
-    border:1px solid var(--border);
-    background:#10253d;
-    color:white;
-    transition:.2s;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
 }
 
-.answer:hover{
-    border-color:var(--accent);
+.topic-card:hover img{
+    transform:scale(1.06);
 }
 
-.answer.correct{
-    background:rgba(52,211,153,.18);
-    border-color:var(--success);
+.topic-number{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:rgba(7,17,31,.85);
+    color:#fff;
+    padding:7px 11px;
+    border-radius:8px;
+    font-size:12px;
 }
 
-.answer.wrong{
-    background:rgba(251,113,133,.18);
-    border-color:var(--danger);
+.topic-content{
+    padding:25px;
 }
 
-.answer:disabled{
-    cursor:default;
+.topic-content h3{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+    margin:0 0 10px;
 }
 
-.feedback{
-    margin-top:20px;
-    padding:15px;
-    border-radius:12px;
-    display:none;
-}
-
-.feedback.show{
-    display:block;
-}
-
-.feedback.good{
-    background:rgba(52,211,153,.12);
-    border:1px solid rgba(52,211,153,.35);
-}
-
-.feedback.bad{
-    background:rgba(251,113,133,.12);
-    border:1px solid rgba(251,113,133,.35);
-}
-
-.quiz-result{
-    display:none;
-    text-align:center;
-}
-
-.quiz-result.show{
-    display:block;
-}
-
-.score-circle{
-    width:150px;
-    height:150px;
-    margin:25px auto;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    font-size:35px;
-    font-weight:900;
-    background:radial-gradient(circle,var(--bg2) 55%,var(--accent) 56%);
-}
-
-/* SŁÓWKA */
-
-.word-search{
-    width:100%;
-    padding:14px;
-    border-radius:12px;
-    border:1px solid var(--border);
-    background:#091a2c;
-    color:white;
-    margin-bottom:20px;
-}
-
-.words-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:12px;
-}
-
-.word-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    padding:17px;
-    border-radius:15px;
-}
-
-.word-card strong{
-    font-size:18px;
-}
-
-.word-card small{
-    display:block;
-    color:var(--accent);
-    margin:4px 0;
-}
-
-.word-card p{
+.topic-content p{
     color:var(--muted);
     font-size:14px;
-    margin-bottom:10px;
 }
 
-.speak{
-    background:#1b3553;
-    border:0;
-    color:white;
-    padding:7px 10px;
-    border-radius:8px;
+.topic-link{
+    display:inline-flex;
+    margin-top:15px;
+    color:#8c6d30;
+    font-weight:700;
 }
 
-/* RECEPCJA */
+/* ENCYKLOPEDIA */
+
+.encyclopedia{
+    background:#fff;
+}
+
+.topic-section{
+    padding:100px 0;
+    border-top:1px solid var(--border);
+    scroll-margin-top:90px;
+}
+
+.topic-section:nth-child(even){
+    background:#f7f8fa;
+}
+
+.topic-header{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    align-items:center;
+    margin-bottom:50px;
+}
+
+.topic-header img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:var(--shadow);
+}
+
+.topic-header h2{
+    font-family:"Playfair Display",serif;
+    font-size:56px;
+    margin:8px 0 20px;
+    line-height:1.05;
+}
+
+.topic-header p{
+    color:var(--muted);
+    font-size:17px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.info-card{
+    background:#fff;
+    border:1px solid var(--border);
+    padding:25px;
+    border-radius:16px;
+}
+
+.topic-section:nth-child(even) .info-card{
+    background:#fff;
+}
+
+.info-card h3{
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    margin:0 0 10px;
+}
+
+.info-card p{
+    color:var(--muted);
+    margin:0;
+    font-size:14px;
+}
+
+/* RECEPTION */
+
+.reception-section{
+    background:
+        linear-gradient(135deg,#07111f,#102b45);
+    color:#fff;
+}
 
 .reception-layout{
     display:grid;
-    grid-template-columns:300px 1fr;
-    gap:20px;
+    grid-template-columns:1.2fr .8fr;
+    gap:30px;
 }
 
-.guest-list{
-    display:grid;
-    gap:10px;
+.chat-card,
+.score-card{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:24px;
+    padding:25px;
+    backdrop-filter:blur(15px);
 }
 
-.guest{
-    padding:14px;
-    border-radius:12px;
-    background:#0d2035;
-    border:1px solid var(--border);
-    cursor:pointer;
-}
-
-.guest.selected{
-    border-color:var(--accent);
-    background:rgba(79,209,197,.1);
-}
-
-.chat{
-    min-height:560px;
-    display:flex;
-    flex-direction:column;
-}
-
-.chat-header{
-    padding-bottom:15px;
-    border-bottom:1px solid var(--border);
-    margin-bottom:15px;
-}
-
-.messages{
-    flex:1;
-    min-height:330px;
-    max-height:440px;
+.chat-window{
+    height:480px;
+    background:#07111f;
+    border-radius:15px;
+    padding:18px;
     overflow:auto;
-    padding:5px;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .message{
-    max-width:80%;
-    margin:9px 0;
+    max-width:82%;
     padding:12px 15px;
     border-radius:15px;
+    margin:9px 0;
+    font-size:14px;
 }
 
 .message.guest{
-    background:#1b3450;
-    border-bottom-left-radius:4px;
+    background:#182c40;
 }
 
 .message.student{
+    background:linear-gradient(135deg,#c29b58,#e0c37f);
+    color:#101b28;
     margin-left:auto;
-    background:rgba(79,209,197,.16);
-    border:1px solid rgba(79,209,197,.22);
-    border-bottom-right-radius:4px;
 }
 
 .chat-input{
@@ -512,77 +462,299 @@ main{
     margin-top:12px;
 }
 
-.chat-input textarea{
+.chat-input input{
     flex:1;
-    resize:none;
-    min-height:55px;
-    max-height:130px;
-    padding:13px;
-    border-radius:12px;
-    background:#091a2c;
-    color:white;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.15);
+    background:#07111f;
+    color:#fff;
+    outline:none;
+}
+
+.step{
+    margin:18px 0;
+}
+
+.step-head{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.progress{
+    height:8px;
+    background:rgba(255,255,255,.1);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress i{
+    display:block;
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,var(--gold),var(--gold2));
+    transition:.4s;
+}
+
+/* QUIZ */
+
+.quiz-section{
+    background:#f5f6f8;
+}
+
+.quiz-menu{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.quiz-menu button{
     border:1px solid var(--border);
+    background:#fff;
+    padding:11px 15px;
+    border-radius:10px;
 }
 
-.scenario{
-    padding:15px;
+.quiz-menu button.active{
+    background:#102d47;
+    color:#fff;
+}
+
+.quiz-card{
+    background:#fff;
+    border-radius:22px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:30px;
+}
+
+.question{
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:20px;
     margin-bottom:15px;
-    border-radius:12px;
-    background:rgba(245,196,81,.07);
-    border:1px solid rgba(245,196,81,.18);
 }
 
-.score-report{
-    display:none;
+.question.correct{
+    border:2px solid #2c9a63;
+    background:#f1fbf5;
+}
+
+.question.wrong{
+    border:2px solid #b94a48;
+    background:#fff4f3;
+}
+
+.question-title{
+    font-weight:700;
+    margin-bottom:13px;
+}
+
+.answer{
+    display:block;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.answer:hover{
+    background:#f1f3f5;
+}
+
+.feedback{
+    margin-top:10px;
+    font-weight:700;
+    font-size:14px;
+}
+
+.result{
+    padding:20px;
+    background:#102d47;
+    color:#fff;
+    border-radius:14px;
     margin-top:20px;
 }
 
-.score-report.show{
-    display:block;
+.result strong{
+    color:var(--gold2);
+    font-size:30px;
 }
 
-.rating{
-    font-size:45px;
-    font-weight:900;
-    color:var(--accent);
+/* VOCABULARY */
+
+.vocab-section{
+    background:#fff;
+}
+
+.vocab-search{
+    width:100%;
+    padding:15px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    outline:none;
+    margin-bottom:20px;
+}
+
+.vocab-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.word{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:13px 15px;
+    border:1px solid var(--border);
+    border-radius:11px;
+}
+
+.word small{
+    display:block;
+    color:var(--muted);
+}
+
+.speak{
+    border:none;
+    background:#eef1f4;
+    width:38px;
+    height:38px;
+    border-radius:9px;
+}
+
+/* SEARCH RESULTS */
+
+.search-results{
+    display:none;
+    background:#fff;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    border-radius:16px;
+    padding:20px;
+    margin-top:15px;
+}
+
+.search-result{
+    padding:12px;
+    border-bottom:1px solid var(--border);
+}
+
+.search-result:last-child{
+    border-bottom:0;
+}
+
+/* FOOTER */
+
+footer{
+    background:#050d18;
+    color:#b7c4d1;
+    padding:70px 28px;
+}
+
+.footer-inner{
+    max-width:1500px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+
+footer h3{
+    color:#fff;
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+}
+
+.footer-logo{
+    font-family:"Playfair Display",serif;
+    color:#fff;
+    font-size:35px;
+}
+
+.footer-logo span{
+    color:var(--gold2);
+}
+
+footer a{
+    display:block;
+    margin:7px 0;
+    color:#9caebe;
+}
+
+footer a:hover{
+    color:#fff;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:850px){
-    .navbar{
-        align-items:flex-start;
-        flex-direction:column;
+@media(max-width:1100px){
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .nav-links{
-        justify-content:flex-start;
-    }
-
-    .hero{
-        padding:25px;
+    .info-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .reception-layout{
         grid-template-columns:1fr;
     }
+
+    .footer-inner{
+        grid-template-columns:2fr 1fr 1fr;
+    }
 }
 
-@media(max-width:550px){
-    main{
-        padding:20px 12px 60px;
+@media(max-width:750px){
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        min-height:750px;
+    }
+
+    .hero-inner{
+        padding:130px 22px 80px;
     }
 
     .hero h1{
-        font-size:44px;
+        font-size:58px;
     }
 
-    .section-title h2{
-        font-size:30px;
+    .container{
+        padding:70px 18px;
     }
 
-    .message{
-        max-width:92%;
+    .section-head h2{
+        font-size:38px;
+    }
+
+    .topic-grid,
+    .info-grid,
+    .vocab-grid{
+        grid-template-columns:1fr;
+    }
+
+    .topic-header{
+        grid-template-columns:1fr;
+    }
+
+    .topic-header h2{
+        font-size:43px;
+    }
+
+    .topic-header img{
+        height:280px;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
     }
 }
 </style>
@@ -590,111 +762,232 @@ main{
 
 <body>
 
-<header>
-<nav class="navbar">
-    <div class="logo">VARELI<span>SSA</span></div>
+<header class="navbar">
+<div class="nav-inner">
 
-    <div class="nav-links">
-        <button class="active" onclick="showSection('home',this)">🏠 Start</button>
-        <button onclick="showSection('encyclopedia',this)">📚 Encyklopedia</button>
-        <button onclick="showSection('quizzes',this)">🧠 Quizy</button>
-        <button onclick="showSection('words',this)">🗣️ Słówka</button>
-        <button onclick="showSection('reception',this)">🏨 Recepcja</button>
-    </div>
+<div class="logo">Varelissa<span>.</span></div>
+
+<nav class="nav-links">
+<a href="#encyklopedia">Encyklopedia</a>
+<a href="#recepcja">Wirtualna recepcja</a>
+<a href="#quizy">Quizy</a>
+<a href="#slownik">Słownik</a>
 </nav>
+
+</div>
 </header>
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div class="eyebrow">
+Akademia wiedzy zawodowej
+</div>
+
+<h1>
+Wiedza.<br>
+<span>Profesjonalizm.</span><br>
+Varelissa.
+</h1>
+
+<p>
+Kompleksowa platforma edukacyjna poświęcona gastronomii,
+hotelarstwu, turystyce i bezpieczeństwu zawodowemu.
+Ucz się jak profesjonalista, ćwicz jak w prawdziwym miejscu pracy
+i sprawdzaj swoje umiejętności.
+</p>
+
+<div class="hero-actions">
+
+<a href="#encyklopedia" class="btn btn-primary">
+Odkryj encyklopedię
+</a>
+
+<a href="#recepcja" class="btn btn-outline">
+Uruchom recepcję
+</a>
+
+</div>
+
+<div class="hero-stats">
+
+<div class="hero-stat">
+<strong>500+</strong>
+<span>informacji zawodowych</span>
+</div>
+
+<div class="hero-stat">
+<strong>150</strong>
+<span>terminów branżowych</span>
+</div>
+
+<div class="hero-stat">
+<strong>4</strong>
+<span>działy wiedzy</span>
+</div>
+
+<div class="hero-stat">
+<strong>∞</strong>
+<span>możliwości nauki</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="search-wrap">
+
+<div class="search-box">
+
+<input
+id="globalSearch"
+placeholder="Szukaj: HACCP, check-in, mise en place, pilot wycieczek..."
+onkeydown="if(event.key==='Enter')searchSite()"
+>
+
+<button class="btn btn-dark" onclick="searchSite()">
+Szukaj
+</button>
+
+</div>
+
+<div id="searchResults" class="search-results"></div>
+
+</div>
 
 <main>
 
-<!-- =========================
-     START
-========================= -->
+<section class="container" id="encyklopedia">
 
-<section id="home" class="section active">
+<div class="section-head">
 
-<div class="hero">
+<div class="eyebrow">Baza wiedzy Varelissa</div>
 
-<h1>VARELI<span>SSA</span></h1>
-
-<h2>Centrum Edukacji Gastronomii, Hotelarstwa i Turystyki</h2>
+<h2>
+Poznaj świat profesjonalnych usług.
+</h2>
 
 <p>
-Interaktywna przestrzeń edukacyjna dla uczniów.
-Ucz się teorii, sprawdzaj swoją wiedzę, ćwicz słownictwo
-zawodowe i trenuj obsługę gościa w wirtualnej recepcji.
+Cztery rozbudowane działy prowadzą od podstawowych pojęć
+do praktycznych zagadnień spotykanych w prawdziwej pracy.
 </p>
-
-<div class="badges">
-<span class="badge">🍽️ Gastronomia</span>
-<span class="badge">🏨 Hotelarstwo</span>
-<span class="badge">✈️ Turystyka</span>
-<span class="badge">🦺 Bezpieczeństwo</span>
-<span class="badge">🧠 Quizy</span>
-<span class="badge">🗣️ Słówka</span>
-<span class="badge">🤖 Trening recepcji</span>
-</div>
-
-<br>
-
-<button class="action" onclick="showSection('encyclopedia')">
-📚 Otwórz Encyklopedię
-</button>
-
-<button class="action secondary"
-onclick="showSection('reception')">
-🏨 Rozpocznij trening
-</button>
 
 </div>
 
-<div class="grid">
+<div class="topic-grid">
 
-<div class="card">
-<div class="icon">📚</div>
-<h2>Encyklopedia</h2>
-<p>
-Rozbudowane materiały dotyczące zawodów gastronomicznych,
-hotelarskich i turystycznych.
-</p>
-<button class="action" onclick="showSection('encyclopedia')">
-Czytaj
-</button>
+<div class="topic-card">
+
+<div class="topic-image">
+
+<img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85">
+
+<div class="topic-number">01</div>
+
 </div>
 
-<div class="card">
-<div class="icon">🧠</div>
-<h2>Quizy</h2>
+<div class="topic-content">
+
+<h3>Gastronomia</h3>
+
 <p>
-Po 30 pytań z każdego głównego działu. Wynik poznajesz
-od razu po zakończeniu.
+Technologia żywności, kuchnia, obsługa konsumenta,
+organizacja pracy, napoje, ekonomia i HACCP.
 </p>
-<button class="action" onclick="showSection('quizzes')">
-Rozwiąż
-</button>
+
+<a href="#gastronomia" class="topic-link">
+Otwórz dział →
+</a>
+
 </div>
 
-<div class="card">
-<div class="icon">🗣️</div>
-<h2>Słownictwo</h2>
-<p>
-Ponad 150 pojęć zawodowych wraz z tłumaczeniem,
-opisem i wymową.
-</p>
-<button class="action" onclick="showSection('words')">
-Ucz się
-</button>
 </div>
 
-<div class="card">
-<div class="icon">🏨</div>
-<h2>Wirtualna recepcja</h2>
+
+<div class="topic-card">
+
+<div class="topic-image">
+
+<img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85">
+
+<div class="topic-number">02</div>
+
+</div>
+
+<div class="topic-content">
+
+<h3>Hotelarstwo</h3>
+
 <p>
-Ćwicz rozmowę z gościem i naucz się profesjonalnej
-obsługi hotelowej.
+Recepcja, rezerwacje, housekeeping, sprzedaż,
+standardy hotelowe i obsługa wymagającego gościa.
 </p>
-<button class="action" onclick="showSection('reception')">
-Wejdź
-</button>
+
+<a href="#hotelarstwo" class="topic-link">
+Otwórz dział →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-image">
+
+<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=85">
+
+<div class="topic-number">03</div>
+
+</div>
+
+<div class="topic-content">
+
+<h3>Turystyka</h3>
+
+<p>
+Organizacja podróży, imprezy turystyczne,
+transport, destynacje, pilotowanie i przewodnictwo.
+</p>
+
+<a href="#turystyka" class="topic-link">
+Otwórz dział →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="topic-card">
+
+<div class="topic-image">
+
+<img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=85">
+
+<div class="topic-number">04</div>
+
+</div>
+
+<div class="topic-content">
+
+<h3>Bezpieczeństwo</h3>
+
+<p>
+BHP, pierwsza pomoc, HACCP, ppoż., ergonomia,
+dane osobowe i bezpieczeństwo gościa.
+</p>
+
+<a href="#bezpieczenstwo" class="topic-link">
+Otwórz dział →
+</a>
+
+</div>
+
 </div>
 
 </div>
@@ -702,553 +995,639 @@ Wejdź
 </section>
 
 
-<!-- =========================
-     ENCYKLOPEDIA
-========================= -->
+<section class="encyclopedia">
 
-<section id="encyclopedia" class="section">
+<div class="container">
 
-<div class="section-title">
-<h2>📚 Encyklopedia VARELISSA</h2>
+<!-- GASTRONOMIA -->
+
+<section class="topic-section" id="gastronomia">
+
+<div class="topic-header">
+
+<div>
+
+<div class="eyebrow">Dział 01</div>
+
+<h2>Gastronomia</h2>
+
 <p>
-Kompendium wiedzy zawodowej. Wybierz temat i ucz się krok po kroku.
+Gastronomia jest dziedziną łączącą technologię przygotowywania
+żywności, sztukę kulinarną, organizację pracy, obsługę konsumenta,
+ekonomię oraz bezpieczeństwo żywności.
+</p>
+
+<p>
+Profesjonalny pracownik gastronomii musi rozumieć nie tylko
+sposób przygotowania potrawy, ale również pochodzenie surowców,
+ich przechowywanie, zasady higieny, organizację stanowiska,
+koszty, jakość oraz sposób komunikacji z konsumentem.
+</p>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1500&q=85">
+
+</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+<h3>Mise en place</h3>
+<p>
+Francuskie określenie oznaczające przygotowanie stanowiska
+przed rozpoczęciem właściwej pracy. Obejmuje przygotowanie
+surowców, sprzętu, naczyń, narzędzi i półproduktów.
 </p>
 </div>
 
-<div class="card">
-
-<h2>🍽️ GASTRONOMIA</h2>
-
-<h3>Czym jest gastronomia?</h3>
-<p>
-Gastronomia obejmuje działalność związaną z przygotowywaniem,
-produkcją, przechowywaniem i podawaniem żywności oraz napojów.
-Jest połączeniem wiedzy technologicznej, organizacyjnej
-i usługowej.
-</p>
-
-<h3>Organizacja zakładu gastronomicznego</h3>
-<p>
-Prawidłowo zorganizowany zakład gastronomiczny powinien
-zapewniać sprawny przepływ surowców, pracowników i gotowych
-potraw. Układ pomieszczeń powinien ograniczać możliwość
-zanieczyszczenia żywności.
-</p>
-
-<h3>Podstawowe pomieszczenia</h3>
-<ul>
-<li>kuchnia właściwa,</li>
-<li>magazyny,</li>
-<li>pomieszczenia przygotowawcze,</li>
-<li>zmywalnia,</li>
-<li>sala konsumencka,</li>
-<li>bar,</li>
-<li>zaplecze socjalne.</li>
-</ul>
-
-<h3>Surowce</h3>
-<p>
-Surowce spożywcze dzielimy między innymi na produkty zbożowe,
-warzywa, owoce, mięso, ryby, jaja, mleko i jego przetwory,
-tłuszcze oraz produkty cukiernicze.
-</p>
-
-<h3>Obróbka wstępna</h3>
-<p>
-Obróbka wstępna obejmuje czynności takie jak sortowanie,
-mycie, czyszczenie, obieranie, krojenie, rozdrabnianie
-i porcjowanie.
-</p>
-
-<h3>Obróbka cieplna</h3>
-<p>
-Najważniejsze metody obróbki cieplnej to gotowanie,
-smażenie, duszenie, pieczenie i grillowanie. Wybór metody
-wpływa na smak, wygląd, strukturę i właściwości produktu.
-</p>
-
-<h3>Przechowywanie żywności</h3>
-<p>
-Produkty należy przechowywać zgodnie z ich właściwościami
-i wymaganiami producenta. Ważna jest kontrola temperatury,
-terminów przydatności, stanu opakowań i higieny magazynu.
-</p>
-
+<div class="info-card">
 <h3>HACCP</h3>
 <p>
-HACCP to system zarządzania bezpieczeństwem żywności oparty
-na identyfikacji zagrożeń i kontroli kluczowych etapów procesu.
-Jego celem jest zapobieganie zagrożeniom, a nie tylko reagowanie
-na ich skutki.
+System analizy zagrożeń i krytycznych punktów kontroli.
+Jego celem jest zapobieganie zagrożeniom związanym
+z bezpieczeństwem żywności.
 </p>
+</div>
 
-<h3>Higiena osobista</h3>
+<div class="info-card">
+<h3>FIFO i FEFO</h3>
 <p>
-Pracownik gastronomii powinien dbać o czystość rąk, odzieży,
-obuwia i stanowiska. Ręce należy myć w sytuacjach, w których
-mogą stać się źródłem zanieczyszczenia.
+FIFO oznacza wydawanie najpierw produktów najwcześniej
+przyjętych. FEFO oznacza pierwszeństwo produktów
+z najkrótszym terminem przydatności.
 </p>
+</div>
 
-<h3>Alergeny</h3>
+<div class="info-card">
+<h3>Techniki kulinarne</h3>
 <p>
-Pracownik powinien znać skład oferowanych potraw i umieć
-udzielić klientowi rzetelnej informacji dotyczącej składników
-alergennych zgodnie z procedurami obowiązującymi w zakładzie.
+Gotowanie, smażenie, duszenie, pieczenie, grillowanie,
+blanszowanie, gotowanie na parze oraz wiele innych technik
+wpływających na smak, strukturę i wartość produktu.
 </p>
+</div>
 
+<div class="info-card">
 <h3>Obsługa konsumenta</h3>
 <p>
-Profesjonalna obsługa obejmuje powitanie, przedstawienie oferty,
-przyjęcie zamówienia, wydanie potraw, reagowanie na potrzeby
-klienta, rozliczenie i pożegnanie.
+Profesjonalna obsługa zaczyna się od powitania,
+poznania potrzeb klienta i znajomości oferty,
+a kończy się kontrolą satysfakcji i pożegnaniem.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Food cost</h3>
+<p>
+Wskaźnik pomagający kontrolować koszt surowców
+w odniesieniu do wartości sprzedaży potraw.
+Ma istotne znaczenie dla rentowności lokalu.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Magazynowanie</h3>
+<p>
+Produkty należy przechowywać w warunkach odpowiednich
+dla ich rodzaju, kontrolując temperaturę, terminy,
+opakowania i rotację zapasów.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Alergeny</h3>
+<p>
+Personel powinien znać skład oferowanych potraw
+oraz procedury przekazywania konsumentowi informacji
+o substancjach powodujących alergie lub reakcje nietolerancji.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Ekonomia gastronomii</h3>
+<p>
+Koszt surowców, pracy, energii, strat i innych elementów
+wpływa na cenę sprzedaży oraz wynik finansowy przedsiębiorstwa.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOTELARSTWO -->
+
+<section class="topic-section" id="hotelarstwo">
+
+<div class="topic-header">
+
+<div>
+
+<div class="eyebrow">Dział 02</div>
+
+<h2>Hotelarstwo</h2>
+
+<p>
+Hotelarstwo to kompleksowa organizacja pobytu gościa:
+od momentu rezerwacji, przez przyjazd i meldunek,
+aż po wymeldowanie oraz obsługę posprzedażową.
 </p>
 
-<h3>Menu</h3>
 <p>
-Menu powinno być czytelne, aktualne i logicznie uporządkowane.
-Pracownik powinien znać ofertę lokalu i potrafić odpowiedzieć
-na pytania klienta.
+W hotelu współpracują ze sobą recepcja, służba pięter,
+gastronomia, dział techniczny, sprzedaż, administracja
+oraz kierownictwo.
 </p>
 
 </div>
 
-<div class="card">
+<img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1500&q=85">
 
-<h2>🏨 HOTELARSTWO</h2>
+</div>
 
-<h3>Czym jest hotelarstwo?</h3>
-<p>
-Hotelarstwo jest działalnością usługową związaną przede wszystkim
-z zapewnianiem zakwaterowania oraz kompleksową obsługą gości.
-</p>
+<div class="info-grid">
 
-<h3>Hotel jako organizacja</h3>
-<p>
-Hotel jest zespołem działów, które muszą ze sobą współpracować.
-Najważniejsze obszary to między innymi recepcja, housekeeping,
-gastronomia, administracja i dział techniczny.
-</p>
-
-<h3>Recepcja</h3>
-<p>
-Recepcja odpowiada za bezpośredni kontakt z gościem.
-Recepcjonista może przyjmować rezerwacje, meldować gości,
-wymeldowywać ich, udzielać informacji, przyjmować płatności
-oraz pomagać w rozwiązywaniu problemów.
-</p>
-
-<h3>Rezerwacja</h3>
-<p>
-Podczas rezerwacji należy ustalić między innymi termin pobytu,
-liczbę osób, rodzaj pokoju i dane kontaktowe. Należy również
-prawidłowo zapisać wszystkie ustalenia.
-</p>
-
+<div class="info-card">
 <h3>Check-in</h3>
 <p>
-Check-in jest procesem zameldowania gościa. Obejmuje weryfikację
-danych zgodnie z procedurami, przekazanie informacji dotyczących
-pobytu oraz wskazanie najważniejszych zasad korzystania z hotelu.
+Proces przyjęcia gościa do hotelu. Obejmuje między innymi
+weryfikację rezerwacji, identyfikację, przekazanie
+informacji oraz przygotowanie dostępu do pokoju.
 </p>
+</div>
 
+<div class="info-card">
 <h3>Check-out</h3>
 <p>
-Check-out jest procesem wymeldowania. Obejmuje rozliczenie pobytu,
-sprawdzenie należności i formalne zakończenie pobytu.
+Proces zakończenia pobytu obejmujący rozliczenie,
+zwrot lub dezaktywację dostępu do pokoju,
+dokument sprzedaży oraz pożegnanie gościa.
 </p>
+</div>
 
+<div class="info-card">
+<h3>PMS</h3>
+<p>
+System informatyczny wspierający zarządzanie hotelem:
+rezerwacjami, pokojami, gośćmi, rozliczeniami
+i procesami operacyjnymi.
+</p>
+</div>
+
+<div class="info-card">
 <h3>Housekeeping</h3>
 <p>
-Housekeeping odpowiada między innymi za czystość pokoi,
-przestrzeni wspólnych i odpowiedni standard przygotowania
-jednostek mieszkalnych.
+Dział odpowiedzialny za czystość i przygotowanie pokoi,
+części wspólnych oraz współpracę z recepcją
+w zakresie statusów pokoi.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Rezerwacje</h3>
+<p>
+Rezerwacja powinna zawierać informacje konieczne
+do prawidłowej realizacji pobytu: termin, liczbę osób,
+kategorię pokoju, cenę i warunki.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Reklamacje</h3>
+<p>
+Profesjonalna obsługa reklamacji wymaga wysłuchania,
+ustalenia faktów, zachowania spokoju i zaproponowania
+rozwiązania zgodnego z kompetencjami.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Revenue Management</h3>
+<p>
+Zarządzanie przychodem polegające między innymi
+na analizowaniu popytu, cen, dostępności i segmentów
+w celu optymalizacji wyników hotelu.
+</p>
+</div>
+
+<div class="info-card">
+<h3>ADR i RevPAR</h3>
+<p>
+ADR odnosi się do średniej ceny sprzedanego pokoju,
+natomiast RevPAR pozwala analizować przychód
+w odniesieniu do dostępnych pokoi.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Standard hotelowy</h3>
+<p>
+Standard to zestaw wymagań dotyczących wyposażenia,
+czystości, obsługi, bezpieczeństwa oraz sposobu
+realizacji usługi.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TURYSTYKA -->
+
+<section class="topic-section" id="turystyka">
+
+<div class="topic-header">
+
+<div>
+
+<div class="eyebrow">Dział 03</div>
+
+<h2>Turystyka</h2>
+
+<p>
+Turystyka obejmuje organizowanie podróży, tworzenie produktów
+turystycznych, obsługę podróżnych oraz wykorzystanie walorów
+przyrodniczych i kulturowych.
 </p>
 
-<h3>Obsługa reklamacji</h3>
 <p>
-Podczas reklamacji należy przede wszystkim wysłuchać gościa,
-nie przerywać, ustalić problem i zaproponować rozwiązanie
-zgodne z możliwościami i procedurami obiektu.
-</p>
-
-<h3>Profesjonalizm</h3>
-<p>
-Pracownik hotelu powinien być uprzejmy, spokojny, dyskretny,
-komunikatywny i pomocny. Ważna jest także znajomość oferty hotelu.
-</p>
-
-<h3>Ochrona danych gościa</h3>
-<p>
-Informacje dotyczące gościa należy traktować jako poufne.
-Nie powinno się przekazywać osobom postronnym informacji
-o pobycie, pokoju lub danych klienta bez odpowiedniej podstawy.
+Profesjonalna obsługa turystyczna wymaga znajomości
+destynacji, transportu, programu, dokumentów,
+bezpieczeństwa oraz zasad komunikacji z grupą.
 </p>
 
 </div>
 
-<div class="card">
+<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1500&q=85">
 
-<h2>✈️ TURYSTYKA</h2>
+</div>
 
-<h3>Czym jest turystyka?</h3>
+<div class="info-grid">
+
+<div class="info-card">
+<h3>Produkt turystyczny</h3>
 <p>
-Turystyka obejmuje podróże i pobyty poza codziennym środowiskiem.
-Może mieć charakter wypoczynkowy, poznawczy, biznesowy,
-kulturowy, zdrowotny, aktywny lub kulinarny.
+Zestaw usług i doświadczeń odpowiadających potrzebom
+podróżnego, np. transportu, noclegu, wyżywienia,
+atrakcji oraz informacji.
 </p>
+</div>
 
-<h3>Rodzaje turystyki</h3>
-<ul>
-<li>wypoczynkowa,</li>
-<li>krajoznawcza,</li>
-<li>kulturowa,</li>
-<li>biznesowa,</li>
-<li>aktywna,</li>
-<li>zdrowotna,</li>
-<li>kulinarna,</li>
-<li>przyrodnicza.</li>
-</ul>
-
-<h3>Organizacja podróży</h3>
+<div class="info-card">
+<h3>Impreza turystyczna</h3>
 <p>
-Organizacja podróży może obejmować wybór kierunku, transportu,
-zakwaterowania, atrakcji, wyżywienia oraz przygotowanie programu.
+Zorganizowany zestaw usług turystycznych realizowany
+zgodnie z określonym programem i warunkami udziału.
 </p>
+</div>
 
-<h3>Informacja turystyczna</h3>
+<div class="info-card">
+<h3>Pilot wycieczek</h3>
 <p>
-Informacja turystyczna pomaga odwiedzającym w wyborze atrakcji,
-tras, środków transportu, wydarzeń, noclegów i innych usług.
+Osoba odpowiedzialna między innymi za organizacyjną
+koordynację przebiegu imprezy oraz współpracę
+z usługodawcami.
 </p>
+</div>
 
-<h3>Przewodnik i pilot</h3>
+<div class="info-card">
+<h3>Przewodnik</h3>
 <p>
-Przewodnik przekazuje wiedzę o odwiedzanym miejscu i prowadzi
-turystów zgodnie z zakresem swoich kompetencji. Pilot zajmuje się
-przede wszystkim organizacyjną opieką nad grupą.
+Przekazuje uczestnikom informacje o odwiedzanych miejscach,
+ich historii, kulturze, przyrodzie i dziedzictwie.
 </p>
+</div>
 
-<h3>Atrakcje turystyczne</h3>
+<div class="info-card">
+<h3>Itinerary</h3>
 <p>
-Atrakcją może być zabytek, muzeum, park narodowy, wydarzenie,
-obiekt kultury, miejsce historyczne, obiekt rekreacyjny
-lub wyjątkowy walor przyrodniczy.
+Plan lub trasa podróży zawierająca kolejność miejsc,
+świadczeń, wydarzeń i czynności przewidzianych
+podczas wyjazdu.
 </p>
+</div>
 
-<h3>Transport</h3>
+<div class="info-card">
+<h3>Sezonowość</h3>
 <p>
-Turystyka wykorzystuje różne środki transportu: lotniczy,
-kolejowy, drogowy i wodny. Wybór zależy między innymi
-od odległości, czasu, ceny i charakteru podróży.
+Zmiana wielkości ruchu turystycznego w czasie,
+wynikająca między innymi z pogody, wakacji,
+świąt i wydarzeń.
 </p>
+</div>
 
+<div class="info-card">
 <h3>Turystyka zrównoważona</h3>
 <p>
-Jej celem jest ograniczanie negatywnego wpływu turystyki
-na środowisko i lokalne społeczności przy jednoczesnym
-zapewnieniu korzyści ekonomicznych i społecznych.
+Podejście ograniczające negatywny wpływ turystyki
+na środowisko i społeczności przy jednoczesnym
+wspieraniu lokalnej gospodarki.
+</p>
+</div>
+
+<div class="info-card">
+<h3>MICE</h3>
+<p>
+Segment obejmujący między innymi spotkania biznesowe,
+konferencje, wydarzenia, targi i podróże motywacyjne.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Destynacja</h3>
+<p>
+Miejsce docelowe podróży. Jego atrakcyjność zależy
+od walorów, infrastruktury, dostępności,
+bezpieczeństwa i jakości usług.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BEZPIECZEŃSTWO -->
+
+<section class="topic-section" id="bezpieczenstwo">
+
+<div class="topic-header">
+
+<div>
+
+<div class="eyebrow">Dział 04</div>
+
+<h2>Bezpieczeństwo zawodowe</h2>
+
+<p>
+Bezpieczeństwo jest fundamentem profesjonalnej pracy.
+Obejmuje ochronę pracowników, gości, konsumentów,
+mienia, danych oraz bezpieczeństwo żywności.
+</p>
+
+<p>
+Każdy pracownik powinien umieć rozpoznać zagrożenie,
+postępować zgodnie z procedurą i odpowiednio reagować
+w sytuacji awaryjnej.
 </p>
 
 </div>
 
-<div class="card">
+<img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1500&q=85">
 
-<h2>🦺 BEZPIECZEŃSTWO ZAWODOWE</h2>
+</div>
 
+<div class="info-grid">
+
+<div class="info-card">
 <h3>BHP</h3>
 <p>
-Bezpieczeństwo i higiena pracy obejmują zasady mające chronić
-zdrowie i życie człowieka podczas wykonywania pracy.
+Zasady bezpieczeństwa i higieny pracy pomagają ograniczać
+ryzyko wypadków, urazów i chorób związanych z pracą.
 </p>
+</div>
 
-<h3>Najczęstsze zagrożenia</h3>
-<ul>
-<li>poślizgnięcia i upadki,</li>
-<li>skaleczenia,</li>
-<li>oparzenia,</li>
-<li>porażenie prądem,</li>
-<li>kontakt z substancjami chemicznymi,</li>
-<li>przeciążenia układu ruchu,</li>
-<li>pożar.</li>
-</ul>
-
-<h3>Bezpieczeństwo żywności</h3>
+<div class="info-card">
+<h3>Ocena ryzyka</h3>
 <p>
-Należy zapobiegać zanieczyszczeniom biologicznym, chemicznym
-i fizycznym. Szczególne znaczenie ma higiena rąk, sprzętu,
-powierzchni oraz prawidłowe przechowywanie produktów.
+Proces identyfikowania zagrożeń oraz określania sposobów
+ich ograniczania do akceptowalnego poziomu.
 </p>
+</div>
 
-<h3>Zanieczyszczenie krzyżowe</h3>
-<p>
-Może wystąpić podczas przeniesienia zanieczyszczeń z jednego
-produktu lub powierzchni na inny produkt. Szczególnie ważne
-jest oddzielanie żywności surowej od gotowej do spożycia.
-</p>
-
-<h3>Środki chemiczne</h3>
-<p>
-Środki czystości należy stosować zgodnie z instrukcją,
-przechowywać właściwie i zabezpieczać przed kontaktem
-z żywnością.
-</p>
-
-<h3>Pożar i ewakuacja</h3>
-<p>
-W przypadku zagrożenia należy zachować spokój, uruchomić
-procedurę alarmową i opuścić zagrożoną przestrzeń zgodnie
-z instrukcjami obowiązującymi w danym obiekcie.
-</p>
-
+<div class="info-card">
 <h3>Pierwsza pomoc</h3>
 <p>
-Pierwsza pomoc obejmuje podstawowe działania podejmowane
-w celu ochrony życia i zdrowia osoby poszkodowanej do czasu
-uzyskania profesjonalnej pomocy.
+W sytuacji zagrożenia należy zadbać o własne bezpieczeństwo,
+wezwać odpowiednią pomoc i działać w zakresie posiadanych
+umiejętności.
 </p>
+</div>
 
+<div class="info-card">
+<h3>Ochrona przeciwpożarowa</h3>
+<p>
+Obejmuje znajomość alarmowania, dróg ewakuacyjnych,
+sprzętu gaśniczego oraz procedur obowiązujących
+w danym obiekcie.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Alergeny</h3>
+<p>
+Informacja o alergenach ma kluczowe znaczenie dla
+bezpieczeństwa konsumenta. Personel powinien stosować
+ustalone procedury informacyjne.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Kontaminacja krzyżowa</h3>
+<p>
+Może nastąpić, gdy zanieczyszczenie zostanie przeniesione
+z jednego produktu, narzędzia lub powierzchni na inne.
+</p>
+</div>
+
+<div class="info-card">
 <h3>Ergonomia</h3>
 <p>
-Ergonomia polega na dostosowaniu stanowiska, narzędzi
-i sposobu wykonywania pracy do możliwości człowieka.
+Odpowiednia organizacja stanowiska pomaga ograniczać
+przeciążenia, zmęczenie i ryzyko urazów.
 </p>
-
 </div>
 
-</section>
-
-
-<!-- =========================
-     QUIZY
-========================= -->
-
-<section id="quizzes" class="section">
-
-<div class="section-title">
-<h2>🧠 Quizy zawodowe</h2>
+<div class="info-card">
+<h3>Ochrona danych</h3>
 <p>
-Wybierz dział. Każdy quiz zawiera 30 pytań.
-Po odpowiedzi od razu dowiesz się, czy była prawidłowa.
+Dane gości powinny być chronione przed dostępem osób
+nieuprawnionych i wykorzystywane zgodnie z obowiązującymi
+zasadami ochrony danych.
 </p>
 </div>
 
-<div class="quiz-select">
-<button onclick="startQuiz('gastronomia',this)">🍽️ Gastronomia</button>
-<button onclick="startQuiz('hotelarstwo',this)">🏨 Hotelarstwo</button>
-<button onclick="startQuiz('turystyka',this)">✈️ Turystyka</button>
-<button onclick="startQuiz('bezpieczenstwo',this)">🦺 Bezpieczeństwo</button>
-</div>
-
-<div id="quizBox" class="quiz-box">
-
-<div class="card">
-
-<div id="quizCounter"></div>
-
-<div class="progress">
-<div id="progressBar"></div>
-</div>
-
-<div id="questionText" class="question"></div>
-
-<div id="answers" class="answers"></div>
-
-<div id="feedback" class="feedback"></div>
-
-<br>
-
-<button id="nextQuestion"
-class="action"
-style="display:none"
-onclick="nextQuizQuestion()">
-Następne pytanie →
-</button>
-
-</div>
-
-<div id="quizResult" class="card quiz-result">
-
-<h2>🎉 Quiz zakończony!</h2>
-
-<div class="score-circle">
-<span id="finalScore">0%</span>
-</div>
-
-<h3 id="resultText"></h3>
-
-<p id="resultDetails"></p>
-
-<br>
-
-<button class="action" onclick="resetCurrentQuiz()">
-🔄 Spróbuj ponownie
-</button>
-
+<div class="info-card">
+<h3>Ewakuacja</h3>
+<p>
+Podczas ewakuacji należy zachować spokój, korzystać
+z oznakowanych dróg i stosować się do instrukcji
+personelu odpowiedzialnego za bezpieczeństwo.
+</p>
 </div>
 
 </div>
 
 </section>
 
-
-<!-- =========================
-     SŁOWNICTWO
-========================= -->
-
-<section id="words" class="section">
-
-<div class="section-title">
-<h2>🗣️ Słownictwo zawodowe</h2>
-<p>
-150 podstawowych słów i zwrotów. Kliknij 🔊, aby usłyszeć wymowę.
-</p>
 </div>
-
-<input
-id="wordSearch"
-class="word-search"
-placeholder="🔎 Szukaj słowa..."
-oninput="renderWords()">
-
-<div id="wordsGrid" class="words-grid"></div>
 
 </section>
 
 
-<!-- =========================
-     RECEPCJA
-========================= -->
+<!-- RECEPCJA -->
 
-<section id="reception" class="section">
+<section class="reception-section" id="recepcja">
 
-<div class="section-title">
-<h2>🏨 Wirtualna recepcja</h2>
-<p>
-Trening obsługi gościa. Wybierz gościa, przeczytaj jego wiadomość
-i odpowiedz jak profesjonalny recepcjonista.
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">Symulator praktyczny</div>
+
+<h2 style="color:white">
+Wirtualna recepcja
+</h2>
+
+<p style="color:#aebdca">
+Tutaj wiedza zamienia się w praktykę. Uczeń wciela się
+w rolę recepcjonisty i prowadzi rozmowę z wirtualnym gościem.
+System sprawdza kolejne etapy meldunku.
 </p>
-</div>
 
-<div class="scenario">
-<strong>🎯 Zadanie:</strong>
-Obsłuż gościa samodzielnie. Nie ma jednej magicznej odpowiedzi —
-liczy się poprawność, uprzejmość, kompletność i profesjonalizm.
-Po zakończeniu otrzymasz raport.
 </div>
 
 <div class="reception-layout">
 
-<div class="card">
+<div class="chat-card">
 
-<h3>👥 Goście</h3>
+<h3>Rozmowa z gościem</h3>
 
-<div class="guest-list">
+<div id="chatWindow" class="chat-window"></div>
 
-<div class="guest selected"
-onclick="selectGuest(0,this)">
-<strong>Anna Kowalska</strong><br>
-<small>Check-in • pokój dwuosobowy</small>
-</div>
+<form class="chat-input" onsubmit="sendMessage(event)">
 
-<div class="guest"
-onclick="selectGuest(1,this)">
-<strong>Michael Smith</strong><br>
-<small>Rezerwacja • problem z pokojem</small>
-</div>
+<input
+id="chatInput"
+placeholder="Wpisz odpowiedź recepcjonisty..."
+autocomplete="off"
+>
 
-<div class="guest"
-onclick="selectGuest(2,this)">
-<strong>Julia Nowak</strong><br>
-<small>Reklamacja • hałas</small>
-</div>
+<button class="btn btn-primary">
+Wyślij
+</button>
 
-<div class="guest"
-onclick="selectGuest(3,this)">
-<strong>Thomas Brown</strong><br>
-<small>Informacja • śniadanie</small>
-</div>
-
-<div class="guest"
-onclick="selectGuest(4,this)">
-<strong>Sofia Garcia</strong><br>
-<small>Check-out • rachunek</small>
-</div>
+</form>
 
 </div>
 
-<br>
 
-<button class="action secondary"
-onclick="newReception()">
-🔄 Nowy trening
+<div class="score-card">
+
+<h3>Ocena obsługi</h3>
+
+<p>
+Twoim zadaniem jest poprawnie przeprowadzić gościa
+przez pięć etapów profesjonalnego meldunku.
+</p>
+
+<div class="step">
+
+<div class="step-head">
+<span>Postęp</span>
+<strong id="stepText">0 / 5</strong>
+</div>
+
+<div class="progress">
+<i id="progressBar"></i>
+</div>
+
+</div>
+
+<div id="receptionFeedback">
+<p>
+<strong>Etap 1:</strong><br>
+Rozpocznij od profesjonalnego powitania gościa.
+</p>
+</div>
+
+<div style="margin-top:25px">
+
+<button
+class="btn btn-primary"
+onclick="restartReception()"
+>
+Nowa symulacja
 </button>
 
 </div>
 
-<div class="card chat">
+<hr style="border-color:rgba(255,255,255,.1);margin:30px 0">
 
-<div class="chat-header">
-
-<h2 id="guestName">Anna Kowalska</h2>
-
-<p id="guestSituation">
-Gość przychodzi do recepcji, aby się zameldować.
+<p style="font-size:13px;color:#aebdca">
+W tej wersji symulator działa całkowicie lokalnie.
+Do podłączenia prawdziwego modelu AI potrzebny jest
+backend/API. Klucza API nie należy umieszczać bezpośrednio
+w publicznym pliku GitHub.
 </p>
 
 </div>
 
-<div id="messages" class="messages"></div>
-
-<div class="chat-input">
-
-<textarea
-id="studentInput"
-placeholder="Napisz odpowiedź do gościa..."
-onkeydown="handleChatKey(event)"></textarea>
-
-<button class="action" onclick="sendReceptionMessage()">
-Wyślij
-</button>
-
-</div>
-
-<button
-class="action gold"
-style="margin-top:12px"
-onclick="finishReception()">
-🏁 Zakończ obsługę i oceń mnie
-</button>
-
-<div id="scoreReport" class="score-report">
-
-<h2>📊 Raport z obsługi</h2>
-
-<div class="rating" id="receptionScore">0/100</div>
-
-<p id="receptionReport"></p>
-
-<div class="grid">
-
-<div class="card">
-<strong>👋 Uprzejmość</strong>
-<p id="politenessScore"></p>
-</div>
-
-<div class="card">
-<strong>📋 Kompletność</strong>
-<p id="completeScore"></p>
-</div>
-
-<div class="card">
-<strong>💬 Komunikacja</strong>
-<p id="communicationScore"></p>
 </div>
 
 </div>
 
-</div>
+</section>
+
+
+<!-- QUIZY -->
+
+<section class="quiz-section" id="quizy">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">Weryfikacja wiedzy</div>
+
+<h2>Akademia quizów</h2>
+
+<p>
+Wybierz dział i sprawdź swoją wiedzę. Każde pytanie
+jest oceniane natychmiast po udzieleniu odpowiedzi.
+</p>
 
 </div>
+
+<div id="quizTabs" class="quiz-menu"></div>
+
+<div id="quizContainer"></div>
+
+</div>
+
+</section>
+
+
+<!-- SŁOWNIK -->
+
+<section class="vocab-section" id="slownik">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">Język zawodowy</div>
+
+<h2>Słownik Varelissa</h2>
+
+<p>
+Najważniejsze słowa i wyrażenia używane w gastronomii,
+hotelarstwie i turystyce. Kliknij głośnik, aby odsłuchać wymowę.
+</p>
+
+</div>
+
+<input
+id="vocabSearch"
+class="vocab-search"
+placeholder="Szukaj słowa..."
+oninput="renderVocabulary()"
+>
+
+<div id="vocabGrid" class="vocab-grid"></div>
 
 </div>
 
@@ -1257,913 +1636,1236 @@ onclick="finishReception()">
 </main>
 
 
+<footer>
+
+<div class="footer-inner">
+
+<div>
+
+<div class="footer-logo">
+Varelissa<span>.</span>
+</div>
+
+<p>
+Prestiżowa przestrzeń edukacyjna dla przyszłych
+profesjonalistów gastronomii, hotelarstwa i turystyki.
+</p>
+
+<p style="font-size:12px">
+© 2026 Varelissa
+</p>
+
+</div>
+
+<div>
+
+<h3>Platforma</h3>
+
+<a href="#encyklopedia">Encyklopedia</a>
+<a href="#recepcja">Wirtualna recepcja</a>
+<a href="#quizy">Quizy</a>
+<a href="#slownik">Słownik</a>
+
+</div>
+
+<div>
+
+<h3>Encyklopedia</h3>
+
+<a href="#gastronomia">Gastronomia</a>
+<a href="#hotelarstwo">Hotelarstwo</a>
+<a href="#turystyka">Turystyka</a>
+<a href="#bezpieczenstwo">Bezpieczeństwo</a>
+
+</div>
+
+<div>
+
+<h3>Nauka</h3>
+
+<a href="#recepcja">Praktyka recepcji</a>
+<a href="#quizy">Testy wiedzy</a>
+<a href="#slownik">Język zawodowy</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
 <script>
 
-/* =====================================================
-   NAWIGACJA
-===================================================== */
+/* =========================================================
+   DANE
+========================================================= */
 
-function showSection(id,button){
+const quizData = {
 
-    document.querySelectorAll(".section")
-    .forEach(s=>s.classList.remove("active"));
+gastronomia:{
 
-    const section=document.getElementById(id);
+name:"Gastronomia",
 
-    if(section){
-        section.classList.add("active");
-    }
+questions:[
 
-    document.querySelectorAll(".nav-links button")
-    .forEach(b=>b.classList.remove("active"));
+["Co oznacza termin mise en place?",
+["Przygotowanie stanowiska i składników",
+"Sprzątanie po zamknięciu kuchni",
+"System rezerwacji",
+"Rodzaj rachunku"],0],
 
-    if(button){
-        button.classList.add("active");
-    }
+["HACCP dotyczy przede wszystkim:",
+["Bezpieczeństwa żywności",
+"Marketingu hotelu",
+"Transportu",
+"Sprzedaży biletów"],0],
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
+["FIFO oznacza:",
+["Pierwsze przyjęte — pierwsze wydane",
+"Najdroższe — pierwsze wydane",
+"Największe — pierwsze wydane",
+"Najcięższe — pierwsze wydane"],0],
 
+["FEFO oznacza wydawanie najpierw produktów:",
+["Z najkrótszym terminem przydatności",
+"Najdroższych",
+"Największych",
+"Najcięższych"],0],
 
-/* =====================================================
-   QUIZY
-   4 x 30 pytań
-===================================================== */
+["Food cost związany jest z:",
+["Kosztem surowców",
+"Liczbą pokoi",
+"Kosztem transportu",
+"Liczbą pracowników recepcji"],0],
 
-const quizData={
+["Która technika polega na obróbce produktu w gorącym tłuszczu?",
+["Smażenie",
+"Chłodzenie",
+"Marynowanie",
+"Fermentacja"],0],
 
-gastronomia:[
-["Czym zajmuje się gastronomia?",["Tylko sprzedażą napojów","Przygotowaniem i obsługą żywności oraz napojów","Tylko produkcją sprzętu","Transportem osób"],1],
-["Która czynność jest obróbką wstępną?",["Pieczenie","Smażenie","Obieranie","Grillowanie"],2],
-["Która metoda jest obróbką cieplną?",["Sortowanie","Mycie","Gotowanie","Porcjowanie"],2],
-["Co oznacza HACCP?",["System bezpieczeństwa żywności","Rodzaj menu","System rezerwacji","Rodzaj restauracji"],0],
-["Dlaczego myje się ręce w gastronomii?",["Dla wyglądu","Aby ograniczyć zanieczyszczenia","Tylko przed wyjściem","Nie ma takiej potrzeby"],1],
-["Co jest ważne przy przyjmowaniu dostawy?",["Kolor samochodu dostawcy","Stan opakowania i jakość produktu","Muzyka w magazynie","Liczba pracowników"],1],
-["Która metoda wykorzystuje gorące powietrze?",["Pieczenie","Sortowanie","Mycie","Obieranie"],0],
-["Co oznacza zanieczyszczenie krzyżowe?",["Przeniesienie zanieczyszczeń między produktami","Zmianę menu","Zmianę ceny","Dekorowanie stołu"],0],
-["Czym jest menu?",["Listą pracowników","Ofertą potraw i napojów","Instrukcją BHP","Kartą dostawcy"],1],
-["Co powinien znać kelner?",["Tylko ceny","Ofertę i skład potraw","Tylko godziny pracy","Tylko nazwę lokalu"],1],
-["Który produkt należy do produktów zbożowych?",["Ryż","Wołowina","Łosoś","Ser"],0],
-["Co jest ważne przy przechowywaniu żywności?",["Temperatura i higiena","Kolor półki","Muzyka","Oświetlenie dekoracyjne"],0],
-["Czym jest smażenie?",["Obróbką cieplną","Obróbką wstępną","Transportem","Magazynowaniem"],0],
-["Czym jest porcjowanie?",["Dzielenie produktu na porcje","Myciem naczyń","Dekorowaniem sali","Sprzedażą"],0],
-["Co oznacza profesjonalna obsługa?",["Ignorowanie klienta","Uprzejmość i pomocność","Pośpiech","Brak komunikacji"],1],
-["Dlaczego ważne są informacje o alergenach?",["Dla dekoracji","Ze względu na bezpieczeństwo klientów","Dla reklamy","Nie są potrzebne"],1],
-["Co znajduje się w sali konsumenckiej?",["Goście","Magazyn chemiczny","Kotłownia","Serwerownia"],0],
-["Która czynność jest higieniczna?",["Mycie rąk","Dotykanie żywności brudnymi rękami","Przechowywanie chemii przy żywności","Praca bez odzieży"],0],
-["Co oznacza duszenie?",["Metodę obróbki cieplnej","Rodzaj rezerwacji","Sposób obsługi","Rodzaj magazynu"],0],
-["Co może znajdować się w ofercie gastronomicznej?",["Potrawy i napoje","Tylko pokoje","Bilety lotnicze","Samochody"],0],
-["Po co kontroluje się terminy produktów?",["Dla bezpieczeństwa i jakości","Dla wyglądu","Dla muzyki","Nie ma potrzeby"],0],
-["Co powinien zrobić pracownik po zauważeniu zagrożenia?",["Zignorować je","Zgłosić i odpowiednio zareagować","Ukryć","Wyjść z pracy"],1],
-["Czym jest catering?",["Usługą przygotowania i dostarczania żywności","Rodzajem hotelu","Rodzajem transportu","Rodzajem pokoju"],0],
-["Co oznacza mise en place?",["Przygotowanie stanowiska do pracy","Wymeldowanie","Rezerwację","Reklamację"],0],
-["Który napój jest gorący?",["Kawa","Woda z lodem","Lemoniada","Sok"],0],
-["Co jest ważne przy obsłudze klienta?",["Aktywne słuchanie","Ignorowanie","Przerywanie","Krzyk"],0],
-["Dlaczego stanowisko powinno być uporządkowane?",["Dla bezpieczeństwa i sprawności pracy","Tylko dla dekoracji","Nie ma znaczenia","Aby było głośniej"],0],
-["Co oznacza grillowanie?",["Obróbkę cieplną przy użyciu grilla","Mycie","Magazynowanie","Porcjowanie"],0],
-["Co powinien zrobić kelner przy reklamacji?",["Wysłuchać klienta i działać zgodnie z procedurą","Krzyczeć","Odejść","Zignorować"],0],
-["Co jest podstawą dobrej gastronomii?",["Bezpieczeństwo, jakość i profesjonalna obsługa","Tylko niska cena","Tylko wygląd","Brak zasad"],0]
-],
+["Profesjonalna obsługa klienta powinna rozpocząć się od:",
+["Powitania",
+"Rachunku",
+"Sprzątania sali",
+"Pożegnania"],0],
 
-hotelarstwo:[
-["Czym zajmuje się hotelarstwo?",["Produkcją samochodów","Zakwaterowaniem i obsługą gości","Tylko turystyką lotniczą","Produkcją żywności"],1],
-["Gdzie gość najczęściej dokonuje check-in?",["W recepcji","W kuchni","W pralni","W magazynie"],0],
-["Co oznacza check-in?",["Zameldowanie","Wymeldowanie","Sprzątanie","Reklamację"],0],
-["Co oznacza check-out?",["Wymeldowanie","Meldowanie","Rezerwację","Sprzątanie"],0],
-["Czym jest rezerwacja?",["Ustalenie dostępności usługi na termin","Rodzajem pokoju","Posiłkiem","Reklamacją"],0],
-["Za co odpowiada housekeeping?",["Za utrzymanie czystości","Za loty","Za gotowanie w restauracji","Za marketing miasta"],0],
-["Co powinien zrobić recepcjonista podczas reklamacji?",["Wysłuchać gościa","Krzyczeć","Ignorować","Odejść"],0],
-["Co jest ważne w recepcji?",["Profesjonalna komunikacja","Brak informacji","Pośpiech","Ignorowanie"],0],
-["Co może oferować hotel?",["Nocleg i usługi dodatkowe","Tylko parking","Tylko bilety","Tylko jedzenie"],0],
-["Co oznacza room service?",["Obsługę gastronomiczną w pokoju","Sprzątanie basenu","Transport","Rezerwację lotu"],0],
-["Co jest ważne przy rezerwacji?",["Termin i dane rezerwacji","Kolor ubrania","Pogoda sprzed roku","Muzyka"],0],
-["Jak powinien zachować się recepcjonista?",["Uprzejmie i profesjonalnie","Agresywnie","Obojętnie","Niegrzecznie"],0],
-["Co jest poufne?",["Dane gościa","Godzina śniadania","Kolor hotelu","Nazwa windy"],0],
-["Co może zrobić recepcjonista dla gościa?",["Udzielić informacji","Zignorować go","Ukryć ofertę","Odmówić rozmowy"],0],
-["Czym jest apartament?",["Rozbudowana jednostka mieszkalna","Rodzajem restauracji","Rodzajem transportu","Rodzajem wycieczki"],0],
-["Co może być usługą dodatkową hotelu?",["Parking","Produkcja samochodów","Szkoła jazdy","Fabryka"],0],
-["Dlaczego ważna jest współpraca działów hotelu?",["Zapewnia sprawną obsługę","Nie ma znaczenia","Tylko dla księgowości","Tylko dla kuchni"],0],
-["Co powinien zrobić pracownik przy trudnym gościu?",["Zachować spokój","Podnosić głos","Odejść","Kłócić się"],0],
-["Co może obejmować pobyt hotelowy?",["Nocleg i dodatkowe usługi","Tylko transport","Tylko obiad","Tylko parking"],0],
-["Jak należy traktować dane klienta?",["Poufnie","Publicznie","Dowolnie","Udostępniać wszystkim"],0],
-["Co jest ważne podczas check-out?",["Rozliczenie pobytu","Zmiana pościeli","Gotowanie","Sprzątanie kuchni"],0],
-["Czym jest recepcja?",["Miejscem kontaktu z gościem","Magazynem","Kuchnią","Pralnią"],0],
-["Co może zrobić hotel w ramach obsługi gościa?",["Pomóc rozwiązać problem","Ignorować problem","Ukryć problem","Odesłać bez informacji"],0],
-["Co powinien znać recepcjonista?",["Ofertę hotelu","Tylko swoje imię","Tylko numer telefonu","Tylko cenę kawy"],0],
-["Dlaczego ważna jest schludność pracownika?",["Buduje profesjonalny wizerunek","Nie ma znaczenia","Tylko dla zdjęć","Tylko dla kierownika"],0],
-["Co oznacza standard hotelu?",["Określony poziom jakości usług","Rodzaj samochodu","Rodzaj lotu","Rodzaj kuchni"],0],
-["Co robi pracownik housekeeping?",["Przygotowuje i utrzymuje pokoje","Sprzedaje bilety lotnicze","Prowadzi autokar","Obsługuje lotnisko"],0],
-["Co jest celem obsługi gościa?",["Zapewnienie profesjonalnego pobytu","Skrócenie rozmowy","Ignorowanie potrzeb","Unikanie kontaktu"],0],
-["Co może być elementem meldowania?",["Weryfikacja danych","Gotowanie","Pranie","Naprawa samochodu"],0],
-["Co jest ważne przy pożegnaniu gościa?",["Uprzejmość","Ignorowanie","Krzyk","Brak kontaktu"],0]
-],
+["Alergeny są ważne przede wszystkim ze względu na:",
+["Bezpieczeństwo konsumenta",
+"Kolor menu",
+"Wystrój restauracji",
+"Muzykę"],0],
 
-turystyka:[
-["Czym jest turystyka?",["Podróżowaniem i pobytami poza codziennym środowiskiem","Tylko pracą","Tylko gotowaniem","Tylko hotelarstwem"],0],
-["Czym może być turystyka kulturowa?",["Poznawaniem kultury i dziedzictwa","Tylko plażowaniem","Tylko sportem","Tylko zakupami"],0],
-["Kim jest turysta?",["Osobą podróżującą","Recepcjonistą","Kucharzem","Kierowcą"],0],
-["Co robi przewodnik?",["Przekazuje informacje o odwiedzanym miejscu","Gotuje","Sprzedaje pokoje","Prowadzi hotel"],0],
-["Co robi pilot wycieczki?",["Zapewnia organizacyjną opiekę nad grupą","Gotuje","Sprząta pokoje","Naprawia autokar"],0],
-["Czym jest atrakcja turystyczna?",["Miejscem lub wydarzeniem przyciągającym odwiedzających","Rodzajem pokoju","Rodzajem potrawy","Dokumentem"],0],
-["Jakie środki transportu wykorzystuje turystyka?",["Lotniczy, kolejowy, drogowy i wodny","Tylko samochód","Tylko rower","Tylko samolot"],0],
-["Czym jest informacja turystyczna?",["Pomoc w zdobyciu informacji o podróży i miejscu","Rodzajem hotelu","Rodzajem restauracji","Rodzajem biletu"],0],
-["Co może obejmować organizacja podróży?",["Transport i zakwaterowanie","Tylko jedzenie","Tylko bilet","Tylko mapę"],0],
-["Czym jest turystyka biznesowa?",["Podróże związane z działalnością zawodową","Tylko wakacje","Tylko sport","Tylko plażowanie"],0],
-["Czym jest turystyka aktywna?",["Podróże związane z aktywnością fizyczną","Tylko leżenie","Tylko zwiedzanie muzeów","Tylko jedzenie"],0],
-["Czym jest turystyka kulinarna?",["Poznawaniem kuchni i tradycji kulinarnych","Tylko sportem","Tylko transportem","Tylko noclegiem"],0],
-["Co oznacza turystyka zrównoważona?",["Ograniczanie negatywnego wpływu turystyki","Podróże bez planu","Tylko drogie hotele","Tylko loty"],0],
-["Co może być zabytkiem?",["Historyczny obiekt","Rodzaj pokoju","Bilet","Posiłek"],0],
-["Po co planuje się podróż?",["Aby uporządkować jej przebieg","Aby ją utrudnić","Nie ma potrzeby","Tylko dla reklamy"],0],
-["Co może być elementem programu wycieczki?",["Zwiedzanie atrakcji","Naprawa hotelu","Produkcja żywności","Budowa domu"],0],
-["Co powinien szanować turysta?",["Lokalną kulturę i środowisko","Tylko hotel","Tylko przewodnika","Nic"],0],
-["Co może oferować miejscowość turystyczna?",["Atrakcje i usługi","Tylko parking","Tylko szkołę","Tylko fabrykę"],0],
-["Czym jest muzeum?",["Instytucją prezentującą dziedzictwo i zbiory","Hotelem","Restauracją","Lotniskiem"],0],
-["Co wpływa na wybór transportu?",["Cena, czas i charakter podróży","Kolor pojazdu","Muzyka","Pogoda sprzed roku"],0],
-["Co jest ważne w informacji turystycznej?",["Rzetelność informacji","Wymyślanie odpowiedzi","Brak wiedzy","Ignorowanie turysty"],0],
-["Co może być celem turystyki zdrowotnej?",["Poprawa zdrowia i regeneracja","Tylko zakupy","Tylko sport zawodowy","Tylko praca"],0],
-["Co oznacza krajoznawstwo?",["Poznawanie kraju i jego walorów","Gotowanie","Sprzątanie","Transport"],0],
-["Dlaczego ważne jest planowanie kosztów?",["Aby kontrolować budżet podróży","Nie ma znaczenia","Tylko dla hotelu","Tylko dla przewodnika"],0],
-["Co może być dokumentem podróżnym?",["Paszport","Menu","Karta dań","Lista zakupów"],0],
-["Co może zrobić przewodnik?",["Opowiedzieć o historii miejsca","Wystawić rachunek hotelowy","Ugotować obiad","Naprawić autobus"],0],
-["Co jest przykładem turystyki przyrodniczej?",["Odwiedzanie obszarów cennych przyrodniczo","Tylko zakupy","Tylko konferencja","Tylko lot"],0],
-["Dlaczego należy respektować lokalne zasady?",["Dla bezpieczeństwa i szacunku","Nie ma powodu","Tylko dla zdjęć","Tylko dla hotelu"],0],
-["Co może zwiększać atrakcyjność regionu?",["Wydarzenia, kultura i walory przyrodnicze","Brak usług","Brak informacji","Brak transportu"],0],
-["Co jest ważne dla dobrej podróży?",["Dobre przygotowanie i bezpieczeństwo","Brak planu","Ignorowanie informacji","Brak dokumentów"],0]
-],
+["Mise en place pomaga przede wszystkim w:",
+["Organizacji pracy",
+"Ustalaniu kursów walut",
+"Rezerwacji lotów",
+"Zarządzaniu pokojami"],0],
 
-bezpieczenstwo:[
-["Co oznacza BHP?",["Bezpieczeństwo i higienę pracy","Rodzaj hotelu","Rodzaj potrawy","System rezerwacji"],0],
-["Co może być zagrożeniem w kuchni?",["Gorąca powierzchnia","Menu","Krzesło","Serwetka"],0],
-["Co należy zrobić po zauważeniu zagrożenia?",["Zgłosić je","Zignorować","Ukryć","Udawać, że go nie ma"],0],
-["Dlaczego myje się ręce?",["Aby ograniczyć ryzyko zanieczyszczenia","Dla zabawy","Tylko rano","Nie trzeba"],0],
-["Czym jest zanieczyszczenie krzyżowe?",["Przeniesieniem zanieczyszczeń","Rodzajem potrawy","Rodzajem hotelu","Rodzajem biletu"],0],
-["Jak przechowywać chemię?",["Zgodnie z zasadami i z dala od żywności","Razem z jedzeniem","W otwartym pojemniku na stole","Dowolnie"],0],
-["Co zrobić z uszkodzonym urządzeniem?",["Wyłączyć z użytkowania i zgłosić","Używać dalej","Ukryć","Oddać klientowi"],0],
-["Co jest ważne podczas ewakuacji?",["Spokój i stosowanie się do instrukcji","Bieg bez celu","Powrót po rzeczy","Ignorowanie alarmu"],0],
-["Co oznacza ergonomia?",["Dostosowanie pracy do możliwości człowieka","Rodzaj hotelu","Rodzaj potrawy","Rodzaj transportu"],0],
-["Co może spowodować poślizg?",["Mokra podłoga","Czysty stół","Sucha ściana","Menu"],0],
-["Co chroni przed oparzeniem?",["Odpowiednie środki ochrony i prawidłowa praca","Pośpiech","Brak ostrożności","Ignorowanie zasad"],0],
-["Co powinien zrobić pracownik przy wypadku?",["Udzielić pomocy w zakresie swoich możliwości i powiadomić odpowiednie osoby","Odejść","Ukryć zdarzenie","Kontynuować bez reakcji"],0],
-["Co jest ważne przy nożu?",["Ostrożne i prawidłowe użycie","Rzucanie","Zostawianie ostrzem na krawędzi","Podawanie ostrzem do przodu"],0],
-["Dlaczego drogi ewakuacyjne muszą być drożne?",["Aby umożliwić bezpieczne opuszczenie obiektu","Dla dekoracji","Dla reklamy","Nie mają znaczenia"],0],
-["Co może powodować przeciążenie?",["Nieprawidłowe podnoszenie ciężarów","Odpoczynek","Prawidłowa postawa","Dobre oświetlenie"],0],
-["Co powinno być oznakowane?",["Środki chemiczne i miejsca wymagające oznaczenia","Nic","Tylko menu","Tylko krzesła"],0],
-["Dlaczego stosuje się odzież roboczą?",["Dla higieny i bezpieczeństwa zgodnie z charakterem pracy","Tylko dla wyglądu","Nie ma znaczenia","Tylko dla zdjęć"],0],
-["Co zrobić w przypadku pożaru?",["Uruchomić procedurę alarmową i ewakuacyjną","Ukryć się bez informacji","Ignorować","Wrócić po rzeczy"],0],
-["Czym jest pierwsza pomoc?",["Pomoc udzielana poszkodowanemu przed uzyskaniem profesjonalnej pomocy","Rodzaj ubezpieczenia","Rodzaj szkolenia kucharza","Rodzaj hotelu"],0],
-["Co może być zagrożeniem chemicznym?",["Kontakt z niebezpiecznym środkiem","Menu","Woda pitna","Serwetka"],0],
-["Dlaczego należy przestrzegać instrukcji urządzenia?",["Dla bezpiecznej pracy","Nie ma powodu","Tylko dla kierownika","Dla wyglądu"],0],
-["Co jest ważne przy podnoszeniu ciężaru?",["Prawidłowa technika","Nagły ruch","Skręcanie tułowia","Brak przygotowania"],0],
-["Co pomaga ograniczyć ryzyko zakażeń?",["Higiena rąk","Brudne ręce","Wspólne narzędzia bez mycia","Brak czyszczenia"],0],
-["Co może być zagrożeniem elektrycznym?",["Uszkodzony przewód","Czysty blat","Menu","Krzesło"],0],
-["Dlaczego należy zgłaszać usterki?",["Aby ograniczyć ryzyko wypadku","Aby ukryć problem","Nie ma potrzeby","Tylko dla reklamy"],0],
-["Co oznacza kultura bezpieczeństwa?",["Wspólna odpowiedzialność za bezpieczną pracę","Ignorowanie zasad","Praca bez instrukcji","Brak zgłoszeń"],0],
-["Co należy zrobić przed użyciem chemii?",["Zapoznać się z instrukcją","Wymieszać wszystko","Spróbować środka","Przelać bez oznaczenia"],0],
-["Co może spowodować upadek?",["Nieusunięta przeszkoda","Drożna droga","Dobre oświetlenie","Czysta podłoga"],0],
-["Co jest podstawą bezpiecznej pracy?",["Znajomość zasad i odpowiedzialne zachowanie","Pośpiech","Ignorowanie zagrożeń","Brak szkoleń"],0],
-["Po co prowadzi się szkolenia BHP?",["Aby pracownik znał zasady bezpiecznej pracy","Dla zabawy","Tylko dla dokumentu","Nie są potrzebne"],0]
-]
+["Karta dań powinna być:",
+["Czytelna i aktualna",
+"Nieaktualna",
+"Bez opisów",
+"Ukryta przed klientem"],0]
+
+]},
+
+hotelarstwo:{
+
+name:"Hotelarstwo",
+
+questions:[
+
+["Check-in oznacza:",
+["Meldowanie gościa",
+"Wymeldowanie",
+"Sprzątanie",
+"Rezerwację restauracji"],0],
+
+["Check-out oznacza:",
+["Wymeldowanie i rozliczenie",
+"Zameldowanie",
+"Sprzątanie pokoju",
+"Obsługę kuchni"],0],
+
+["PMS to:",
+["System zarządzania obiektem hotelowym",
+"Rodzaj pokoju",
+"Rodzaj śniadania",
+"Dokument tożsamości"],0],
+
+["Housekeeping odpowiada przede wszystkim za:",
+["Pokoje i czystość",
+"Sprzedaż biletów",
+"Transport lotniczy",
+"Kontrolę graniczną"],0],
+
+["No-show oznacza:",
+["Brak przyjazdu mimo rezerwacji",
+"Wcześniejszy przyjazd",
+"Zmianę pokoju",
+"Przedłużenie pobytu"],0],
+
+["Upgrade oznacza:",
+["Podwyższenie kategorii usługi",
+"Obniżenie kategorii",
+"Anulowanie rezerwacji",
+"Zamknięcie hotelu"],0],
+
+["ADR dotyczy:",
+["Średniej ceny sprzedanego pokoju",
+"Liczby pracowników",
+"Liczby śniadań",
+"Kosztu prania"],0],
+
+["RevPAR odnosi się do:",
+["Przychodu przypadającego na dostępny pokój",
+"Liczby gości w restauracji",
+"Kosztu energii",
+"Liczby reklamacji"],0],
+
+["Room service oznacza:",
+["Obsługę gastronomiczną w pokoju",
+"Sprzątanie recepcji",
+"Transport gościa",
+"Obsługę techniczną"],0],
+
+["Reklamację należy:",
+["Wysłuchać i profesjonalnie obsłużyć",
+"Ignorować",
+"Ukrywać",
+"Przerywać"],0]
+
+]},
+
+turystyka:{
+
+name:"Turystyka",
+
+questions:[
+
+["Itinerary oznacza:",
+["Plan lub trasę podróży",
+"Rachunek",
+"Pokój hotelowy",
+"Menu"],0],
+
+["Pilot wycieczek zajmuje się między innymi:",
+["Koordynacją przebiegu imprezy",
+"Gotowaniem",
+"Sprzątaniem pokoi",
+"Obsługą kasy restauracji"],0],
+
+["Destynacja to:",
+["Miejsce docelowe podróży",
+"Walizka",
+"Dokument",
+"Rodzaj hotelu"],0],
+
+["Voucher jest:",
+["Dokumentem potwierdzającym określone świadczenie",
+"Mapą",
+"Paszportem",
+"Biletem zawsze lotniczym"],0],
+
+["Sezonowość oznacza:",
+["Zmiany popytu w czasie",
+"Stałą cenę",
+"Rodzaj transportu",
+"Typ pokoju"],0],
+
+["MICE związane jest przede wszystkim z:",
+["Turystyką biznesową i wydarzeniami",
+"Gastronomią",
+"Housekeepingiem",
+"BHP"],0],
+
+["Ekoturystyka zwraca uwagę na:",
+["Środowisko i odpowiedzialność",
+"Wyłącznie luksus",
+"Wyłącznie cenę",
+"Wyłącznie transport"],0],
+
+["Informacja turystyczna powinna być:",
+["Aktualna i sprawdzalna",
+"Przypadkowa",
+"Nieaktualna",
+"Niepełna"],0],
+
+["Transfer lotniskowy to:",
+["Przejazd między lotniskiem a miejscem pobytu",
+"Lot",
+"Kontrola paszportowa",
+"Rezerwacja"],0],
+
+["Program wycieczki powinien być:",
+["Jasny i realny",
+"Ukrywany",
+"Przypadkowy",
+"Nieczytelny"],0]
+
+]},
+
+bezpieczenstwo:{
+
+name:"Bezpieczeństwo",
+
+questions:[
+
+["BHP dotyczy:",
+["Bezpieczeństwa i higieny pracy",
+"Marketingu",
+"Sprzedaży",
+"Turystyki"],0],
+
+["Ocena ryzyka służy do:",
+["Identyfikacji zagrożeń i ograniczania ryzyka",
+"Ustalania ceny",
+"Rezerwowania pokoi",
+"Tworzenia menu"],0],
+
+["HACCP związany jest z:",
+["Bezpieczeństwem żywności",
+"Recepcją",
+"Transportem",
+"Marketingiem"],0],
+
+["Droga ewakuacyjna powinna być:",
+["Drożna i oznakowana",
+"Zastawiona",
+"Zamknięta",
+"Magazynowana"],0],
+
+["Ergonomia pomaga:",
+["Dostosować stanowisko do człowieka",
+"Zwiększyć hałas",
+"Zmienić menu",
+"Zwiększyć ryzyko"],0],
+
+["Kontaminacja krzyżowa oznacza:",
+["Przeniesienie zanieczyszczenia",
+"Zmianę rezerwacji",
+"Zmianę ceny",
+"Zmianę pokoju"],0],
+
+["Środki chemiczne należy stosować:",
+["Zgodnie z instrukcją",
+"Dowolnie",
+"Bez etykiety",
+"Bez zabezpieczeń"],0],
+
+["Dane gościa należy:",
+["Chronić przed osobami nieuprawnionymi",
+"Publikować",
+"Udostępniać wszystkim",
+"Wywieszać"],0],
+
+["Podczas ewakuacji należy:",
+["Zachować spokój i stosować się do procedury",
+"Wracać po rzeczy",
+"Używać windy bez względu na procedury",
+"Ukryć się"],0],
+
+["Pierwsza pomoc powinna być udzielana:",
+["W zakresie swoich umiejętności po zapewnieniu bezpieczeństwa",
+"Tylko po godzinach pracy",
+"Nigdy",
+"Tylko przez recepcję"],0]
+
+]}
 
 };
 
 
-/* =====================================================
-   LOGIKA QUIZÓW
-===================================================== */
-
-let currentQuiz=[];
-let currentQuizName="";
-let currentQuestion=0;
-let quizScore=0;
-let answered=false;
-
-function startQuiz(type,button){
-
-    currentQuiz=[...quizData[type]];
-    currentQuizName=type;
-    currentQuestion=0;
-    quizScore=0;
-
-    document.querySelectorAll(".quiz-select button")
-    .forEach(b=>b.classList.remove("selected"));
-
-    if(button) button.classList.add("selected");
-
-    document.getElementById("quizBox").classList.add("active");
-    document.getElementById("quizResult").classList.remove("show");
-
-    renderQuestion();
-
-    document.getElementById("quizBox")
-    .scrollIntoView({behavior:"smooth"});
-}
-
-function renderQuestion(){
-
-    answered=false;
-
-    const q=currentQuiz[currentQuestion];
-
-    document.getElementById("quizCounter").innerHTML=
-        `<strong>Pytanie ${currentQuestion+1} / ${currentQuiz.length}</strong>`;
-
-    document.getElementById("progressBar").style.width=
-        ((currentQuestion)/currentQuiz.length*100)+"%";
-
-    document.getElementById("questionText").textContent=q[0];
-
-    const answers=document.getElementById("answers");
-
-    answers.innerHTML="";
-
-    q[1].forEach((answer,index)=>{
-
-        const button=document.createElement("button");
-
-        button.className="answer";
-
-        button.textContent=answer;
-
-        button.onclick=()=>answerQuestion(index,button);
-
-        answers.appendChild(button);
-    });
-
-    const feedback=document.getElementById("feedback");
-
-    feedback.className="feedback";
-    feedback.textContent="";
-
-    document.getElementById("nextQuestion").style.display="none";
-}
-
-function answerQuestion(index,button){
-
-    if(answered)return;
-
-    answered=true;
-
-    const q=currentQuiz[currentQuestion];
-
-    const buttons=document.querySelectorAll(".answer");
-
-    buttons.forEach(b=>b.disabled=true);
-
-    if(index===q[2]){
-
-        button.classList.add("correct");
-
-        quizScore++;
-
-        showFeedback(
-            true,
-            "✅ Bardzo dobrze! Odpowiedź jest prawidłowa."
-        );
-
-    }else{
-
-        button.classList.add("wrong");
-
-        buttons[q[2]].classList.add("correct");
-
-        showFeedback(
-            false,
-            "❌ Niepoprawna odpowiedź. Prawidłowa odpowiedź to: "+q[1][q[2]]
-        );
-    }
-
-    document.getElementById("nextQuestion").style.display="inline-block";
-}
-
-function showFeedback(good,text){
-
-    const feedback=document.getElementById("feedback");
-
-    feedback.textContent=text;
-
-    feedback.className="feedback show "+(good?"good":"bad");
-}
-
-function nextQuizQuestion(){
-
-    currentQuestion++;
-
-    if(currentQuestion>=currentQuiz.length){
-
-        finishQuiz();
-
-    }else{
-
-        renderQuestion();
-    }
-}
-
-function finishQuiz(){
-
-    document.getElementById("quizBox").style.display="none";
-
-    const result=document.getElementById("quizResult");
-
-    result.classList.add("show");
-
-    const percentage=Math.round(
-        quizScore/currentQuiz.length*100
-    );
-
-    document.getElementById("finalScore").textContent=
-        percentage+"%";
-
-    let text="";
-
-    if(percentage>=90){
-        text="🏆 Rewelacyjny wynik!";
-    }else if(percentage>=75){
-        text="👏 Bardzo dobry wynik!";
-    }else if(percentage>=50){
-        text="👍 Jest dobrze, ale warto jeszcze poćwiczyć.";
-    }else{
-        text="📚 Wróć do Encyklopedii i spróbuj ponownie.";
-    }
-
-    document.getElementById("resultText").textContent=text;
-
-    document.getElementById("resultDetails").textContent=
-        `Poprawnych odpowiedzi: ${quizScore} z ${currentQuiz.length}.`;
-}
-
-function resetCurrentQuiz(){
-
-    document.getElementById("quizBox").style.display="block";
-
-    document.getElementById("quizResult").classList.remove("show");
-
-    startQuiz(currentQuizName);
-}
-
-
-/* =====================================================
-   150 SŁÓWEK
-===================================================== */
-
-const words=[
-
-["hotel","hotel","Obiekt oferujący zakwaterowanie.","Hotel"],
-["reception","recepcja","Miejsce pierwszego kontaktu z gościem.","Recepcja"],
-["receptionist","recepcjonista","Pracownik recepcji.","Recepcjonista"],
-["guest","gość","Osoba korzystająca z usług hotelu.","Gość"],
-["room","pokój","Jednostka mieszkalna hotelu.","Pokój"],
-["single room","pokój jednoosobowy","Pokój dla jednej osoby.","Pokój jednoosobowy"],
-["double room","pokój dwuosobowy","Pokój dla dwóch osób.","Pokój dwuosobowy"],
-["reservation","rezerwacja","Zamówienie usługi na określony termin.","Rezerwacja"],
-["booking","rezerwacja","Rezerwacja usługi.","Rezerwacja"],
-["check-in","zameldowanie","Proces rozpoczęcia pobytu.","Zameldowanie"],
-["check-out","wymeldowanie","Proces zakończenia pobytu.","Wymeldowanie"],
-["key card","karta do pokoju","Karta umożliwiająca wejście do pokoju.","Karta"],
-["lobby","lobby","Przestrzeń wejściowa hotelu.","Lobby"],
-["floor","piętro","Poziom budynku.","Piętro"],
-["lift","winda","Urządzenie do przemieszczania się między piętrami.","Winda"],
-["breakfast","śniadanie","Pierwszy posiłek dnia.","Śniadanie"],
-["dinner","obiad/kolacja","Posiłek spożywany później w ciągu dnia.","Obiad lub kolacja"],
-["restaurant","restauracja","Lokal gastronomiczny.","Restauracja"],
-["bar","bar","Miejsce serwowania napojów i przekąsek.","Bar"],
-["menu","menu","Lista potraw i napojów.","Menu"],
-["bill","rachunek","Dokument określający należność.","Rachunek"],
-["payment","płatność","Uregulowanie należności.","Płatność"],
-["cash","gotówka","Pieniądze w formie fizycznej.","Gotówka"],
-["card","karta","Karta płatnicza.","Karta"],
-["receipt","paragon","Dokument potwierdzający sprzedaż.","Paragon"],
-["complaint","reklamacja","Zgłoszenie problemu z usługą.","Reklamacja"],
-["apology","przeprosiny","Wyrażenie ubolewania za problem.","Przeprosiny"],
-["housekeeping","służba pięter","Dział odpowiedzialny za czystość.","Housekeeping"],
-["cleaning","sprzątanie","Czynność utrzymywania czystości.","Sprzątanie"],
-["towel","ręcznik","Tekstylia używane do osuszania.","Ręcznik"],
-["bed","łóżko","Mebel służący do spania.","Łóżko"],
-["pillow","poduszka","Element wyposażenia łóżka.","Poduszka"],
-["blanket","koc","Tekstylia do przykrycia.","Koc"],
-["sheet","prześcieradło","Tekstylia używane na łóżku.","Prześcieradło"],
-["key","klucz","Przedmiot umożliwiający otwarcie zamka.","Klucz"],
-["luggage","bagaż","Rzeczy zabrane podczas podróży.","Bagaż"],
-["suitcase","walizka","Pojemnik na rzeczy podróżne.","Walizka"],
-["parking","parking","Miejsce do pozostawienia pojazdu.","Parking"],
-["breakfast room","sala śniadaniowa","Miejsce podawania śniadania.","Sala śniadaniowa"],
-
-["restaurant service","obsługa restauracyjna","Obsługa klienta w restauracji.","Obsługa restauracyjna"],
-["waiter","kelner","Osoba obsługująca gości restauracji.","Kelner"],
-["waitress","kelnerka","Osoba obsługująca gości restauracji.","Kelnerka"],
-["chef","szef kuchni","Osoba kierująca pracą kuchni.","Szef kuchni"],
-["cook","kucharz","Osoba przygotowująca potrawy.","Kucharz"],
-["kitchen","kuchnia","Miejsce przygotowywania potraw.","Kuchnia"],
-["ingredient","składnik","Produkt używany do przygotowania potrawy.","Składnik"],
-["dish","danie","Przygotowana potrawa.","Danie"],
-["meal","posiłek","Jedzenie spożywane w określonym czasie.","Posiłek"],
-["appetizer","przystawka","Mała potrawa podawana przed daniem głównym.","Przystawka"],
-["soup","zupa","Potrawa płynna.","Zupa"],
-["main course","danie główne","Główna część posiłku.","Danie główne"],
-["dessert","deser","Słodkie zakończenie posiłku.","Deser"],
-["drink","napój","Produkt przeznaczony do picia.","Napój"],
-["water","woda","Podstawowy napój.","Woda"],
-["coffee","kawa","Popularny napój gorący.","Kawa"],
-["tea","herbata","Napój przygotowywany z liści lub ziół.","Herbata"],
-["juice","sok","Napój otrzymywany z owoców lub warzyw.","Sok"],
-["order","zamówienie","Prośba klienta o przygotowanie potrawy lub napoju.","Zamówienie"],
-["table","stół","Mebel używany podczas konsumpcji.","Stół"],
-["chair","krzesło","Mebel do siedzenia.","Krzesło"],
-["plate","talerz","Naczynie do podawania potraw.","Talerz"],
-["glass","szklanka","Naczynie do napojów.","Szklanka"],
-["cup","filiżanka","Naczynie do napojów gorących.","Filiżanka"],
-["fork","widelec","Sztuciec do jedzenia.","Widelec"],
-["knife","nóż","Sztuciec z ostrzem.","Nóż"],
-["spoon","łyżka","Sztuciec do potraw płynnych.","Łyżka"],
-["napkin","serwetka","Materiał do ochrony odzieży i higieny.","Serwetka"],
-["allergen","alergen","Składnik mogący wywołać reakcję alergiczną.","Alergen"],
-["food safety","bezpieczeństwo żywności","Zasady chroniące konsumenta przed zagrożeniami.","Bezpieczeństwo żywności"],
-["hygiene","higiena","Zasady utrzymywania czystości i zdrowia.","Higiena"],
-["HACCP","HACCP","System kontroli bezpieczeństwa żywności.","HACCP"],
-["cooking","gotowanie","Metoda obróbki cieplnej.","Gotowanie"],
-["frying","smażenie","Metoda obróbki cieplnej z użyciem tłuszczu.","Smażenie"],
-["baking","pieczenie","Obróbka cieplna w piecu lub piekarniku.","Pieczenie"],
-["grilling","grillowanie","Obróbka cieplna na grillu.","Grillowanie"],
-["cutting","krojenie","Dzielenie produktu na części.","Krojenie"],
-["washing","mycie","Usuwanie zabrudzeń za pomocą wody lub środka myjącego.","Mycie"],
-
-["tourism","turystyka","Podróżowanie i pobyty poza codziennym środowiskiem.","Turystyka"],
-["tourist","turysta","Osoba odbywająca podróż turystyczną.","Turysta"],
-["trip","wycieczka","Podróż o określonym celu i czasie trwania.","Wycieczka"],
-["journey","podróż","Przemieszczanie się do określonego miejsca.","Podróż"],
-["destination","miejsce docelowe","Miejsce, do którego podróżuje turysta.","Miejsce docelowe"],
-["attraction","atrakcja","Miejsce lub wydarzenie interesujące dla turystów.","Atrakcja"],
-["museum","muzeum","Instytucja prezentująca zbiory i dziedzictwo.","Muzeum"],
-["monument","zabytek/pomnik","Obiekt o znaczeniu historycznym lub kulturowym.","Zabytek"],
-["guide","przewodnik","Osoba przekazująca informacje turystom.","Przewodnik"],
-["tour guide","przewodnik turystyczny","Osoba oprowadzająca turystów.","Przewodnik"],
-["tour leader","pilot wycieczki","Osoba sprawująca opiekę organizacyjną nad grupą.","Pilot"],
-["travel agency","biuro podróży","Firma oferująca usługi turystyczne.","Biuro podróży"],
-["tour operator","organizator turystyki","Podmiot organizujący usługi turystyczne.","Organizator"],
-["itinerary","plan podróży","Plan przebiegu podróży.","Plan podróży"],
-["ticket","bilet","Dokument uprawniający do przejazdu lub wejścia.","Bilet"],
-["passport","paszport","Dokument podróży.","Paszport"],
-["airport","lotnisko","Miejsce obsługi transportu lotniczego.","Lotnisko"],
-["train station","dworzec kolejowy","Miejsce obsługi transportu kolejowego.","Dworzec"],
-["bus station","dworzec autobusowy","Miejsce obsługi transportu autobusowego.","Dworzec"],
-["flight","lot","Podróż samolotem.","Lot"],
-["departure","odjazd/odlot","Moment rozpoczęcia podróży.","Odjazd lub odlot"],
-["arrival","przyjazd/przylot","Moment dotarcia do miejsca.","Przyjazd lub przylot"],
-["destination country","kraj docelowy","Kraj, do którego podróżuje turysta.","Kraj docelowy"],
-["sightseeing","zwiedzanie","Odwiedzanie ciekawych miejsc.","Zwiedzanie"],
-["culture","kultura","Dziedzictwo, zwyczaje i sposób życia społeczności.","Kultura"],
-["nature","przyroda","Świat naturalny.","Przyroda"],
-["sustainable tourism","turystyka zrównoważona","Turystyka ograniczająca negatywny wpływ na środowisko.","Turystyka zrównoważona"],
-["travel insurance","ubezpieczenie podróżne","Ubezpieczenie związane z podróżą.","Ubezpieczenie"],
-["tourist information","informacja turystyczna","Informacje pomagające w podróży.","Informacja turystyczna"],
-["map","mapa","Graficzne przedstawienie obszaru.","Mapa"],
-["route","trasa","Droga prowadząca do celu.","Trasa"],
-["reservation desk","stanowisko rezerwacji","Miejsce obsługi rezerwacji.","Stanowisko rezerwacji"],
-["tourist season","sezon turystyczny","Okres zwiększonego ruchu turystycznego.","Sezon"],
-["off-season","poza sezonem","Okres mniejszego ruchu turystycznego.","Poza sezonem"],
-["souvenir","pamiątka","Przedmiot przypominający o podróży.","Pamiątka"],
-["local cuisine","kuchnia lokalna","Charakterystyczna kuchnia danego regionu.","Kuchnia lokalna"],
-["travel plan","plan podróży","Plan organizacji podróży.","Plan podróży"],
-["reservation confirmation","potwierdzenie rezerwacji","Dokument potwierdzający rezerwację.","Potwierdzenie"],
-
-["safety","bezpieczeństwo","Stan, w którym ograniczono ryzyko zagrożenia.","Bezpieczeństwo"],
-["work safety","bezpieczeństwo pracy","Zasady bezpiecznego wykonywania pracy.","Bezpieczeństwo pracy"],
-["health","zdrowie","Stan dobrego funkcjonowania organizmu.","Zdrowie"],
-["risk","ryzyko","Możliwość wystąpienia niepożądanego zdarzenia.","Ryzyko"],
-["hazard","zagrożenie","Czynnik mogący powodować szkodę.","Zagrożenie"],
-["accident","wypadek","Nagłe zdarzenie powodujące szkodę lub uraz.","Wypadek"],
-["first aid","pierwsza pomoc","Pomoc udzielana osobie poszkodowanej.","Pierwsza pomoc"],
-["fire","pożar","Niekontrolowany proces spalania.","Pożar"],
-["fire extinguisher","gaśnica","Urządzenie do gaszenia pożarów.","Gaśnica"],
-["emergency exit","wyjście ewakuacyjne","Wyjście używane w sytuacji zagrożenia.","Wyjście ewakuacyjne"],
-["evacuation","ewakuacja","Bezpieczne opuszczanie zagrożonego miejsca.","Ewakuacja"],
-["warning","ostrzeżenie","Informacja o możliwym zagrożeniu.","Ostrzeżenie"],
-["protective clothing","odzież ochronna","Odzież chroniąca pracownika.","Odzież ochronna"],
-["gloves","rękawiczki","Ochrona dłoni.","Rękawiczki"],
-["cleaning agent","środek czystości","Preparat przeznaczony do czyszczenia.","Środek czystości"],
-["chemical","substancja chemiczna","Substancja wykorzystywana między innymi do czyszczenia.","Substancja chemiczna"],
-["wet floor","mokra podłoga","Powierzchnia mogąca powodować poślizg.","Mokra podłoga"],
-["burn","oparzenie","Uszkodzenie skóry lub tkanek przez ciepło lub inne czynniki.","Oparzenie"],
-["cut","skaleczenie","Uraz spowodowany między innymi ostrym przedmiotem.","Skaleczenie"],
-["slip","poślizgnięcie","Utrata przyczepności podczas chodzenia.","Poślizgnięcie"],
-["ergonomics","ergonomia","Dostosowanie pracy do człowieka.","Ergonomia"],
-["procedure","procedura","Ustalony sposób postępowania.","Procedura"],
-["instruction","instrukcja","Informacja opisująca sposób wykonania czynności.","Instrukcja"],
-["training","szkolenie","Proces zdobywania wiedzy i umiejętności.","Szkolenie"],
-["emergency","sytuacja awaryjna","Nagła sytuacja wymagająca reakcji.","Sytuacja awaryjna"],
-["danger","niebezpieczeństwo","Stan związany z możliwością powstania szkody.","Niebezpieczeństwo"],
-["cleanliness","czystość","Stan bez zabrudzeń.","Czystość"],
-["disinfection","dezynfekcja","Proces ograniczania liczby drobnoustrojów.","Dezynfekcja"],
-["contamination","zanieczyszczenie","Obecność niepożądanych czynników.","Zanieczyszczenie"],
-["cross-contamination","zanieczyszczenie krzyżowe","Przeniesienie zanieczyszczenia między produktami lub powierzchniami.","Zanieczyszczenie krzyżowe"],
-["storage","przechowywanie","Proces utrzymywania produktów w odpowiednich warunkach.","Przechowywanie"],
-["temperature","temperatura","Parametr określający stopień ogrzania.","Temperatura"],
-["expiry date","termin przydatności","Termin określający możliwość bezpiecznego wykorzystania produktu.","Termin przydatności"],
-["quality","jakość","Stopień spełnienia określonych wymagań.","Jakość"],
-["service","usługa","Świadczenie wykonywane na rzecz klienta.","Usługa"],
-["customer","klient","Osoba korzystająca z usługi.","Klient"],
-["professionalism","profesjonalizm","Wysoki poziom kompetencji i zachowania zawodowego.","Profesjonalizm"],
-["communication","komunikacja","Przekazywanie i odbieranie informacji.","Komunikacja"],
-["politeness","uprzejmość","Kulturalny sposób zachowania wobec innych.","Uprzejmość"],
-["complaint handling","obsługa reklamacji","Proces reagowania na reklamację klienta.","Obsługa reklamacji"]
+/* =========================================================
+   SŁOWNIK 150+
+========================================================= */
+
+const vocabulary = [
+
+["Check-in","Hotelarstwo"],
+["Check-out","Hotelarstwo"],
+["Reception","Hotelarstwo"],
+["Front office","Hotelarstwo"],
+["Back office","Hotelarstwo"],
+["Reservation","Hotelarstwo"],
+["Booking","Hotelarstwo"],
+["Guest","Hotelarstwo"],
+["Room","Hotelarstwo"],
+["Single room","Hotelarstwo"],
+["Double room","Hotelarstwo"],
+["Twin room","Hotelarstwo"],
+["Suite","Hotelarstwo"],
+["Lobby","Hotelarstwo"],
+["Housekeeping","Hotelarstwo"],
+["Room service","Hotelarstwo"],
+["Concierge","Hotelarstwo"],
+["Wake-up call","Hotelarstwo"],
+["No-show","Hotelarstwo"],
+["Walk-in","Hotelarstwo"],
+["Upgrade","Hotelarstwo"],
+["Downgrade","Hotelarstwo"],
+["Late check-out","Hotelarstwo"],
+["Early check-in","Hotelarstwo"],
+["Occupancy","Hotelarstwo"],
+["ADR","Hotelarstwo"],
+["RevPAR","Hotelarstwo"],
+["PMS","Hotelarstwo"],
+["CRM","Hotelarstwo"],
+["Revenue management","Hotelarstwo"],
+["Overbooking","Hotelarstwo"],
+["Rate","Hotelarstwo"],
+["Rate plan","Hotelarstwo"],
+["Availability","Hotelarstwo"],
+["Deposit","Hotelarstwo"],
+["Invoice","Hotelarstwo"],
+["Receipt","Hotelarstwo"],
+["Payment","Hotelarstwo"],
+["Cash","Hotelarstwo"],
+["Card payment","Hotelarstwo"],
+["Key card","Hotelarstwo"],
+["Amenities","Hotelarstwo"],
+["Minibar","Hotelarstwo"],
+["Laundry","Hotelarstwo"],
+["Maintenance","Hotelarstwo"],
+["Lost and found","Hotelarstwo"],
+["VIP guest","Hotelarstwo"],
+["Complaint","Hotelarstwo"],
+["Feedback","Hotelarstwo"],
+["Guest satisfaction","Hotelarstwo"],
+["Mise en place","Gastronomia"],
+["Chef","Gastronomia"],
+["Sous-chef","Gastronomia"],
+["Waiter","Gastronomia"],
+["Menu","Gastronomia"],
+["Dish","Gastronomia"],
+["Starter","Gastronomia"],
+["Main course","Gastronomia"],
+["Dessert","Gastronomia"],
+["Breakfast","Gastronomia"],
+["Lunch","Gastronomia"],
+["Dinner","Gastronomia"],
+["Bill","Gastronomia"],
+["Table reservation","Gastronomia"],
+["Kitchen","Gastronomia"],
+["Dining room","Gastronomia"],
+["Buffet","Gastronomia"],
+["Catering","Gastronomia"],
+["Banquet","Gastronomia"],
+["Food cost","Gastronomia"],
+["Recipe","Gastronomia"],
+["Ingredient","Gastronomia"],
+["Portion","Gastronomia"],
+["Storage","Gastronomia"],
+["Fridge","Gastronomia"],
+["Freezer","Gastronomia"],
+["Oven","Gastronomia"],
+["Grill","Gastronomia"],
+["Pan","Gastronomia"],
+["Pot","Gastronomia"],
+["Knife","Gastronomia"],
+["Cutting board","Gastronomia"],
+["Boiling","Gastronomia"],
+["Frying","Gastronomia"],
+["Baking","Gastronomia"],
+["Grilling","Gastronomia"],
+["Steaming","Gastronomia"],
+["Blanching","Gastronomia"],
+["Marinating","Gastronomia"],
+["Allergen","Gastronomia"],
+["HACCP","Gastronomia"],
+["FIFO","Gastronomia"],
+["FEFO","Gastronomia"],
+["Food safety","Gastronomia"],
+["Customer service","Gastronomia"],
+["Table setting","Gastronomia"],
+["Cutlery","Gastronomia"],
+["Glassware","Gastronomia"],
+["Napkin","Gastronomia"],
+["Sommelier","Gastronomia"],
+["Barista","Gastronomia"],
+["Espresso","Gastronomia"],
+["Tea","Gastronomia"],
+["Water","Gastronomia"],
+["Tourism","Turystyka"],
+["Tourist","Turystyka"],
+["Traveller","Turystyka"],
+["Destination","Turystyka"],
+["Attraction","Turystyka"],
+["Tour","Turystyka"],
+["Trip","Turystyka"],
+["Excursion","Turystyka"],
+["Itinerary","Turystyka"],
+["Guide","Turystyka"],
+["Tour leader","Turystyka"],
+["Travel agency","Turystyka"],
+["Tour operator","Turystyka"],
+["Voucher","Turystyka"],
+["Ticket","Turystyka"],
+["Airport","Turystyka"],
+["Flight","Turystyka"],
+["Boarding pass","Turystyka"],
+["Gate","Turystyka"],
+["Transfer","Turystyka"],
+["Luggage","Turystyka"],
+["Hand luggage","Turystyka"],
+["Insurance","Turystyka"],
+["Assistance","Turystyka"],
+["Seasonality","Turystyka"],
+["High season","Turystyka"],
+["Low season","Turystyka"],
+["Sustainable tourism","Turystyka"],
+["Ecotourism","Turystyka"],
+["Cultural tourism","Turystyka"],
+["Business tourism","Turystyka"],
+["MICE","Turystyka"],
+["Wellness","Turystyka"],
+["Spa","Turystyka"],
+["Destination management","Turystyka"],
+["Tourist information","Turystyka"],
+["Map","Turystyka"],
+["Route","Turystyka"],
+["Heritage","Turystyka"],
+["Museum","Turystyka"],
+["Monument","Turystyka"],
+["National park","Turystyka"],
+["Safety","Bezpieczeństwo"],
+["Risk","Bezpieczeństwo"],
+["Risk assessment","Bezpieczeństwo"],
+["Hazard","Bezpieczeństwo"],
+["Accident","Bezpieczeństwo"],
+["Incident","Bezpieczeństwo"],
+["Occupational safety","Bezpieczeństwo"],
+["Personal protective equipment","Bezpieczeństwo"],
+["Protective gloves","Bezpieczeństwo"],
+["Safety glasses","Bezpieczeństwo"],
+["First aid","Bezpieczeństwo"],
+["CPR","Bezpieczeństwo"],
+["AED","Bezpieczeństwo"],
+["Fire safety","Bezpieczeństwo"],
+["Fire extinguisher","Bezpieczeństwo"],
+["Emergency exit","Bezpieczeństwo"],
+["Evacuation","Bezpieczeństwo"],
+["Emergency","Bezpieczeństwo"],
+["Chemical","Bezpieczeństwo"],
+["Safety data sheet","Bezpieczeństwo"],
+["Contamination","Bezpieczeństwo"],
+["Cross-contamination","Bezpieczeństwo"],
+["Hygiene","Bezpieczeństwo"],
+["Disinfection","Bezpieczeństwo"],
+["Cleaning","Bezpieczeństwo"],
+["Ergonomics","Bezpieczeństwo"],
+["Personal data","Bezpieczeństwo"],
+["Privacy","Bezpieczeństwo"],
+["Emergency procedure","Bezpieczeństwo"],
+["Checklist","Bezpieczeństwo"],
+["Safety training","Bezpieczeństwo"],
+["Warning","Bezpieczeństwo"],
+["Instruction","Bezpieczeństwo"],
+["Emergency number","Bezpieczeństwo"],
+["Assembly point","Bezpieczeństwo"],
+["Emergency plan","Bezpieczeństwo"],
+["Fire alarm","Bezpieczeństwo"],
+["Maintenance check","Bezpieczeństwo"],
+["Protective clothing","Bezpieczeństwo"],
+["Workplace","Bezpieczeństwo"],
+["Work accident","Bezpieczeństwo"],
+["Safe procedure","Bezpieczeństwo"],
+["Security","Bezpieczeństwo"],
+["Access control","Bezpieczeństwo"],
+["Confidentiality","Bezpieczeństwo"],
+["Password","Bezpieczeństwo"],
+["Data breach","Bezpieczeństwo"],
+["De-escalation","Bezpieczeństwo"],
+["Stress","Bezpieczeństwo"],
+["Fatigue","Bezpieczeństwo"],
+["Manual handling","Bezpieczeństwo"],
+["Work instruction","Bezpieczeństwo"],
+["Safety culture","Bezpieczeństwo"],
+["Audit","Bezpieczeństwo"],
+["Corrective action","Bezpieczeństwo"],
+["Preventive action","Bezpieczeństwo"]
 
 ];
 
-function renderWords(){
 
-    const grid=document.getElementById("wordsGrid");
-
-    const search=
-        document.getElementById("wordSearch")
-        .value
-        .toLowerCase();
-
-    const filtered=words.filter(w=>
-        w.join(" ").toLowerCase().includes(search)
-    );
-
-    grid.innerHTML="";
-
-    filtered.forEach((word,index)=>{
-
-        const card=document.createElement("div");
-
-        card.className="word-card";
-
-        card.innerHTML=`
-            <strong>${word[0]}</strong>
-            <small>${word[1]}</small>
-            <p>${word[2]}</p>
-            <button class="speak"
-                onclick="speakWord('${word[0].replace(/'/g,"\\'")}')">
-                🔊 Wymowa
-            </button>
-        `;
-
-        grid.appendChild(card);
-    });
-}
-
-function speakWord(word){
-
-    if(!("speechSynthesis" in window)){
-        alert("Twoja przeglądarka nie obsługuje syntezy mowy.");
-        return;
-    }
-
-    const speech=new SpeechSynthesisUtterance(word);
-
-    speech.lang="en-US";
-    speech.rate=.78;
-
-    speechSynthesis.cancel();
-    speechSynthesis.speak(speech);
-}
-
-
-/* =====================================================
+/* =========================================================
    WIRTUALNA RECEPCJA
-===================================================== */
+========================================================= */
 
-const guests=[
+let reception = {
+    stage:0,
+    score:0
+};
+
+const receptionStages = [
 
 {
-name:"Anna Kowalska",
-situation:"Gość przychodzi do recepcji, aby się zameldować.",
-opening:"Dzień dobry. Mam rezerwację na nazwisko Kowalska.",
-keywords:["dzień dobry","nazwisko","rezerwacja","dowód","dokument","pokój","śniadanie"],
-required:["powitanie","potwierdzenie rezerwacji","dokument","informacja"]
+    title:"Powitanie",
+    keywords:["dzień dobry","dzien dobry","witam","dobry wieczór","dobry wieczor","hello","good morning"],
+    guest:"Dzień dobry. Mam rezerwację na nazwisko Kowalski.",
+    hint:"Przywitaj gościa profesjonalnie i zaproponuj pomoc."
 },
 
 {
-name:"Michael Smith",
-situation:"Gość ma problem z przydzielonym pokojem.",
-opening:"Hello. I have just received my room, but I think there is a problem with it.",
-keywords:["przepraszam","problem","pokój","sprawdzę","pomóc","zamiana","housekeeping"],
-required:["przeprosiny","ustalenie problemu","rozwiązanie"]
+    title:"Rezerwacja",
+    keywords:["nazwisko","rezerwacja","rezerwację","rezerwacje","numer rezerwacji","booking","imię","imie"],
+    guest:"Tak, rezerwacja jest na nazwisko Kowalski. Przyjechałem na trzy noce.",
+    hint:"Potwierdź rezerwację i ustal podstawowe dane pobytu."
 },
 
 {
-name:"Julia Nowak",
-situation:"Gość składa reklamację dotyczącą hałasu.",
-opening:"Dobry wieczór. Chciałabym zgłosić problem. W moim pokoju jest bardzo głośno.",
-keywords:["przepraszam","hałas","problem","sprawdzę","pomóc","pokój","cisza"],
-required:["przeprosiny","problem","rozwiązanie"]
+    title:"Dokument",
+    keywords:["dokument","dowód","dowod","paszport","tożsamości","tozsamosci"],
+    guest:"Oczywiście. Mam przy sobie dokument.",
+    hint:"Poproś o dokument tożsamości zgodnie z procedurą."
 },
 
 {
-name:"Thomas Brown",
-situation:"Gość pyta o śniadanie.",
-opening:"Good morning. Could you tell me what time breakfast starts?",
-keywords:["śniadanie","godzina","restauracja","breakfast","starts","morning"],
-required:["informacja","godzina","miejsce"]
+    title:"Płatność",
+    keywords:["płat","plat","karta","gotów","gotow","rachunek","depozyt","zapłac"],
+    guest:"Chciałbym zapłacić kartą.",
+    hint:"Przejdź profesjonalnie do płatności lub rozliczenia."
 },
 
 {
-name:"Sofia Garcia",
-situation:"Gość chce się wymeldować i sprawdzić rachunek.",
-opening:"Good morning. I would like to check out, please.",
-keywords:["wymeldowanie","check-out","rachunek","płatność","dziękuję","pokój"],
-required:["wymeldowanie","rachunek","płatność"]
+    title:"Zakończenie",
+    keywords:["klucz","karta","pokój","pokoj","śniad","sniad","informacj","piętro","pietro","miłego","milego","życzę","zycze"],
+    guest:"Dziękuję za pomoc.",
+    hint:"Przekaż klucz/kartę, najważniejsze informacje i życz udanego pobytu."
 }
 
 ];
 
-let currentGuest=0;
-let conversation=[];
-let receptionPoints=0;
-let receptionTurns=0;
 
-function selectGuest(index,element){
+function addMessage(text,type){
 
-    currentGuest=index;
+    const windowEl=document.getElementById("chatWindow");
 
-    document.querySelectorAll(".guest")
-    .forEach(g=>g.classList.remove("selected"));
+    const message=document.createElement("div");
 
-    element.classList.add("selected");
+    message.className="message "+type;
 
-    newReception();
+    message.textContent=text;
+
+    windowEl.appendChild(message);
+
+    windowEl.scrollTop=windowEl.scrollHeight;
 }
 
-function newReception(){
 
-    conversation=[];
-    receptionPoints=0;
-    receptionTurns=0;
+function startReception(){
 
-    const guest=guests[currentGuest];
+    addMessage(
+        "Dzień dobry. Mam rezerwację na nazwisko Kowalski.",
+        "guest"
+    );
 
-    document.getElementById("guestName").textContent=
-        guest.name;
-
-    document.getElementById("guestSituation").textContent=
-        guest.situation;
-
-    document.getElementById("messages").innerHTML="";
-
-    document.getElementById("scoreReport")
-    .classList.remove("show");
-
-    addMessage("guest",guest.opening);
 }
 
-function addMessage(type,text){
 
-    const box=document.getElementById("messages");
+function sendMessage(event){
 
-    const div=document.createElement("div");
+    event.preventDefault();
 
-    div.className="message "+type;
-
-    div.textContent=text;
-
-    box.appendChild(div);
-
-    box.scrollTop=box.scrollHeight;
-
-    conversation.push({
-        type,
-        text
-    });
-}
-
-function handleChatKey(event){
-
-    if(event.key==="Enter" && !event.shiftKey){
-
-        event.preventDefault();
-
-        sendReceptionMessage();
-    }
-}
-
-function sendReceptionMessage(){
-
-    const input=document.getElementById("studentInput");
+    const input=document.getElementById("chatInput");
 
     const text=input.value.trim();
 
     if(!text)return;
 
-    if(receptionTurns>=8){
-
-        alert("Osiągnięto maksymalną liczbę odpowiedzi. Zakończ obsługę.");
-        return;
-    }
-
-    addMessage("student",text);
+    addMessage(text,"student");
 
     input.value="";
 
-    receptionTurns++;
+    const stage=receptionStages[reception.stage];
 
-    evaluateReceptionText(text);
+    if(!stage)return;
 
-    setTimeout(()=>{
-        guestReply(text);
-    },500);
-}
+    const normalized=text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"");
 
-function evaluateReceptionText(text){
+    const success=stage.keywords.some(word=>{
 
-    const lower=text.toLowerCase();
+        const clean=word
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g,"");
 
-    const guest=guests[currentGuest];
+        return normalized.includes(clean);
 
-    let points=0;
-
-    if(
-        lower.includes("dzień dobry") ||
-        lower.includes("dobry wieczór") ||
-        lower.includes("good morning") ||
-        lower.includes("good evening") ||
-        lower.includes("hello") ||
-        lower.includes("thank")
-    ){
-        points+=2;
-    }
-
-    guest.keywords.forEach(k=>{
-        if(lower.includes(k.toLowerCase())){
-            points+=2;
-        }
     });
 
-    if(text.length>60){
-        points+=2;
-    }
 
-    receptionPoints+=Math.min(points,10);
+    setTimeout(()=>{
+
+        if(success){
+
+            reception.score++;
+
+            reception.stage++;
+
+            addMessage(stage.guest,"guest");
+
+            updateReception();
+
+            if(reception.stage<receptionStages.length){
+
+                document.getElementById("receptionFeedback").innerHTML=
+                `
+                <p style="color:#7ee2a5">
+                ✓ Etap „${stage.title}” zaliczony.
+                </p>
+                <p>
+                <strong>Następny etap:</strong><br>
+                ${receptionStages[reception.stage].hint}
+                </p>
+                `;
+
+            }else{
+
+                addMessage(
+                    "Dziękuję. Życzę miłego pobytu w naszym hotelu.",
+                    "guest"
+                );
+
+                document.getElementById("receptionFeedback").innerHTML=
+                `
+                <p style="color:#7ee2a5">
+                <strong>✓ SYMULACJA ZAKOŃCZONA</strong>
+                </p>
+                <p>
+                Twój wynik:
+                <strong style="color:#e5c982;font-size:30px">
+                ${reception.score}/5
+                </strong>
+                </p>
+                <p>
+                Meldunek został przeprowadzony poprawnie.
+                </p>
+                `;
+
+            }
+
+        }else{
+
+            addMessage(
+                "Rozumiem. Czy możesz doprecyzować swoją odpowiedź?",
+                "guest"
+            );
+
+            document.getElementById("receptionFeedback").innerHTML=
+            `
+            <p style="color:#f1a4a4">
+            ✕ Ten etap nie został jeszcze zaliczony.
+            </p>
+            <p>
+            <strong>Podpowiedź:</strong><br>
+            ${stage.hint}
+            </p>
+            `;
+
+        }
+
+    },500);
+
 }
 
-function guestReply(text){
 
-    const lower=text.toLowerCase();
+function updateReception(){
 
-    const guest=guests[currentGuest];
+    const percentage=(reception.stage/5)*100;
 
-    let reply="";
+    document.getElementById("progressBar").style.width=
+        percentage+"%";
 
-    if(currentGuest===0){
+    document.getElementById("stepText").textContent=
+        reception.stage+" / 5";
 
-        if(lower.includes("rezerwac")){
-            reply="Tak, dokładnie. Rezerwacja jest na dwie noce. Co powinienem teraz zrobić?";
-        }else if(
-            lower.includes("dokument") ||
-            lower.includes("dowód") ||
-            lower.includes("paszport")
-        ){
-            reply="Oczywiście. Proszę bardzo. Czy może mi Pan/Pani powiedzieć, gdzie jest mój pokój?";
-        }else{
-            reply="Rozumiem. Dziękuję. Co jeszcze powinienem wiedzieć podczas pobytu?";
-        }
-
-    }else if(currentGuest===1){
-
-        if(
-            lower.includes("przepraszam") ||
-            lower.includes("sorry")
-        ){
-            reply="Thank you. The room is very noisy and the air conditioning also doesn't seem to work.";
-        }else{
-            reply="I understand. Could you please help me solve this problem?";
-        }
-
-    }else if(currentGuest===2){
-
-        if(
-            lower.includes("przepraszam") ||
-            lower.includes("sorry")
-        ){
-            reply="Dziękuję. Czy mogą Państwo coś zrobić, żeby było ciszej?";
-        }else{
-            reply="To naprawdę przeszkadza mi w odpoczynku. Co możemy z tym zrobić?";
-        }
-
-    }else if(currentGuest===3){
-
-        if(
-            lower.includes("śniadanie") ||
-            lower.includes("breakfast")
-        ){
-            reply="Thank you. And where is the breakfast room?";
-        }else{
-            reply="Could you also tell me where breakfast is served?";
-        }
-
-    }else{
-
-        if(
-            lower.includes("rachunek") ||
-            lower.includes("bill") ||
-            lower.includes("payment") ||
-            lower.includes("płatność")
-        ){
-            reply="Thank you. Could you explain the charge for the restaurant?";
-        }else{
-            reply="I would like to check my bill before I pay.";
-        }
-    }
-
-    addMessage("guest",reply);
 }
 
-function finishReception(){
 
-    if(receptionTurns===0){
+function restartReception(){
 
-        alert("Najpierw odpowiedz gościowi.");
-        return;
-    }
+    reception={
+        stage:0,
+        score:0
+    };
 
-    const guest=guests[currentGuest];
+    document.getElementById("chatWindow").innerHTML="";
 
-    let finalScore=Math.min(
-        100,
-        45+
-        receptionPoints+
-        receptionTurns*4
+    document.getElementById("receptionFeedback").innerHTML=
+    `
+    <p>
+    <strong>Etap 1:</strong><br>
+    Przywitaj profesjonalnie gościa.
+    </p>
+    `;
+
+    updateReception();
+
+    startReception();
+
+}
+
+
+/* =========================================================
+   QUIZY
+========================================================= */
+
+let currentQuiz="gastronomia";
+
+let quizAnswers={};
+
+
+function renderQuizTabs(){
+
+    const container=document.getElementById("quizTabs");
+
+    container.innerHTML="";
+
+    Object.entries(quizData).forEach(([id,data])=>{
+
+        const button=document.createElement("button");
+
+        button.textContent=data.name;
+
+        if(id===currentQuiz){
+            button.classList.add("active");
+        }
+
+        button.onclick=()=>{
+
+            currentQuiz=id;
+
+            quizAnswers={};
+
+            renderQuizTabs();
+
+            renderQuiz();
+
+        };
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+function renderQuiz(){
+
+    const quiz=quizData[currentQuiz];
+
+    const container=document.getElementById("quizContainer");
+
+    container.innerHTML="";
+
+    const card=document.createElement("div");
+
+    card.className="quiz-card";
+
+    const title=document.createElement("h3");
+
+    title.textContent=
+        "Quiz — "+quiz.name;
+
+    card.appendChild(title);
+
+    const intro=document.createElement("p");
+
+    intro.textContent=
+        "Odpowiadaj na pytania. Każda odpowiedź jest oceniana natychmiast.";
+
+    intro.style.color="#6c7886";
+
+    card.appendChild(intro);
+
+
+    quiz.questions.forEach((question,index)=>{
+
+        const q=document.createElement("div");
+
+        q.className="question";
+
+        q.id="question-"+index;
+
+        const title=document.createElement("div");
+
+        title.className="question-title";
+
+        title.textContent=
+            (index+1)+". "+question[0];
+
+        q.appendChild(title);
+
+
+        question[1].forEach((answer,answerIndex)=>{
+
+            const label=document.createElement("label");
+
+            label.className="answer";
+
+            const radio=document.createElement("input");
+
+            radio.type="radio";
+
+            radio.name="question"+index;
+
+            radio.value=answerIndex;
+
+            radio.onchange=()=>{
+
+                evaluateQuestion(
+                    index,
+                    answerIndex,
+                    question[2],
+                    q
+                );
+
+            };
+
+            label.appendChild(radio);
+
+            label.appendChild(
+                document.createTextNode(" "+answer)
+            );
+
+            q.appendChild(label);
+
+        });
+
+
+        const feedback=document.createElement("div");
+
+        feedback.className="feedback";
+
+        feedback.id="feedback-"+index;
+
+        q.appendChild(feedback);
+
+        card.appendChild(q);
+
+    });
+
+
+    const result=document.createElement("div");
+
+    result.className="result";
+
+    result.id="quizResult";
+
+    result.innerHTML=
+        `
+        Odpowiedz na pytania, aby zobaczyć wynik.
+        `;
+
+    card.appendChild(result);
+
+    container.appendChild(card);
+
+}
+
+
+function evaluateQuestion(index,answer,correct,q){
+
+    if(q.dataset.answered==="true")return;
+
+    q.dataset.answered="true";
+
+    const feedback=document.getElementById(
+        "feedback-"+index
     );
 
-    const textAll=conversation
-        .filter(m=>m.type==="student")
-        .map(m=>m.text.toLowerCase())
-        .join(" ");
+    quizAnswers[index]=answer;
 
-    let politeness=
-        /dzień dobry|dobry wieczór|dziękuję|proszę|przepraszam|thank|please|sorry|good morning|good evening/
-        .test(textAll)
-        ?90:55;
+    if(answer===correct){
 
-    let complete=
-        guest.required.filter(k=>{
-            return textAll.includes(
-                k.toLowerCase()
-            );
-        }).length;
+        q.classList.add("correct");
 
-    let completeScore=
-        Math.min(
-            100,
-            40+complete*20
-        );
+        feedback.textContent=
+            "✓ Poprawna odpowiedź.";
 
-    let communication=
-        conversation
-        .filter(m=>m.type==="student")
-        .reduce((sum,m)=>{
-            return sum+(m.text.length>40?15:8)
-        },0);
+        feedback.style.color="#24804d";
 
-    communication=Math.min(100,communication);
-
-    document.getElementById("receptionScore")
-        .textContent=Math.round(finalScore)+"/100";
-
-    document.getElementById("politenessScore")
-        .textContent=politeness+"/100";
-
-    document.getElementById("completeScore")
-        .textContent=completeScore+"/100";
-
-    document.getElementById("communicationScore")
-        .textContent=communication+"/100";
-
-    let report="";
-
-    if(finalScore>=90){
-        report="🏆 Świetna obsługa! Twoja komunikacja była profesjonalna.";
-    }else if(finalScore>=75){
-        report="👏 Bardzo dobrze. Masz dobre podstawy obsługi gościa.";
-    }else if(finalScore>=60){
-        report="👍 Podstawy są opanowane, ale warto popracować nad kompletnością odpowiedzi.";
     }else{
-        report="📚 Warto wrócić do materiałów z hotelarstwa i spróbować ponownie.";
+
+        q.classList.add("wrong");
+
+        feedback.textContent=
+            "✕ Niepoprawna odpowiedź. Poprawna: "+
+            quizData[currentQuiz].questions[index][1][correct];
+
+        feedback.style.color="#a63f3d";
+
     }
 
-    document.getElementById("receptionReport")
-        .textContent=report;
+    updateQuizResult();
 
-    document.getElementById("scoreReport")
-        .classList.add("show");
-
-    document.getElementById("scoreReport")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
 }
 
 
-/* =====================================================
+function updateQuizResult(){
+
+    const total=
+        quizData[currentQuiz].questions.length;
+
+    const answered=
+        Object.keys(quizAnswers).length;
+
+    let score=0;
+
+    Object.entries(quizAnswers).forEach(([index,answer])=>{
+
+        if(
+            answer===
+            quizData[currentQuiz].questions[index][2]
+        ){
+            score++;
+        }
+
+    });
+
+
+    const percentage=
+        total?
+        Math.round(score/total*100):
+        0;
+
+
+    const result=document.getElementById("quizResult");
+
+    if(answered<total){
+
+        result.innerHTML=
+        `
+        Odpowiedziano:
+        <strong>${answered}/${total}</strong>
+        `;
+
+    }else{
+
+        let message="";
+
+        if(percentage>=90)
+            message="Znakomity wynik. Poziom profesjonalny.";
+
+        else if(percentage>=70)
+            message="Bardzo dobry wynik. Warto jeszcze powtórzyć kilka zagadnień.";
+
+        else if(percentage>=50)
+            message="Podstawy są opanowane. Wróć do encyklopedii i spróbuj ponownie.";
+
+        else
+            message="Warto powtórzyć materiał przed kolejnym podejściem.";
+
+
+        result.innerHTML=
+        `
+        <div>Wynik końcowy</div>
+        <strong>${score}/${total}</strong>
+        <div>${percentage}%</div>
+        <p>${message}</p>
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   SŁOWNIK
+========================================================= */
+
+function renderVocabulary(){
+
+    const search=
+        document.getElementById("vocabSearch")
+        .value
+        .toLowerCase();
+
+    const grid=
+        document.getElementById("vocabGrid");
+
+    const filtered=
+        vocabulary.filter(item=>
+            item[0].toLowerCase().includes(search) ||
+            item[1].toLowerCase().includes(search)
+        );
+
+
+    grid.innerHTML="";
+
+    filtered.forEach(item=>{
+
+        const div=document.createElement("div");
+
+        div.className="word";
+
+        div.innerHTML=
+        `
+        <div>
+            <strong>${item[0]}</strong>
+            <small>${item[1]}</small>
+        </div>
+
+        <button
+            class="speak"
+            onclick="speakWord('${item[0].replace(/'/g,"\\'")}')"
+            title="Odsłuchaj wymowę"
+        >
+            🔊
+        </button>
+        `;
+
+        grid.appendChild(div);
+
+    });
+
+}
+
+
+function speakWord(word){
+
+    if(!("speechSynthesis" in window)){
+
+        alert(
+            "Twoja przeglądarka nie obsługuje odsłuchiwania wymowy."
+        );
+
+        return;
+
+    }
+
+    const utterance=
+        new SpeechSynthesisUtterance(word);
+
+    utterance.lang="en-US";
+
+    utterance.rate=.82;
+
+    speechSynthesis.cancel();
+
+    speechSynthesis.speak(utterance);
+
+}
+
+
+/* =========================================================
+   WYSZUKIWARKA
+========================================================= */
+
+const searchDatabase=[
+
+["Gastronomia","gastronomia"],
+["Mise en place","gastronomia"],
+["HACCP","gastronomia"],
+["Food cost","gastronomia"],
+["FIFO","gastronomia"],
+["FEFO","gastronomia"],
+
+["Hotelarstwo","hotelarstwo"],
+["Check-in","hotelarstwo"],
+["Check-out","hotelarstwo"],
+["Housekeeping","hotelarstwo"],
+["PMS","hotelarstwo"],
+["Revenue Management","hotelarstwo"],
+["ADR","hotelarstwo"],
+["RevPAR","hotelarstwo"],
+
+["Turystyka","turystyka"],
+["Pilot wycieczek","turystyka"],
+["Przewodnik","turystyka"],
+["Itinerary","turystyka"],
+["Destynacja","turystyka"],
+["MICE","turystyka"],
+
+["Bezpieczeństwo","bezpieczenstwo"],
+["BHP","bezpieczenstwo"],
+["Pierwsza pomoc","bezpieczenstwo"],
+["HACCP","bezpieczenstwo"],
+["Ewakuacja","bezpieczenstwo"],
+["Ergonomia","bezpieczenstwo"]
+
+];
+
+
+function searchSite(){
+
+    const query=
+        document.getElementById("globalSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const results=
+        document.getElementById("searchResults");
+
+    if(!query){
+
+        results.style.display="none";
+
+        return;
+
+    }
+
+
+    const matches=
+        searchDatabase.filter(item=>
+            item[0].toLowerCase().includes(query)
+        );
+
+
+    if(!matches.length){
+
+        results.innerHTML=
+        `
+        <strong>Brak wyników.</strong>
+        <p style="color:#6c7886">
+        Spróbuj wpisać np. „HACCP”, „hotel”,
+        „recepcja”, „turystyka” lub „mise en place”.
+        </p>
+        `;
+
+    }else{
+
+        results.innerHTML=
+        matches.map(item=>
+        `
+        <div class="search-result">
+            <strong>${item[0]}</strong>
+            <br>
+            <a
+              href="#${item[1]}"
+              onclick="document.getElementById('searchResults').style.display='none'"
+              style="color:#8c6d30;font-weight:700"
+            >
+              Przejdź do działu →
+            </a>
+        </div>
+        `
+        ).join("");
+
+    }
+
+    results.style.display="block";
+
+}
+
+
+/* =========================================================
    START
-===================================================== */
+========================================================= */
 
-renderWords();
+renderQuizTabs();
 
-newReception();
+renderQuiz();
+
+renderVocabulary();
+
+restartReception();
 
 </script>
 
