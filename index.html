@@ -3,2215 +3,1270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Varelissa — profesjonalna encyklopedia gastronomii, hotelarstwa i turystyki.">
-<title>Varelissa — Encyklopedia gastronomii, hotelarstwa i turystyki</title>
+<title>VARELISSA — Encyklopedia Gastronomii, Hotelarstwa i Turystyki</title>
 
 <style>
-:root{
-  --blue:#3366cc;
-  --dark:#202122;
-  --text:#202122;
-  --muted:#54595d;
-  --border:#a2a9b1;
-  --light:#eaecf0;
-  --sidebar:#f8f9fa;
-  --link:#36c;
-  --green:#14866d;
-  --gold:#a66a00;
-  --red:#b32424;
-}
-
 *{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-}
-
+html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:#fff;
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  font-size:15px;
-  line-height:1.65;
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f6f6f6;
+    color:#202122;
+    line-height:1.65;
 }
-
-a{
-  color:var(--link);
-  text-decoration:none;
-}
-
-a:hover{
-  text-decoration:underline;
-}
-
-button,input,select{
-  font:inherit;
-}
-
-/* TOP BAR */
+a{color:#0645ad;text-decoration:none}
+a:hover{text-decoration:underline}
 
 .topbar{
-  height:60px;
-  border-bottom:1px solid var(--border);
-  background:#fff;
-  display:flex;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
+    height:58px;
+    background:#fff;
+    border-bottom:1px solid #c8ccd1;
+    display:flex;
+    align-items:center;
+    padding:0 28px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
-
-.top-inner{
-  width:100%;
-  max-width:1500px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  gap:16px;
-  padding:0 24px;
-}
-
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:220px;
-  color:#202122;
+    font-family:Georgia,serif;
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:3px;
+    color:#202122;
 }
-
-.logo-mark{
-  width:35px;
-  height:35px;
-  border:1px solid #72777d;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-family:Georgia,serif;
-  font-size:19px;
-}
-
-.logo-name{
-  font-family:Georgia,serif;
-  font-size:22px;
-  letter-spacing:.4px;
-}
-
-.logo-sub{
-  font-size:10px;
-  color:#72777d;
-  display:block;
-  line-height:1;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
+.logo span{font-size:11px;display:block;letter-spacing:2px;color:#72777d;margin-top:-5px}
 
 .search{
-  flex:1;
-  max-width:650px;
-  display:flex;
+    margin-left:auto;
+    display:flex;
+    width:min(430px,45vw);
 }
-
 .search input{
-  width:100%;
-  height:38px;
-  border:1px solid #a2a9b1;
-  padding:0 12px;
-  outline:none;
+    width:100%;
+    padding:9px 12px;
+    border:1px solid #a2a9b1;
+    border-right:0;
+    font-size:14px;
 }
-
-.search input:focus{
-  border-color:var(--blue);
-  box-shadow:inset 0 0 0 1px var(--blue);
-}
-
 .search button{
-  height:38px;
-  border:1px solid #a2a9b1;
-  border-left:0;
-  background:#f8f9fa;
-  padding:0 16px;
-  cursor:pointer;
+    border:1px solid #a2a9b1;
+    background:#f8f9fa;
+    padding:0 18px;
+    cursor:pointer;
 }
 
-.top-actions{
-  margin-left:auto;
-  display:flex;
-  gap:12px;
-  align-items:center;
-  white-space:nowrap;
+.hero{
+    width:100%;
+    min-height:420px;
+    position:relative;
+    overflow:hidden;
+    background:#111;
 }
-
-.top-actions button{
-  border:0;
-  background:none;
-  color:var(--link);
-  cursor:pointer;
+.hero img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    opacity:.72;
 }
-
-/* LAYOUT */
+.heroOverlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.25),rgba(0,0,0,.55));
+    display:flex;
+    align-items:center;
+}
+.heroContent{
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+    padding:50px 35px;
+    color:white;
+}
+.heroContent small{
+    letter-spacing:5px;
+    font-weight:bold;
+}
+.heroContent h1{
+    font-family:Georgia,serif;
+    font-size:70px;
+    margin:10px 0;
+    letter-spacing:7px;
+}
+.heroContent p{
+    max-width:720px;
+    font-size:20px;
+}
+.heroButtons a{
+    display:inline-block;
+    padding:11px 18px;
+    margin:8px 8px 0 0;
+    background:white;
+    color:#202122;
+    border:1px solid white;
+}
+.heroButtons a:last-child{
+    background:transparent;
+    color:white;
+}
 
 .layout{
-  max-width:1500px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:250px minmax(0,1fr) 230px;
-  gap:0;
+    max-width:1400px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:250px minmax(0,1fr);
+    gap:28px;
+    padding:28px;
 }
-
-/* LEFT NAV */
 
 .sidebar{
-  border-right:1px solid var(--light);
-  background:#fff;
-  min-height:calc(100vh - 60px);
+    background:#fff;
+    border:1px solid #c8ccd1;
+    padding:18px;
+    height:max-content;
+    position:sticky;
+    top:78px;
+}
+.sidebar h3{
+    margin-top:0;
+    font-family:Georgia,serif;
+    border-bottom:1px solid #c8ccd1;
+    padding-bottom:10px;
+}
+.sidebar ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.sidebar li{margin:4px 0}
+.sidebar a{
+    display:block;
+    padding:5px 7px;
+}
+.sidebar a:hover{
+    background:#eaecf0;
+    text-decoration:none;
 }
 
-.sidebar-inner{
-  position:sticky;
-  top:60px;
-  max-height:calc(100vh - 60px);
-  overflow:auto;
-  padding:25px 18px 40px;
+.content{
+    background:white;
+    border:1px solid #c8ccd1;
+    padding:35px 45px;
+    min-width:0;
 }
-
-.side-title{
-  font-size:12px;
-  font-weight:700;
-  text-transform:uppercase;
-  color:#54595d;
-  letter-spacing:.7px;
-  margin:0 0 12px;
+.breadcrumb{
+    color:#54595d;
+    font-size:13px;
+    margin-bottom:18px;
 }
-
-.side-section{
-  margin-bottom:23px;
+h2{
+    font-family:Georgia,serif;
+    font-size:34px;
+    border-bottom:1px solid #a2a9b1;
+    padding-bottom:7px;
+    margin-top:45px;
 }
-
-.side-section>a,
-.side-link{
-  display:block;
-  padding:4px 7px;
-  border-radius:2px;
+h3{
+    font-family:Georgia,serif;
+    font-size:24px;
+    margin-top:30px;
 }
-
-.side-section>a:hover,
-.side-link:hover{
-  background:#eaecf0;
-  text-decoration:none;
+h4{
+    font-size:18px;
 }
-
-.side-sub{
-  margin-left:12px;
-  border-left:1px solid #eaecf0;
-  padding-left:7px;
+.info{
+    background:#f8f9fa;
+    border:1px solid #c8ccd1;
+    padding:18px;
+    margin:20px 0;
 }
-
-.side-sub a{
-  display:block;
-  padding:3px 5px;
-  font-size:13px;
+.note{
+    border-left:4px solid #72777d;
+    padding:12px 18px;
+    background:#f8f9fa;
+    margin:20px 0;
 }
-
-/* MAIN */
-
-.main{
-  min-width:0;
-  padding:35px 45px 80px;
+.image{
+    margin:25px 0;
 }
-
-.breadcrumbs{
-  font-size:13px;
-  color:#54595d;
-  margin-bottom:15px;
+.image img{
+    width:100%;
+    max-height:430px;
+    object-fit:cover;
+    display:block;
 }
-
-.page-title{
-  font-family:Georgia,"Times New Roman",serif;
-  font-weight:normal;
-  font-size:38px;
-  line-height:1.2;
-  margin:0;
-  padding-bottom:10px;
-  border-bottom:1px solid #a2a9b1;
+.caption{
+    background:#eaecf0;
+    padding:8px 12px;
+    font-size:13px;
+    color:#54595d;
 }
-
-.subtitle{
-  color:#54595d;
-  font-size:14px;
-  margin:9px 0 25px;
+.columns{
+    columns:2;
+    column-gap:45px;
 }
-
-.lead{
-  font-size:16px;
-  max-width:950px;
-}
-
-.toc{
-  width:min(600px,100%);
-  background:#f8f9fa;
-  border:1px solid #c8ccd1;
-  padding:15px 25px;
-  margin:25px 0;
-}
-
-.toc-title{
-  font-weight:700;
-  margin-bottom:7px;
-}
-
-.toc ol{
-  margin:5px 0;
-  padding-left:24px;
-}
-
-.toc li{
-  margin:2px 0;
-}
-
-/* ARTICLE */
-
-.article{
-  max-width:1000px;
-}
-
-.article h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:27px;
-  font-weight:normal;
-  border-bottom:1px solid #a2a9b1;
-  padding-bottom:4px;
-  margin:38px 0 15px;
-  scroll-margin-top:80px;
-}
-
-.article h3{
-  font-size:20px;
-  margin:27px 0 8px;
-  scroll-margin-top:80px;
-}
-
-.article p{
-  margin:9px 0 16px;
-}
-
-.article ul,
-.article ol{
-  padding-left:28px;
-}
-
-.article li{
-  margin:4px 0;
-}
+.columns p,.columns li{break-inside:avoid}
 
 .infobox{
-  float:right;
-  width:310px;
-  margin:0 0 20px 28px;
-  border:1px solid #a2a9b1;
-  background:#f8f9fa;
+    float:right;
+    width:310px;
+    margin:0 0 20px 28px;
+    background:#f8f9fa;
+    border:1px solid #a2a9b1;
+    padding:15px;
 }
-
-.infobox-title{
-  text-align:center;
-  font-family:Georgia,serif;
-  font-weight:bold;
-  font-size:19px;
-  padding:10px;
-  background:#eaecf0;
-}
-
-.infobox-image{
-  width:100%;
-  height:145px;
-  object-fit:cover;
-  display:block;
-}
-
-.infobox table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:13px;
-}
-
-.infobox td{
-  border-top:1px solid #c8ccd1;
-  padding:7px;
-  vertical-align:top;
-}
-
-.infobox td:first-child{
-  font-weight:700;
-  width:40%;
-}
-
-.notice{
-  border-left:4px solid var(--blue);
-  background:#f8f9fa;
-  padding:12px 16px;
-  margin:20px 0;
-}
-
-.fact{
-  border:1px solid #c8ccd1;
-  background:#fffdf2;
-  padding:15px 18px;
-  margin:22px 0;
-}
-
-.fact strong{
-  color:#7a5200;
-}
-
-.professional{
-  border:1px solid #c8ccd1;
-  background:#f8f9fa;
-  padding:16px 18px;
-  margin:22px 0;
-}
-
-.wikitable{
-  border-collapse:collapse;
-  width:100%;
-  margin:18px 0;
-  background:#fff;
-}
-
-.wikitable th,
-.wikitable td{
-  border:1px solid #a2a9b1;
-  padding:8px 10px;
-  text-align:left;
-  vertical-align:top;
-}
-
-.wikitable th{
-  background:#eaecf0;
-  font-weight:700;
-}
-
-.wikitable tr:nth-child(even){
-  background:#f8f9fa;
-}
-
-.category-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:5px 18px;
-}
-
-.category-links a{
-  display:inline-block;
-}
-
-/* RIGHT CONTENT */
-
-.rightbar{
-  border-left:1px solid var(--light);
-  padding:35px 18px;
-}
-
-.right-box{
-  background:#f8f9fa;
-  border:1px solid #c8ccd1;
-  padding:15px;
-  margin-bottom:20px;
-}
-
-.right-box h3{
-  font-size:14px;
-  margin:0 0 10px;
-}
-
-.right-box ul{
-  padding-left:20px;
-  margin:0;
-}
-
-.right-box li{
-  margin:4px 0;
-  font-size:13px;
-}
-
-/* HOME */
-
-.home-hero{
-  border-bottom:1px solid #a2a9b1;
-  padding-bottom:25px;
-  margin-bottom:20px;
-}
-
-.home-hero h1{
-  font-family:Georgia,serif;
-  font-size:42px;
-  font-weight:normal;
-  margin:0 0 8px;
-}
-
-.home-columns{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-}
-
-.home-box{
-  border:1px solid #c8ccd1;
-  padding:18px;
-  background:#fff;
-}
-
-.home-box h2{
-  margin-top:0;
-  font-family:Georgia,serif;
-  font-weight:normal;
-  border-bottom:1px solid #eaecf0;
-  padding-bottom:7px;
-}
-
-.home-box ul{
-  padding-left:22px;
-}
-
-/* QUIZ */
-
-.quiz-panel{
-  border:1px solid #a2a9b1;
-  background:#fff;
-  padding:22px;
-  margin-top:20px;
-}
-
-.quiz-question{
-  font-size:20px;
-  font-weight:600;
-  margin-bottom:17px;
-}
-
-.quiz-options{
-  display:grid;
-  gap:8px;
-}
-
-.quiz-option{
-  text-align:left;
-  border:1px solid #a2a9b1;
-  background:#fff;
-  padding:10px 13px;
-  cursor:pointer;
-}
-
-.quiz-option:hover{
-  background:#f8f9fa;
-}
-
-.quiz-option.correct{
-  background:#dff6ee;
-  border-color:#14866d;
-}
-
-.quiz-option.wrong{
-  background:#fce4e4;
-  border-color:#b32424;
-}
-
-.quiz-feedback{
-  min-height:25px;
-  margin-top:14px;
-  font-weight:600;
-}
-
-.quiz-progress{
-  color:#54595d;
-  font-size:13px;
-  margin-bottom:10px;
-}
-
-.quiz-next{
-  margin-top:14px;
-  padding:9px 18px;
-  border:1px solid #72777d;
-  background:#f8f9fa;
-  cursor:pointer;
-}
-
-/* RECEPTION */
-
-.reception{
-  border:1px solid #a2a9b1;
-  background:#fff;
-}
-
-.reception-header{
-  padding:15px 18px;
-  background:#eaecf0;
-  border-bottom:1px solid #a2a9b1;
-}
-
-.reception-body{
-  padding:18px;
-}
-
-.guest-card{
-  border:1px solid #c8ccd1;
-  padding:15px;
-  margin-bottom:15px;
-  background:#f8f9fa;
-}
-
-.chat{
-  border:1px solid #c8ccd1;
-  background:#fff;
-  height:300px;
-  overflow:auto;
-  padding:12px;
-  margin-bottom:10px;
-}
-
-.msg{
-  margin:7px 0;
-  padding:8px 11px;
-  max-width:85%;
-  border-radius:3px;
-}
-
-.msg.guest{
-  background:#eaecf0;
-}
-
-.msg.student{
-  background:#e8f1ff;
-  margin-left:auto;
-}
-
-.reception-form{
-  display:flex;
-  gap:8px;
-}
-
-.reception-form input{
-  flex:1;
-  border:1px solid #a2a9b1;
-  padding:10px;
-}
-
-.reception-form button{
-  border:1px solid #72777d;
-  background:#f8f9fa;
-  padding:0 17px;
-  cursor:pointer;
-}
-
-/* DICTIONARY */
-
-.dictionary-search{
-  width:100%;
-  padding:11px;
-  border:1px solid #a2a9b1;
-  margin:10px 0 20px;
-}
-
-.word{
-  border-bottom:1px solid #eaecf0;
-  padding:13px 5px;
-}
-
-.word strong{
-  font-size:17px;
-}
-
-.pron{
-  color:#72777d;
-  margin-left:7px;
-}
-
-.word small{
-  display:block;
-  color:#54595d;
-}
-
-/* MOBILE */
-
-.mobile-menu{
-  display:none;
-  border:1px solid #a2a9b1;
-  background:#f8f9fa;
-  padding:7px 10px;
-  cursor:pointer;
-}
-
-@media(max-width:1100px){
-  .layout{
-    grid-template-columns:220px minmax(0,1fr);
-  }
-
-  .rightbar{
-    display:none;
-  }
-
-  .main{
-    padding:30px;
-  }
-}
-
-@media(max-width:760px){
-  .topbar{
-    height:auto;
-    min-height:58px;
-  }
-
-  .top-inner{
-    flex-wrap:wrap;
-    padding:9px 12px;
-  }
-
-  .logo{
-    min-width:0;
-    flex:1;
-  }
-
-  .search{
-    order:3;
-    flex-basis:100%;
-    max-width:none;
-  }
-
-  .top-actions{
-    display:none;
-  }
-
-  .mobile-menu{
-    display:block;
-    margin-bottom:12px;
-  }
-
-  .layout{
-    display:block;
-  }
-
-  .sidebar{
-    display:none;
-    border:0;
-  }
-
-  .sidebar.open{
-    display:block;
-  }
-
-  .sidebar-inner{
-    position:static;
-    max-height:none;
-  }
-
-  .main{
-    padding:22px 16px 60px;
-  }
-
-  .page-title{
-    font-size:30px;
-  }
-
-  .home-hero h1{
-    font-size:34px;
-  }
-
-  .home-columns{
-    grid-template-columns:1fr;
-  }
-
-  .infobox{
-    float:none;
+.infobox img{
     width:100%;
-    margin:15px 0 20px;
-  }
+    height:190px;
+    object-fit:cover;
+}
+.infobox h3{
+    text-align:center;
+    margin:8px 0;
+}
+.infobox table{width:100%;border-collapse:collapse;font-size:14px}
+.infobox td{
+    padding:6px;
+    border-top:1px solid #c8ccd1;
+    vertical-align:top;
+}
+.infobox td:first-child{font-weight:bold;width:38%}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:25px 0;
+}
+.gallery img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
 }
 
-/* PRINT */
-
-@media print{
-  .topbar,
-  .sidebar,
-  .rightbar,
-  .mobile-menu,
-  .quiz-panel,
-  .reception{
-    display:none!important;
-  }
-
-  .layout{
+.quiz{
+    background:#f8f9fa;
+    border:1px solid #c8ccd1;
+    padding:25px;
+    margin-top:40px;
+}
+.question{
+    border-bottom:1px solid #c8ccd1;
+    padding:18px 0;
+}
+.question label{
     display:block;
-  }
+    padding:7px;
+    cursor:pointer;
+}
+.question label:hover{background:#eaecf0}
+.quiz button{
+    margin-top:20px;
+    padding:11px 22px;
+    background:#202122;
+    color:white;
+    border:0;
+    cursor:pointer;
+}
+.result{
+    margin-top:20px;
+    font-weight:bold;
+    font-size:18px;
+}
 
-  .main{
-    padding:0;
-  }
+.footer{
+    background:#202122;
+    color:#fff;
+    padding:45px 30px;
+    margin-top:30px;
+}
+.footerInner{
+    max-width:1200px;
+    margin:auto;
+}
+.footer a{color:#fff}
+
+.back{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:42px;
+    height:42px;
+    background:#202122;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:20px;
+}
+
+@media(max-width:900px){
+    .layout{grid-template-columns:1fr}
+    .sidebar{position:relative;top:auto}
+    .infobox{float:none;width:100%;margin:20px 0}
+    .columns{columns:1}
+    .gallery{grid-template-columns:1fr}
+    .heroContent h1{font-size:48px}
 }
 </style>
 </head>
 
-<body>
+<body id="top">
 
 <header class="topbar">
-  <div class="top-inner">
-
-    <a class="logo" href="#home" onclick="showPage('home')">
-      <span class="logo-mark">V</span>
-      <span>
-        <span class="logo-name">Varelissa</span>
-        <span class="logo-sub">wolna encyklopedia zawodowa</span>
-      </span>
-    </a>
-
-    <form class="search" onsubmit="searchSite(event)">
-      <input id="globalSearch" type="search" placeholder="Przeszukaj Varelissę...">
-      <button type="submit">Szukaj</button>
-    </form>
-
-    <div class="top-actions">
-      <button onclick="showPage('home')">Strona główna</button>
-      <button onclick="window.print()">Drukuj</button>
+    <div class="logo">
+        VARELISSA
+        <span>WIEDZA • EDUKACJA • ZAWÓD</span>
     </div>
 
-  </div>
+    <div class="search">
+        <input id="searchInput" type="text" placeholder="Przeszukaj Varelissa...">
+        <button onclick="searchSite()">Szukaj</button>
+    </div>
 </header>
+
+<section class="hero">
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85" alt="Luksusowy hotel">
+    <div class="heroOverlay">
+        <div class="heroContent">
+            <small>PROFESJONALNA ENCYKLOPEDIA</small>
+            <h1>VARELISSA</h1>
+            <p>
+                Cyfrowa encyklopedia gastronomii, hotelarstwa, turystyki
+                oraz bezpieczeństwa zawodowego. Wiedza przygotowana
+                z myślą o uczniach, nauczycielach i przyszłych profesjonalistach.
+            </p>
+            <div class="heroButtons">
+                <a href="#gastronomia">Gastronomia</a>
+                <a href="#hotelarstwo">Hotelarstwo</a>
+                <a href="#turystyka">Turystyka</a>
+                <a href="#quizy">Quizy</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="layout">
 
-<!-- LEWE MENU -->
+<aside class="sidebar">
+    <h3>Spis treści</h3>
 
-<aside class="sidebar" id="sidebar">
-<div class="sidebar-inner">
+    <ul>
+        <li><a href="#top">Strona główna</a></li>
 
-  <button class="mobile-menu" onclick="toggleSidebar()">☰ Nawigacja</button>
+        <li><strong>Gastronomia</strong></li>
+        <li><a href="#gastronomia">→ Gastronomia</a></li>
+        <li><a href="#kuchnie">→ Kuchnie świata</a></li>
+        <li><a href="#techniki">→ Techniki kulinarne</a></li>
+        <li><a href="#higiena">→ Higiena żywności</a></li>
+        <li><a href="#obsluga">→ Obsługa gościa</a></li>
 
-  <div class="side-section">
-    <div class="side-title">Varelissa</div>
-    <a href="#home" onclick="showPage('home')">Strona główna</a>
-    <a href="#encyclopedia" onclick="showPage('encyclopedia')">Encyklopedia</a>
-    <a href="#dictionary" onclick="showPage('dictionary')">Słownik zawodowy</a>
-    <a href="#quiz" onclick="showPage('quiz')">Quizy wiedzy</a>
-    <a href="#reception" onclick="showPage('reception')">Wirtualna recepcja</a>
-  </div>
+        <li><strong>Hotelarstwo</strong></li>
+        <li><a href="#hotelarstwo">→ Hotelarstwo</a></li>
+        <li><a href="#recepcja">→ Recepcja</a></li>
+        <li><a href="#housekeeping">→ Housekeeping</a></li>
+        <li><a href="#rezerwacje">→ Rezerwacje</a></li>
+        <li><a href="#standardy">→ Standardy hotelowe</a></li>
 
-  <div class="side-section">
-    <div class="side-title">Gastronomia</div>
-    <a href="#gastronomia" onclick="showPage('gastronomia')">Gastronomia</a>
-    <div class="side-sub">
-      <a href="#gastronomia-historia">Historia gastronomii</a>
-      <a href="#gastronomia-kuchnie">Kuchnie świata</a>
-      <a href="#gastronomia-technologia">Technologia żywności</a>
-      <a href="#gastronomia-obrobka">Obróbka termiczna</a>
-      <a href="#gastronomia-noze">Techniki krojenia</a>
-      <a href="#gastronomia-serwis">Obsługa konsumenta</a>
-      <a href="#gastronomia-menu">Menu i karta dań</a>
-      <a href="#gastronomia-napoje">Napoje</a>
-      <a href="#gastronomia-higiena">Higiena żywności</a>
-      <a href="#gastronomia-alergeny">Alergeny</a>
-      <a href="#gastronomia-haccp">HACCP</a>
-    </div>
-  </div>
+        <li><strong>Turystyka</strong></li>
+        <li><a href="#turystyka">→ Turystyka</a></li>
+        <li><a href="#organizacja">→ Organizacja imprez</a></li>
+        <li><a href="#transport">→ Transport turystyczny</a></li>
+        <li><a href="#atrakcje">→ Atrakcje turystyczne</a></li>
 
-  <div class="side-section">
-    <div class="side-title">Hotelarstwo</div>
-    <a href="#hotelarstwo" onclick="showPage('hotelarstwo')">Hotelarstwo</a>
-    <div class="side-sub">
-      <a href="#hotel-historia">Historia hotelarstwa</a>
-      <a href="#hotel-obiekty">Obiekty hotelarskie</a>
-      <a href="#hotel-recepcja">Recepcja</a>
-      <a href="#hotel-rezerwacje">Rezerwacje</a>
-      <a href="#hotel-checkin">Check-in</a>
-      <a href="#hotel-checkout">Check-out</a>
-      <a href="#hotel-housekeeping">Housekeeping</a>
-      <a href="#hotel-pokoje">Rodzaje pokoi</a>
-      <a href="#hotel-standardy">Standardy obsługi</a>
-      <a href="#hotel-reklamacje">Reklamacje</a>
-      <a href="#hotel-revenue">Revenue management</a>
-      <a href="#hotel-bezpieczenstwo">Bezpieczeństwo</a>
-    </div>
-  </div>
+        <li><strong>Bezpieczeństwo</strong></li>
+        <li><a href="#bezpieczenstwo">→ Bezpieczeństwo</a></li>
+        <li><a href="#bhp">→ BHP</a></li>
+        <li><a href="#ppoż">→ Ochrona przeciwpożarowa</a></li>
 
-  <div class="side-section">
-    <div class="side-title">Turystyka</div>
-    <a href="#turystyka" onclick="showPage('turystyka')">Turystyka</a>
-    <div class="side-sub">
-      <a href="#turystyka-historia">Historia turystyki</a>
-      <a href="#turystyka-formy">Formy turystyki</a>
-      <a href="#turystyka-organizacja">Organizacja imprez</a>
-      <a href="#turystyka-pilot">Pilot wycieczek</a>
-      <a href="#turystyka-przewodnik">Przewodnictwo</a>
-      <a href="#turystyka-transport">Transport</a>
-      <a href="#turystyka-zrownowazona">Turystyka zrównoważona</a>
-      <a href="#turystyka-kultura">Turystyka kulturowa</a>
-      <a href="#turystyka-agroturystyka">Agroturystyka</a>
-      <a href="#turystyka-dostepnosc">Turystyka dostępna</a>
-    </div>
-  </div>
+        <li><strong>Język zawodowy</strong></li>
+        <li><a href="#slownictwo">→ Słownictwo</a></li>
+        <li><a href="#wymowa">→ Wymowa</a></li>
 
-  <div class="side-section">
-    <div class="side-title">Bezpieczeństwo zawodowe</div>
-    <a href="#bezpieczenstwo" onclick="showPage('bezpieczenstwo')">Bezpieczeństwo</a>
-    <div class="side-sub">
-      <a href="#bhp">BHP</a>
-      <a href="#ppoż">Ochrona przeciwpożarowa</a>
-      <a href="#pierwsza-pomoc">Pierwsza pomoc</a>
-      <a href="#ergonomia">Ergonomia</a>
-      <a href="#chemia">Środki chemiczne</a>
-      <a href="#wypadki">Wypadki zawodowe</a>
-      <a href="#ewakuacja">Ewakuacja</a>
-      <a href="#bezpieczenstwo-gosc">Bezpieczeństwo gościa</a>
-    </div>
-  </div>
-
-  <div class="side-section">
-    <div class="side-title">Materiały</div>
-    <a href="#quiz" onclick="showPage('quiz')">Quiz gastronomiczny</a>
-    <a href="#quiz" onclick="showQuizCategory('hotel')">Quiz hotelarski</a>
-    <a href="#quiz" onclick="showQuizCategory('turystyka')">Quiz turystyczny</a>
-    <a href="#quiz" onclick="showQuizCategory('bhp')">Quiz BHP</a>
-    <a href="#dictionary" onclick="showPage('dictionary')">Słownictwo 150+</a>
-  </div>
-
-</div>
+        <li><strong>Sprawdź wiedzę</strong></li>
+        <li><a href="#quiz-gastro">→ Quiz gastronomiczny</a></li>
+        <li><a href="#quiz-hotel">→ Quiz hotelarski</a></li>
+        <li><a href="#quiz-tur">→ Quiz turystyczny</a></li>
+        <li><a href="#quizy">→ Wszystkie quizy</a></li>
+    </ul>
 </aside>
 
-<!-- GŁÓWNA TREŚĆ -->
 
-<main class="main">
+<main class="content">
 
-<div id="home" class="page">
+<div class="breadcrumb">Varelissa › Encyklopedia › Strona główna</div>
 
-  <div class="home-hero">
-    <div class="breadcrumbs">Varelissa › Strona główna</div>
-    <h1>Varelissa</h1>
-    <p class="subtitle">Wolna encyklopedia gastronomii, hotelarstwa, turystyki i bezpieczeństwa zawodowego</p>
-    <p class="lead">
-      <strong>Varelissa</strong> jest otwartą bazą wiedzy stworzoną z myślą o uczniach,
-      studentach, nauczycielach oraz osobach przygotowujących się do pracy
-      w gastronomii, hotelarstwie i turystyce.
-    </p>
-  </div>
+<h1>Varelissa — encyklopedia zawodowa</h1>
 
-  <div class="notice">
-    <strong>Wiedza zawodowa w jednym miejscu.</strong>
-    Korzystaj z menu po lewej stronie, aby przechodzić bezpośrednio do konkretnych
-    zagadnień. Każdy dział może być rozwijany o kolejne artykuły, definicje,
-    procedury, przykłady i materiały dydaktyczne.
-  </div>
+<p>
+<b>Varelissa</b> to rozbudowane centrum wiedzy poświęcone branży
+hotelarskiej, gastronomicznej i turystycznej. Strona została zaprojektowana
+jako materiał edukacyjny, w którym użytkownik może przechodzić pomiędzy
+konkretnymi zagadnieniami za pomocą spisu treści znajdującego się po lewej stronie.
+</p>
 
-  <div class="home-columns">
-
-    <section class="home-box">
-      <h2>Główne działy</h2>
-      <ul>
-        <li><a href="#gastronomia" onclick="showPage('gastronomia')">Gastronomia</a> — żywność, kuchnie, technologia i obsługa.</li>
-        <li><a href="#hotelarstwo" onclick="showPage('hotelarstwo')">Hotelarstwo</a> — obiekty, recepcja i obsługa gościa.</li>
-        <li><a href="#turystyka" onclick="showPage('turystyka')">Turystyka</a> — organizacja podróży i ruch turystyczny.</li>
-        <li><a href="#bezpieczenstwo" onclick="showPage('bezpieczenstwo')">Bezpieczeństwo</a> — BHP, PPOŻ i pierwsza pomoc.</li>
-      </ul>
-    </section>
-
-    <section class="home-box">
-      <h2>Narzędzia edukacyjne</h2>
-      <ul>
-        <li><a href="#dictionary" onclick="showPage('dictionary')">Słownik zawodowy</a></li>
-        <li><a href="#quiz" onclick="showPage('quiz')">Quizy z natychmiastowym wynikiem</a></li>
-        <li><a href="#reception" onclick="showPage('reception')">Symulator wirtualnej recepcji</a></li>
-        <li>Materiały do samodzielnej nauki</li>
-      </ul>
-    </section>
-
-    <section class="home-box">
-      <h2>Jak korzystać?</h2>
-      <p>
-        Wybierz dział w menu. Następnie wybierz konkretny temat.
-        Odnośniki prowadzą bezpośrednio do odpowiednich sekcji.
-        W artykułach znajdują się definicje, zastosowania zawodowe,
-        przykłady i ciekawostki.
-      </p>
-    </section>
-
-    <section class="home-box">
-      <h2>Dla przyszłych profesjonalistów</h2>
-      <p>
-        Encyklopedia została zaprojektowana tak, aby można było z niej korzystać
-        podczas nauki zawodu, przygotowywania się do sprawdzianów,
-        egzaminów oraz praktyk zawodowych.
-      </p>
-    </section>
-
-  </div>
-
-  <h2 class="article" style="margin-top:40px">Kategorie Varelissy</h2>
-
-  <div class="category-links">
-    <a href="#gastronomia" onclick="showPage('gastronomia')">Gastronomia</a>
-    <a href="#hotelarstwo" onclick="showPage('hotelarstwo')">Hotelarstwo</a>
-    <a href="#turystyka" onclick="showPage('turystyka')">Turystyka</a>
-    <a href="#bezpieczenstwo" onclick="showPage('bezpieczenstwo')">Bezpieczeństwo</a>
-    <a href="#dictionary" onclick="showPage('dictionary')">Słownik</a>
-    <a href="#quiz" onclick="showPage('quiz')">Quizy</a>
-    <a href="#reception" onclick="showPage('reception')">Recepcja</a>
-  </div>
-
+<div class="info">
+<b>Jak korzystać z encyklopedii?</b><br>
+Kliknij dowolny odnośnik w menu po lewej. Każdy odnośnik przenosi
+bezpośrednio do odpowiedniego działu. Możesz również użyć wyszukiwarki
+znajdującej się na górze strony.
 </div>
+
 
 <!-- GASTRONOMIA -->
 
-<div id="gastronomia" class="page" style="display:none">
+<section id="gastronomia">
+<h2>Gastronomia</h2>
 
-  <div class="breadcrumbs">Varelissa › Gastronomia</div>
-  <h1 class="page-title">Gastronomia</h1>
-  <p class="subtitle">Wiedza o przygotowywaniu, podawaniu i organizacji żywności oraz usług gastronomicznych.</p>
-
-  <div class="infobox">
-    <div class="infobox-title">Gastronomia</div>
-    <img class="infobox-image" src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=80" alt="Przygotowywanie potraw">
-    <table>
-      <tr><td>Dziedzina</td><td>Żywienie człowieka</td></tr>
-      <tr><td>Obszary</td><td>Kuchnia, restauracja, catering</td></tr>
-      <tr><td>Kluczowe kompetencje</td><td>Technologia, higiena, obsługa</td></tr>
-      <tr><td>Powiązane</td><td>Hotelarstwo, turystyka</td></tr>
-    </table>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Spis treści</div>
-    <ol>
-      <li><a href="#gastronomia-historia">Historia gastronomii</a></li>
-      <li><a href="#gastronomia-kuchnie">Kuchnie świata</a></li>
-      <li><a href="#gastronomia-technologia">Technologia żywności</a></li>
-      <li><a href="#gastronomia-obrobka">Obróbka termiczna</a></li>
-      <li><a href="#gastronomia-noze">Techniki krojenia</a></li>
-      <li><a href="#gastronomia-serwis">Obsługa konsumenta</a></li>
-      <li><a href="#gastronomia-menu">Menu i karta dań</a></li>
-      <li><a href="#gastronomia-napoje">Napoje</a></li>
-      <li><a href="#gastronomia-higiena">Higiena żywności</a></li>
-      <li><a href="#gastronomia-alergeny">Alergeny</a></li>
-      <li><a href="#gastronomia-haccp">HACCP</a></li>
-    </ol>
-  </div>
-
-  <article class="article">
-
-    <h2 id="gastronomia-historia">Historia gastronomii</h2>
-
-    <p>
-      Gastronomia jest dziedziną obejmującą przygotowywanie i podawanie żywności,
-      a także organizację usług związanych z żywieniem. Jej rozwój jest ściśle
-      związany z historią społeczeństw, handlem, migracjami oraz rozwojem techniki.
-    </p>
-
-    <p>
-      W dawnych społecznościach sposób przygotowywania żywności zależał przede
-      wszystkim od dostępnych surowców. Rozwój rolnictwa umożliwił planową produkcję
-      zbóż, warzyw i innych produktów. Z czasem powstawały wyspecjalizowane miejsca,
-      w których można było kupić gotową żywność lub skorzystać z usług związanych
-      z przygotowaniem posiłku.
-    </p>
-
-    <p>
-      Współczesna gastronomia obejmuje restauracje, bary, kawiarnie, stołówki,
-      zakłady żywienia zbiorowego, firmy cateringowe, kuchnie hotelowe,
-      przedsiębiorstwa produkujące żywność oraz liczne usługi dodatkowe.
-    </p>
-
-    <div class="fact">
-      <strong>Ciekawostka:</strong> rozwój kolei i transportu chłodniczego znacząco
-      zwiększył możliwość przewożenia produktów spożywczych na duże odległości.
-    </div>
-
-    <h2 id="gastronomia-kuchnie">Kuchnie świata</h2>
-
-    <p>
-      Kuchnia danego regionu jest wynikiem połączenia dostępnych produktów,
-      historii, klimatu, religii, tradycji i kontaktów między kulturami.
-      Dlatego potrawy mogą różnić się nawet pomiędzy sąsiednimi regionami.
-    </p>
-
-    <table class="wikitable">
-      <thead>
-        <tr>
-          <th>Region</th>
-          <th>Charakterystyczne produkty</th>
-          <th>Typowe cechy</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Europa Środkowa</td>
-          <td>Ziemniaki, kapusta, zboża, mięso</td>
-          <td>Potrawy gotowane, pieczone i duszone</td>
-        </tr>
-        <tr>
-          <td>Basen Morza Śródziemnego</td>
-          <td>Oliwa, warzywa, ryby, zioła</td>
-          <td>Duże znaczenie świeżych produktów</td>
-        </tr>
-        <tr>
-          <td>Azja Wschodnia</td>
-          <td>Ryż, soja, warzywa, ryby</td>
-          <td>Smażenie w wysokiej temperaturze, gotowanie na parze</td>
-        </tr>
-        <tr>
-          <td>Ameryka Łacińska</td>
-          <td>Kukurydza, fasola, papryka</td>
-          <td>Połączenie tradycji rdzennych i europejskich</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2 id="gastronomia-technologia">Technologia żywności</h2>
-
-    <p>
-      Technologia gastronomiczna opisuje procesy, dzięki którym surowiec zostaje
-      przekształcony w gotową potrawę. Obejmuje między innymi przygotowanie
-      stanowiska pracy, dobór surowców, obróbkę wstępną, obróbkę cieplną,
-      porcjowanie, przechowywanie i wydawanie potraw.
-    </p>
-
-    <h3>Obróbka wstępna</h3>
-    <p>
-      Obróbka wstępna może obejmować mycie, czyszczenie, obieranie, sortowanie,
-      krojenie, rozdrabnianie, porcjowanie oraz inne czynności przygotowujące
-      produkt do dalszej obróbki.
-    </p>
-
-    <h3>Organizacja stanowiska</h3>
-    <p>
-      Dobrze przygotowane stanowisko powinno ograniczać niepotrzebne przemieszczanie
-      się pracownika i umożliwiać wykonywanie czynności w logicznej kolejności.
-      Narzędzia powinny być czyste, sprawne i dostosowane do wykonywanego zadania.
-    </p>
-
-    <h2 id="gastronomia-obrobka">Obróbka termiczna</h2>
-
-    <p>
-      Obróbka termiczna zmienia właściwości fizyczne i sensoryczne produktu.
-      Do podstawowych metod należą gotowanie, smażenie, duszenie, pieczenie
-      oraz obróbka z wykorzystaniem pary.
-    </p>
-
-    <table class="wikitable">
-      <tr>
-        <th>Metoda</th>
-        <th>Charakterystyka</th>
-        <th>Przykładowe zastosowanie</th>
-      </tr>
-      <tr>
-        <td>Gotowanie</td>
-        <td>Produkt ogrzewany jest w wodzie lub innym płynie.</td>
-        <td>Zupy, makarony, warzywa</td>
-      </tr>
-      <tr>
-        <td>Smażenie</td>
-        <td>Produkt ogrzewany jest w tłuszczu.</td>
-        <td>Warzywa, mięso, ryby</td>
-      </tr>
-      <tr>
-        <td>Pieczenie</td>
-        <td>Produkt ogrzewany jest przede wszystkim gorącym powietrzem.</td>
-        <td>Mięsa, ciasta, pieczywo</td>
-      </tr>
-      <tr>
-        <td>Duszenie</td>
-        <td>Połączenie obsmażania i ogrzewania w niewielkiej ilości płynu.</td>
-        <td>Mięsa, warzywa</td>
-      </tr>
-      <tr>
-        <td>Gotowanie na parze</td>
-        <td>Produkt ogrzewany jest parą wodną.</td>
-        <td>Warzywa, ryby, pierogi</td>
-      </tr>
-    </table>
-
-    <h2 id="gastronomia-noze">Techniki krojenia</h2>
-
-    <p>
-      Umiejętność prawidłowego posługiwania się nożem jest podstawową kompetencją
-      w pracy kucharza. Technika powinna uwzględniać stabilną deskę, prawidłowy
-      chwyt narzędzia i bezpieczne ułożenie dłoni.
-    </p>
-
-    <p>
-      W praktyce zawodowej spotyka się między innymi krojenie w plastry,
-      paski, kostkę, słupki oraz drobne rozdrabnianie. Wielkość kawałków wpływa
-      na czas obróbki i wygląd gotowej potrawy.
-    </p>
-
-    <div class="professional">
-      <strong>Wskazówka zawodowa:</strong>
-      przed rozpoczęciem pracy przygotuj wszystkie potrzebne narzędzia i surowce.
-      Organizacja mise en place ogranicza liczbę niepotrzebnych czynności
-      wykonywanych podczas serwisu.
-    </div>
-
-    <h2 id="gastronomia-serwis">Obsługa konsumenta</h2>
-
-    <p>
-      Obsługa konsumenta obejmuje przygotowanie sali, powitanie gościa,
-      przekazanie karty, przyjmowanie zamówienia, przekazywanie informacji
-      o potrawach, realizację zamówienia oraz zakończenie obsługi.
-    </p>
-
-    <p>
-      Profesjonalna obsługa powinna być uprzejma, rzeczowa i dostosowana do
-      sytuacji. Pracownik powinien znać podstawowe składniki oferowanych potraw,
-      sposób ich przygotowania oraz informacje dotyczące potencjalnych alergenów.
-    </p>
-
-    <h2 id="gastronomia-menu">Menu i karta dań</h2>
-
-    <p>
-      Karta dań jest narzędziem informacyjnym i sprzedażowym. Powinna prezentować
-      ofertę w sposób czytelny oraz umożliwiać gościowi dokonanie świadomego wyboru.
-      Oprócz nazwy potrawy mogą znaleźć się w niej składniki, gramatura, cena
-      oraz informacje istotne dla osób z określonymi potrzebami żywieniowymi.
-    </p>
-
-    <h2 id="gastronomia-napoje">Napoje</h2>
-
-    <p>
-      Oferta gastronomiczna może obejmować wodę, napoje gorące, napoje zimne,
-      soki, napoje bezalkoholowe oraz inne produkty. Karta napojów powinna
-      być uporządkowana i spójna z charakterem lokalu.
-    </p>
-
-    <h2 id="gastronomia-higiena">Higiena żywności</h2>
-
-    <p>
-      Higiena żywności obejmuje działania mające na celu ograniczenie ryzyka
-      zanieczyszczenia żywności oraz zapewnienie odpowiednich warunków jej
-      przygotowywania, przechowywania i wydawania.
-    </p>
-
-    <h3>Higiena osobista</h3>
-    <p>
-      Pracownik gastronomii powinien utrzymywać odpowiednią higienę rąk,
-      odzieży roboczej i stanowiska. Należy również ograniczać zachowania,
-      które mogą powodować zanieczyszczenie żywności.
-    </p>
-
-    <h2 id="gastronomia-alergeny">Alergeny</h2>
-
-    <p>
-      Alergeny to składniki lub substancje mogące wywoływać reakcje alergiczne
-      u części osób. Personel gastronomiczny powinien znać skład oferowanych
-      potraw i potrafić przekazać gościowi wiarygodną informację.
-    </p>
-
-    <h2 id="gastronomia-haccp">HACCP</h2>
-
-    <p>
-      HACCP jest systemem zarządzania bezpieczeństwem żywności opartym na
-      identyfikacji zagrożeń oraz kontroli punktów istotnych dla bezpieczeństwa
-      procesu. W gastronomii system pomaga uporządkować kontrolę surowców,
-      procesów technologicznych, przechowywania i wydawania żywności.
-    </p>
-
-    <div class="fact">
-      <strong>Ciekawostka:</strong> HACCP nie jest pojedynczym urządzeniem ani
-      formularzem. Jest systemowym podejściem do identyfikowania i kontrolowania
-      zagrożeń związanych z żywnością.
-    </div>
-
-  </article>
+<div class="infobox">
+<img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80" alt="Restauracja">
+<h3>Gastronomia</h3>
+<table>
+<tr><td>Dziedzina</td><td>Usługi gastronomiczne</td></tr>
+<tr><td>Obejmuje</td><td>Kuchnię, obsługę, organizację</td></tr>
+<tr><td>Cel</td><td>Przygotowanie i sprzedaż żywności</td></tr>
+<tr><td>Praca</td><td>Restauracje, hotele, catering</td></tr>
+</table>
 </div>
+
+<p>
+Gastronomia obejmuje całokształt działalności związanej z przygotowywaniem,
+produkcją, serwowaniem oraz sprzedażą żywności i napojów. W praktyce
+łączy wiedzę kulinarną, organizacyjną, ekonomiczną i dotyczącą obsługi klienta.
+</p>
+
+<h3>Najważniejsze obszary gastronomii</h3>
+
+<div class="columns">
+<p><b>1.</b> Organizacja pracy kuchni.</p>
+<p><b>2.</b> Przygotowanie stanowiska pracy.</p>
+<p><b>3.</b> Obróbka wstępna produktów.</p>
+<p><b>4.</b> Obróbka cieplna.</p>
+<p><b>5.</b> Przechowywanie żywności.</p>
+<p><b>6.</b> Zasady higieny.</p>
+<p><b>7.</b> Obsługa konsumenta.</p>
+<p><b>8.</b> Nakrywanie stołu.</p>
+<p><b>9.</b> Serwowanie potraw.</p>
+<p><b>10.</b> Serwowanie napojów.</p>
+<p><b>11.</b> Kalkulacja gastronomiczna.</p>
+<p><b>12.</b> Kontrola jakości.</p>
+<p><b>13.</b> Gospodarka magazynowa.</p>
+<p><b>14.</b> System HACCP.</p>
+<p><b>15.</b> Organizacja imprez.</p>
+<p><b>16.</b> Catering.</p>
+<p><b>17.</b> Menu i karta dań.</p>
+<p><b>18.</b> Koszt surowca.</p>
+<p><b>19.</b> Technologie gastronomiczne.</p>
+<p><b>20.</b> Obsługa reklamacji.</p>
+</div>
+
+<div class="image">
+<img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=85" alt="Praca w kuchni">
+<div class="caption">Profesjonalna organizacja pracy w kuchni gastronomicznej.</div>
+</div>
+
+</section>
+
+
+<section id="kuchnie">
+<h2>Kuchnie świata</h2>
+
+<p>
+Kuchnie świata rozwijały się pod wpływem klimatu, dostępności produktów,
+historii, religii, migracji oraz lokalnych tradycji. Znajomość podstaw
+kuchni różnych regionów jest ważnym elementem edukacji gastronomicznej.
+</p>
+
+<h3>Kuchnia włoska</h3>
+<p>
+Charakterystyczne produkty to między innymi makaron, pomidory, oliwa,
+sery, ryby, owoce morza i zioła. W kuchni włoskiej ogromne znaczenie
+ma jakość składników oraz prostota przygotowania.
+</p>
+
+<h3>Kuchnia francuska</h3>
+<p>
+Kuchnia francuska jest ważnym fundamentem europejskiej sztuki kulinarnej.
+Rozwinęła wiele technik, sosów, metod przygotowania mięsa i deserów.
+Profesjonalne nazewnictwo gastronomiczne bardzo często wykorzystuje
+terminy pochodzenia francuskiego.
+</p>
+
+<h3>Kuchnia azjatycka</h3>
+<p>
+W wielu kuchniach Azji wykorzystuje się ryż, makaron, warzywa,
+ryby, owoce morza, fermentowane produkty, sos sojowy i różnego rodzaju
+przyprawy. Charakterystyczne jest również szybkie przygotowywanie
+produktów przy użyciu wysokiej temperatury.
+</p>
+</section>
+
+
+<section id="techniki">
+<h2>Techniki kulinarne</h2>
+
+<p>
+Technika kulinarna oznacza sposób przetwarzania produktu w celu uzyskania
+określonego smaku, konsystencji, aromatu i wyglądu.
+</p>
+
+<h3>Gotowanie</h3>
+<p>Produkt jest ogrzewany w środowisku wodnym lub innym płynnym medium.</p>
+
+<h3>Smażenie</h3>
+<p>Produkt jest poddawany działaniu wysokiej temperatury w tłuszczu lub na powierzchni grzejnej.</p>
+
+<h3>Pieczenie</h3>
+<p>Produkt jest ogrzewany głównie przez gorące powietrze w piekarniku.</p>
+
+<h3>Duszenie</h3>
+<p>Łączy najczęściej wcześniejsze obsmażenie produktu z późniejszym powolnym gotowaniem w niewielkiej ilości płynu.</p>
+
+<h3>Grillowanie</h3>
+<p>Produkt jest ogrzewany bezpośrednio lub pośrednio przez źródło wysokiej temperatury.</p>
+</section>
+
+
+<section id="higiena">
+<h2>Higiena żywności</h2>
+
+<p>
+Higiena żywności ma za zadanie ograniczyć ryzyko zanieczyszczenia
+produktów oraz powstawania zagrożeń dla zdrowia konsumenta.
+</p>
+
+<div class="note">
+<b>Najważniejsza zasada:</b> czyste ręce, czyste stanowisko,
+właściwe przechowywanie produktów i zapobieganie kontaktowi
+żywności surowej z gotową.
+</div>
+
+<p>
+W profesjonalnej gastronomii należy kontrolować temperaturę,
+stan produktów, terminy przydatności, sposób magazynowania oraz
+czystość wyposażenia. Ważne jest również przestrzeganie procedur
+opracowanych dla konkretnego zakładu.
+</p>
+</section>
+
+
+<section id="obsluga">
+<h2>Obsługa gościa gastronomicznego</h2>
+
+<p>
+Profesjonalna obsługa zaczyna się od powitania klienta i przygotowania
+gościa do skorzystania z oferty. Pracownik powinien znać menu,
+składniki potraw, możliwe alergeny oraz zasady serwowania.
+</p>
+
+<p>
+Istotnymi elementami są kultura osobista, komunikacja, dyskrecja,
+znajomość etykiety oraz umiejętność rozwiązywania problemów.
+</p>
+</section>
 
 
 <!-- HOTELARSTWO -->
 
-<div id="hotelarstwo" class="page" style="display:none">
+<section id="hotelarstwo">
+<h2>Hotelarstwo</h2>
 
-  <div class="breadcrumbs">Varelissa › Hotelarstwo</div>
-  <h1 class="page-title">Hotelarstwo</h1>
-  <p class="subtitle">Organizacja usług noclegowych, obsługi gościa i funkcjonowania obiektów hotelarskich.</p>
-
-  <div class="infobox">
-    <div class="infobox-title">Hotelarstwo</div>
-    <img class="infobox-image" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80" alt="Hotel">
-    <table>
-      <tr><td>Główna usługa</td><td>Nocleg</td></tr>
-      <tr><td>Kluczowe działy</td><td>Recepcja, housekeeping, gastronomia</td></tr>
-      <tr><td>Cel</td><td>Zapewnienie profesjonalnej obsługi</td></tr>
-      <tr><td>Powiązane</td><td>Turystyka, gastronomia</td></tr>
-    </table>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Spis treści</div>
-    <ol>
-      <li><a href="#hotel-historia">Historia hotelarstwa</a></li>
-      <li><a href="#hotel-obiekty">Obiekty hotelarskie</a></li>
-      <li><a href="#hotel-recepcja">Recepcja</a></li>
-      <li><a href="#hotel-rezerwacje">Rezerwacje</a></li>
-      <li><a href="#hotel-checkin">Check-in</a></li>
-      <li><a href="#hotel-checkout">Check-out</a></li>
-      <li><a href="#hotel-housekeeping">Housekeeping</a></li>
-      <li><a href="#hotel-pokoje">Rodzaje pokoi</a></li>
-      <li><a href="#hotel-standardy">Standardy obsługi</a></li>
-      <li><a href="#hotel-reklamacje">Reklamacje</a></li>
-      <li><a href="#hotel-revenue">Revenue management</a></li>
-      <li><a href="#hotel-bezpieczenstwo">Bezpieczeństwo</a></li>
-    </ol>
-  </div>
-
-  <article class="article">
-
-    <h2 id="hotel-historia">Historia hotelarstwa</h2>
-
-    <p>
-      Hotelarstwo jest częścią sektora usług związanego przede wszystkim
-      z zapewnianiem podróżnym miejsca noclegowego oraz usług towarzyszących.
-      Jego rozwój jest związany z rozwojem handlu, transportu i turystyki.
-    </p>
-
-    <p>
-      Współczesny hotel jest organizacją, w której współpracują ze sobą
-      różne działy. Recepcja odpowiada między innymi za kontakt z gościem,
-      housekeeping za przygotowanie jednostek mieszkalnych, a gastronomia
-      za świadczenie usług żywieniowych.
-    </p>
-
-    <h2 id="hotel-obiekty">Obiekty hotelarskie</h2>
-
-    <p>
-      Obiekty noclegowe różnią się wielkością, standardem, przeznaczeniem
-      i zakresem oferowanych usług. Mogą być kierowane do klientów biznesowych,
-      rodzin, turystów indywidualnych, grup zorganizowanych lub innych segmentów.
-    </p>
-
-    <table class="wikitable">
-      <tr>
-        <th>Obiekt</th>
-        <th>Charakterystyka</th>
-      </tr>
-      <tr>
-        <td>Hotel</td>
-        <td>Obiekt zapewniający miejsca noclegowe i usługi dodatkowe.</td>
-      </tr>
-      <tr>
-        <td>Motel</td>
-        <td>Obiekt tradycyjnie związany z obsługą podróżujących samochodem.</td>
-      </tr>
-      <tr>
-        <td>Pensjonat</td>
-        <td>Obiekt noclegowy oferujący określony zakres usług pobytowych.</td>
-      </tr>
-      <tr>
-        <td>Schronisko</td>
-        <td>Obiekt przeznaczony przede wszystkim dla osób podróżujących turystycznie.</td>
-      </tr>
-    </table>
-
-    <h2 id="hotel-recepcja">Recepcja</h2>
-
-    <p>
-      Recepcja jest jednym z najważniejszych punktów kontaktu pomiędzy hotelem
-      a gościem. Pracownik recepcji może odpowiadać za przyjmowanie rezerwacji,
-      meldowanie gości, udzielanie informacji, obsługę płatności, wydawanie
-      kluczy lub kart oraz rozwiązywanie problemów pojawiających się podczas pobytu.
-    </p>
-
-    <p>
-      Profesjonalny recepcjonista powinien komunikować się jasno, zachować
-      dyskrecję i znać procedury obowiązujące w obiekcie.
-    </p>
-
-    <h2 id="hotel-rezerwacje">Rezerwacje</h2>
-
-    <p>
-      Rezerwacja jest procesem polegającym na przyjęciu i zarejestrowaniu
-      informacji dotyczących planowanego pobytu. W praktyce rezerwacja może
-      pochodzić bezpośrednio od gościa, z systemu rezerwacyjnego, od organizatora
-      podróży lub z innego kanału sprzedaży.
-    </p>
-
-    <h3>Najważniejsze informacje rezerwacyjne</h3>
-
-    <ul>
-      <li>termin przyjazdu,</li>
-      <li>termin wyjazdu,</li>
-      <li>liczba osób,</li>
-      <li>rodzaj pokoju,</li>
-      <li>dane wymagane przez procedurę obiektu,</li>
-      <li>warunki rezerwacji,</li>
-      <li>informacje o płatności.</li>
-    </ul>
-
-    <h2 id="hotel-checkin">Check-in</h2>
-
-    <p>
-      Check-in to proces przyjęcia gościa do obiektu i rozpoczęcia pobytu.
-      W praktyce może obejmować potwierdzenie rezerwacji, weryfikację wymaganych
-      danych, przekazanie informacji o obiekcie, przedstawienie zasad pobytu
-      oraz przekazanie dostępu do pokoju.
-    </p>
-
-    <div class="professional">
-      <strong>Standard zawodowy:</strong>
-      podczas meldowania warto przekazywać informacje w logicznej kolejności:
-      powitanie → identyfikacja rezerwacji → formalności → płatność zgodnie
-      z procedurą → informacje o hotelu → przekazanie dostępu do pokoju.
-    </div>
-
-    <h2 id="hotel-checkout">Check-out</h2>
-
-    <p>
-      Check-out kończy pobyt gościa. Pracownik powinien sprawdzić rozliczenie,
-      potwierdzić sposób płatności zgodny z procedurą obiektu, przyjąć kartę
-      lub klucz, jeśli jest to wymagane, oraz pożegnać gościa.
-    </p>
-
-    <h2 id="hotel-housekeeping">Housekeeping</h2>
-
-    <p>
-      Housekeeping obejmuje działania związane z utrzymaniem czystości,
-      porządku i właściwego przygotowania jednostek mieszkalnych oraz wybranych
-      przestrzeni wspólnych. Organizacja pracy tego działu ma bezpośredni wpływ
-      na jakość pobytu.
-    </p>
-
-    <h2 id="hotel-pokoje">Rodzaje pokoi</h2>
-
-    <p>
-      W hotelach spotyka się między innymi pokoje jednoosobowe, dwuosobowe,
-      pokoje typu twin, double, rodzinne oraz różnego rodzaju apartamenty.
-      Nazewnictwo może różnić się w zależności od obiektu.
-    </p>
-
-    <table class="wikitable">
-      <tr>
-        <th>Nazwa</th>
-        <th>Znaczenie</th>
-      </tr>
-      <tr>
-        <td>Single</td>
-        <td>Pokój przeznaczony dla jednej osoby.</td>
-      </tr>
-      <tr>
-        <td>Double</td>
-        <td>Pokój z łóżkiem przeznaczonym dla dwóch osób.</td>
-      </tr>
-      <tr>
-        <td>Twin</td>
-        <td>Pokój z dwoma oddzielnymi łóżkami.</td>
-      </tr>
-      <tr>
-        <td>Suite</td>
-        <td>Rozbudowana jednostka mieszkalna składająca się zwykle z więcej niż jednej części.</td>
-      </tr>
-    </table>
-
-    <h2 id="hotel-standardy">Standardy obsługi</h2>
-
-    <p>
-      Standard obsługi określa sposób wykonywania czynności oraz oczekiwany
-      poziom jakości kontaktu z gościem. Standard powinien być zgodny z profilem
-      obiektu, jego procedurami oraz obowiązującymi wymaganiami.
-    </p>
-
-    <h2 id="hotel-reklamacje">Reklamacje</h2>
-
-    <p>
-      Reklamacja jest sygnałem, że gość uważa usługę lub jej element za
-      niezgodny z oczekiwaniami albo ustalonymi warunkami. Pracownik powinien
-      przede wszystkim wysłuchać gościa, ustalić fakty, zachować profesjonalizm
-      i postępować zgodnie z procedurą hotelu.
-    </p>
-
-    <h2 id="hotel-revenue">Revenue management</h2>
-
-    <p>
-      Revenue management polega na zarządzaniu dostępnością i ceną oferty
-      w taki sposób, aby możliwie efektywnie wykorzystać dostępny potencjał
-      sprzedażowy. W hotelarstwie analizuje się między innymi popyt, sezonowość,
-      wydarzenia, kanały sprzedaży i historię rezerwacji.
-    </p>
-
-    <h2 id="hotel-bezpieczenstwo">Bezpieczeństwo</h2>
-
-    <p>
-      Hotel powinien posiadać procedury dotyczące bezpieczeństwa gości,
-      pracowników, obiektu i danych. Szczególne znaczenie mają procedury
-      przeciwpożarowe, ewakuacyjne, kontrola dostępu oraz właściwe postępowanie
-      z informacjami dotyczącymi gości.
-    </p>
-
-  </article>
+<div class="infobox">
+<img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80" alt="Pokój hotelowy">
+<h3>Hotelarstwo</h3>
+<table>
+<tr><td>Branża</td><td>Usługi noclegowe</td></tr>
+<tr><td>Obiekty</td><td>Hotele, pensjonaty, resorty</td></tr>
+<tr><td>Główny cel</td><td>Obsługa i pobyt gościa</td></tr>
+<tr><td>Działy</td><td>Recepcja, housekeeping, gastronomia</td></tr>
+</table>
 </div>
+
+<p>
+Hotelarstwo jest dziedziną gospodarki turystycznej zajmującą się
+świadczeniem usług noclegowych i usług towarzyszących. Współczesny
+hotel może oferować nie tylko pokój, ale również restaurację,
+konferencje, spa, transport, wydarzenia i usługi dodatkowe.
+</p>
+
+<h3>Najważniejsze działy hotelu</h3>
+
+<ul>
+<li>recepcja i front office,</li>
+<li>housekeeping,</li>
+<li>gastronomia,</li>
+<li>dział rezerwacji,</li>
+<li>sprzedaż i marketing,</li>
+<li>dział techniczny,</li>
+<li>finanse,</li>
+<li>zarządzanie obiektem.</li>
+</ul>
+
+<div class="image">
+<img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=85" alt="Lobby hotelowe">
+<div class="caption">Lobby hotelowe jest jednym z najważniejszych miejsc kontaktu z gościem.</div>
+</div>
+</section>
+
+
+<section id="recepcja">
+<h2>Recepcja hotelowa</h2>
+
+<p>
+Recepcja jest jednym z najważniejszych punktów kontaktu pomiędzy
+hotelem a gościem. Pracownik recepcji odpowiada między innymi za
+przyjmowanie rezerwacji, meldowanie i wymeldowywanie gości,
+udzielanie informacji oraz obsługę różnych próśb.
+</p>
+
+<h3>Proces zameldowania</h3>
+
+<ol>
+<li>Powitanie gościa.</li>
+<li>Potwierdzenie rezerwacji.</li>
+<li>Weryfikacja wymaganych danych.</li>
+<li>Przekazanie najważniejszych informacji.</li>
+<li>Przekazanie klucza lub karty.</li>
+<li>Wskazanie podstawowych usług hotelu.</li>
+<li>Pożegnanie i zaproszenie do kontaktu z recepcją.</li>
+</ol>
+
+<div class="note">
+Profesjonalny recepcjonista powinien komunikować się spokojnie,
+uprzejmie i konkretnie, nawet w sytuacji stresowej.
+</div>
+</section>
+
+
+<section id="housekeeping">
+<h2>Housekeeping</h2>
+
+<p>
+Housekeeping odpowiada przede wszystkim za czystość i przygotowanie
+pokoi oraz części wspólnych obiektu. Jakość pracy tego działu
+bezpośrednio wpływa na ocenę pobytu przez gościa.
+</p>
+
+<ul>
+<li>sprzątanie pokoi,</li>
+<li>uzupełnianie wyposażenia,</li>
+<li>kontrola stanu pokoju,</li>
+<li>przygotowanie pokoi do przyjazdu,</li>
+<li>obsługa zgłoszeń dotyczących wyposażenia,</li>
+<li>utrzymanie czystości przestrzeni wspólnych.</li>
+</ul>
+</section>
+
+
+<section id="rezerwacje">
+<h2>Rezerwacje hotelowe</h2>
+
+<p>
+Rezerwacja jest procesem, w którym hotel przyjmuje zobowiązanie
+do zapewnienia gościowi określonej usługi w ustalonym terminie.
+Rezerwacje mogą być dokonywane bezpośrednio, telefonicznie,
+internetowo lub za pośrednictwem pośredników.
+</p>
+
+<h3>Informacje ważne przy rezerwacji</h3>
+
+<ul>
+<li>termin pobytu,</li>
+<li>liczba osób,</li>
+<li>rodzaj pokoju,</li>
+<li>liczba noclegów,</li>
+<li>cena i warunki taryfy,</li>
+<li>forma płatności,</li>
+<li>usługi dodatkowe,</li>
+<li>warunki anulowania.</li>
+</ul>
+</section>
+
+
+<section id="standardy">
+<h2>Standardy hotelowe</h2>
+
+<p>
+Standard hotelu określa poziom i zakres usług oferowanych gościom.
+W praktyce ocena obiektu może uwzględniać między innymi wyposażenie,
+czystość, jakość obsługi, bezpieczeństwo, gastronomię oraz dodatkowe
+udogodnienia.
+</p>
+</section>
 
 
 <!-- TURYSTYKA -->
 
-<div id="turystyka" class="page" style="display:none">
+<section id="turystyka">
+<h2>Turystyka</h2>
 
-  <div class="breadcrumbs">Varelissa › Turystyka</div>
-  <h1 class="page-title">Turystyka</h1>
-  <p class="subtitle">Ruch turystyczny, organizacja podróży, destynacje i obsługa podróżnych.</p>
-
-  <div class="infobox">
-    <div class="infobox-title">Turystyka</div>
-    <img class="infobox-image" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="Turystyka">
-    <table>
-      <tr><td>Charakter</td><td>Usługi i podróże</td></tr>
-      <tr><td>Uczestnicy</td><td>Turyści, organizatorzy, usługodawcy</td></tr>
-      <tr><td>Powiązane</td><td>Transport, hotelarstwo</td></tr>
-    </table>
-  </div>
-
-  <div class="toc">
-    <div class="toc-title">Spis treści</div>
-    <ol>
-      <li><a href="#turystyka-historia">Historia turystyki</a></li>
-      <li><a href="#turystyka-formy">Formy turystyki</a></li>
-      <li><a href="#turystyka-organizacja">Organizacja imprez</a></li>
-      <li><a href="#turystyka-pilot">Pilot wycieczek</a></li>
-      <li><a href="#turystyka-przewodnik">Przewodnictwo</a></li>
-      <li><a href="#turystyka-transport">Transport</a></li>
-      <li><a href="#turystyka-zrownowazona">Turystyka zrównoważona</a></li>
-      <li><a href="#turystyka-kultura">Turystyka kulturowa</a></li>
-      <li><a href="#turystyka-agroturystyka">Agroturystyka</a></li>
-      <li><a href="#turystyka-dostepnosc">Turystyka dostępna</a></li>
-    </ol>
-  </div>
-
-  <article class="article">
-
-    <h2 id="turystyka-historia">Historia turystyki</h2>
-
-    <p>
-      Podróżowanie w celach poznawczych, handlowych, religijnych i wypoczynkowych
-      ma bardzo długą historię. Rozwój nowoczesnej turystyki był związany
-      między innymi z poprawą transportu, rozwojem kolei, lotnictwa,
-      infrastruktury noclegowej i wzrostem czasu przeznaczanego na wypoczynek.
-    </p>
-
-    <h2 id="turystyka-formy">Formy turystyki</h2>
-
-    <p>
-      Turystykę można klasyfikować według różnych kryteriów. Uwzględnia się
-      między innymi cel podróży, sposób organizacji, długość pobytu,
-      środek transportu czy charakter odwiedzanej destynacji.
-    </p>
-
-    <table class="wikitable">
-      <tr>
-        <th>Forma</th>
-        <th>Charakterystyka</th>
-      </tr>
-      <tr>
-        <td>Wypoczynkowa</td>
-        <td>Podróż nastawiona przede wszystkim na odpoczynek i regenerację.</td>
-      </tr>
-      <tr>
-        <td>Kulturowa</td>
-        <td>Poznawanie dziedzictwa, sztuki, historii i tradycji.</td>
-      </tr>
-      <tr>
-        <td>Biznesowa</td>
-        <td>Podróże związane z wykonywaniem działalności zawodowej.</td>
-      </tr>
-      <tr>
-        <td>Aktywna</td>
-        <td>Podróż, której ważnym elementem jest aktywność fizyczna.</td>
-      </tr>
-      <tr>
-        <td>Przyrodnicza</td>
-        <td>Poznawanie środowiska naturalnego i obszarów przyrodniczych.</td>
-      </tr>
-    </table>
-
-    <h2 id="turystyka-organizacja">Organizacja imprez turystycznych</h2>
-
-    <p>
-      Organizacja podróży wymaga połączenia wielu elementów: transportu,
-      zakwaterowania, programu, informacji dla uczestników oraz obsługi
-      logistycznej. W przypadku imprez zorganizowanych szczególne znaczenie
-      ma spójność programu i komunikacja z uczestnikami.
-    </p>
-
-    <h2 id="turystyka-pilot">Pilot wycieczek</h2>
-
-    <p>
-      Pilot wycieczki zajmuje się praktyczną obsługą grupy podczas podróży.
-      Zakres obowiązków zależy od rodzaju imprezy i obowiązujących zasad.
-      Do istotnych kompetencji należą komunikacja, organizacja czasu,
-      orientacja w programie i reagowanie na sytuacje nieprzewidziane.
-    </p>
-
-    <h2 id="turystyka-przewodnik">Przewodnictwo</h2>
-
-    <p>
-      Przewodnictwo turystyczne wiąże się z przekazywaniem informacji
-      o odwiedzanym miejscu. Dobry przewodnik powinien umieć dostosować
-      sposób przekazywania wiedzy do grupy i unikać przeładowania uczestników
-      nadmiarem informacji.
-    </p>
-
-    <h2 id="turystyka-transport">Transport</h2>
-
-    <p>
-      Transport jest jednym z podstawowych elementów turystyki. W zależności
-      od kierunku i charakteru podróży wykorzystuje się transport lotniczy,
-      kolejowy, drogowy, morski lub kombinacje różnych środków.
-    </p>
-
-    <h2 id="turystyka-zrownowazona">Turystyka zrównoważona</h2>
-
-    <p>
-      Turystyka zrównoważona dąży do ograniczenia negatywnego wpływu podróżowania
-      na środowisko oraz społeczności lokalne przy jednoczesnym zachowaniu
-      możliwości korzystania z walorów turystycznych w przyszłości.
-    </p>
-
-    <h2 id="turystyka-kultura">Turystyka kulturowa</h2>
-
-    <p>
-      Turystyka kulturowa obejmuje podróże, których ważnym elementem jest
-      poznawanie dziedzictwa materialnego i niematerialnego. Mogą to być
-      muzea, zabytki, wydarzenia kulturalne, tradycje lokalne, kuchnia
-      regionalna i sztuka.
-    </p>
-
-    <h2 id="turystyka-agroturystyka">Agroturystyka</h2>
-
-    <p>
-      Agroturystyka łączy pobyt turystyczny z funkcjonowaniem gospodarstwa
-      rolnego. Może umożliwiać poznawanie lokalnej produkcji, tradycji,
-      krajobrazu i stylu życia mieszkańców obszarów wiejskich.
-    </p>
-
-    <h2 id="turystyka-dostepnosc">Turystyka dostępna</h2>
-
-    <p>
-      Turystyka dostępna zakłada projektowanie usług i przestrzeni w taki sposób,
-      aby mogło z nich korzystać możliwie szerokie grono osób, w tym osoby
-      z różnymi ograniczeniami mobilności, słuchu, wzroku lub komunikacji.
-    </p>
-
-  </article>
+<div class="infobox">
+<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="Podróż">
+<h3>Turystyka</h3>
+<table>
+<tr><td>Charakter</td><td>Podróże i czas wolny</td></tr>
+<tr><td>Elementy</td><td>Transport, noclegi, atrakcje</td></tr>
+<tr><td>Branża</td><td>Usługi turystyczne</td></tr>
+</table>
 </div>
+
+<p>
+Turystyka obejmuje podróże podejmowane w celach wypoczynkowych,
+poznawczych, biznesowych, zdrowotnych, kulturowych i wielu innych.
+Jest rozbudowanym sektorem gospodarki łączącym transport, hotelarstwo,
+gastronomię, organizatorów turystyki i atrakcje.
+</p>
+
+<h3>Rodzaje turystyki</h3>
+
+<ul>
+<li>turystyka wypoczynkowa,</li>
+<li>turystyka kulturowa,</li>
+<li>turystyka biznesowa,</li>
+<li>turystyka zdrowotna,</li>
+<li>turystyka przyrodnicza,</li>
+<li>turystyka aktywna,</li>
+<li>turystyka miejska,</li>
+<li>turystyka religijna.</li>
+</ul>
+
+<div class="image">
+<img src="https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=1400&q=85" alt="Turystyka">
+<div class="caption">Turystyka łączy transport, noclegi, kulturę, gastronomię i atrakcje.</div>
+</div>
+</section>
+
+
+<section id="organizacja">
+<h2>Organizacja imprez turystycznych</h2>
+
+<p>
+Organizacja imprezy turystycznej wymaga zaplanowania programu,
+transportu, zakwaterowania, wyżywienia, atrakcji oraz komunikacji
+z uczestnikami. Istotna jest także analiza ryzyka i przygotowanie
+wariantów awaryjnych.
+</p>
+</section>
+
+
+<section id="transport">
+<h2>Transport turystyczny</h2>
+
+<p>
+Transport jest jednym z podstawowych elementów produktu turystycznego.
+Może obejmować transport lotniczy, kolejowy, drogowy, morski
+oraz lokalny transport wykorzystywany podczas pobytu.
+</p>
+</section>
+
+
+<section id="atrakcje">
+<h2>Atrakcje turystyczne</h2>
+
+<p>
+Atrakcją turystyczną może być obiekt, wydarzenie, krajobraz,
+zabytek, muzeum, park, obszar przyrodniczy lub doświadczenie,
+które stanowi cel zainteresowania odwiedzających.
+</p>
+</section>
 
 
 <!-- BEZPIECZEŃSTWO -->
 
-<div id="bezpieczenstwo" class="page" style="display:none">
+<section id="bezpieczenstwo">
+<h2>Bezpieczeństwo w branży</h2>
 
-  <div class="breadcrumbs">Varelissa › Bezpieczeństwo zawodowe</div>
-  <h1 class="page-title">Bezpieczeństwo zawodowe</h1>
-  <p class="subtitle">BHP, ochrona przeciwpożarowa, ergonomia, pierwsza pomoc i bezpieczeństwo gościa.</p>
+<p>
+Bezpieczeństwo obejmuje działania mające ograniczyć możliwość
+powstania wypadków, pożarów, zatruć, uszkodzeń mienia i innych
+zdarzeń zagrażających ludziom.
+</p>
 
-  <div class="toc">
-    <div class="toc-title">Spis treści</div>
-    <ol>
-      <li><a href="#bhp">Bezpieczeństwo i higiena pracy</a></li>
-      <li><a href="#ppoż">Ochrona przeciwpożarowa</a></li>
-      <li><a href="#pierwsza-pomoc">Pierwsza pomoc</a></li>
-      <li><a href="#ergonomia">Ergonomia</a></li>
-      <li><a href="#chemia">Środki chemiczne</a></li>
-      <li><a href="#wypadki">Wypadki zawodowe</a></li>
-      <li><a href="#ewakuacja">Ewakuacja</a></li>
-      <li><a href="#bezpieczenstwo-gosc">Bezpieczeństwo gościa</a></li>
-    </ol>
-  </div>
-
-  <article class="article">
-
-    <h2 id="bhp">Bezpieczeństwo i higiena pracy</h2>
-
-    <p>
-      Bezpieczeństwo i higiena pracy obejmują zasady organizowania pracy
-      w sposób ograniczający ryzyko wystąpienia urazów, chorób zawodowych
-      oraz innych niekorzystnych zdarzeń.
-    </p>
-
-    <p>
-      W gastronomii i hotelarstwie występują między innymi zagrożenia
-      mechaniczne, termiczne, chemiczne, biologiczne i ergonomiczne.
-      Odpowiednie szkolenie oraz przestrzeganie procedur zmniejszają ryzyko.
-    </p>
-
-    <h2 id="ppoż">Ochrona przeciwpożarowa</h2>
-
-    <p>
-      Ochrona przeciwpożarowa obejmuje działania służące zapobieganiu pożarom,
-      ograniczaniu ich skutków oraz zapewnieniu możliwości bezpiecznej ewakuacji.
-      Pracownik powinien znać obowiązujące w danym obiekcie procedury.
-    </p>
-
-    <h2 id="pierwsza-pomoc">Pierwsza pomoc</h2>
-
-    <p>
-      Pierwsza pomoc oznacza działania podejmowane wobec osoby potrzebującej
-      pomocy do czasu uzyskania profesjonalnej pomocy medycznej. W sytuacji
-      rzeczywistego zagrożenia należy stosować aktualne zasady pierwszej pomocy
-      i korzystać z odpowiednich służb ratunkowych.
-    </p>
-
-    <div class="notice">
-      <strong>Ważne:</strong> materiał edukacyjny nie zastępuje profesjonalnego
-      szkolenia z pierwszej pomocy, BHP ani ochrony przeciwpożarowej.
-    </div>
-
-    <h2 id="ergonomia">Ergonomia</h2>
-
-    <p>
-      Ergonomia zajmuje się dostosowaniem pracy, narzędzi i stanowiska
-      do możliwości człowieka. W gastronomii istotne jest ograniczanie
-      niepotrzebnych ruchów, prawidłowe podnoszenie przedmiotów oraz organizacja
-      przestrzeni roboczej.
-    </p>
-
-    <h2 id="chemia">Środki chemiczne</h2>
-
-    <p>
-      Środki czyszczące należy stosować zgodnie z instrukcją producenta.
-      Nie powinno się mieszać przypadkowych preparatów. Chemikalia należy
-      przechowywać w sposób ograniczający możliwość kontaktu z żywnością
-      oraz dostęp osób nieupoważnionych.
-    </p>
-
-    <h2 id="wypadki">Wypadki zawodowe</h2>
-
-    <p>
-      Wypadek w pracy może być związany między innymi z poślizgnięciem,
-      upadkiem, skaleczeniem, poparzeniem lub innym zdarzeniem. Po zdarzeniu
-      należy postępować zgodnie z procedurami obowiązującymi w miejscu pracy.
-    </p>
-
-    <h2 id="ewakuacja">Ewakuacja</h2>
-
-    <p>
-      Ewakuacja jest zorganizowanym opuszczeniem zagrożonego miejsca.
-      Pracownik powinien znać drogi ewakuacyjne, lokalizację wyjść oraz
-      zasady obowiązujące w obiekcie.
-    </p>
-
-    <h2 id="bezpieczenstwo-gosc">Bezpieczeństwo gościa</h2>
-
-    <p>
-      Bezpieczeństwo gościa obejmuje ochronę osób przebywających w obiekcie
-      przed przewidywalnymi zagrożeniami. W hotelarstwie znaczenie mają między
-      innymi sprawne zamki, kontrola dostępu, oznakowanie dróg ewakuacyjnych
-      i odpowiednia reakcja personelu na sytuacje nietypowe.
-    </p>
-
-  </article>
+<div class="note">
+W sytuacji rzeczywistego zagrożenia należy zawsze stosować
+procedury obowiązujące w danym obiekcie i polecenia odpowiednich służb.
 </div>
+</section>
 
 
-<!-- ENCYKLOPEDIA -->
+<section id="bhp">
+<h2>BHP</h2>
 
-<div id="encyclopedia" class="page" style="display:none">
-
-  <div class="breadcrumbs">Varelissa › Encyklopedia</div>
-  <h1 class="page-title">Encyklopedia zawodowa</h1>
-
-  <p class="lead">
-    Indeks haseł Varelissy. Wybierz kategorię, aby przejść do odpowiedniego
-    działu. System indeksowania pozwala dodawać kolejne setki artykułów
-    bez zmiany konstrukcji strony.
-  </p>
-
-  <table class="wikitable">
-    <thead>
-      <tr>
-        <th>Dział</th>
-        <th>Zakres</th>
-        <th>Przejdź</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Gastronomia</td>
-        <td>Technologia żywności, kuchnia, obsługa, higiena</td>
-        <td><a href="#gastronomia" onclick="showPage('gastronomia')">Gastronomia</a></td>
-      </tr>
-      <tr>
-        <td>Hotelarstwo</td>
-        <td>Recepcja, rezerwacje, housekeeping, obsługa</td>
-        <td><a href="#hotelarstwo" onclick="showPage('hotelarstwo')">Hotelarstwo</a></td>
-      </tr>
-      <tr>
-        <td>Turystyka</td>
-        <td>Podróże, imprezy, transport, destynacje</td>
-        <td><a href="#turystyka" onclick="showPage('turystyka')">Turystyka</a></td>
-      </tr>
-      <tr>
-        <td>Bezpieczeństwo</td>
-        <td>BHP, PPOŻ, ergonomia i bezpieczeństwo gościa</td>
-        <td><a href="#bezpieczenstwo" onclick="showPage('bezpieczenstwo')">Bezpieczeństwo</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2 class="article">Indeks tematyczny</h2>
-
-  <div id="generatedIndex" class="article"></div>
-
-</div>
+<p>
+Bezpieczeństwo i higiena pracy obejmuje zasady organizowania pracy
+w sposób ograniczający ryzyko dla pracowników. W gastronomii
+szczególne znaczenie mają między innymi ostre narzędzia, gorące
+powierzchnie, urządzenia elektryczne, środki chemiczne oraz ryzyko
+poślizgnięcia.
+</p>
+</section>
 
 
-<!-- SŁOWNIK -->
+<section id="ppoż">
+<h2>Ochrona przeciwpożarowa</h2>
 
-<div id="dictionary" class="page" style="display:none">
-
-  <div class="breadcrumbs">Varelissa › Słownik zawodowy</div>
-  <h1 class="page-title">Słownik zawodowy</h1>
-  <p class="subtitle">Ponad 150 podstawowych pojęć używanych w gastronomii, hotelarstwie i turystyce.</p>
-
-  <input
-    id="dictionarySearch"
-    class="dictionary-search"
-    type="search"
-    placeholder="Wyszukaj słowo..."
-    oninput="filterDictionary()"
-  >
-
-  <div id="dictionaryList"></div>
-
-</div>
+<p>
+Pracownik powinien znać zasady alarmowania, drogi ewakuacyjne,
+lokalizację sprzętu przeciwpożarowego oraz procedury obowiązujące
+w konkretnym obiekcie.
+</p>
+</section>
 
 
-<!-- QUIZ -->
+<!-- SŁOWNICTWO -->
 
-<div id="quiz" class="page" style="display:none">
+<section id="slownictwo">
+<h2>Słownictwo zawodowe</h2>
 
-  <div class="breadcrumbs">Varelissa › Quizy</div>
-  <h1 class="page-title">Quizy wiedzy</h1>
+<p>
+Poniższy słownik zawiera przykładowe terminy przydatne w hotelarstwie,
+gastronomii i turystyce.
+</p>
 
-  <p class="lead">
-    Odpowiadaj na pytania i otrzymuj informację natychmiast po wybraniu odpowiedzi.
-    Na końcu otrzymasz wynik procentowy.
-  </p>
+<table style="width:100%;border-collapse:collapse">
+<thead>
+<tr>
+<th style="border:1px solid #c8ccd1;padding:10px;text-align:left">Polski</th>
+<th style="border:1px solid #c8ccd1;padding:10px;text-align:left">Angielski</th>
+<th style="border:1px solid #c8ccd1;padding:10px;text-align:left">Znaczenie</th>
+</tr>
+</thead>
+<tbody id="dictionary"></tbody>
+</table>
 
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin:20px 0">
-    <button class="quiz-next" onclick="startQuiz('gastronomia')">Gastronomia</button>
-    <button class="quiz-next" onclick="startQuiz('hotel')">Hotelarstwo</button>
-    <button class="quiz-next" onclick="startQuiz('turystyka')">Turystyka</button>
-    <button class="quiz-next" onclick="startQuiz('bhp')">Bezpieczeństwo</button>
-  </div>
-
-  <div id="quizContainer" class="quiz-panel">
-    <p>Wybierz kategorię quizu powyżej.</p>
-  </div>
-
-</div>
+</section>
 
 
-<!-- WIRTUALNA RECEPCJA -->
+<section id="wymowa">
+<h2>Wymowa</h2>
 
-<div id="reception" class="page" style="display:none">
+<p>
+Kliknij przycisk „Odtwórz”, aby przeglądarka spróbowała odczytać
+angielskie słowo. Funkcja korzysta z wbudowanego mechanizmu syntezy mowy.
+</p>
 
-  <div class="breadcrumbs">Varelissa › Symulator praktyczny › Recepcja</div>
-  <h1 class="page-title">Wirtualna recepcja</h1>
-  <p class="subtitle">
-    Symulator rozmowy z gościem hotelowym dla uczniów kierunków hotelarskich.
-  </p>
+<div id="pronunciation"></div>
+</section>
 
-  <div class="reception">
 
-    <div class="reception-header">
-      <strong>Stanowisko recepcji</strong>
-      <span id="receptionScore" style="float:right">Wynik: 0 pkt</span>
-    </div>
+<!-- QUIZY -->
 
-    <div class="reception-body">
+<section id="quizy">
+<h2>Quizy zawodowe</h2>
 
-      <div class="guest-card">
-        <strong>Gość hotelowy</strong>
-        <p id="guestScenario">
-          Dobry wieczór. Mam rezerwację na nazwisko Kowalski.
-          Chciałbym się zameldować.
-        </p>
-      </div>
+<p>
+Wybierz dział i sprawdź swoją wiedzę. Odpowiedź jest oceniana
+natychmiast po zaznaczeniu.
+</p>
+</section>
 
-      <div id="chat" class="chat">
-        <div class="msg guest">
-          Dobry wieczór. Mam rezerwację na nazwisko Kowalski.
-          Chciałbym się zameldować.
-        </div>
-      </div>
 
-      <form class="reception-form" onsubmit="sendReception(event)">
-        <input
-          id="receptionInput"
-          autocomplete="off"
-          placeholder="Napisz odpowiedź recepcjonisty..."
-        >
-        <button>Odpowiedz</button>
-      </form>
+<section id="quiz-gastro" class="quiz">
+<h2>Quiz gastronomiczny</h2>
+<div id="gastroQuiz"></div>
+</section>
 
-      <div id="receptionFeedback" class="quiz-feedback"></div>
 
-      <button class="quiz-next" onclick="nextGuest()">
-        Następny gość
-      </button>
+<section id="quiz-hotel" class="quiz">
+<h2>Quiz hotelarski</h2>
+<div id="hotelQuiz"></div>
+</section>
 
-      <div class="professional" style="margin-top:20px">
-        <strong>Cel ćwiczenia:</strong>
-        przyjmij gościa profesjonalnie, zbierz niezbędne informacje,
-        odpowiedz na pytania i przeprowadź rozmowę zgodnie ze standardem
-        obsługi hotelowej.
-      </div>
 
-    </div>
-  </div>
-
-</div>
+<section id="quiz-tur" class="quiz">
+<h2>Quiz turystyczny</h2>
+<div id="turQuiz"></div>
+</section>
 
 </main>
-
-
-<!-- PRAWA KOLUMNA -->
-
-<aside class="rightbar">
-
-  <div class="right-box">
-    <h3>W tym dziale</h3>
-    <ul>
-      <li><a href="#gastronomia">Gastronomia</a></li>
-      <li><a href="#hotelarstwo">Hotelarstwo</a></li>
-      <li><a href="#turystyka">Turystyka</a></li>
-      <li><a href="#bezpieczenstwo">Bezpieczeństwo</a></li>
-    </ul>
-  </div>
-
-  <div class="right-box">
-    <h3>Narzędzia</h3>
-    <ul>
-      <li><a href="#dictionary" onclick="showPage('dictionary')">Słownik</a></li>
-      <li><a href="#quiz" onclick="showPage('quiz')">Quizy</a></li>
-      <li><a href="#reception" onclick="showPage('reception')">Recepcja</a></li>
-    </ul>
-  </div>
-
-  <div class="right-box">
-    <h3>Varelissa</h3>
-    <p style="font-size:13px;margin:0">
-      Encyklopedia edukacyjna dla przyszłych pracowników
-      gastronomii, hotelarstwa i turystyki.
-    </p>
-  </div>
-
-</aside>
-
 </div>
+
+
+<footer class="footer">
+<div class="footerInner">
+<h2>VARELISSA</h2>
+<p>
+Encyklopedia zawodowa gastronomii, hotelarstwa, turystyki
+i bezpieczeństwa.
+</p>
+<p>
+Projekt edukacyjny • HTML • CSS • JavaScript
+</p>
+</div>
+</footer>
+
+<a href="#top" class="back" title="Wróć na górę">↑</a>
 
 
 <script>
 
-/* ============================================================
-   NAWIGACJA
-============================================================ */
+/* ===========================
+   SŁOWNIK
+=========================== */
 
-const pages=[
-  "home",
-  "encyclopedia",
-  "gastronomia",
-  "hotelarstwo",
-  "turystyka",
-  "bezpieczenstwo",
-  "dictionary",
-  "quiz",
-  "reception"
+const words = [
+["Recepcja","Reception","miejsce obsługi gości hotelowych"],
+["Recepcjonista","Receptionist","pracownik recepcji"],
+["Rezerwacja","Reservation","wcześniejsze zamówienie usługi"],
+["Gość","Guest","osoba korzystająca z usług hotelu"],
+["Pokój","Room","jednostka noclegowa"],
+["Meldowanie","Check-in","proces przyjęcia gościa"],
+["Wymeldowanie","Check-out","proces zakończenia pobytu"],
+["Klucz","Key","przedmiot umożliwiający dostęp do pokoju"],
+["Karta","Key card","karta elektroniczna do pokoju"],
+["Lobby","Lobby","reprezentacyjna część hotelu"],
+["Housekeeping","Housekeeping","dział odpowiedzialny za czystość"],
+["Pokojówka","Room attendant","osoba sprzątająca pokoje"],
+["Restauracja","Restaurant","lokal gastronomiczny"],
+["Kuchnia","Kitchen","miejsce przygotowania potraw"],
+["Kelner","Waiter","osoba obsługująca gości"],
+["Menu","Menu","karta dań"],
+["Śniadanie","Breakfast","pierwszy główny posiłek dnia"],
+["Obiad","Lunch","posiłek spożywany w ciągu dnia"],
+["Kolacja","Dinner","wieczorny posiłek"],
+["Napoje","Beverages","napoje serwowane gościom"],
+["Danie","Dish","przygotowana potrawa"],
+["Przystawka","Starter","mała potrawa podawana przed daniem głównym"],
+["Deser","Dessert","słodkie zakończenie posiłku"],
+["Kuchnia","Cuisine","styl przygotowywania potraw"],
+["Rezerwacja stolika","Table reservation","zamówienie miejsca w restauracji"],
+["Rachunek","Bill","dokument określający należność"],
+["Paragon","Receipt","potwierdzenie sprzedaży"],
+["Napiwek","Tip","dobrowolna kwota dla obsługi"],
+["Alergia","Allergy","reakcja organizmu na określony składnik"],
+["Catering","Catering","usługa przygotowania i dostarczenia żywności"],
+["Turystyka","Tourism","podróżowanie w celach turystycznych"],
+["Turysta","Tourist","osoba podróżująca turystycznie"],
+["Wycieczka","Trip","zorganizowana lub indywidualna podróż"],
+["Przewodnik","Guide","osoba oprowadzająca turystów"],
+["Atrakcja","Attraction","miejsce lub wydarzenie przyciągające turystów"],
+["Transport","Transport","przemieszczanie osób lub rzeczy"],
+["Lotnisko","Airport","miejsce obsługi transportu lotniczego"],
+["Dworzec","Station","miejsce obsługi transportu kolejowego"],
+["Bilet","Ticket","dokument uprawniający do przejazdu lub wejścia"],
+["Walizka","Suitcase","bagaż podróżnego"],
+["Paszport","Passport","dokument podróży"],
+["Mapa","Map","graficzne przedstawienie obszaru"],
+["Wycieczka objazdowa","Tour","podróż obejmująca wiele miejsc"],
+["Przewoźnik","Carrier","firma świadcząca usługi transportowe"],
+["Hotel","Hotel","obiekt świadczący usługi noclegowe"],
+["Apartament","Apartment","większa jednostka mieszkalna"],
+["Rezydent","Resident","osoba obsługująca turystów w miejscu pobytu"],
+["Biuro podróży","Travel agency","firma pośrednicząca w usługach turystycznych"],
+["HACCP","HACCP","system kontroli bezpieczeństwa żywności"],
+["Higiena","Hygiene","zasady utrzymywania czystości"],
+["Bezpieczeństwo","Safety","stan ograniczający ryzyko zagrożenia"],
+["Ewakuacja","Evacuation","zorganizowane opuszczenie zagrożonego miejsca"],
+["Pożar","Fire","niekontrolowany proces spalania"],
+["Gaśnica","Fire extinguisher","urządzenie służące do gaszenia pożaru"],
+["Wypadek","Accident","nagłe zdarzenie powodujące szkodę"],
+["Stanowisko pracy","Workstation","miejsce wykonywania pracy"],
+["Szef kuchni","Chef","osoba kierująca pracą kuchni"],
+["Kucharz","Cook","pracownik przygotowujący potrawy"],
+["Magazyn","Storage room","miejsce przechowywania produktów"],
+["Dostawa","Delivery","przekazanie produktów lub towarów"],
+["Produkt","Product","towar lub składnik wykorzystywany w pracy"],
+["Składnik","Ingredient","element użyty do przygotowania potrawy"],
+["Przepis","Recipe","instrukcja przygotowania potrawy"],
+["Porcja","Portion","określona ilość potrawy"],
+["Sztućce","Cutlery","narzędzia używane podczas jedzenia"],
+["Talerz","Plate","naczynie do podawania potraw"],
+["Szklanka","Glass","naczynie do napojów"],
+["Filiżanka","Cup","naczynie do kawy lub herbaty"],
+["Serwetka","Napkin","element nakrycia stołu"],
+["Stół","Table","mebel wykorzystywany podczas obsługi"],
+["Obsługa","Service","czynności wykonywane dla klienta"],
+["Klient","Customer","osoba korzystająca z usługi"],
+["Reklamacja","Complaint","zgłoszenie niezadowolenia z usługi"],
+["Opinie","Reviews","oceny wystawiane przez klientów"],
+["Standard","Standard","ustalony poziom jakości"],
+["Jakość","Quality","stopień spełnienia wymagań"],
+["Usługa","Service","świadczenie wykonywane dla klienta"],
+["Cena","Price","wartość pieniężna produktu lub usługi"],
+["Promocja","Promotion","działanie zachęcające do zakupu"],
+["Oferta","Offer","zestaw dostępnych produktów lub usług"],
+["Konferencja","Conference","zorganizowane spotkanie"],
+["Sala konferencyjna","Conference room","pomieszczenie do organizacji spotkań"],
+["Spa","Spa","strefa usług relaksacyjnych i wellness"],
+["Wellness","Wellness","koncepcja dbania o dobrostan"],
+["Basen","Swimming pool","obiekt do pływania i rekreacji"],
+["Siłownia","Gym","miejsce do ćwiczeń"],
+["Śniadanie w formie bufetu","Breakfast buffet","samoobsługowa forma śniadania"],
+["Room service","Room service","obsługa dostarczająca usługi do pokoju"],
+["Late check-out","Late check-out","późniejsze opuszczenie pokoju"],
+["Early check-in","Early check-in","wcześniejsze zameldowanie"],
+["No-show","No-show","niepojawienie się gościa z rezerwacją"],
+["Overbooking","Overbooking","sprzedaż większej liczby rezerwacji niż dostępnych miejsc"],
+["Twin room","Twin room","pokój z dwoma osobnymi łóżkami"],
+["Double room","Double room","pokój z łóżkiem dla dwóch osób"],
+["Single room","Single room","pokój jednoosobowy"],
+["Suite","Suite","rozbudowana jednostka hotelowa"],
+["Key card","Key card","elektroniczna karta dostępu"],
+["Front office","Front office","obszar obsługi gościa"],
+["Back office","Back office","zaplecze administracyjne"],
+["Manager","Manager","osoba zarządzająca"],
+["Supervisor","Supervisor","osoba nadzorująca pracę"],
+["Shift","Shift","zmiana pracownicza"],
+["Reservation system","Reservation system","system obsługi rezerwacji"],
+["Occupancy","Occupancy","poziom wykorzystania miejsc noclegowych"],
+["Check list","Checklist","lista kontrolna"],
+["Feedback","Feedback","informacja zwrotna"],
+["Hospitality","Hospitality","gościnność i profesjonalna obsługa"],
+["Destination","Destination","miejsce docelowe podróży"],
+["Itinerary","Itinerary","plan podróży"],
+["Sightseeing","Sightseeing","zwiedzanie"],
+["Travel insurance","Travel insurance","ubezpieczenie podróżne"],
+["Tour operator","Tour operator","organizator imprez turystycznych"],
+["Package tour","Package tour","pakietowa impreza turystyczna"],
+["Tourist information","Tourist information","informacja turystyczna"],
+["Souvenir","Souvenir","pamiątka"],
+["Guidebook","Guidebook","przewodnik turystyczny"],
+["Excursion","Excursion","wycieczka lub wypad"],
+["Accommodation","Accommodation","zakwaterowanie"],
+["Check-in desk","Check-in desk","stanowisko zameldowania"],
+["Guest relations","Guest relations","obsługa relacji z gośćmi"],
+["Concierge","Concierge","pracownik pomagający gościom w organizacji usług"],
+["Bellhop","Bellhop","pracownik pomagający z bagażem"],
+["Luggage","Luggage","bagaż"],
+["Wake-up call","Wake-up call","telefoniczne budzenie gościa"],
+["Amenities","Amenities","udogodnienia dla gości"],
+["Vacancy","Vacancy","wolne miejsce lub pokój"],
+["Available room","Available room","dostępny pokój"],
+["Occupied room","Occupied room","zajęty pokój"],
+["Cleaning","Cleaning","sprzątanie"],
+["Laundry","Laundry","pralnia"],
+["Maintenance","Maintenance","utrzymanie techniczne"],
+["Breakfast room","Breakfast room","sala śniadaniowa"],
+["Restaurant manager","Restaurant manager","kierownik restauracji"],
+["Menu card","Menu card","karta menu"],
+["Chef's special","Chef's special","specjalność szefa kuchni"],
+["Vegetarian","Vegetarian","wegetariański"],
+["Vegan","Vegan","wegański"],
+["Gluten-free","Gluten-free","bezglutenowy"],
+["Allergen","Allergen","substancja mogąca powodować alergię"],
+["Food safety","Food safety","bezpieczeństwo żywności"],
+["Kitchen equipment","Kitchen equipment","wyposażenie kuchni"],
+["Cutting board","Cutting board","deska do krojenia"],
+["Knife","Knife","nóż"],
+["Pan","Pan","patelnia"],
+["Pot","Pot","garnek"],
+["Oven","Oven","piekarnik"],
+["Fridge","Fridge","lodówka"],
+["Freezer","Freezer","zamrażarka"],
+["Bill","Bill","rachunek"],
+["Cash payment","Cash payment","płatność gotówką"],
+["Card payment","Card payment","płatność kartą"],
+["Receipt","Receipt","paragon"],
+["Tip","Tip","napiwek"],
+["Table setting","Table setting","nakrycie stołu"],
+["Reservation book","Reservation book","księga rezerwacji"]
 ];
 
-function showPage(id){
-  pages.forEach(p=>{
-    const el=document.getElementById(p);
-    if(el) el.style.display=(p===id ? "block":"none");
-  });
+const dictionary = document.getElementById("dictionary");
+const pronunciation = document.getElementById("pronunciation");
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+words.forEach((w,i)=>{
+    dictionary.innerHTML += `
+    <tr>
+        <td style="border:1px solid #c8ccd1;padding:9px">${w[0]}</td>
+        <td style="border:1px solid #c8ccd1;padding:9px"><b>${w[1]}</b></td>
+        <td style="border:1px solid #c8ccd1;padding:9px">${w[2]}</td>
+    </tr>`;
 
-  if(window.innerWidth<=760){
-    document.getElementById("sidebar").classList.remove("open");
-  }
+    pronunciation.innerHTML += `
+    <div style="padding:10px;border-bottom:1px solid #eaecf0">
+        <b>${w[1]}</b> — ${w[0]}
+        <button onclick="speak('${w[1].replace(/'/g,"\\'")}')"
+        style="float:right;cursor:pointer">▶ Odtwórz</button>
+    </div>`;
+});
 
-  if(id==="dictionary") renderDictionary();
-  if(id==="encyclopedia") renderIndex();
+function speak(text){
+    if("speechSynthesis" in window){
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang="en-US";
+        speechSynthesis.cancel();
+        speechSynthesis.speak(utterance);
+    }else{
+        alert("Twoja przeglądarka nie obsługuje syntezy mowy.");
+    }
 }
 
-function toggleSidebar(){
-  document.getElementById("sidebar").classList.toggle("open");
-}
 
+/* ===========================
+   QUIZY
+=========================== */
 
-/* ============================================================
-   WYSZUKIWARKA
-============================================================ */
-
-const searchItems=[
-  ["Gastronomia","gastronomia"],
-  ["Historia gastronomii","gastronomia"],
-  ["Kuchnie świata","gastronomia"],
-  ["Technologia żywności","gastronomia"],
-  ["Obróbka termiczna","gastronomia"],
-  ["Techniki krojenia","gastronomia"],
-  ["Obsługa konsumenta","gastronomia"],
-  ["Menu i karta dań","gastronomia"],
-  ["Napoje","gastronomia"],
-  ["Higiena żywności","gastronomia"],
-  ["Alergeny","gastronomia"],
-  ["HACCP","gastronomia"],
-
-  ["Hotelarstwo","hotelarstwo"],
-  ["Historia hotelarstwa","hotelarstwo"],
-  ["Obiekty hotelarskie","hotelarstwo"],
-  ["Recepcja","hotelarstwo"],
-  ["Rezerwacje","hotelarstwo"],
-  ["Check-in","hotelarstwo"],
-  ["Check-out","hotelarstwo"],
-  ["Housekeeping","hotelarstwo"],
-  ["Rodzaje pokoi","hotelarstwo"],
-  ["Standardy obsługi","hotelarstwo"],
-  ["Reklamacje","hotelarstwo"],
-  ["Revenue management","hotelarstwo"],
-  ["Bezpieczeństwo hotelu","hotelarstwo"],
-
-  ["Turystyka","turystyka"],
-  ["Historia turystyki","turystyka"],
-  ["Formy turystyki","turystyka"],
-  ["Organizacja imprez turystycznych","turystyka"],
-  ["Pilot wycieczek","turystyka"],
-  ["Przewodnictwo","turystyka"],
-  ["Transport","turystyka"],
-  ["Turystyka zrównoważona","turystyka"],
-  ["Turystyka kulturowa","turystyka"],
-  ["Agroturystyka","turystyka"],
-  ["Turystyka dostępna","turystyka"],
-
-  ["BHP","bezpieczenstwo"],
-  ["PPOŻ","bezpieczenstwo"],
-  ["Pierwsza pomoc","bezpieczenstwo"],
-  ["Ergonomia","bezpieczenstwo"],
-  ["Środki chemiczne","bezpieczenstwo"],
-  ["Wypadki zawodowe","bezpieczenstwo"],
-  ["Ewakuacja","bezpieczenstwo"],
-  ["Bezpieczeństwo gościa","bezpieczenstwo"]
+const gastroQuestions = [
+["Co jest podstawowym zadaniem gastronomii?","Przygotowanie i świadczenie usług związanych z żywnością","Naprawa samochodów","Budowa hoteli","Produkcja odzieży",0],
+["Co oznacza HACCP?","System kontroli bezpieczeństwa żywności","Rodzaj hotelu","System rezerwacji lotów","Technikę dekorowania stołu",0],
+["Która technika wykorzystuje gorący tłuszcz?","Smażenie","Gotowanie","Mrożenie","Fermentacja",0],
+["Kto zazwyczaj kieruje pracą kuchni?","Szef kuchni","Portier","Rezydent","Recepcjonista",0],
+["Czym jest menu?","Kartą dań","Kartą hotelową","Mapą miasta","Biletem",0],
+["Co jest ważne w higienie żywności?","Zapobieganie zanieczyszczeniom","Przechowywanie wszystkiego razem","Brak kontroli temperatury","Pomijanie mycia rąk",0],
+["Czym jest catering?","Usługą gastronomiczną organizowaną poza stałym lokalem lub w miejscu wydarzenia","Rodzajem recepcji","Rodzajem pokoju","Systemem ewakuacji",0],
+["Kim jest kelner?","Pracownikiem obsługującym gości gastronomicznych","Kierowcą autobusu","Pracownikiem pralni","Przewodnikiem",0],
+["Czym jest porcja?","Określoną ilością potrawy","Rodzajem hotelu","Rodzajem biletu","Rodzajem transportu",0],
+["Co oznacza alergia pokarmowa?","Reakcję organizmu na określony składnik","Rodzaj menu","Metodę gotowania","Rodzaj płatności",0]
 ];
 
-function searchSite(e){
-  e.preventDefault();
+const hotelQuestions = [
+["Co jest jednym z głównych zadań recepcji?","Obsługa gości","Naprawa dróg","Produkcja żywności","Uprawa roślin",0],
+["Co oznacza check-in?","Zameldowanie","Wymeldowanie","Sprzątanie","Reklamację",0],
+["Co oznacza check-out?","Wymeldowanie","Zameldowanie","Rezerwację restauracji","Transport",0],
+["Za co odpowiada housekeeping?","Między innymi za czystość pokoi","Za sprzedaż samochodów","Za prowadzenie lotów","Za produkcję mebli",0],
+["Czym jest rezerwacja?","Zamówieniem usługi na określony termin","Rodzajem posiłku","Rodzajem gaśnicy","Rodzajem biletu",0],
+["Kim jest concierge?","Pracownikiem pomagającym gościom organizować różne usługi","Kucharzem","Kierowcą","Pracownikiem magazynu",0],
+["Co oznacza no-show?","Niepojawienie się gościa z rezerwacją","Późne śniadanie","Sprzątanie pokoju","Zmianę pokoju",0],
+["Co oznacza late check-out?","Późniejsze opuszczenie pokoju","Wcześniejsze zameldowanie","Rezerwację restauracji","Wymianę ręczników",0],
+["Co oznacza occupancy?","Poziom wykorzystania miejsc noclegowych","Cena śniadania","Rodzaj pokoju","Typ recepcji",0],
+["Czym jest pokój twin?","Pokojem z dwoma osobnymi łóżkami","Pokojem bez łóżka","Apartamentem prezydenckim","Salą konferencyjną",0]
+];
 
-  const q=document.getElementById("globalSearch").value
-    .toLowerCase()
-    .trim();
-
-  if(!q) return;
-
-  const result=searchItems.find(x=>
-    x[0].toLowerCase().includes(q)
-  );
-
-  if(result){
-    showPage(result[1]);
-  }else{
-    alert("Nie znaleziono hasła. Spróbuj innego słowa.");
-  }
-}
+const turQuestions = [
+["Czym jest turystyka?","Podróżowaniem w różnych celach poza miejscem codziennego życia","Tylko pracą w hotelu","Tylko gotowaniem","Tylko transportem",0],
+["Kim jest turysta?","Osoba odbywająca podróż turystyczną","Kucharz","Recepcjonista","Kierownik hotelu",0],
+["Czym jest destination?","Miejscem docelowym podróży","Biletem","Hotelem","Posiłkiem",0],
+["Czym jest itinerary?","Planem podróży","Kartą dań","Rachunkiem","Kluczem",0],
+["Co oznacza sightseeing?","Zwiedzanie","Sprzątanie","Gotowanie","Meldowanie",0],
+["Czym zajmuje się tour operator?","Organizowaniem imprez turystycznych","Sprzątaniem pokoi","Gotowaniem","Naprawą urządzeń",0],
+["Czym jest atrakcja turystyczna?","Miejscem, wydarzeniem lub obiektem interesującym dla odwiedzających","Rodzajem pokoju","Rodzajem rachunku","Rodzajem kuchni",0],
+["Czym może być transport turystyczny?","Transportem lotniczym, kolejowym, drogowym lub morskim","Tylko spacerem","Tylko gotowaniem","Tylko noclegiem",0],
+["Czym jest travel insurance?","Ubezpieczeniem podróżnym","Biletem","Przewodnikiem","Rezerwacją",0],
+["Czym jest souvenir?","Pamiątką","Bagażem","Biletem","Hotelem",0]
+];
 
 
-/* ============================================================
-   INDEKS ENCYKLOPEDII
-============================================================ */
+function buildQuiz(containerId,questions){
 
-const indexData={
+    const container=document.getElementById(containerId);
 
-  "Gastronomia":[
-    "Alergeny",
-    "Bar",
-    "Bufet",
-    "Catering",
-    "Cukiernictwo",
-    "Deser",
-    "Gastronomia hotelowa",
-    "HACCP",
-    "Higiena żywności",
-    "Karta dań",
-    "Kucharz",
-    "Kuchnia regionalna",
-    "Kuchnie świata",
-    "Mise en place",
-    "Napoje",
-    "Obróbka wstępna",
-    "Obróbka termiczna",
-    "Porcjowanie",
-    "Restauracja",
-    "Serwis",
-    "Technologia gastronomiczna",
-    "Towaroznawstwo żywności",
-    "Żywienie zbiorowe"
-  ],
+    questions.forEach((q,i)=>{
+        const div=document.createElement("div");
+        div.className="question";
 
-  "Hotelarstwo":[
-    "Apartament",
-    "Booking",
-    "Check-in",
-    "Check-out",
-    "Concierge",
-    "Depozyt",
-    "Dział pięter",
-    "Front office",
-    "Gość hotelowy",
-    "Housekeeping",
-    "Hotel",
-    "Jednostka mieszkalna",
-    "Klucz hotelowy",
-    "Konferencja",
-    "Lobby",
-    "Obłożenie",
-    "Overbooking",
-    "Pokój double",
-    "Pokój single",
-    "Pokój twin",
-    "Recepcja",
-    "Reklamacja",
-    "Rezerwacja",
-    "Revenue management",
-    "Room service",
-    "Sezonowość",
-    "Standard hotelu"
-  ],
+        let html=`<b>${i+1}. ${q[0]}</b>`;
 
-  "Turystyka":[
-    "Agroturystyka",
-    "Atrakcja turystyczna",
-    "Destynacja",
-    "Impreza turystyczna",
-    "Pilot wycieczki",
-    "Przewodnik",
-    "Turysta",
-    "Turystyka aktywna",
-    "Turystyka biznesowa",
-    "Turystyka kulturowa",
-    "Turystyka przyrodnicza",
-    "Turystyka zrównoważona",
-    "Transport turystyczny",
-    "Walory turystyczne",
-    "Wycieczka",
-    "Zakwaterowanie"
-  ],
-
-  "Bezpieczeństwo":[
-    "BHP",
-    "Ewakuacja",
-    "Ergonomia",
-    "Gaśnica",
-    "Instrukcja bezpieczeństwa",
-    "Pierwsza pomoc",
-    "PPOŻ",
-    "Ryzyko zawodowe",
-    "Środki ochrony indywidualnej",
-    "Środki chemiczne",
-    "Wypadek przy pracy"
-  ]
-};
-
-function renderIndex(){
-
-  const box=document.getElementById("generatedIndex");
-
-  if(box.dataset.ready) return;
-
-  box.innerHTML="";
-
-  Object.entries(indexData).forEach(([category,items])=>{
-
-    const section=document.createElement("section");
-
-    const h=document.createElement("h3");
-    h.textContent=category;
-    section.appendChild(h);
-
-    const ul=document.createElement("ul");
-
-    items.forEach(item=>{
-      const li=document.createElement("li");
-      const a=document.createElement("a");
-      a.href="#";
-      a.textContent=item;
-      a.onclick=e=>{
-        e.preventDefault();
-        const target=findDictionaryTerm(item);
-        if(target){
-          showPage("dictionary");
-          setTimeout(()=>{
-            document.getElementById("dictionarySearch").value=item;
-            filterDictionary();
-          },100);
+        for(let x=1;x<=4;x++){
+            html+=`
+            <label>
+                <input type="radio" name="${containerId}${i}" value="${x-1}">
+                ${q[x]}
+            </label>`;
         }
-      };
-      li.appendChild(a);
-      ul.appendChild(li);
+
+        html+=`<div id="${containerId}feedback${i}" style="font-weight:bold"></div>`;
+
+        div.innerHTML=html;
+        container.appendChild(div);
+
+        div.querySelectorAll("input").forEach(input=>{
+            input.addEventListener("change",function(){
+
+                const feedback=document.getElementById(containerId+"feedback"+i);
+
+                if(Number(this.value)===q[5]){
+                    feedback.textContent="✓ Poprawna odpowiedź";
+                    feedback.style.color="green";
+                }else{
+                    feedback.textContent="✗ Niepoprawna odpowiedź";
+                    feedback.style.color="crimson";
+                }
+
+                calculateScore(containerId,questions);
+            });
+        });
     });
 
-    section.appendChild(ul);
-    box.appendChild(section);
-  });
-
-  box.dataset.ready="1";
+    container.innerHTML+=`
+    <div class="result" id="${containerId}result">
+        Wynik: 0 / ${questions.length}
+    </div>`;
 }
 
 
-/* ============================================================
-   SŁOWNIK 180 HASEŁ
-============================================================ */
+function calculateScore(containerId,questions){
 
-const dictionary=[
+    let score=0;
 
-["A la carte","à la carte","gastronomia","Wybór pojedynczych dań z karty."],
-["Aperitif","aperitif","gastronomia","Napój podawany zwykle przed posiłkiem."],
-["Bar","bar","gastronomia","Miejsce przygotowywania i podawania napojów oraz wybranych produktów."],
-["Bufet","bufet","gastronomia","Sposób ekspozycji i wydawania potraw, często umożliwiający samodzielny wybór."],
-["Catering","kejtering","gastronomia","Usługa przygotowywania i dostarczania żywności poza stałym lokalem."],
-["Chef","szef","gastronomia","Określenie szefa kuchni."],
-["Degustacja","degustacja","gastronomia","Ocena produktu lub potrawy za pomocą zmysłów."],
-["Deser","dyzer","gastronomia","Potrawa podawana zwykle pod koniec posiłku."],
-["Emulsja","emulsja","gastronomia","Układ dwóch cieczy, które normalnie się nie mieszają."],
-["Filetowanie","filetowanie","gastronomia","Oddzielanie mięsa od kości w celu uzyskania filetów."],
-["Gastronomia","gastronomia","gastronomia","Dziedzina związana z przygotowywaniem i podawaniem żywności."],
-["Garnitur sztućców","garnitur sztućców","gastronomia","Zestaw sztućców przeznaczonych do obsługi konsumenta."],
-["HACCP","hasap","gastronomia","System analizy zagrożeń i kontroli istotnych punktów procesu żywnościowego."],
-["Karta dań","karta dań","gastronomia","Dokument lub materiał prezentujący ofertę potraw."],
-["Kucharz","kucharz","gastronomia","Pracownik zajmujący się przygotowywaniem potraw."],
-["Kuchnia zimna","kuchnia zimna","gastronomia","Część produkcji zajmująca się między innymi zimnymi zakąskami."],
-["Kuchnia gorąca","kuchnia gorąca","gastronomia","Część kuchni odpowiedzialna za przygotowywanie dań gorących."],
-["Mise en place","miz an plas","gastronomia","Przygotowanie stanowiska, produktów i narzędzi przed rozpoczęciem pracy."],
-["Porcja","porcja","gastronomia","Określona ilość produktu lub potrawy przeznaczona dla konsumenta."],
-["Serwis","serwis","gastronomia","Ogół czynności związanych z profesjonalnym podawaniem potraw i napojów."],
-["Sommelier","somelije","gastronomia","Specjalista zajmujący się między innymi winem i jego doborem."],
-["Technologia gastronomiczna","technologia gastronomiczna","gastronomia","Wiedza dotycząca procesów przygotowywania potraw."],
-["Towaroznawstwo","towaroznawstwo","gastronomia","Dziedzina zajmująca się właściwościami i oceną towarów."],
-["Waiter","łejter","gastronomia","Angielskie określenie kelnera."],
-["Kelner","kelner","gastronomia","Pracownik odpowiedzialny za obsługę konsumenta w lokalu gastronomicznym."],
-["Kelnerka","kelnerka","gastronomia","Osoba wykonująca pracę kelnerską."],
-["Alergen","alergen","gastronomia","Substancja mogąca wywołać reakcję alergiczną."],
-["Alergia pokarmowa","alergia pokarmowa","gastronomia","Reakcja układu odpornościowego na określony składnik żywności."],
-["Cross-contamination","kros kontaminejszyn","gastronomia","Krzyżowe przeniesienie zanieczyszczenia."],
-["Magazyn","magazyn","gastronomia","Miejsce przechowywania produktów i materiałów."],
-["Chłodnia","chłodnia","gastronomia","Pomieszczenie lub urządzenie przeznaczone do chłodniczego przechowywania."],
-["Mroźnia","mroźnia","gastronomia","Miejsce przeznaczone do przechowywania produktów w stanie zamrożonym."],
+    questions.forEach((q,i)=>{
+        const checked=document.querySelector(
+            `input[name="${containerId}${i}"]:checked`
+        );
 
-["Hotel","hotel","hotelarstwo","Obiekt świadczący usługi noclegowe i dodatkowe."],
-["Recepcja","recepcja","hotelarstwo","Miejsce i dział odpowiedzialny za obsługę gości."],
-["Recepcjonista","recepcjonista","hotelarstwo","Pracownik zajmujący się obsługą gościa w recepcji."],
-["Check-in","czek-in","hotelarstwo","Proces zameldowania i rozpoczęcia pobytu gościa."],
-["Check-out","czek-aut","hotelarstwo","Proces wymeldowania i zakończenia pobytu."],
-["Booking","buking","hotelarstwo","Rezerwacja lub proces dokonywania rezerwacji."],
-["Reservation","rezyrwejszyn","hotelarstwo","Rezerwacja."],
-["Guest","gest","hotelarstwo","Gość."],
-["Front office","front ofis","hotelarstwo","Obszar hotelu związany bezpośrednio z obsługą gościa."],
-["Back office","bek ofis","hotelarstwo","Zaplecze administracyjne i organizacyjne."],
-["Housekeeping","hauskiping","hotelarstwo","Dział odpowiedzialny za utrzymanie czystości i przygotowanie pokoi."],
-["Room service","rum serwis","hotelarstwo","Usługa dostarczania produktów lub posiłków do pokoju."],
-["Concierge","konsjerż","hotelarstwo","Pracownik pomagający gościom w organizacji usług i informacji."],
-["Lobby","lobi","hotelarstwo","Reprezentacyjna przestrzeń wejściowa hotelu."],
-["Double room","dabl rum","hotelarstwo","Pokój przeznaczony dla dwóch osób z jednym dużym łóżkiem."],
-["Twin room","twin rum","hotelarstwo","Pokój z dwoma oddzielnymi łóżkami."],
-["Single room","syngyl rum","hotelarstwo","Pokój jednoosobowy."],
-["Suite","słit","hotela
-...
+        if(checked && Number(checked.value)===q[5]){
+            score++;
+        }
+    });
+
+    const result=document.getElementById(containerId+"result");
+
+    let message="";
+
+    if(score===questions.length){
+        message=" — Doskonale!";
+    }else if(score>=questions.length*.7){
+        message=" — Bardzo dobry wynik!";
+    }else if(score>=questions.length*.5){
+        message=" — Jest dobrze, ale warto jeszcze powtórzyć materiał.";
+    }else{
+        message=" — Warto wrócić do encyklopedii i spróbować ponownie.";
+    }
+
+    result.textContent=`Wynik: ${score} / ${questions.length}${message}`;
+}
+
+buildQuiz("gastroQuiz",gastroQuestions);
+buildQuiz("hotelQuiz",hotelQuestions);
+buildQuiz("turQuiz",turQuestions);
+
+
+/* ===========================
+   WYSZUKIWARKA
+=========================== */
+
+function searchSite(){
+
+    const query=document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if(!query)return;
+
+    const headings=document.querySelectorAll("h2,h3");
+
+    for(const heading of headings){
+
+        if(heading.textContent.toLowerCase().includes(query)){
+
+            heading.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+            heading.style.background="#fff3cd";
+
+            setTimeout(()=>{
+                heading.style.background="";
+            },1800);
+
+            return;
+        }
+    }
+
+    alert("Nie znaleziono takiego tematu w encyklopedii.");
+}
+
+document.getElementById("searchInput")
+.addEventListener("keydown",function(e){
+    if(e.key==="Enter")searchSite();
+});
+
+</script>
+
+</body>
+</html>
