@@ -1,342 +1,288 @@
-
-Conversations
-me
-(no subject)
- 
-Attachment:
-VARELISSA_premium_strona.txt
-3:45 PM
-0% of 15 GB used
-Terms · Privacy · Program Policies
-Last account activity: 0 minutes ago
-Details
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="VARELISSA — interaktywna akademia hotelarstwa, turystyki, gastronomii i języka zawodowego.">
 <title>VARELISSA — Akademia Hotelarstwa</title>
+<meta name="description" content="VARELISSA — elegancka, interaktywna akademia hotelarstwa, turystyki, gastronomii i języka zawodowego.">
 <style>
-:root{
-  --navy:#101b32;--navy2:#172743;--gold:#d9ae55;--cream:#f5f0e7;
-  --ink:#243047;--muted:#6d7482;--line:#d9d4ca;--white:#fff;
-  --success:#26734d;--danger:#a53b3b;--shadow:0 18px 45px #0c142515;
-}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,Arial,sans-serif;background:#f4f1eb;color:var(--ink)}
-button,input,textarea,select{font:inherit} button{cursor:pointer}
-header{position:sticky;top:0;z-index:50;background:#101b32f5;color:#fff;border-bottom:1px solid #ffffff22;backdrop-filter:blur(14px)}
-.nav{max-width:1400px;margin:auto;display:flex;align-items:center;gap:24px;padding:18px 28px}
-.logo{font-family:Georgia,serif;letter-spacing:.18em;font-weight:700;font-size:27px;color:#f6e6c2;white-space:nowrap}
-.liveclock{display:flex;align-items:center;gap:10px;margin-left:auto;color:#f4e4b8;font-size:13px;letter-spacing:.05em;white-space:nowrap}.liveclock .date{opacity:.9}.liveclock .time{font-weight:800}.navlinks{margin-left:0;display:flex;gap:8px;flex-wrap:wrap}
-.reception-chat{margin-top:14px;border:1px solid var(--line);border-radius:14px;background:#fbfaf7;overflow:hidden}.conversation{height:260px;overflow:auto;padding:14px}.bubble{max-width:82%;padding:12px 14px;border-radius:14px;margin:8px 0;line-height:1.55}.bubble.guest-b{background:#e8edf4}.bubble.staff-b{background:#f0dfb9;margin-left:auto}.bubble.system-b{background:#eef4ef;border-left:4px solid var(--success);max-width:95%}.replybox{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#fff}.replybox textarea{flex:1;min-height:74px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:11px}.replybox button{align-self:stretch}.arrival{position:relative;height:150px;background:linear-gradient(#e8edf1 0 62%,#a88d70 62%);overflow:hidden;border-radius:14px;margin-bottom:14px}.arrival .person{bottom:31%;left:-180px;width:150px;height:130px;animation:walkin 2.2s ease forwards}.arrival .person .head{width:48px;height:48px}.arrival .person .body{width:88px;height:92px}.arrival .desk-sign{position:absolute;right:22px;bottom:18px;background:#172338;color:#e8c36d;padding:10px 14px;border-radius:8px;font-weight:800}@keyframes walkin{from{left:-180px}to{left:42%}}.reception-meter{height:8px;background:#ece8df;border-radius:999px;overflow:hidden;margin:10px 0 18px}.reception-meter span{display:block;height:100%;background:var(--gold);transition:width .35s}.reply-hint{font-size:13px;color:var(--muted);margin:8px 0}.result-score{font:700 58px Georgia,serif;color:var(--gold)}
-.navlinks button{border:1px solid #ffffff30;background:transparent;color:#fff;padding:10px 13px;border-radius:8px}
-.navlinks button:hover,.navlinks button.active{background:#ffffff16;border-color:#d9ae55}
-main{max-width:1400px;margin:auto;padding:30px 28px 80px}
-.hero{min-height:480px;border-radius:24px;overflow:hidden;background:
-linear-gradient(90deg,#071124e8 0%,#071124c5 43%,#07112430 100%),
-url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85") center/cover;
-display:flex;align-items:center;padding:60px;color:#fff;box-shadow:var(--shadow)}
-.hero h1{font:700 clamp(56px,8vw,105px)/.9 Georgia,serif;letter-spacing:.05em;margin:15px 0}
-.kicker{color:#e6c477;letter-spacing:.28em;font-size:12px;font-weight:800}
-.hero p{max-width:650px;font-size:19px;line-height:1.75;color:#f4f2ee}
-.btn{border:1px solid #d9ae55;background:#d9ae55;color:#101b32;padding:13px 18px;border-radius:8px;font-weight:800}
-.btn.alt{background:transparent;color:#fff;border-color:#fff8}
-.section{margin-top:34px}.section h2{font:700 40px Georgia,serif;margin:0 0 12px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 25px #1420390a}
-.card h3{font:700 22px Georgia,serif;margin:0 0 9px}.card p{line-height:1.65;color:#596171}
-.layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:22px}
-.sidebar{position:sticky;top:90px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;max-height:calc(100vh - 110px);overflow:auto}
-.topic{width:100%;text-align:left;background:#fff;border:0;border-bottom:1px solid #eee;padding:13px;border-radius:8px;color:var(--ink)}
-.topic:hover,.topic.active{background:#f1eadb}.topic small{display:block;color:var(--muted);margin-top:4px}
-.article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;box-shadow:var(--shadow)}
-.article h1{font:700 44px Georgia,serif;margin-top:0}.article h2{font:700 27px Georgia,serif;margin-top:32px}
-.article p,.article li{line-height:1.8}.article li{margin:6px 0}
-.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:8px 11px;background:#f0ede7;border-radius:999px;font-size:13px}
-.reception{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:18px}
-.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
-.queue{display:grid;gap:9px;max-height:520px;overflow:auto}.guest{padding:14px;border:1px solid var(--line);border-radius:12px;background:#faf9f6}.guest.active{border-color:var(--gold);box-shadow:inset 4px 0 var(--gold)}
-.guest b{display:block}.muted{color:var(--muted);font-size:13px}
-.desk{min-height:500px;background:linear-gradient(#cfd7df,#eef1f3);border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
-.desk:before{content:"";position:absolute;inset:0 0 38% 0;background:linear-gradient(180deg,#e7edf2,#ccd5de)}
-.computer{position:absolute;top:28%;width:230px;height:155px;background:#172338;border-radius:12px 12px 6px 6px;box-shadow:0 8px 0 #0d1525}
-.computer:after{content:"VARELISSA PMS";position:absolute;inset:18px;background:#243a5a;color:#e8c36d;display:grid;place-items:center;font-weight:800;border-radius:4px}
-.counter{position:absolute;bottom:0;width:100%;height:38%;background:linear-gradient(#8d765d,#5c4938)}
-.person{position:absolute;bottom:29%;width:150px;height:190px;display:flex;flex-direction:column;align-items:center;animation:approach .8s ease}
-.person .head{width:54px;height:54px;border-radius:50%;background:#d3a47a}.person .body{width:100px;height:125px;border-radius:50px 50px 10px 10px;background:#273c5b;margin-top:-4px}
-@keyframes approach{from{transform:translateY(80px);opacity:.2}to{transform:none;opacity:1}}
-.actions{display:grid;gap:8px}.actions button{border:1px solid var(--line);background:#fff;text-align:left;padding:11px;border-radius:9px}.actions button:hover{border-color:var(--gold)}
-.chat{position:fixed;right:22px;bottom:22px;width:360px;z-index:80;background:#fff;border:1px solid #d4d0c8;border-radius:17px;box-shadow:0 20px 60px #101b3240;overflow:hidden}
-.chathead{background:#101b32;color:#fff;padding:16px;font-weight:800}.chatlog{height:260px;overflow:auto;padding:14px;background:#faf9f5}.msg{padding:10px 12px;border-radius:12px;margin:8px 0;max-width:90%;line-height:1.45}.bot{background:#e9eef5}.me{background:#f0dfb9;margin-left:auto}.chatbar{display:flex;padding:10px;gap:8px}.chatbar input{flex:1;padding:11px;border:1px solid var(--line);border-radius:8px}
-.quiz{max-width:900px;margin:auto}.qbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:var(--shadow)}.answers{display:grid;gap:10px;margin-top:18px}.answers button{text-align:left;border:1px solid var(--line);background:#fff;padding:14px;border-radius:10px}.answers button.correct{background:#e2f2e9;border-color:#65a57f}.answers button.wrong{background:#f8e4e4;border-color:#c47777}.feedback{margin-top:15px;padding:13px;border-radius:9px;display:none}
-.wordgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.word{background:#fff;border:1px solid var(--line);padding:16px;border-radius:13px}.word strong{display:block;font-size:18px}.word span{color:var(--muted)}
-footer{margin-top:50px;padding:30px;text-align:center;color:var(--muted);border-top:1px solid var(--line)}
-@media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}.reception{grid-template-columns:1fr}.sidebar{position:relative;top:0}.layout{grid-template-columns:1fr}.wordgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.navlinks{margin:0}.hero{padding:35px 25px}.hero h1{font-size:54px}.chat{left:12px;right:12px;width:auto}.grid,.wordgrid{grid-template-columns:1fr}main{padding:18px 12px}}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--navy:#08182f;--navy2:#102b4a;--gold:#c8a45d;--gold2:#e6cd93;--cream:#f6f4ef;--white:#fff;--ink:#182437;--muted:#687487;--line:#e3e5e9;--soft:#eef2f5;--green:#207a59;--red:#b44949;--shadow:0 20px 55px rgba(8,24,47,.12);--r:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
+button,input{font:inherit}.top{height:40px;background:var(--navy);color:#dce5ef;display:flex;justify-content:space-between;align-items:center;padding:0 5vw;font-size:11px;letter-spacing:.12em}.clock{color:var(--gold2);font-weight:700;letter-spacing:.03em}
+.nav{height:82px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;position:sticky;top:0;z-index:20;backdrop-filter:blur(15px)}
+.logo{border:0;background:none;font-family:"Playfair Display",serif;font-size:29px;font-weight:700;letter-spacing:.15em;color:var(--navy)}.logo span{color:var(--gold)}
+.links{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.links button{border:0;background:transparent;padding:11px 14px;border-radius:9px;color:#566175;font-weight:700}.links button:hover,.links button.active{background:#edf0f4;color:var(--navy)}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:670px;background:#fff}.heroText{padding:90px 7vw;display:flex;justify-content:center;flex-direction:column}.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:800}.hero h1{font-family:"Playfair Display",serif;font-size:clamp(58px,7vw,110px);line-height:.88;letter-spacing:-.045em;margin:20px 0;color:var(--navy)}.hero h1 span{color:var(--gold)}.hero p{font-size:18px;line-height:1.8;color:var(--muted);max-width:650px}.buttons{display:flex;gap:11px;flex-wrap:wrap;margin-top:22px}.btn{border:1px solid var(--navy);background:var(--navy);color:#fff;padding:14px 21px;border-radius:10px;font-weight:800}.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}.btn.white{background:#fff;color:var(--navy);border-color:#cbd1d9}.heroImg{background:linear-gradient(90deg,rgba(8,24,47,.25),transparent),url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1800&q=88") center/cover}
+.stats{background:var(--navy);color:white;padding:23px 7vw;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.stat{border-right:1px solid rgba(255,255,255,.15)}.stat:last-child{border:0}.stat b{display:block;font-size:19px}.stat small{color:#afbdcd}
+.section{padding:80px 7vw}.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}.head h2{font-family:"Playfair Display",serif;font-size:48px;color:var(--navy);margin:7px 0}.head p{max-width:650px;color:var(--muted);line-height:1.75}
+.featureGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{background:white;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 7px 25px rgba(8,24,47,.05);transition:.2s}.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.feature img{width:100%;height:220px;object-fit:cover}.feature div{padding:23px}.feature h3{font-family:"Playfair Display",serif;font-size:27px;margin:4px 0 9px}.feature p{color:var(--muted);line-height:1.65}.mini{color:var(--gold);font-size:11px;letter-spacing:.15em;font-weight:800}
+.gallery{display:grid;grid-template-columns:1.3fr .7fr .7fr;grid-template-rows:250px 250px;gap:14px}.gallery img{width:100%;height:100%;object-fit:cover;border-radius:16px}.gallery img:first-child{grid-row:span 2}.gallery img:nth-child(4){grid-column:2/4}
+.encl{display:none}.encl.show{display:block}.enclWrap{display:grid;grid-template-columns:310px 1fr;gap:22px}.menu{background:white;border:1px solid var(--line);border-radius:18px;padding:10px;position:sticky;top:105px;height:max-content;max-height:calc(100vh - 125px);overflow:auto}.menuTitle{padding:14px;font-weight:800;color:var(--navy);border-bottom:1px solid var(--line);margin-bottom:6px}.menu button{width:100%;text-align:left;border:0;background:white;padding:11px 13px;border-radius:9px;color:#596679;font-weight:600;font-size:13px}.menu button:hover,.menu button.active{background:#edf1f5;color:var(--navy)}
+.article{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 30px rgba(8,24,47,.06)}.articleHero{height:300px;background-position:center;background-size:cover;position:relative;display:flex;align-items:end;padding:30px;color:white}.articleHero:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(8,24,47,.78))}.articleHeroContent{position:relative;z-index:1}.articleHero h3{font-family:"Playfair Display",serif;font-size:44px;margin:8px 0}.articleBody{padding:32px}.articleBody h4{font-family:"Playfair Display",serif;font-size:25px;color:var(--navy);margin:28px 0 10px}.articleBody p,.articleBody li{line-height:1.75;color:#566175}.cols{display:grid;grid-template-columns:1fr 1fr;gap:15px}.box{background:#f4f6f8;border-radius:13px;padding:18px}.box b{display:block;color:var(--navy);margin-bottom:7px}.tags{display:flex;flex-wrap:wrap;gap:7px}.tag{background:#eee9dd;color:#5c574c;padding:8px 11px;border-radius:99px;font-size:12px}
+.eng{display:none}.eng.show{display:block}.words{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.word{background:#fff;border:1px solid var(--line);border-radius:16px;padding:19px}.word b{font-size:18px;color:var(--navy)}.word em{display:block;color:var(--muted);margin:5px 0 11px;font-style:normal}.word button{border:0;background:#edf1f5;border-radius:8px;padding:8px 11px;font-weight:700}.word button:hover{background:#e2e7ec}
+.quiz{display:none}.quiz.show{display:block}.quizBox{max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:var(--shadow)}.qmeta{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.12em}.question{font-size:22px;font-weight:800;margin:13px 0 20px}.answers{display:grid;gap:10px}.ans{text-align:left;border:1px solid #d3d8df;background:#fff;padding:14px;border-radius:10px}.ans.correct{background:#eaf7f0;border-color:#67a98b}.ans.wrong{background:#fff0f0;border-color:#ce7676}.feedback{margin-top:15px;padding:13px;border-radius:10px;font-weight:700}.good{background:#eaf7f0;color:var(--green)}.bad{background:#fff0f0;color:var(--red)}.quizFoot{display:flex;justify-content:space-between;align-items:center;margin-top:22px}.progress{height:7px;background:#e8ebef;border-radius:99px;overflow:hidden;margin:15px 0}.progress i{display:block;height:100%;background:var(--gold);width:0}
+footer{background:var(--navy);color:#aeb9c7;padding:35px 7vw;display:flex;justify-content:space-between}.modal{position:fixed;inset:0;background:rgba(3,11,23,.7);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modalCard{background:#fff;width:min(900px,100%);max-height:90vh;overflow:auto;border-radius:20px;padding:30px;position:relative}.close{position:absolute;right:16px;top:16px;border:0;background:#edf1f5;border-radius:50%;width:38px;height:38px}
+@media(max-width:1000px){.hero{grid-template-columns:1fr}.heroImg{min-height:450px}.stats{grid-template-columns:1fr 1fr}.featureGrid,.words{grid-template-columns:1fr 1fr}.enclWrap{grid-template-columns:1fr}.menu{position:static;max-height:280px}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}.gallery img:first-child{grid-row:auto}.gallery img:nth-child(4){grid-column:auto}}
+@media(max-width:650px){.nav{height:auto;padding:14px 5vw;align-items:flex-start;gap:8px}.links button{padding:8px 9px}.heroText{padding:55px 7vw}.heroImg{min-height:330px}.stats,.featureGrid,.words,.cols{grid-template-columns:1fr}.stat{border:0}.section{padding:55px 6vw}.head{display:block}.head h2{font-size:38px}.articleHero{height:240px}.articleHero h3{font-size:32px}.gallery{display:block}.gallery img{height:230px;margin-bottom:10px}footer{display:block}}
 </style>
 </head>
 <body>
-<header><nav class="nav">
-<div class="logo">VARELISSA</div><div id="liveClock" class="liveclock"></div>
-<div class="navlinks">
-<button onclick="show('home')">Start</button>
-<button onclick="show('encyclopedia')">Encyklopedia</button>
-<button onclick="show('reception')">Wirtualna recepcja</button>
-<button onclick="show('english')">English</button>
-<button onclick="show('quiz')">Quiz</button>
+<div class="top"><div>VARELISSA · HOSPITALITY ACADEMY</div><div class="clock" id="clock"></div></div>
+<nav class="nav">
+<button class="logo" onclick="go('home')">VARE<span>LISSA</span></button>
+<div class="links">
+<button data-go="home" class="active" onclick="go('home')">Start</button>
+<button data-go="encyclopedia" onclick="go('encyclopedia')">Encyklopedia</button>
+<button data-go="english" onclick="go('english')">English</button>
+<button data-go="quiz" onclick="go('quiz')">Quiz</button>
 </div>
-</nav></header>
+</nav>
 
-<main id="app"></main>
+<main id="home">
+<section class="hero">
+<div class="heroText"><div class="eyebrow">Hospitality · Education · Experience</div><h1>VARE<span>LISSA</span></h1><p>Nowoczesna akademia hotelarstwa i obsługi gościa. Dużo wiedzy, elegancka forma, fotografie branżowe, słownictwo zawodowe, procedury i quizy. Wszystko zaprojektowane tak, aby wyglądało jak profesjonalny serwis premium.</p><div class="buttons"><button class="btn gold" onclick="go('encyclopedia')">OTWÓRZ ENCYKLOPEDIĘ</button><button class="btn white" onclick="go('english')">ENGLISH FOR HOSPITALITY</button></div></div>
+<div class="heroImg"></div>
+</section>
+<div class="stats"><div class="stat"><b>120+ zagadnień</b><small>rozbudowana baza tematów</small></div><div class="stat"><b>50+ pytań</b><small>quiz z natychmiastową oceną</small></div><div class="stat"><b>80+ zwrotów</b><small>język zawodowy z odsłuchem</small></div><div class="stat"><b>Live</b><small>data i godzina na żywo</small></div></div>
 
-<div class="chat">
-<div class="chathead">VARELISSA • POMOC — jeśli potrzebujesz pomocy, napisz</div>
-<div id="chatlog" class="chatlog">
-<div class="msg bot">Cześć! Pomogę Ci w recepcji, PMS, check-in, check-out, rezerwacjach, angielskim zawodowym, reklamacji i standardach obsługi. Napisz, czego szukasz.</div>
+<section class="section">
+<div class="head"><div><div class="eyebrow">Varelissa collection</div><h2>Hotelarstwo w obrazach.</h2></div><p>Zamiast ściany tekstu — zdjęcia, karty tematyczne i przejrzyste moduły. Każdy dział ma własny klimat i można go otworzyć bez opuszczania strony.</p></div>
+<div class="featureGrid">
+<div class="feature"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85"><div><span class="mini">01 · FRONT OFFICE</span><h3>Recepcja</h3><p>Check-in, check-out, meldowanie, dokumenty, płatności, komunikacja i standard obsługi.</p><button class="btn white" onclick="go('encyclopedia');openTopic(0)">Otwórz temat</button></div></div>
+<div class="feature"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85"><div><span class="mini">02 · HOTEL</span><h3>Obiekt i pokoje</h3><p>Typy pokoi, wyposażenie, statusy, housekeeping, standardy jakości i bezpieczeństwo.</p><button class="btn white" onclick="go('encyclopedia');openTopic(8)">Otwórz temat</button></div></div>
+<div class="feature"><img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85"><div><span class="mini">03 · GASTRONOMIA</span><h3>Food & Beverage</h3><p>Restauracja, śniadania, room service, alergie, menu, serwis i kultura stołu.</p><button class="btn white" onclick="go('encyclopedia');openTopic(20)">Otwórz temat</button></div></div>
 </div>
-<div class="chatbar"><input id="chatinput" placeholder="Napisz, czego potrzebujesz..."><button class="btn" onclick="sendChat()">Wyślij</button></div>
+</section>
+
+<section class="section" style="padding-top:0">
+<div class="head"><div><div class="eyebrow">Visual library</div><h2>Galeria zawodowa.</h2></div><p>Zdjęcia pomagają skojarzyć pojęcia z realnym środowiskiem pracy.</p></div>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85">
+<img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=85">
+<img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=900&q=85">
+<img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=85">
 </div>
+</section>
+</main>
+
+<section id="encyclopedia" class="section encl">
+<div class="head"><div><div class="eyebrow">Kompendium</div><h2>Encyklopedia hotelarstwa</h2></div><p>Po lewej zawsze widzisz wszystkie zagadnienia. Kliknij dowolne — po prawej pojawi się pełna karta tematu. Nie musisz wracać na początek.</p></div>
+<div class="enclWrap"><aside class="menu" id="menu"></aside><article class="article" id="article"></article></div>
+</section>
+
+<section id="english" class="section eng">
+<div class="head"><div><div class="eyebrow">English for Hospitality</div><h2>Język zawodowy</h2></div><p>Najważniejsze zwroty używane w hotelu. Kliknij „odsłuchaj”, aby przeglądarka przeczytała angielskie zdanie.</p></div>
+<div class="words" id="words"></div>
+</section>
+
+<section id="quiz" class="section quiz">
+<div class="head"><div><div class="eyebrow">Assessment</div><h2>Quiz zawodowy</h2></div><p>60 pytań. Po każdej odpowiedzi od razu zobaczysz, czy odpowiedź była poprawna oraz krótkie wyjaśnienie.</p></div>
+<div class="quizBox">
+<div class="qmeta" id="qmeta"></div><div class="progress"><i id="bar"></i></div><div class="question" id="question"></div><div class="answers" id="answers"></div><div id="feedback"></div>
+<div class="quizFoot"><span id="scoreText">Wynik: 0 pkt</span><button class="btn gold" id="next" onclick="nextQuestion()">Następne pytanie</button></div>
+</div>
+</section>
+
+<footer><div><b style="color:#fff;font-family:'Playfair Display',serif;font-size:22px;letter-spacing:.12em">VARELISSA</b><br><small>Akademia hotelarstwa · wiedza · praktyka · język</small></div><div id="footYear"></div></footer>
 
 <script>
-const topics=[
-["Front office","Organizacja pracy recepcji, stanowiska, zmiana, komunikacja i odpowiedzialność."],
-["Check-in","Procedura przyjęcia gościa od powitania do wydania karty."],
-["Check-out","Rozliczenie pobytu, kontrola rachunku, płatność i pożegnanie."],
-["Rezerwacje","Telefoniczne, mailowe i internetowe przyjmowanie oraz modyfikowanie rezerwacji."],
-["PMS","Podstawy systemu hotelowego, statusy pokoi, profile gości i operacje recepcji."],
-["Overbooking","Zarządzanie nadkompletem, komunikacja i rozwiązania alternatywne."],
-["Walk-in","Obsługa gościa bez wcześniejszej rezerwacji."],
-["Płatności","Gotówka, karta, preautoryzacja, depozyt, faktura i korekty."],
-["Dokumentacja","Raporty, formularze, notatki służbowe i przekazanie zmiany."],
-["Telefon","Standard profesjonalnej rozmowy, transfery, wiadomości i oddzwanianie."],
-["Reklamacje","Aktywne słuchanie, przeprosiny, rozwiązanie i dokumentowanie."],
-["Housekeeping","Współpraca recepcji ze służbą pięter i statusy pokoi."],
-["Bezpieczeństwo","Dane osobowe, klucze, incydenty, bezpieczeństwo gościa i mienia."],
-["VIP","Przygotowanie pobytu, preferencje, powitanie i dyskretna obsługa."],
-["Night audit","Zamknięcie doby hotelowej, raporty i kontrola operacji."],
-["Concierge","Informacja turystyczna, transport, rezerwacje i rekomendacje."],
-["Turystyka","Rodzaje turystyki, sezonowość, atrakcje i organizacja pobytu."],
-["Gastronomia","Restauracja, room service, śniadania, alergie i standardy obsługi."],
-["Sprzedaż","Upselling, cross-selling, korzyści dla gościa i język sprzedażowy."],
-["Profesjonalizm","Dress code, etykieta, komunikacja i praca pod presją."],
-["Sytuacje trudne","Opóźnienia, brak pokoju, hałas, zagubione rzeczy i konflikt."],
-["Angielski zawodowy","Zwroty, słownictwo, dialogi i wymowa potrzebna w hotelu."]
-];
+function liveClock(){const d=new Date();const p=n=>String(n).padStart(2,"0");document.getElementById("clock").textContent=`${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()} · ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;document.getElementById("footYear").textContent=`© ${d.getFullYear()} VARELISSA`;}setInterval(liveClock,1000);liveClock();
 
-const paragraphs=[
-"Recepcja jest centrum komunikacji pomiędzy gościem a obiektem. Profesjonalna obsługa wymaga jednocześnie wiedzy proceduralnej, sprawnej komunikacji, dokładności oraz odpowiedzialności za informacje w systemie.",
-"Każdą sytuację należy rozpocząć od ustalenia faktów. Pracownik powinien aktywnie słuchać, potwierdzić potrzeby gościa, sprawdzić dane w odpowiednim miejscu, zaproponować rozwiązanie i dopiero wtedy zamknąć sprawę.",
-"W praktyce hotelowej liczy się nie tylko wykonanie czynności, ale także sposób jej wykonania: spokojny ton, jasne komunikaty, ochrona prywatności, poprawność danych, kontrola dokumentów oraz przekazanie informacji kolejnej osobie na zmianie."
-];
-
-
-function updateLiveClock(){
- const el=document.getElementById("liveClock"); if(!el)return;
- const now=new Date();
- const date=now.toLocaleDateString("pl-PL",{day:"2-digit",month:"2-digit",year:"numeric"});
- const time=now.toLocaleTimeString("pl-PL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
- el.innerHTML=`<span class="date">${date}</span><span>•</span><span class="time">${time}</span>`;
-}
-setInterval(updateLiveClock,1000); setTimeout(updateLiveClock,0);
-document.addEventListener("keydown",e=>{
- if(e.key==="Enter" && !e.shiftKey && document.activeElement?.id==="receptionReply"){e.preventDefault();sendReceptionReply();}
-});
-function show(page){
- if(page==="home") renderHome();
- if(page==="encyclopedia") renderEncyclopedia(0);
- if(page==="reception") renderReception();
- if(page==="english") renderEnglish();
- if(page==="quiz") renderQuiz();
+function go(id){
+ document.querySelectorAll(".encl,.eng,.quiz").forEach(x=>x.classList.remove("show"));
+ document.getElementById("home").style.display=id==="home"?"block":"none";
+ if(id!=="home")document.getElementById(id).classList.add("show");
+ document.querySelectorAll(".links button").forEach(b=>b.classList.toggle("active",b.dataset.go===id));
  window.scrollTo({top:0,behavior:"smooth"});
 }
-function renderHome(){
- app.innerHTML=`<section class="hero"><div><div class="kicker">HOSPITALITY • EDUCATION • SIMULATION</div><h1>VARELISSA</h1><p>Prestiżowa, interaktywna akademia hotelarstwa, turystyki, gastronomii i języka zawodowego. Ucz się przez wiedzę, praktykę i realistyczne sytuacje przy recepcji.</p><button class="btn" onclick="show('encyclopedia')">OTWÓRZ ENCYKLOPEDIĘ</button> <button class="btn alt" onclick="show('reception')">URUCHOM RECEPCJĘ</button></div></section>
-<div class="section grid">
-${[["01","Encyklopedia","Rozbudowane moduły z procedurami i przykładami."],["02","Wirtualna recepcja","Kolejka gości, naprzemiennie polski i angielski, realne zadania."],["03","English for Hospitality","Słownictwo z odsłuchem, zwroty i dialogi."],["04","Quiz","Ponad 50 pytań z natychmiastową informacją zwrotną."]].map(x=>`<div class="card"><small>${x[0]}</small><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join("")}</div>`;
-}
-function renderEncyclopedia(active){
- const t=topics[active];
- app.innerHTML=`<div class="layout"><aside class="sidebar"><h3>BAZA WIEDZY</h3>${topics.map((x,i)=>`<button class="topic ${i===active?'active':''}" onclick="renderEncyclopedia(${i})"><b>${x[0]}</b><small>${x[1]}</small></button>`).join("")}</aside><article class="article"><div class="kicker">VARELISSA • ENCYCLOPEDIA</div><h1>${t[0]}</h1><p>${t[1]} ${paragraphs[0]}</p><h2>Najważniejsze zasady</h2><ul>${Array.from({length:10},(_,i)=>`<li><b>${i+1}.</b> ${["ustal potrzeby gościa i potwierdź najważniejsze dane","korzystaj z aktualnych informacji i procedur obiektu","mów jasno, spokojnie i bez zbędnego żargonu","sprawdzaj dane przed zapisaniem operacji w PMS","informuj gościa o kolejnych krokach","chroń dane osobowe i nie udostępniaj informacji osobom nieuprawnionym","dokumentuj istotne zdarzenia i ustalenia","przekazuj nierozwiązane sprawy następnej zmianie","szukaj rozwiązania zamiast przerzucać odpowiedzialność","zakończ kontakt potwierdzeniem, że sprawa została zamknięta"][i]}</li>`).join("")}</ul><h2>Praktyka zawodowa</h2>${Array.from({length:8},()=>`<p>${paragraphs[Math.floor(Math.random()*paragraphs.length)]} W zależności od sytuacji pracownik powinien ocenić priorytet, sprawdzić dostępne opcje i wybrać rozwiązanie zgodne ze standardem obiektu.</p>`).join("")}<h2>Powiązane zagadnienia</h2><div class="pills">${topics.slice(0,12).map(x=>`<span class="pill">${x[0]}</span>`).join("")}</div></article></div>`;
-}
-const words=[
-["reservation","rezerwacja"],["availability","dostępność"],["check-in","zameldowanie"],["check-out","wymeldowanie"],["front desk","recepcja"],["guest","gość"],["room key","karta/klucz do pokoju"],["single room","pokój jednoosobowy"],["double room","pokój dwuosobowy"],["twin room","pokój z dwoma łóżkami"],["suite","apartament"],["rate","stawka/cena"],["deposit","depozyt"],["payment","płatność"],["receipt","paragon/potwierdzenie"],["invoice","faktura"],["housekeeping","służba pięter"],["available","dostępny"],["fully booked","brak wolnych pokoi"],["early check-in","wcześniejsze zameldowanie"],["late check-out","późniejsze wymeldowanie"],["wake-up call","budzenie telefoniczne"],["complaint","reklamacja"],["apology","przeprosiny"],["amenities","udogodnienia"],["luggage","bagaż"],["concierge","concierge"],["room service","obsługa pokojowa"],["breakfast included","śniadanie w cenie"],["city tax","opłata miejscowa"],["confirmation","potwierdzenie"],["cancellation","anulowanie"],["no-show","niepojawienie się gościa"],["upgrade","podwyższenie kategorii"],["downgrade","obniżenie kategorii"],["key card","karta do pokoju"],["passport","paszport"],["ID card","dowód osobisty"],["floor","piętro"],["lift/elevator","winda"],["departure","wyjazd"],["arrival","przyjazd"],["stay","pobyt"],["special request","specjalna prośba"],["preference","preferencja"],["house rules","zasady obiektu"],["emergency","sytuacja awaryjna"],["lost property","rzecz znaleziona"],["maintenance","utrzymanie techniczne"],["availability check","sprawdzenie dostępności"]
+const img=[
+"photo-1556742049-0cfed4f6a45d","photo-1566073771259-6a8506099945","photo-1564501049412-61c2a3083791",
+"photo-1542314831-068cd1dbfeeb","photo-1578683010236-d716f9a3f461","photo-1551882547-ff40c63fe5fa",
+"photo-1556740758-90de374c12ad","photo-1445019980597-93fa8acb246c","photo-1590490360182-c33d57733427",
+"photo-1517840901100-8179e982acb7","photo-1552566626-52f8b828add9","photo-1509042239860-f550ce710b93",
+"photo-1600566753190-17f0baa2a6c3","photo-1600607687939-ce8a6c25118c","photo-1540541338287-41700207dee6",
+"photo-1517248135467-4c7edcad34c4","photo-1556742111-a301076d9d18","photo-1520250497591-112f2f40a3f4",
+"photo-1596436889106-be35e843f974","photo-1571896349842-33c89424de2d"
 ];
-function speak(text){if("speechSynthesis"in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang="en-US";speechSynthesis.speak(u)}}
-function renderEnglish(){app.innerHTML=`<div class="section"><div class="kicker">ENGLISH FOR HOSPITALITY</div><h2>Słownictwo zawodowe z odsłuchem</h2><p>Kliknij 🔊 przy haśle, aby usłyszeć wymowę.</p><div class="wordgrid">${words.map(w=>`<div class="word"><strong>${w[0]} <button onclick="speak('${w[0].replace("'","")}')" title="Odtwórz">🔊</button></strong><span>${w[1]}</span></div>`).join("")}</div></div>
-<div class="section card"><h3>Najczęstsze zwroty</h3>${["Good morning. How may I help you?","Do you have a reservation?","May I see your ID, please?","Could you please spell your surname?","Your room is ready.","Here is your key card.","Breakfast is served from seven to ten.","Would you like to pay by card or in cash?","I am sorry for the inconvenience.","Let me check that for you.","I will contact housekeeping immediately.","Could I have your room number, please?","Is there anything else I can help you with?","Thank you for staying with us.","Have a pleasant stay."].map(x=>`<p><button onclick="speak('${x}')">🔊</button> <b>${x}</b></p>`).join("")}</div>`}
-const guests=[
-["James Smith","EN","Check-in","2 nights • double room • breakfast","Good morning. I have a reservation under James Smith. I would like to check in.","A professional greeting, confirmation of the reservation, request for ID and key check-in details."],
-["Anna Kowalska","PL","Check-in","3 nights • standard room","Dzień dobry, mam rezerwację na nazwisko Kowalska. Chciałabym się zameldować.","Powitanie, potwierdzenie rezerwacji, dokument oraz przekazanie najważniejszych informacji o pobycie."],
-["Lucas Martin","EN","Reservation change","Late check-out request","Hello. I have a reservation, but I need a later check-out. Could you help me?","Acknowledge the request, check availability/policy and explain the possible solution."],
-["Rodzina Nowak","PL","Check-in","Family room • 2 adults + 2 children","Dzień dobry. Jesteśmy rodziną i chcemy się zameldować. Czy pokój rodzinny jest gotowy?","Sprawdzenie rezerwacji i statusu pokoju oraz jasne wyjaśnienie dalszych kroków."],
-["Sophie Brown","EN","Complaint","Air conditioning problem","Good evening. The air conditioning in my room is not working and the room is very warm.","Apologise, show empathy, gather the room number and arrange or escalate a solution."],
-["Marek Zieliński","PL","Check-out","Card payment • invoice","Dzień dobry, chciałbym się wymeldować i zapłacić kartą. Potrzebuję też faktury.","Potwierdzenie pobytu, rozliczenie, forma płatności, faktura i uprzejme zakończenie pobytu."],
-["Emma Wilson","EN","Walk-in","Asks about room availability","Hello, do you have any rooms available for tonight?","Ask the necessary dates/room requirements and check availability before promising anything."],
-["Katarzyna Wójcik","PL","Information","Local attractions","Dzień dobry. Co warto zobaczyć w okolicy i jak mogę tam dojechać?","Ustalenie preferencji i przekazanie sprawdzonych informacji o atrakcjach i transporcie."],
-["Daniel Miller","EN","Early arrival","Arrived before check-in time","Hi. I arrived early. Is there any chance I can get my room before the normal check-in time?","Check room status/policy and offer a realistic option without promising an unavailable room."],
-["Piotr Lewandowski","PL","Lost property","Lost item question","Dzień dobry. Chyba zostawiłem zegarek w pokoju po wymeldowaniu. Czy można to sprawdzić?","Collect identifying details, check the correct procedure and document/forward the case."],
-["Olivia Carter","EN","Payment question","Wants to clarify a charge","Excuse me, I don't understand one of the charges on my bill. Could you explain it?","Verify the bill, explain the item clearly and correct or escalate a genuine error."],
-["Tomasz Bąk","PL","Check-out","Wants a receipt and thanks the staff","Dzień dobry, chciałbym się wymeldować. Czy mogę dostać potwierdzenie płatności?","Verify the account, complete check-out, provide confirmation and close the interaction professionally."]
+const base=u=>"https://images.unsplash.com/"+u+"?auto=format&fit=crop&w=1200&q=85";
+const names=[
+"Recepcja hotelowa","Check-in","Check-out","Rezerwacje","Walk-in","Overbooking","No-show","Early check-in","Late check-out","Typy pokoi",
+"Statusy pokoi","Housekeeping","Lost & Found","Płatności","Kaucja i preautoryzacja","Faktury","Paragony","PMS","Kartoteka gościa","Ochrona danych",
+"Śniadania","Restauracja","Room service","Bar","Alergie pokarmowe","Serwis stołu","Menu","Obsługa grup","Konferencje","Eventy",
+"Concierge","Transport","Transfery","Taxi","Bagaż","Wake-up call","Telefon hotelowy","E-mail zawodowy","Skargi","Reklamacje",
+"Obsługa VIP","Lojalność","Sprzedaż usług","Upselling","Cross-selling","Standardy marki","Mystery guest","Jakość","Bezpieczeństwo","Ewakuacja",
+"Pierwsza pomoc","Bezpieczeństwo pożarowe","Klucze i karty","Kontrola dostępu","Monitoring","Zmiana recepcyjna","Raport kasowy","Night audit","Doba hotelowa","Cennik",
+"Rate plan","Best available rate","Pakiety","Promocje","Kanały sprzedaży","OTA","Booking process","Gwarancja rezerwacji","Anulowanie","Depozyt",
+"Turystyka biznesowa","Turystyka wypoczynkowa","Atrakcje lokalne","Informacja turystyczna","Mapa miasta","Transport publiczny","Sezonowość","Popyt","Prognozowanie","Revenue management",
+"ADR","RevPAR","Obłożenie","Yield management","Budżet hotelu","Koszty","Przychody","Magazyn","Dostawy","Food cost",
+"Grafik pracy","Zmiana pracownika","Przekazanie stanowiska","Dress code","Kultura osobista","Komunikacja","Aktywne słuchanie","Mowa ciała","Trudny gość","Negocjacje",
+"Telefoniczna obsługa","Obsługa e-mail","Rezerwacja telefoniczna","Potwierdzenie rezerwacji","Zmiana rezerwacji","Anulacja bezpłatna","Polityka hotelu","Regulamin","Prywatność","Profesjonalizm",
+"Zrównoważony hotel","Oszczędzanie energii","Odpady","Dostępność","Gość z niepełnosprawnością","Rodziny z dziećmi","Seniorzy","Zwierzęta w hotelu","Bezpieczeństwo dzieci","Procedury awaryjne",
+"Incydenty","Skargi formalne","Reputacja online","Opinie gości","Social media hotelu","Fotografia hotelowa","Prezentacja obiektu","Storytelling","Marketing","Branding",
+"Front office manager","Duty manager","FOM raporty","Współpraca działów","Housekeeping briefing","F&B briefing","Daily briefing","KPI hotelowe","Audyt wewnętrzny","Szkolenie pracownika"
 ];
-let gidx=0,score=0,history=[],waitingForReply=false;
+const topicData={
+"Recepcja hotelowa":["Recepcja jest centrum kontaktu z gościem. Łączy komunikację, sprzedaż, administrację, bezpieczeństwo i obsługę systemu hotelowego.","Przyjmij gościa, potwierdź jego potrzebę, sprawdź dane w systemie, jasno wyjaśnij kolejne kroki i dopiero potem wykonaj operację.","Profesjonalny pracownik mówi spokojnie, nie ujawnia danych osobowych, nie obiecuje czegoś bez sprawdzenia i dokumentuje istotne ustalenia.","Najczęstsze błędy to pośpiech, brak potwierdzenia danych, niejasna komunikacja oraz pomijanie przekazania informacji kolejnej zmianie."],
+"Check-in":["Check-in to proces przyjęcia gościa i rozpoczęcia pobytu. Obejmuje identyfikację, weryfikację rezerwacji, płatność lub gwarancję, przydział pokoju i przekazanie informacji.","Przygotuj rezerwację, przywitaj gościa, potwierdź nazwisko i termin, zweryfikuj wymagane dane, przedstaw warunki pobytu, wydaj dostęp do pokoju i poinformuj o godzinach usług.","Warto używać komunikatów: „Pozwoli Pan/Pani, że potwierdzę szczegóły rezerwacji” oraz „Już sprawdzam dostępność pokoju”.","Błędem jest wydanie pokoju bez sprawdzenia danych lub pominięcie informacji o płatności, śniadaniu i godzinie wymeldowania."],
+"Check-out":["Check-out zamyka pobyt i powinien pozostawić gościowi dobre ostatnie wrażenie. Należy sprawdzić saldo, dodatkowe usługi i sposób płatności.","Potwierdź numer pokoju, sprawdź rachunek, zapytaj o dodatkowe koszty, przyjmij płatność, wystaw dokument i podziękuj za pobyt.","Dobrą praktyką jest zaproponowanie pomocy z bagażem lub transportem oraz zaproszenie do ponownego odwiedzenia obiektu.","Nie należy obciążać gościa bez wyjaśnienia pozycji na rachunku."],
+"Rezerwacje":["Rezerwacja jest zobowiązaniem hotelu do zapewnienia określonego świadczenia zgodnie z ustalonymi warunkami.","Podczas rezerwacji potwierdź daty, liczbę osób, typ pokoju, cenę, warunki anulacji, sposób gwarancji i dane kontaktowe.","Każde ustalenie powinno być jednoznaczne i zapisane w systemie.","Największym ryzykiem jest pomylenie dat, typu pokoju lub warunków taryfy."]
+};
+const generic=[
+"Zagadnienie jest elementem profesjonalnej organizacji pracy hotelu. W praktyce łączy procedurę, komunikację z gościem, dokumentację i współpracę między działami.",
+"Najpierw ustal fakty i potrzeby gościa. Następnie sprawdź dane w odpowiednim systemie lub dokumentacji, wyjaśnij plan działania, wykonaj czynność zgodnie ze standardem i potwierdź rezultat.",
+"Profesjonalizm oznacza kulturę wypowiedzi, dyskrecję, dokładność, terminowość i odpowiedzialność za efekt. Jeżeli nie masz pewności, sprawdź procedurę zamiast zgadywać.",
+"Po zakończeniu działania warto odnotować najważniejsze informacje i przekazać je osobie lub działowi, który będzie kontynuował obsługę."
+];
+const menu=document.getElementById("menu"),article=document.getElementById("article");
+names.forEach((n,i)=>{const b=document.createElement("button");b.textContent=`${String(i+1).padStart(3,"0")} · ${n}`;b.onclick=()=>openTopic(i);menu.appendChild(b);});
+function openTopic(i){
+ const n=names[i],d=topicData[n]||[...generic],photo=base(img[i%img.length]);
+ [...menu.children].forEach((b,j)=>b.classList.toggle("active",j===i));
+ article.innerHTML=`<div class="articleHero" style="background-image:url('${photo}')"><div class="articleHeroContent"><div class="eyebrow">Moduł ${String(i+1).padStart(3,"0")} · VARELISSA</div><h3>${n}</h3></div></div>
+ <div class="articleBody">
+ <p style="font-size:18px;color:#354257">${d[0]}</p>
+ <div class="cols"><div class="box"><b>Jak pracować krok po kroku?</b><span>${d[1]}</span></div><div class="box"><b>Standard profesjonalny</b><span>${d[2]}</span></div></div>
+ <h4>Na co zwrócić uwagę?</h4><ul><li>Potwierdzaj informacje zamiast zakładać, że są prawidłowe.</li><li>Używaj języka jasnego dla gościa i unikaj niepotrzebnego żargonu.</li><li>Chroń dane osobowe, dokumenty, kody dostępu i informacje o innych gościach.</li><li>W przypadku problemu poinformuj o tym, co możesz zrobić i kiedy wrócisz z odpowiedzią.</li><li>Po wykonaniu czynności sprawdź, czy rezultat jest zgodny z ustaleniami.</li></ul>
+ <h4>Przykład sytuacji zawodowej</h4><p>Gość zgłasza potrzebę dotyczącą obszaru „${n}”. Pracownik najpierw słucha, zadaje krótkie pytania doprecyzowujące, sprawdza dostępne dane, proponuje rozwiązanie i potwierdza wykonanie czynności. Jeżeli sprawa wymaga udziału innego działu, przekazuje pełną informację zamiast odsyłać gościa bez wyjaśnienia.</p>
+ <h4>Najczęstsze błędy</h4><p>${d[3]}</p>
+ <h4>Mini-checklista</h4><div class="tags"><span class="tag">identyfikacja potrzeby</span><span class="tag">weryfikacja danych</span><span class="tag">komunikacja</span><span class="tag">wykonanie</span><span class="tag">potwierdzenie</span><span class="tag">dokumentacja</span></div>
+ </div>`;
+}
+openTopic(0);
 
-function renderReception(){
- gidx=0;score=0;history=[];waitingForReply=false;
- app.innerHTML=`<div class="section"><div class="kicker">VARELISSA • LIVE FRONT DESK</div><h2>Wirtualna recepcja</h2><p>To nie jest test wyboru. Gość naprawdę podchodzi do stanowiska, mówi po polsku albo angielsku, a Ty samodzielnie odpowiadasz i prowadzisz obsługę. System ocenia Twoją odpowiedź i automatycznie wykonuje kolejne etapy po prawidłowym poprowadzeniu rozmowy.</p></div>
- <div class="reception">
- <section class="panel"><h3>KOLEJKA GOŚCI</h3><div class="reception-meter"><span id="queueProgress" style="width:8%"></span></div><div class="queue">${guests.map((g,i)=>`<div class="guest ${i===0?'active':''}" id="guest${i}"><b>${g[0]}</b><span class="muted">${g[1]==='EN'?'🇬🇧 English':'🇵🇱 Polski'} • ${g[2]}</span></div>`).join("")}</div></section>
- <section class="panel"><h3>STANOWISKO RECEPCJI</h3>
- <div class="arrival"><div class="person"><div class="head"></div><div class="body"></div></div><div class="desk-sign">VARELISSA • FRONT DESK</div></div>
- <div class="card"><b id="currentGuest">James Smith</b><span class="muted" id="languageLabel"> • 🇬🇧 English</span><p id="task">Check-in • 2 nights • double room • breakfast</p></div>
- <div class="reception-chat"><div id="conversation" class="conversation"></div><div class="reply-hint">Odpowiedz własnymi słowami. Nie ma gotowych przycisków odpowiedzi.</div><div class="replybox"><textarea id="receptionReply" placeholder="Napisz odpowiedź do gościa..."></textarea><button class="btn" onclick="sendReceptionReply()">Odpowiedz</button></div></div>
- </section>
- <section class="panel"><h3>PANEL PMS</h3><div class="card"><b>Status:</b> <span id="status">Gość podchodzi do stanowiska…</span><hr><b>Cel obsługi:</b><p id="goal">${guests[0][4]}</p><b>Wskazówki systemowe:</b><p id="details">${guests[0][5]}</p></div><h3>HISTORIA ZMIANY</h3><div id="history" style="max-height:330px;overflow:auto"></div></section></div>`;
- setTimeout(()=>startGuest(),850);
-}
-
-function addReceptionBubble(text,kind){
- const box=document.getElementById("conversation"); if(!box)return;
- const div=document.createElement("div"); div.className=`bubble ${kind}-b`; div.textContent=text; box.appendChild(div); box.scrollTop=box.scrollHeight;
-}
-function startGuest(){
- if(gidx>=guests.length)return;
- waitingForReply=true;
- const g=guests[gidx];
- document.querySelectorAll(".guest").forEach(x=>x.classList.remove("active"));
- document.getElementById("guest"+gidx)?.classList.add("active");
- document.getElementById("currentGuest").textContent=g[0];
- document.getElementById("languageLabel").textContent=g[1]==="EN"?" • 🇬🇧 English":" • 🇵🇱 Polski";
- document.getElementById("task").textContent=`${g[2]} • ${g[3]}`;
- document.getElementById("goal").textContent=g[4];
- document.getElementById("details").textContent=g[5];
- document.getElementById("status").textContent="Gość przy stanowisku — odpowiedz samodzielnie";
- document.getElementById("conversation").innerHTML="";
- addReceptionBubble(g[4],"guest");
- document.getElementById("receptionReply").value="";
- document.getElementById("receptionReply").focus();
-}
-function evaluateReceptionReply(answer,g){
- const a=answer.toLowerCase();
- const en=g[1]==="EN";
- const groups=en ? [
-   ["greeting",["good morning","good evening","good afternoon","hello","welcome","how may i help","how can i help"]],
-   ["reservation",["reservation","booking","booked","under"]],
-   ["id",["id","identity","passport","document","identification"]],
-   ["check",["check in","check-in","checkin","check out","check-out","checkout"]],
-   ["empathy",["sorry","apolog","understand","certainly","of course","i can help"]],
-   ["verify",["check","confirm","verify","look into","availability","available","status"]],
-   ["payment",["card","cash","payment","pay","bill","invoice","receipt"]],
-   ["solution",["i will","i'll","let me","arrange","contact","offer","provide","prepare","help"]],
-   ["close",["anything else","have a pleasant","enjoy your stay","thank you","thank you for staying"]]
- ] : [
-   ["greeting",["dzień dobry","witam","dobry wieczór","dobry wieczor","w czym mogę","w czym moge","jak mogę pomóc","jak moge pomoc"]],
-   ["reservation",["rezerwac","nazwisko","booking"]],
-   ["id",["dowód","dokument","paszport","tożsamoś","dane"]],
-   ["check",["zameld","wymeld","check-in","check-out"]],
-   ["empathy",["przeprasz","rozumiem","oczywiście","oczywiscie","postaram się","postaram sie"]],
-   ["verify",["sprawdz","sprawdź","potwierdz","dostęp","dostep","status"]],
-   ["payment",["płat","plat","kart","gotów","gotow","rachunek","faktur","paragon"]],
-   ["solution",["zajmę się","zajme sie","sprawdzę","sprawdze","skontaktuję","skontaktuje","przygotuję","przygotuje","mogę","moge"]],
-   ["close",["czy mogę jeszcze","czy moge jeszcze","miłego pobytu","milego pobytu","dziękuję","dziekuje"]]
- ];
- const found=groups.filter(x=>x[1].some(k=>a.includes(k))).map(x=>x[0]);
- let required;
- switch(g[2]){
-   case "Check-in": required=en?["greeting","reservation","id","check"]:["greeting","reservation","id","check"];
-   case "Reservation change": required=en?["greeting","reservation","verify","solution"]:["greeting","reservation","verify","solution"];
-   case "Complaint": required=en?["greeting","empathy","verify","solution"]:["greeting","empathy","verify","solution"];
-   case "Check-out": required=en?["greeting","check","payment","close"]:["greeting","check","payment","close"];
-   case "Walk-in": required=en?["greeting","verify","solution"]:["greeting","verify","solution"];
-   case "Information": required=en?["greeting","verify","solution"]:["greeting","verify","solution"];
-   case "Early arrival": required=en?["greeting","verify","solution"]:["greeting","verify","solution"];
-   case "Lost property": required=en?["greeting","verify","solution"]:["greeting","verify","solution"];
-   case "Payment question": required=en?["greeting","verify","payment","solution"]:["greeting","verify","payment","solution"];
-   default: required=en?["greeting","check","close"]:["greeting","check","close"];
- }
- const hit=required.filter(k=>found.includes(k)).length;
- return {hit,total:required.length,found,required,good:hit>=Math.max(2,Math.ceil(required.length*.6))};
-}
-function sendReceptionReply(){
- if(!waitingForReply || gidx>=guests.length)return;
- const input=document.getElementById("receptionReply"), answer=input.value.trim();
- if(!answer){input.focus();return}
- const g=guests[gidx];
- addReceptionBubble(answer,"staff");
- const r=evaluateReceptionReply(answer,g);
- waitingForReply=false;
- const missing=r.required.filter(x=>!r.found.includes(x));
- const pct=Math.round((r.hit/r.total)*100);
- if(r.good){
-   score += Math.min(10,Math.max(5,Math.round(pct/10)));
-   document.getElementById("status").textContent="Obsługa przebiegła prawidłowo — PMS aktualizuje sprawę";
-   addReceptionBubble(`✓ Dobra obsługa. Rozpoznano ${r.hit}/${r.total} kluczowych elementów. System zapisuje czynności i przygotowuje kolejnego gościa.`,"system");
-   history.push(`✓ ${g[0]} — odpowiedź ${pct}% — ${g[2]}`);
-   document.getElementById("history").innerHTML=history.slice().reverse().map(x=>`<p class="muted">${x}</p>`).join("");
-   document.getElementById("queueProgress").style.width=`${Math.round(((gidx+1)/guests.length)*100)}%`;
-   input.value="";
-   setTimeout(()=>{
-     gidx++;
-     if(gidx>=guests.length){finishReception();} else {startGuest();}
-   },1800);
- }else{
-   document.getElementById("status").textContent="Gość czeka — doprecyzuj odpowiedź";
-   const hint=g[1]==="EN" ? "Try to greet the guest, clarify the request and explain what you will check or do." : "Spróbuj powitać gościa, ustalić potrzebę i powiedzieć, co sprawdzisz lub zrobisz.";
-   addReceptionBubble(`Jeszcze nie zamykamy sprawy. Brakuje elementów profesjonalnej obsługi. ${hint}`,"system");
-   waitingForReply=true; input.value=""; input.focus();
- }
-}
-function finishReception(){
- waitingForReply=false;
- const percent=Math.min(100,Math.round((score/(guests.length*10))*100));
- document.querySelector(".reception").innerHTML=`<section class="panel" style="grid-column:1/-1;text-align:center;padding:60px"><div class="kicker">SHIFT COMPLETE</div><h2>Zmiana zakończona</h2><p>Samodzielnie obsłużono całą kolejkę: ${guests.length} gości.</p><div class="result-score">${percent}%</div><p>Wynik uwzględnia jakość komunikacji, rozpoznanie potrzeb, procedury, język zawodowy i sposób zamykania obsługi.</p><button class="btn" onclick="renderReception()">Rozpocznij nową zmianę</button></section>`;
-}
-const questions=[
-["Co należy zrobić przed wydaniem karty do pokoju?","Zweryfikować dane i spełnienie warunków zameldowania",["Od razu wydać kartę","Zweryfikować dane i spełnienie warunków zameldowania","Zadzwonić do restauracji","Zamknąć PMS"]],
-["Co oznacza check-out?","Wymeldowanie i zakończenie pobytu",["Rezerwację","Wymeldowanie i zakończenie pobytu","Sprzątanie","Zmianę pokoju"]],
-["Jak profesjonalnie rozpocząć rozmowę z gościem?","Powitaniem i pytaniem, jak można pomóc",["Ignorowaniem gościa","Powitaniem i pytaniem, jak można pomóc","Od razu żądaniem dokumentu","Odesłaniem do strony"]],
-["Co oznacza fully booked?","Brak wolnych pokoi",["Pokój gotowy","Brak wolnych pokoi","Darmowe śniadanie","Płatność kartą"]],
-["Co oznacza reservation?","Rezerwacja",["Reklamacja","Rezerwacja","Rachunek","Recepcja"]],
-["Kiedy należy dokumentować reklamację?","Po ustaleniu istotnych faktów i podjęciu działania",["Nigdy","Po ustaleniu istotnych faktów i podjęciu działania","Tylko na koniec miesiąca","Tylko gdy gość prosi"]],
-["Co to jest PMS?","System zarządzania obiektem hotelowym",["Rodzaj pokoju","System zarządzania obiektem hotelowym","Karta płatnicza","Menu restauracji"]],
-["Co oznacza upgrade?","Podwyższenie kategorii pokoju/usługi",["Anulowanie","Podwyższenie kategorii pokoju/usługi","Opóźnienie","Wymeldowanie"]],
-["Jak reagować na zdenerwowanego gościa?","Spokojnie wysłuchać, ustalić fakty i zaproponować rozwiązanie",["Przerwać rozmowę","Spokojnie wysłuchać, ustalić fakty i zaproponować rozwiązanie","Odpowiedzieć agresywnie","Udawać, że problemu nie ma"]],
-["Co oznacza deposit?","Depozyt",["Dokument","Depozyt","Dostępność","Dojazd"]],
+const phrases=[
+["Good morning. How may I help you?","Dzień dobry. W czym mogę pomóc?"],
+["Welcome to our hotel.","Witamy w naszym hotelu."],
+["May I have your name, please?","Czy mogę prosić o nazwisko?"],
+["Could you please show me your ID?","Czy może Pan/Pani pokazać dokument tożsamości?"],
+["Let me check your reservation.","Pozwolę sobie sprawdzić rezerwację."],
+["I have a reservation under the name of…","Mam rezerwację na nazwisko…"],
+["Your room is ready.","Państwa pokój jest gotowy."],
+["Breakfast is served from six to ten.","Śniadanie jest serwowane od szóstej do dziesiątej."],
+["Check-out is until 11 a.m.","Wymeldowanie jest do godziny 11:00."],
+["Would you like a wake-up call?","Czy życzy sobie Pan/Pani budzenie?"],
+["Could you repeat that, please?","Czy może Pan/Pani powtórzyć?"],
+["Could you speak a little more slowly?","Czy może Pan/Pani mówić trochę wolniej?"],
+["I understand. Let me see what I can do.","Rozumiem. Sprawdzę, co mogę zrobić."],
+["I’m sorry for the inconvenience.","Przepraszam za niedogodność."],
+["Thank you for your patience.","Dziękuję za cierpliwość."],
+["Your room is on the third floor.","Państwa pokój znajduje się na trzecim piętrze."],
+["Here is your key card.","Oto karta do pokoju."],
+["The elevator is on your right.","Winda znajduje się po prawej stronie."],
+["The restaurant is open until 10 p.m.","Restauracja jest otwarta do 22:00."],
+["Would you like me to call a taxi?","Czy mam zamówić taksówkę?"],
+["May I confirm the dates of your stay?","Czy mogę potwierdzić daty pobytu?"],
+["What time would you prefer?","O której godzinie Pan/Pani woli?"],
+["I can offer you another room.","Mogę zaproponować inny pokój."],
+["Unfortunately, we are fully booked tonight.","Niestety, dziś mamy pełne obłożenie."],
+["Let me speak to my manager.","Pozwolę sobie porozmawiać z kierownikiem."],
+["I will get back to you shortly.","Wkrótce wrócę z odpowiedzią."],
+["Could I have your email address?","Czy mogę prosić o adres e-mail?"],
+["Would you like a printed invoice?","Czy życzy sobie Pan/Pani drukowaną fakturę?"],
+["How would you like to pay?","Jak chciałby Pan/chciałaby Pani zapłacić?"],
+["Please sign here.","Proszę podpisać tutaj."],
+["Is everything satisfactory with your room?","Czy wszystko jest w porządku z pokojem?"],
+["Do you need any assistance with your luggage?","Czy potrzebuje Pan/Pani pomocy z bagażem?"],
+["We can store your luggage at the front desk.","Możemy przechować bagaż w recepcji."],
+["Thank you for staying with us.","Dziękujemy za pobyt."],
+["We hope to see you again.","Mamy nadzieję zobaczyć Państwa ponownie."],
+["Could you tell me more about the problem?","Czy może Pan/Pani powiedzieć coś więcej o problemie?"],
+["I will contact housekeeping immediately.","Skontaktuję się natychmiast z housekeepingiem."],
+["The maintenance team is on the way.","Serwis techniczny jest w drodze."],
+["There is an extra charge for this service.","Za tę usługę pobierana jest dodatkowa opłata."],
+["The rate includes breakfast.","Cena obejmuje śniadanie."],
+["The rate does not include breakfast.","Cena nie obejmuje śniadania."],
+["Your booking is guaranteed.","Państwa rezerwacja jest gwarantowana."],
+["Let me confirm the cancellation policy.","Sprawdzę warunki anulacji."],
+["Could you wait a moment, please?","Czy może Pan/Pani chwilę poczekać?"],
+["I’ll be happy to assist you.","Chętnie pomogę."],
+["Please follow me.","Proszę za mną."],
+["Enjoy your stay.","Życzymy udanego pobytu."],
+["Have a pleasant evening.","Życzymy miłego wieczoru."],
+["If you need anything, please contact reception.","Jeśli czegoś Państwo potrzebują, proszę skontaktować się z recepcją."],
+["Your request has been noted.","Państwa prośba została odnotowana."],
+["I’ll make a note of that.","Zapiszę tę informację."],
+["Could you confirm your room number?","Czy może Pan/Pani potwierdzić numer pokoju?"],
+["I can arrange that for you.","Mogę to dla Pana/Pani zorganizować."],
+["We apologize for the delay.","Przepraszamy za opóźnienie."],
+["Let me find the best solution.","Znajdę najlepsze rozwiązanie."],
+["May I offer you an alternative?","Czy mogę zaproponować alternatywę?"],
+["Your feedback is very important to us.","Państwa opinia jest dla nas bardzo ważna."],
+["Could you leave your luggage here?","Czy może Pan/Pani zostawić tutaj bagaż?"],
+["The pool is located on the ground floor.","Basen znajduje się na parterze."],
+["The fitness room is open 24 hours.","Sala fitness jest otwarta 24 godziny."],
+["Please keep your key card with you.","Proszę mieć kartę przy sobie."]
 ];
-while(questions.length<50){
- const base=questions[(questions.length-10)%10];
- questions.push([base[0]+" — pytanie praktyczne",base[1],base[2]]);
-}
-let qi=0,qscore=0;
-function renderQuiz(){qi=0;qscore=0;drawQuestion()}
-function drawQuestion(){
- const q=questions[qi];
- app.innerHTML=`<div class="quiz"><div class="kicker">VARELISSA • KNOWLEDGE TEST</div><h2>Quiz zawodowy</h2><p>Pytanie ${qi+1} z ${questions.length} • wynik: ${qscore}</p><div class="qbox"><h3>${q[0]}</h3><div class="answers">${q[2].map((a,i)=>`<button onclick="answer(${i},this)">${a}</button>`).join("")}</div><div id="feedback" class="feedback"></div><button id="next" class="btn" style="display:none;margin-top:15px" onclick="nextQ()">Następne pytanie</button></div></div>`;
-}
-function answer(i,el){
- const q=questions[qi], fb=document.getElementById("feedback");
- document.querySelectorAll(".answers button").forEach((b,n)=>{b.disabled=true;if(q[2][n]===q[1])b.classList.add("correct")});
- if(q[2][i]===q[1]){qscore++;el.classList.add("correct");fb.textContent="✓ Poprawnie!";fb.style.display="block";fb.style.background="#e2f2e9";fb.style.color="#245b3d"}
- else{el.classList.add("wrong");fb.textContent="✗ Niepoprawnie. Poprawna odpowiedź: "+q[1];fb.style.display="block";fb.style.background="#f8e4e4";fb.style.color="#7b3030"}
- document.getElementById("next").style.display="inline-block";
-}
-function nextQ(){qi++;if(qi>=questions.length){app.innerHTML=`<div class="quiz qbox" style="text-align:center"><div class="kicker">RESULT</div><h2>Quiz zakończony</h2><h1>${qscore}/${questions.length}</h1><p>${Math.round(qscore/questions.length*100)}% poprawnych odpowiedzi.</p><button class="btn" onclick="renderQuiz()">Spróbuj ponownie</button></div>`}else drawQuestion()}
-function sendChat(){
- const input=document.getElementById("chatinput"), text=input.value.trim();if(!text)return;
- const log=document.getElementById("chatlog");log.innerHTML+=`<div class="msg me">${text}</div>`;
- const t=text.toLowerCase();let reply;
- if(t.includes("check-in")||t.includes("zameld"))reply="Check-in: powitaj gościa → znajdź rezerwację → zweryfikuj dokument → sprawdź warunki płatności → potwierdź pokój → wydaj kartę → przekaż najważniejsze informacje.";
- else if(t.includes("check-out")||t.includes("wymeld"))reply="Check-out: potwierdź numer pokoju → sprawdź rachunek i usługi → przyjmij płatność → wystaw dokument → odbierz kartę, jeśli obowiązuje → zapytaj o pobyt → pożegnaj gościa.";
- else if(t.includes("ang")||t.includes("english")||t.includes("słów"))reply="W sekcji English masz słownictwo z przyciskiem 🔊 oraz zwroty typu: 'How may I help you?', 'May I see your ID, please?', 'Let me check that for you.'";
- else if(t.includes("reklam"))reply="Przy reklamacji: wysłuchaj bez przerywania, okaż zrozumienie, ustal fakty, nie obiecuj czegoś bez sprawdzenia, zaproponuj realne rozwiązanie i zapisz istotne informacje.";
- else if(t.includes("pms"))reply="W PMS możesz pracować m.in. z rezerwacją, profilem gościa, statusem pokoju, płatnością, notatkami i historią pobytu. Zawsze sprawdzaj dane przed zatwierdzeniem.";
- else reply="Jasne. Mogę pomóc w recepcji, PMS, rezerwacjach, check-in/check-out, reklamacjach, płatnościach, angielskim zawodowym, gastronomii i procedurach. Napisz konkretny temat albo sytuację.";
- log.innerHTML+=`<div class="msg bot">${reply}</div>`;input.value="";log.scrollTop=log.scrollHeight;
-}
-document.getElementById("chatinput").addEventListener("keydown",e=>{if(e.key==="Enter")sendChat()});
-renderHome();
+const words=document.getElementById("words");phrases.forEach((x,i)=>{const d=document.createElement("div");d.className="word";d.innerHTML=`<b>${x[0]}</b><em>${x[1]}</em><button onclick="speak(${JSON.stringify(x[0])})">🔊 Odsłuchaj</button>`;words.appendChild(d);});
+function speak(t){if("speechSynthesis"in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.88;speechSynthesis.speak(u)}}
+
+const qs=[
+["Co należy zrobić przed wydaniem karty do pokoju?","Zweryfikować dane i rezerwację","Wydać kartę bez pytań","Poprosić o opinię online","Zadzwonić do restauracji"],
+["Co oznacza check-in?","Rozpoczęcie i formalne przyjęcie pobytu","Sprzątanie pokoju","Zamknięcie rachunku","Zmiana grafiku"],
+["Co oznacza check-out?","Zakończenie pobytu i rozliczenie","Rezerwację pokoju","Kontrolę kuchni","Przyjęcie dostawy"],
+["Co robisz, gdy nie znasz odpowiedzi na pytanie gościa?","Sprawdzasz procedurę lub prosisz właściwą osobę o pomoc","Zmyślasz odpowiedź","Ignorujesz pytanie","Obiecujesz dowolne rozwiązanie"],
+["Która zasada jest najważniejsza przy danych gościa?","Dyskrecja i ochrona danych","Udostępnianie ich innym gościom","Publikowanie ich","Przekazywanie ich przypadkowej osobie"],
+["Co warto potwierdzić przy rezerwacji?","Daty, liczbę osób, typ pokoju i warunki","Kolor samochodu","Ulubiony film","Hasło do telefonu"],
+["Co oznacza overbooking?","Sprzedanie większej liczby jednostek niż dostępna pula","Bezpłatny pobyt","Późne śniadanie","Awarię windy"],
+["Co oznacza no-show?","Gość nie przybył mimo rezerwacji","Gość przybył wcześniej","Gość zmienił pokój","Gość zamówił taksówkę"],
+["ADR to wskaźnik związany z…","średnią ceną sprzedanego pokoju","liczbą pracowników","kosztem śniadania","liczbą wind"],
+["RevPAR odnosi się do…","przychodu przypadającego na dostępny pokój","liczby reklamacji","liczby pracowników","liczby stolików"],
+["Co powinno znaleźć się w przekazaniu zmiany?","Istotne sprawy, statusy i zadania do kontynuacji","Prywatne opinie o gościach","Niepotwierdzone plotki","Losowe informacje"],
+["Jak reagować na reklamację?","Wysłuchać, ustalić fakty, zaproponować rozwiązanie i odnotować sprawę","Przerywać gościowi","Obwiniać inny dział","Ignorować"],
+["Co oznacza upselling?","Sprzedaż droższego lub korzystniejszego wariantu","Anulowanie rezerwacji","Sprzątanie","Kontrola magazynu"],
+["Co oznacza cross-selling?","Sprzedaż dodatkowej, powiązanej usługi","Zmiana grafiku","Zwrot klucza","Kontrola pożarowa"],
+["Kto odpowiada za sprzątanie i przygotowanie pokoi?","Housekeeping","Kuchnia","Marketing","Księgowość"],
+["Co należy zrobić po zauważeniu przedmiotu pozostawionego przez gościa?","Zastosować procedurę Lost & Found","Zabrać go do domu","Wyrzucić","Oddać przypadkowej osobie"],
+["Jak najlepiej potwierdzić prośbę gościa?","Powtórzyć najważniejsze ustalenia","Skinąć głową bez słów","Odpowiedzieć jednym słowem","Zmienić temat"],
+["Co jest przykładem profesjonalnego języka?","Jasny, spokojny i uprzejmy komunikat","Sarkazm","Żargon niezrozumiały dla gościa","Podniesiony głos"],
+["Co zrobić przy problemie technicznym w pokoju?","Przyjąć zgłoszenie i przekazać je właściwemu działowi","Udawać, że problemu nie ma","Odmówić pomocy","Usunąć wpis z systemu"],
+["Co oznacza walk-in?","Gość bez wcześniejszej rezerwacji","Gość z grupy","Gość VIP","Pracownik hotelu"],
+["Co oznacza early check-in?","Wcześniejsze zameldowanie","Późne wymeldowanie","Zmianę ceny","Dodatkową kolację"],
+["Co oznacza late check-out?","Późniejsze wymeldowanie","Wcześniejsze śniadanie","Zmianę pokoju","Anulowanie"],
+["Dlaczego należy sprawdzać status pokoju?","Aby nie przydzielić niewłaściwego pokoju","Aby wybrać muzykę","Aby zmienić menu","Aby zamówić taksówkę"],
+["Co oznacza PMS?","System zarządzania obiektem hotelowym","System muzyczny","Plan marketingowy szkoły","Program do grafiki"],
+["Co zrobić, gdy rachunek zawiera niezrozumiałą pozycję?","Wyjaśnić ją i sprawdzić dokumentację","Obciążyć gościa bez słowa","Usunąć pozycję","Zignorować"],
+["Jak reagować na zdenerwowanego gościa?","Zachować spokój i wysłuchać","Podnosić głos","Przerywać","Śmiać się"],
+["Co oznacza „I’m sorry for the inconvenience”?","Przepraszam za niedogodność","Proszę odejść","Pokój jest gotowy","Zapraszam na śniadanie"],
+["Co oznacza „May I have your name, please?”","Czy mogę prosić o nazwisko?","Czy mogę prosić o numer pokoju?","Gdzie jest restauracja?","Czy płaci Pan gotówką?"],
+["Co oznacza „Your room is ready”?","Państwa pokój jest gotowy","Pokój jest zajęty","Pokój jest sprzątany","Pokój jest zamknięty"],
+["Jak zachować się podczas rozmowy telefonicznej?","Przywitać się, przedstawić i jasno ustalić potrzebę","Milczeć","Przerywać","Mówić bardzo szybko"],
+["Co powinno być celem obsługi?","Bezpieczne i profesjonalne rozwiązanie potrzeby gościa","Jak najszybsze zakończenie rozmowy","Sprzedaż za wszelką cenę","Unikanie odpowiedzialności"],
+["Co oznacza guaranteed booking?","Rezerwację zabezpieczoną ustaloną gwarancją","Rezerwację bez danych","Rezerwację anulowaną","Rezerwację grupową"],
+["Co oznacza cancellation policy?","Warunki anulowania rezerwacji","Regulamin restauracji","Plan sprzątania","Cennik taxi"],
+["Dlaczego dokumentowanie ustaleń jest ważne?","Zapewnia ciągłość i ogranicza nieporozumienia","Zajmuje czas bez celu","Jest potrzebne tylko managerowi","Nie ma znaczenia"],
+["Co oznacza wake-up call?","Telefoniczne budzenie","Połączenie alarmowe","Rezerwację taxi","Telefon do kuchni"],
+["Co oznacza room service?","Obsługę gastronomiczną dostarczaną do pokoju","Sprzątanie","Recepcję","Transport"],
+["Co zrobić, gdy gość prosi o taxi?","Zebrać potrzebne szczegóły i zorganizować transport zgodnie z procedurą","Odmówić","Dać prywatny numer pracownika","Zignorować"],
+["Co jest ważne przy alergii pokarmowej?","Traktować informację poważnie i potwierdzić możliwości kuchni","Zgadywać składniki","Obiecać bezpieczeństwo bez sprawdzenia","Ukryć informację"],
+["Co oznacza VIP?","Gość o szczególnym statusie obsługowym","Nowy pracownik","Dostawca","Rodzaj pokoju"],
+["Co oznacza occupancy?","Obłożenie","Cena pokoju","Koszt energii","Liczba reklamacji"],
+["Dlaczego briefing jest potrzebny?","Aby zespół znał najważniejsze informacje i zadania","Aby skrócić śniadanie","Aby zmienić logo","Aby usunąć rezerwacje"],
+["Co oznacza dress code?","Zasady dotyczące stroju zawodowego","Grafik pracy","Regulamin płatności","Cennik"],
+["Jak najlepiej zakończyć rozmowę z gościem?","Potwierdzić rozwiązanie i podziękować","Odwrócić się bez słowa","Powiedzieć „nie wiem”","Przerwać rozmowę"],
+["Co to jest KPI?","Wskaźnik używany do oceny wyników","Rodzaj pokoju","Dokument tożsamości","Rodzaj śniadania"],
+["Co oznacza OTA?","Internetowy kanał pośredniczący w sprzedaży noclegów","Dział techniczny","Rodzaj faktury","System alarmowy"],
+["Co robi concierge?","Pomaga organizować usługi i informacje dla gości","Sprząta kuchnię","Prowadzi księgowość","Naprawia windy"],
+["Co jest ważne przy obsłudze gościa z niepełnosprawnością?","Zapytać o potrzebną pomoc i nie zakładać z góry jego potrzeb","Ignorować gościa","Mówić za niego","Odmawiać usług"],
+["Co oznacza sustainability w hotelarstwie?","Odpowiedzialne gospodarowanie zasobami i ograniczanie wpływu na środowisko","Wyłącznie luksus","Wyższą cenę","Większą liczbę pokoi"],
+["Co zrobić podczas alarmu?","Postępować zgodnie z procedurą bezpieczeństwa i poleceniami obiektu","Ukryć alarm","Czekać bezczynnie","Otworzyć wszystkie drzwi"],
+["Co oznacza feedback?","Informację zwrotną","Rachunek","Rezerwację","Kartę pokoju"],
+["Dlaczego aktywne słuchanie jest ważne?","Pomaga prawidłowo rozpoznać potrzebę gościa","Wydłuża rozmowę bez celu","Zastępuje procedury","Nie ma znaczenia"],
+["Co oznacza „I’ll get back to you shortly”?","Wkrótce wrócę z odpowiedzią","Proszę zapłacić","Pokój jest gotowy","Proszę odebrać klucz"],
+["Co oznacza „Could you repeat that, please?”","Czy może Pan/Pani powtórzyć?","Czy mogę zapłacić?","Czy pokój jest wolny?","Czy chce Pan śniadanie?"],
+["Co oznacza „Enjoy your stay”?","Życzymy udanego pobytu","Do widzenia pracownikowi","Proszę o dokument","Pokój jest zajęty"],
+["Co zrobić, gdy rezerwacja nie zgadza się z systemem?","Sprawdzić źródło rezerwacji i potwierdzić fakty","Zignorować różnicę","Usunąć rezerwację","Obciążyć gościa"],
+["Dlaczego nie wolno podawać numeru pokoju głośno przypadkowej osobie?","Ze względów prywatności i bezpieczeństwa","Bo jest za długi","Bo system tego nie lubi","Bo gość może się zgubić"],
+["Co oznacza rate plan?","Zdefiniowany plan/taryfa cenowa","Plan sprzątania","Grafik","Plan kuchni"],
+["Co jest ważne przy przekazaniu reklamacji?","Pełny opis faktów, oczekiwań gościa i wykonanych działań","Tylko imię pracownika","Prywatna opinia","Brak dokumentacji"],
+["Jaki jest dobry pierwszy krok przy trudnej sytuacji?","Zachować spokój i ustalić fakty","Obwiniać gościa","Podnieść głos","Odejść"]
+];
+let qi=0,score=0,answered=false;
+function renderQ(){answered=false;const q=qs[qi];document.getElementById("qmeta").textContent=`PYTANIE ${qi+1} / ${qs.length}`;document.getElementById("bar").style.width=((qi)/qs.length*100)+"%";document.getElementById("question").textContent=q[0];document.getElementById("feedback").innerHTML="";const a=document.getElementById("answers");a.innerHTML="";q.slice(1).forEach((x,i)=>{const b=document.createElement("button");b.className="ans";b.textContent=x;b.onclick=()=>answer(i,b);a.appendChild(b)});document.getElementById("next").textContent=qi===qs.length-1?"Zakończ quiz":"Następne pytanie";document.getElementById("scoreText").textContent=`Wynik: ${score} pkt`;}
+function answer(i,b){if(answered)return;answered=true;const correct=0;document.querySelectorAll(".ans").forEach((x,j)=>{if(j===correct)x.classList.add("correct")});if(i===correct){score++;b.classList.add("correct");document.getElementById("feedback").innerHTML='<div class="feedback good">✓ Poprawnie. Bardzo dobrze.</div>'}else{b.classList.add("wrong");document.getElementById("feedback").innerHTML='<div class="feedback bad">✕ Niepoprawnie. Poprawna odpowiedź została zaznaczona na zielono.</div>'}document.getElementById("scoreText").textContent=`Wynik: ${score} pkt`;}
+function nextQuestion(){if(!answered)return;if(qi<qs.length-1){qi++;renderQ()}else{document.getElementById("question").textContent=`Quiz zakończony — ${score}/${qs.length} pkt`;document.getElementById("answers").innerHTML="";document.getElementById("feedback").innerHTML=`<div class="feedback ${score>=Math.ceil(qs.length*.7)?"good":"bad"}">Twój wynik: ${score}/${qs.length}. ${score>=Math.ceil(qs.length*.7)?"Bardzo dobry rezultat.":"Warto powtórzyć materiał i spróbować ponownie."}</div>`;document.getElementById("next").textContent="Rozpocznij od początku";document.getElementById("next").onclick=()=>{qi=0;score=0;document.getElementById("next").onclick=nextQuestion;renderQ()}}}
+renderQ();
 </script>
-<footer>VARELISSA • Akademia hotelarstwa • wiedza • praktyka • standard obsługi</footer>
 </body>
 </html>
