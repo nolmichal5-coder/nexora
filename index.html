@@ -620,19 +620,130 @@ footer .logo {
 
 <script>
 function nexoraAI() {
-  const question = document.getElementById("aiQuestion").value.trim();
-  const answer = document.getElementById("aiAnswer");
+    const input = document.getElementById("aiQuestion");
+    const answer = document.getElementById("aiAnswer");
 
-  if (!question) {
-    answer.innerHTML = "⚠️ Najpierw wpisz pytanie.";
-    return;
-  }
+    if (!input || !answer) {
+        pokazInfo("NEXORA AI", "Centrum AI jest gotowe do dalszej rozbudowy.");
+        return;
+    }
 
-  answer.innerHTML =
-    "🧠 Otrzymałem Twoje pytanie: <strong>" +
-    question +
-    "</strong><br><br>" +
-    "🚀 Centrum NEXORA AI jest gotowe do dalszej rozbudowy.";
+    const question = input.value.trim();
+
+    if (!question) {
+        answer.innerHTML = "⚠️ Najpierw wpisz pytanie.";
+        return;
+    }
+
+    answer.innerHTML = "🧠 NEXORA AI analizuje pytanie...";
+
+    setTimeout(() => {
+
+        const q = question.toLowerCase();
+        let response;
+
+        if (q.includes("ai") || q.includes("sztuczna inteligencja")) {
+            response =
+                "🤖 AI może pomagać ludziom w nauce, pracy, medycynie, projektowaniu i odkrywaniu nowych technologii.";
+        }
+        else if (q.includes("przyszłość") || q.includes("przyszlosc")) {
+            response =
+                "🚀 Przyszłość może przynieść inteligentne miasta, autonomiczne pojazdy, zaawansowane roboty i technologie, których jeszcze nie znamy.";
+        }
+        else if (q.includes("robot")) {
+            response =
+                "🦾 Roboty mogą w przyszłości pomagać ludziom w domu, przemyśle, medycynie, a nawet w eksploracji kosmosu.";
+        }
+        else if (q.includes("kosmos") || q.includes("mars")) {
+            response =
+                "🌌 Eksploracja kosmosu może być jednym z najważniejszych kierunków rozwoju technologii. Mars jest jednym z głównych celów.";
+        }
+        else if (q.includes("technolog")) {
+            response =
+                "⚡ AI, robotyka, biotechnologia, energia i komputery kwantowe mogą mocno zmienić nasze życie.";
+        }
+        else {
+            response =
+                "💡 To ciekawe pytanie. NEXORA uważa, że przyszłość powstaje właśnie z takich pomysłów jak Twój.";
+        }
+
+        answer.innerHTML =
+            "🧠 <strong>NEXORA AI:</strong><br><br>" + response;
+
+    }, 800);
+}
+
+
+function pokazInfo(tytul, tekst) {
+    alert(tytul + "\n\n" + tekst);
+}
+
+
+/* KLIKALNE ELEMENTY NEXORY */
+
+document.querySelectorAll(".card, .feature-card, .tech-card, .future-card")
+.forEach(function(element) {
+
+    element.style.cursor = "pointer";
+
+    element.addEventListener("click", function() {
+
+        const titleElement = element.querySelector("h2, h3, h4");
+
+        const title = titleElement
+            ? titleElement.innerText
+            : "NEXORA";
+
+        const text = element.innerText;
+
+        pokazInfo(title, text);
+
+    });
+
+});
+
+
+/* PRZYCISKI „ODKRYJ” I „POZNAJ” */
+
+document.querySelectorAll("button").forEach(function(button) {
+
+    const text = button.innerText.toLowerCase();
+
+    if (
+        text.includes("odkryj") ||
+        text.includes("poznaj") ||
+        text.includes("więcej") ||
+        text.includes("sprawdź")
+    ) {
+
+        button.addEventListener("click", function() {
+
+            pokazInfo(
+                "🚀 NEXORA",
+                "Odkrywasz kolejną część świata NEXORA — technologie, sztuczna inteligencja i przyszłość."
+            );
+
+        });
+
+    }
+
+});
+
+
+/* ENTER W NEXORA AI */
+
+const aiInput = document.getElementById("aiQuestion");
+
+if (aiInput) {
+
+    aiInput.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+            nexoraAI();
+        }
+
+    });
+
 }
 </script>
 </body>
